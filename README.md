@@ -92,7 +92,7 @@ To pull updates from the upstream _transforms_ submodule and commit them run:
  git add transforms
  git commit
 ````
-
+ 
 ### Development Info
 [Help working with Transforms Submodule](https://github.com/commoncriteria/transforms/wiki/Working-with-Transforms-as-a-Submodule)
 
