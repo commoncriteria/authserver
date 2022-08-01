@@ -504,7 +504,7 @@ users of the same system.
     <sec:SFRs title="Security Functional Requirements">
       <sec:Something>
           Here's whwere we talk about an audit table.
-          <audit-table table="mandatory"/>
+          <audit-table id="a-man-events" table="mandatory"/>
       </sec:Something>
       <section title="QQQQ" id="FOO">
          <f-component cc-id="foo_foo.1" name="Foo Foo">
