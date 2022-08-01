@@ -110,7 +110,7 @@
 </div>
 </div>
 </li>
-<li> And here's the audit event table for mandatory requirements. <a href="#t-audit-mandatory" class="t-audit-mandatory-ref">Table <span class="counter">2</span></a> for more information. </li>
+<li> And here's the audit event table for mandatory requirements. <a href="#t-audit-mandatory" class="t-audit-mandatory-ref">Table <span class="counter">t-audit-mandatory</span></a> for more information. </li>
 <li> Test for an xref to section <a href="#Threats" class="dynref">Section 3.1 Threats</a> 
 </li>
 </ul> And this is another sentence (or fragment). I added this sentence and deleted the next one. This uses the plural acronym <abbr class="dyn-abbr"><a href="#abbr_OS">OSes</a></abbr>. </p>
@@ -413,7 +413,7 @@
 <h2 id="SFRs" class="indexable" data-level="2">5.1 Security Functional Requirements</h2>
 <h3 class="indexable" data-level="3" id="Something">5.1.1 Something</h3> Here's whwere we talk about an audit table. <table class="" border="1">
 <caption>
-<span class="ctr" data-myid="t-audit-mandatory" data-counter-type="ct-Table" id="t-audit-mandatory">Table <span class="counter">2</span></span>: Auditable Events for Mandatory Requirements</caption>
+<span class="ctr" data-myid="a-man-events" data-counter-type="ct-Table" id="a-man-events">Table <span class="counter">2</span></span>: Auditable Events for Mandatory Requirements</caption>
 <tr>
 <th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th>
 </tr>
@@ -728,7 +728,7 @@
 </div>
 <div class="eacategory">Tests</div>
 <div class="ea"> The evaluator shall test the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>&rsquo;s ability to correctly generate audit records by having the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> generate audit records for the events listed and administrative actions. For administrative actions, the evaluator shall test that each action determined by the evaluator above to be security relevant in the context of this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> is auditable. When verifying the test results, the evaluator shall ensure the audit records generated during testing match the format specified in the administrative guide, and that the fields in each audit record have the proper entries.<br>
-<br> Note that the testing here can be accomplished in conjunction with the testing of the security mechanisms directly.<br> See <a href="#t-audit-mandatory" class="t-audit-mandatory-ref">Table <span class="counter">2</span></a> for more information. </div>
+<br> Note that the testing here can be accomplished in conjunction with the testing of the security mechanisms directly.<br> See <a href="#t-audit-mandatory" class="t-audit-mandatory-ref">Table <span class="counter">t-audit-mandatory</span></a> for more information. </div>
 </div>
 </div>
 </div>
