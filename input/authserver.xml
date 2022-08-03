@@ -132,9 +132,9 @@
         the TOE’s logical boundary only includes the authentication server functionality. 
         However, the TOE boundary includes the ability to generate audit events that are specific to the authentication functionality but may be used to support other functions (e.g. AAA servers).
 	     <h:p/>
-        <figure entity="images/figure1.jpg" title="NAS with an Authentication Server" id="OperEnv"/>
+        <figure entity="images/figure1.png" title="NAS with an Authentication Server" id="OperEnv"/>
         <h:p/>
-        <figure entity="images/figure2.jpg" title="Generic Authentication Server User Case" id="UseCase"/>
+        <figure entity="images/figure2.png" title="Generic Authentication Server User Case" id="UseCase"/>
       </sec:TOE_Boundary>
     
     
