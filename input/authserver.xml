@@ -97,7 +97,9 @@
       <term abbr="EAP" full="Extensible Authentication Protocol"></term>
       <term abbr="HOTP" full="Hash-Based One-Time Password"></term>
       <term abbr="IPsec" full="Internet Protocol Security"/>
+      <term abbr="PSK" full="Pre-Shared Key"></term>
       <term abbr="RADIUS" full="Remote Authentication Dial In User Service"/>
+      <term abbr="RBG" full="Random Bit Generator"></term>
       <term abbr="RP" full="Relying Party">
         An entity that relies upon the subscriber’s authenticator(s) and credentials or a verifier’s assertion of a claimant’s identity, typically to process a transaction or grant access to information or a system.
       </term>
@@ -350,6 +352,22 @@
         <!-- per open comment, it's unclear whether we need to treat any other NDcPP SFRs as 'modified' (most notably FIA_X509_EXT.1/Rev and FTP_ITC.1, or are those completely separate from what is needed for auth server) -->
 
         <sec:from_nd_fia title="Identification and Authentication (FIA)">
+          <f-component cc-id="fia_x509_ext.1" iteration="Rev" name="X.509 Certificate Validation"> 
+            <consistency-rationale>This PP-Module modifies the Base-PP's definition of the SFR by making it mandatory rather than selection-based.</consistency-rationale>
+            <f-element>
+              <title>
+                This SFR is selection-based in the NDcPP. When the TOE conforms to this PP-Module it is mandatory because of the PP-Module's requirement for implementation of mutually-authenticated TLS or DTLS.
+              </title>
+              <aactivity>
+                <TSS>There are no additional TSS evaluation activities for this component beyond what the NDcPP requires.<h:br/><h:br/></TSS>
+                <Guidance>There are no additional guidance evaluation activities for this component beyond what the NDcPP requires.<h:br/><h:br/></Guidance>
+                <Tests>
+                  There are no additional test evaluation activities for this component beyond what the NDcPP requires.
+                </Tests>
+              </aactivity>
+            </f-element>
+          </f-component>
+          
           <f-component cc-id="fia_x509_ext.2" name="X.509 Certificate Authentication"> 
             <consistency-rationale>This PP-Module modifies the Base-PP's definition of the SFR by making it mandatory rather than selection-based.</consistency-rationale>
             <f-element>
@@ -695,25 +713,11 @@
               </TSS>
               <Guidance>The evaluator shall ensure that any instructions for configuring the TSF to meet the requirements are provided.<h:p/></Guidance>
               <Tests>
-                The evaluator shall perform the following tests:
+                For each messaging protocol supported, the evaluator shall perform the following test:
                 <testlist>
                   <test>
-                    <h:ul>
-                      <h:li>Step 1: The evaluator shall establish a connection with the TSF from two trusted relying parties RP1 and RP2 and verify that each of RP1 and RP2 are able to authenticate the TOE.</h:li> 
-                      <h:li>Step 2: The evaluator shall initiate an authentication request for a claimant C1 via RP1, providing valid authentication data, and verify that RP1 receives an authentication assertion via the authenticated channel indicating C1 is authenticated.</h:li>
-                      <h:li>Step 3: The evaluator shall initiate an authentication request for a claimant C2 via RP2, providing invalid authentication data and confirm that the TOE does not provide an authentication assertion indicating C2 is authenticated via the authenticated channel.</h:li> 
-                      <h:li>Step 4: The evaluator shall send correct authentication data associated with claimant C2 via RP1 without sending a new authentication request and observe that the TOE ignores the request.</h:li>
-                    </h:ul>
-                  </test>
-                  <test>(conditional on support for pass-through). The intent of this test is to demonstrate the TSF is able to authenticate to external entities for registered users 
-                    over a pass-through method, and ignores requests for non-registered users.
-                    <h:ul>
-                      <h:li>Step 1: The evaluator shall follow AGD instructions to configure the TOE to connect to an external authentication server using pass-through functionality, 
-                        and initiate a request from a trusted relying party that results in the TSF exercising pass-through functionality to authenticate a registered claimant.</h:li> 
-                      <h:li>Step 2: The evaluator shall observe that the TSF authenticates to the external authentication server prior to sending any authentication requests.</h:li>
-                      <h:li>Step 3: The evaluator shall then follow AGD guidance to de-register the claimant at the TOE, and ensure the claimant is still registered at the external authentication server. 
-                        The evaluator shall repeat initiation of the authentication request for the claimant, and observe that the TSF associates the identifier of the request by dropping the request without forwarding.</h:li>
-                    </h:ul>
+                    The evaluator shall establish a connection between a trusted relying party and the TOE and send an authentication request for a registered claimant, in accordance with the messaging protocol standard. 
+                    The evaluator shall confirm the TOE responds to each message sent by the relying party with a message that appropriately identifies the claimant and confirms receipt of the request.
                   </test>
                 </testlist>
               </Tests>
@@ -726,240 +730,198 @@
      
       <sec:man_fcs title="Cryptographic Support (FCS)">
         
-        <!-- previously FCS_CKM.1(2). Covers key gen for both WPA2 and WPA3 -->
-        <f-component name="Cryptographic Key Generation (Symmetric Keys for WPA2 Connections)" cc-id="fcs_ckm.1" iteration="WPA">
-            <consistency-rationale>This SFR defines additional cryptographic functionality not defined in the Base-PP, but it implements this using the DRBG mechanism already defined in the Base-PP.</consistency-rationale>
+        
+        <f-component name="Cryptographic Key Access" cc-id="fcs_ckm.3">
+            <consistency-rationale>TBD</consistency-rationale>
           <f-element>
             <title>
-              The TSF shall generate <h:b>symmetric</h:b> cryptographic keys in accordance with a
-              specified cryptographic key generation algorithm [<h:i>PRF-384 and <selectables>
-                <selectable>PRF-512</selectable>
-                <selectable>PRF-704</selectable>
-                <selectable exclusive="yes">no other algorithm</selectable>
-              </selectables></h:i>] and specified cryptographic key sizes [<h:i>256 bits and <selectables>
-                <selectable>128 bits</selectable>
-                <selectable>192 bits</selectable>
-                <selectable exclusive="yes">no other key sizes</selectable>
-              </selectables></h:i>] <h:b>using a Random Bit Generator as specified in FCS_RBG_EXT.1</h:b> that meet the following: 
-              [<h:i>IEEE 802.11-2020 and <selectables>
-                <selectable>IEEE 802.11ax-2021</selectable>
-                <selectable exclusive="yes">no other standards</selectable>
-              </selectables></h:i>].
+              The TSF shall perform [<h:i>access control for persistent private and secret keys and security critical parameters required by this PP-Module</h:i>] 
+              in accordance with a specified cryptographic key access method 
+              [<h:i>ensuring only authorized security functionality can access plaintext keys or security critical information</h:i>] 
+              that meets the following: [<h:i>keys and security critical information are not exportable in plaintext, keys and security critical information are not viewable in plaintext</h:i>].
             </title>
             <note role="application">
-	      <h:p>
-		The cryptographic key derivation algorithm required by IEEE 802.11-2020 (Section
-		12.7.1.2) and verified in WPA2 certification is PRF-384, which uses the HMAC-SHA-1 function and
-		outputs 384 bits.
-		The use of GCMP is defined in IEEE 802.11ax-2021 (Section 12.5.5) and
-		requires a
-		Key Derivation Function (KDF) based on HMAC-SHA-256 (for 128-bit symmetric keys) or HMAC-SHA-384 (for 256-bit symmetric keys).
-		This KDF outputs 704 bits.
-	      </h:p>
-	      <h:p>
-		This requirement applies only to the keys that are generated or derived for the communications
-		between the AP and the client once the client has been authenticated.
-		It refers to the derivation of the Group Temporal Key (GTK),
-		through the Random Bit Generator (RBG) specified in this PP-Module,
-		as well as the derivation of the Pairwise Transient Key (PTK) from the Pairwise Master Key (PMK),
-		which is done using a random value generated by the RBG specified in this PP-Module,
-		the HMAC function as specified in this PP-Module, as well as other information.
-		This is specified in IEEE 802.11-2020, primarily in chapter 12.
-		<no-link>FCS_RBG_EXT.1</no-link> is defined in the NDcPP.
-	      </h:p>
+              Keys used for assertion signatures, including private keys associated to certificates used to establish a protected channel to 
+              relying parties and entities to be authenticated, one-time-password seed keys, 
+              and plaintext passwords can undermine or bypass the protections required for TOE functionality. 
+              The ST author describes the specific methods used to prevent unauthorized or unnecessary access to these keys and security critical information. 
+              This requirement is not intended to cover unanticipated exploits; 
+              it is only required that plaintext keys and security critical values not be exportable or viewable by defined interfaces. 
+              OTP seed key values are shared using out-of-band methods with the associated entities. 
+              This requirement implies that the method to export these values uses encrypted key transport methods.
             </note>
             <aactivity>
               <TSS>
-		  The cryptographic primitives will be verified through evaluation activities specified elsewhere in this PP-Module.
-                The evaluator will verify that the TSS describes how the primitives defined and implemented by this PP-Module
-                are used by the TOE in establishing and maintaining secure connectivity to the wireless clients. This
-                description will include how the GTK and PTK are generated or derived. The TSS will also provide a
-                description of the developer’s methods of assuring that their implementation conforms to the
-                cryptographic standards; this includes not only testing done by the developing organization, but also
-                proof of third-party testing that is performed (e.g. WPA2 certification). The evaluator will ensure that
-                the description of the testing methodology is of sufficient detail to determine the extent to which the
-                details of the protocol specifics are tested.<h:br/><h:br/>
+                The evaluator shall verify the ST includes a description of all persistent secret and private keys used by the TSF to perform functions in this PP-Module. 
+                The evaluator shall verify the ST describes mechanism(s) used to prevent unauthorized exposure of keys.
+                <h:p/>
               </TSS>
-              <Guidance>There are no guidance evaluation activities for this component.<h:br/><h:br/></Guidance>
+              <Guidance>The evaluator shall verify that any configuration required to meet the requirements are described.<h:p/></Guidance>
               <Tests>
-		  The evaluator will perform the following test using a packet sniffing tool to collect
-		  frames between the TOE and a wireless client:
-		<h:p>
-                  Step 1: The evaluator will configure the AP to an unused channel and configure the WLAN
-                  sniffer to sniff only on that channel (i.e., lock the sniffer on the selected channel).
-		  The sniffer should also be configured to filter on the MAC address of the TOE and client.
-		</h:p>
-		<h:p>
-                  Step 2: The evaluator will configure the TOE to communicate with a WLAN client using IEEE 
-                  802.11-2020 and a 256-bit (64 hex values 0-f) pre-shared key,
-		  setting up the connections as described in the operational guidance.
-		  The pre-shared key is only used for testing.
-		</h:p>
-		<h:p>
-                  Step 3: The evaluator will start the sniffing tool, initiate a connection between the
-		  TOE and WLAN client, and allow the TOE to authenticate, associate, and successfully
-		  complete the four-way handshake with the client.
-		</h:p>
-		<h:p>
-                  Step 4: The evaluator will set a timer for one minute, at the end of which the evaluator
-		  will disconnect the client from the TOE and stop the sniffer.
-		</h:p>
-		<h:p>
-                  Step 5: The evaluator will identify the four-way handshake frames (denoted EAPOL-key in Wireshark
-                  captures) and derive the PTK from the four-way handshake frames and pre-shared key as specified
-		  in IEEE 802.11-2020.
-		</h:p>
-		<h:p>
-                  Step 6: The evaluator will select the first data frame from the captured packets that was
-		  sent between the client and TOE after the four-way handshake successfully completed
-		  and without the frame control value 0x4208 (the first two bytes are 08 42).
-		  The evaluator will use the PTK to decrypt the data portion of the packet as specified in
-		  IEEE 802.11-2020 and verify that the decrypted data contains ASCII-readable text.
-		</h:p>
-		<h:p>
-                  Step 7: The evaluator will repeat Step 6 for the next two data frames between the TOE and client,
-		  and without frame control value 0x4208.
-		</h:p>
-		<h:p>
-                  Additionally, the evaluator will test the PRF function using the test vectors from:
-		  <h:ul>
-                  <h:li>Section 2.4 “The PRF Function – PRF (key, prefix, data, length)” of the IEEE 802.11-02/362r6 document "Proposed Test vectors for IEEE 802.11 TGi" dated September 10, 2002</h:li>
-                  <h:li>Annex J.3 “PRF reference implementation and test vectors” of IEEE 802.11-2020</h:li>
-                  </h:ul>
-		</h:p>
+                The intent of these tests is to ensure keys are not accessible using common interfaces and functionality of the TSF. 
+                It is not intended for the evaluator to attempt to cause a system crash in order to read keys and critical security parameters directly from memory or to modify functionality of the TSF.
+                <h:p/>
+                The evaluator shall perform the following tests:
+		          <testlist>
+		            <test>
+		              The evaluator shall attempt to export each key and critical security parameter using available interfaces and verify the mechanism is effective at preventing exposure of the key in plaintext.
+		            </test>
+		            <test>
+		              The evaluator shall assume each of the privileged user roles and attempt to gain read access each of the keys and critical security parameters via available interfaces.
+		            </test>
+		          </testlist>
               </Tests>
             </aactivity>
           </f-element>
         </f-component>
         
-        <!-- previously FCS_CKM.2(3) -->
-        <f-component name="Cryptographic Key Distribution (GTK)" cc-id="fcs_ckm.2" iteration="GTK">
-          <consistency-rationale>This SFR defines additional cryptographic functionality not defined in the Base-PP that is used for functionality outside the original scope of the Base-PP.</consistency-rationale>
+        <ext-comp-def title="EAP-TLS Protocol" fam-id="FCS_EAPTLS_EXT">
+          <fam-behavior>This family defines requirements for how the TSF implements the Extensible Authentication Protocol (EAP) and EAP-Transport Layer Security.</fam-behavior> 
+        </ext-comp-def>
+        <f-component name="EAP-TLS Protocol" cc-id="fcs_eaptls_ext.1" status="invisible">
+          <consistency-rationale/>
+          
+          <comp-lev>requires the TSF to implement EAP and EAP-TLS according to appropriate standards.</comp-lev>
+          <management>No specific management functions are identified.</management>
+          <audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+            <h:ul>
+              <h:li>Protocol failures</h:li>
+              <h:li>Establishment of a TLS session</h:li>
+            </h:ul>
+          </audit>
+          <dependencies>FCS_RBG_EXT.1 Random Bit Generation<h:p/>
+            [FCS_TLSC_EXT.1 TLS Client Protocol Without Mutual Authentication, or<h:p/>
+            FCS_DTLSC_EXT.1 DTLS Client Protocol Without Mutual Authentication]<h:p/>
+            [FCS_TLSC_EXT.2 TLS Client Support for Mutual Authentication, or<h:p/>
+            FCS_DTLSC_EXT.2 DTLS Client Support for Mutual Authentication]<h:p/>
+            FIA_X509_EXT.1 X.509 Certificate Validation
+          </dependencies>
+          
           <f-element>
             <title>
-              The TSF shall distribute <h:b>Group Temporal Key (GTK)</h:b> in accordance with a specified cryptographic key distribution method: <selectables>
-                <selectable>AES Key Wrap in an EAPOL-Key frame</selectable>
-                <selectable>AES Key Wrap with Padding in an EAPOL-Key frame</selectable>
-              </selectables> that meets the following: [<h:i>NIST SP 800-38F, IEEE 802.11-2020 for the packet format and timing considerations</h:i>] <h:b>
-                and does not expose the cryptographic keys</h:b>. 
+              The TSF shall implement <selectables>
+                <selectable>EAP-TLS as specified in RFC 5216</selectable>
+                <selectable>EAP-TTLS as specified in RFC 5881</selectable>
+              </selectables> as updated by RFC 8996 with <selectables>
+                <selectable>TLS</selectable>
+                <selectable>DTLS</selectable>
+              </selectables> implemented using mutual authentication in accordance with <selectables>
+                <selectable>FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</selectable>
+                <selectable>FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</selectable>
+              </selectables>.
             </title>
-            <note role="application">This requirement applies to the Group Temporal Key (GTK) that is generated by the
-              TOE for use in broadcast and multicast messages to clients to which it is connected. 802.11-2020
-              specifies the format for the transfer as well as the fact that it must be wrapped by the AES Key Wrap
-              method specified in NIST SP 800-38F.</note>
+          </f-element>
+          <f-element>
+            <title>
+              The TSF shall generate random values used in the <selectables>
+                <selectable>EAP-TLS</selectable>
+                <selectable>EAP-TTLS</selectable>
+              </selectables> exchange using the RBG specified in FCS_RBG_EXT.1.
+            </title>
+          </f-element>
+          <f-element>
+            <title>
+              The TSF shall support claimant authentication using certificates and <selectables>
+                <selectable>static PSK</selectable>
+                <selectable>HOTP</selectable>
+                <selectable>TOTP</selectable>
+                <selectable><assignable>other authentication-verification protocols</assignable></selectable>
+                <selectable>other authentication-verification protocols via pass-through functionality</selectable>
+                <selectable>no other authentication methods</selectable>
+              </selectables>.
+            </title>
+          </f-element>
+          <f-element>
+            <title>
+              The TSF shall not forward an EAP-success response to the relying party if the client certificate is not valid according to FIA_X509_EXT.1, 
+              if the <selectables>
+                <selectable>TLS</selectable>
+                <selectable>DTLS</selectable>
+              </selectables> session is not established, or if any of <selectables>
+                <selectable>PSK</selectable>
+                <selectable>HOTP value</selectable>
+                <selectable>TOTP value</selectable>
+                <selectable>no other authenticator</selectable>
+              </selectables> required by the authentication policy are not provided or if any of the required authenticators presented in the authentication request is not valid.
+            </title>
             <aactivity>
-              <TSS>The evaluator will check the TSS to ensure that it describes how the GTK is wrapped prior to being
-                distributed using the AES implementation specified in this PP-Module, and also how the GTKs are distributed
-                when multiple clients connect to the TOE.<h:br/><h:br/></TSS>
-              <Guidance>There are no guidance evaluation activities for this component.<h:br/><h:br/></Guidance>
+              <no-tests></no-tests>
+            </aactivity>
+          </f-element>
+        </f-component>
+        
+        
+        <f-component name="EAP-TLS Protocol" cc-id="fcs_eaptls_ext.1">
+          <consistency-rationale>This SFR applies to implementation of EAP-TLS; the Base-PP defines implementation requirements for (D)TLS, but EAP-TLS is beyond the original scope of the Base-PP. </consistency-rationale>
+
+         
+          <f-element>
+            <title>
+              The TSF shall implement <selectables>
+                <selectable>EAP-TLS as specified in RFC 5216</selectable>
+                <selectable>EAP-TTLS as specified in RFC 5881</selectable>
+              </selectables> as updated by RFC 8996 with <selectables>
+                <selectable>TLS</selectable>
+                <selectable>DTLS</selectable>
+              </selectables> implemented using mutual authentication in accordance with <selectables>
+                <selectable>FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</selectable>
+                <selectable>FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</selectable>
+              </selectables>.
+            </title>
+          </f-element>
+          <f-element>
+            <title>
+              The TSF shall generate random values used in the <selectables>
+                <selectable>EAP-TLS</selectable>
+                <selectable>EAP-TTLS</selectable>
+              </selectables> exchange using the RBG specified in FCS_RBG_EXT.1.
+            </title>
+          </f-element>
+          <f-element>
+            <title>
+              The TSF shall support claimant authentication using certificates and <selectables>
+                <selectable>static PSK</selectable>
+                <selectable>HOTP</selectable>
+                <selectable>TOTP</selectable>
+                <selectable><assignable>other authentication-verification protocols</assignable></selectable>
+                <selectable>other authentication-verification protocols via pass-through functionality</selectable>
+                <selectable>no other authentication methods</selectable>
+              </selectables>.
+            </title>
+          </f-element>
+          <f-element>
+            <title>
+              The TSF shall not forward an EAP-success response to the relying party if the client certificate is not valid according to FIA_X509_EXT.1<h:b>/AuthSvr</h:b>, 
+              if the <selectables>
+                <selectable>TLS</selectable>
+                <selectable>DTLS</selectable>
+              </selectables> session is not established, or if any of <selectables>
+                <selectable>PSK</selectable>
+                <selectable>HOTP value</selectable>
+                <selectable>TOTP value</selectable>
+                <selectable>no other authenticator</selectable>
+              </selectables> required by the authentication policy are not provided or if any of the required authenticators presented in the authentication request is not valid.
+            </title>
+            <note role="application">The ST author should indicate support for EAP-TLS or EAP-TTLS in FCS_EAPTLS_EXT.1.1.
+              <h:p/>
+              In the second selection, ‘FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2’ or 'FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2’ is selected according to the TLS or DTLS support indicated in the first selection, with
+              the expectation that the corresponding SFRs from the Base-PP are claimed.
+              <h:p/>
+              The selection in FCS_EAP-TLS_EXT.1.2 matches the first selection in FCS_EAP-TLS_EXT.1.1.
+              <h:p/>
+              The ST author claims any additional supported authentication methods in FCS_EAP-TLS_EXT.1.3. Each supported method is claimed independently, even if combinations of the methods are required for individual claimant authentication. 
+              For any authentication methods that are only supported by pass-through functionality, the ST author should claim 'other authentication-verification protocls via pass-through functionality' without claiming the corresponding method
+              in the same selection. Pass-through functionality can typically support any authentication method, including ones not specified in the SFR.
+              </note>
+            <aactivity>
+              <TSS>TBD
+                <h:p/>
+              </TSS>
+              <Guidance>TBD
+                <h:p/>
+              </Guidance>
               <Tests>
-		  The evaluator will perform the following test using a packet sniffing tool to collect frames
-		  between a wireless client and the TOE (which may be performed in conjunction with the
-		  evaluation activity for FCS_CKM.1/PMK.
-		<h:p>
-                  To fully test the broadcast and multicast functionality, these steps will be performed as
-		  the evaluator connects multiple clients to the TOE.
-		  The evaluator will ensure that GTKs established are sent to the
-		  appropriate participating clients.
-		</h:p>
-		<h:p>
-                  Step 1: The evaluator will configure the AP to an unused channel and configure the WLAN
-                  sniffer to sniff only on that channel (i.e., lock the sniffer on the selected channel).
-		  The sniffer should also be configured to filter on the MAC address of the TOE and client.
-		</h:p>
-		<h:p>
-                  Step 2: The evaluator will configure the TOE to communicate with the client using
-		  IEEE 802.11-2020 and a 256-bit (64 hex values 0-f) pre-shared key, setting up the
-		  connections as described in the operational guidance.
-		  The pre-shared key is only used for testing.
-		</h:p>
-		<h:p>
-                  Step 3: The evaluator will start the sniffing tool, initiate a connection between the
-		  TOE and client, and allow the client to authenticate, associate and successfully complete
-		  the four-way handshake with the TOE.
-		</h:p>
-		<h:p>
-                  Step 4: The evaluator will set a timer for one minute, at the end of which the evaluator
-		  will disconnect the TOE from the client and stop the sniffer.
-		</h:p>
-		<h:p>
-                  Step 5: The evaluator will identify the four-way handshake frames
-		  (denoted EAPOL-key in Wireshark captures) and derive the PTK and GTK from the
-		  four-way handshake frames and pre-shared key as specified in IEEE 802.11-2020.
-		</h:p>
-		<h:p>
-                  Step 6: The evaluator will select the first data frame from the captured packets that was sent between
-                  the TOE and client after the four-way handshake successfully completed,
-		  and with the frame control value  0x4208 (the first two bytes are 08 42).
-		  The evaluator will use the GTK to decrypt the data portion of the
-                  selected packet as specified in IEEE 802.11-2020 and verify that the decrypted
-		  data contains ASCII-readable text.
-		</h:p>
-		<h:p>
-                  Step 7: The evaluator will repeat Step 6 for the next two data frames with frame control value 0x4208.
-		</h:p>
-		<h:p>
-                  The evaluator will also perform the following testing based on the supported GTK distribution
-		  methods:
-		</h:p>
-		<h:p><h:b>AES Key Wrap (AES-KW Tests)</h:b></h:p>
-		<h:p>
-                  <testlist>
-                    <test>The evaluator will test the authenticated encryption functionality of AES-KW for each combination of the following input parameter lengths:
-		    <h:ul>
-		      <h:li>128 and 256 bit key encryption keys (KEKs)</h:li>
-		    <h:li>
-                      Three plaintext lengths:
-		      <h:ol>
-			<h:li>One of the plaintext lengths will be two semi-blocks (128 bits).</h:li>
-			<h:li>One of the plaintext lengths will be three semi-blocks (192 bits).</h:li>
-			<h:li>The third data unit length will be the longest supported plaintext
-		      length less than or equal to 64 semi-blocks (4096 bits).</h:li>
-		      </h:ol>
-		    </h:li>
-		    </h:ul>		    
-                    For each combination, generate a set of 100 key and plaintext pairs
-		    and obtain the ciphertext that results from AES-KW authenticated encryption. 
-                    To determine correctness, the evaluator will use the same key and plaintext values
-		    and encrypt them using a known good implementation of AES-KW authenticated-encryption,
-		    and ensure that the resulting respective ciphertext values are identical.
-		    </test>
-                    <test>
-		      The evaluator will test the authenticated-decryption functionality of AES-KW using
-		      the same test as for authenticated-encryption, 
-                      replacing plaintext values with ciphertext values and AES-KW authenticated-encryption with
-		      AES-KW authenticated-decryption. 
-                      Additionally, the evaluator will modify one byte of the ciphertext,
-		      attempt to decrypt the modified ciphertext, and ensure that a failure is returned
-		      rather than plaintext.
-		    </test>
-                  </testlist>
-		</h:p>
-		<h:p> <h:b>AES Key Wrap with Padding (AES-KWP Tests)</h:b></h:p>
-		<h:p>
-                <testlist>
-                  <test>
-		  <h:p>The evaluator will test the authenticated-encryption functionality of AES-KWP for each combination of the following input parameter lengths:</h:p>
-		  <h:p>128 and 256 bit key encryption keys (KEKs)</h:p>
-		    <h:p>
-                      Three plaintext lengths. One plaintext length will be one octet. 
-                      One plaintext length will be 20 octets (160 bits). 
-                      One plaintext length will be the longest supported plaintext length less than or equal to 512 octets (4096 bits).
-		    </h:p>
-		    <h:p>
-                      using a set of 100 key and plaintext pairs and obtain the ciphertext that results from AES-KWP authenticated encryption. 
-                      To determine correctness, the evaluator will use the AES-KWP authenticated-encryption function of a known good implementation.
-		    </h:p>
-		  </test>
-                  <test>
-		    The evaluator will test the authenticated-decryption functionality of AES-KWP
-		    using the same test as for AES-KWP authenticated-encryption, 
-                    replacing plaintext values with ciphertext values and AES-KWP authenticated-encryption
-		    with AES-KWP authenticated-decryption. 
-                    Additionally, the evaluator will modify one byte of the ciphertext, attempt to decrypt the modified ciphertext, and ensure that a failure is returned rather than plaintext.
-		  </test>
-                </testlist>
-		</h:p>
+		  TBD
               </Tests>
             </aactivity>
           </f-element>
