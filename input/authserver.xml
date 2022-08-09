@@ -140,7 +140,7 @@
         an authorization server, or a domain controller. 
         This PP-Module specifies the functional requirements for authentication services only; as in the case where the TOE may be co-located with the relying party, 
         the TOE’s logical boundary only includes the authentication server functionality. 
-        However, the TOE boundary includes the ability to generate audit events that are specific to the authentication functionality but may be used to support other functions (e.g. AAA servers).
+        However, the TOE boundary includes the ability to generate audit events that are specific to the authentication functionality but may be used to support other functions (e.g., AAA servers).
 	     <h:p/>
         <figure entity="images/figure1.png" title="NAS with an Authentication Server" id="OperEnv"/>
         <h:p/>
@@ -211,8 +211,9 @@
     </cclaims>
   </sec:Conformance_Claims>
   <sec:Security_Problem_Description>
-   
+    The security problem is described in terms of the threats that the TOE is expected to address, assumptions about its operational environment, and any organizational security policies that the TOE is expected to enforce.
     <sec:Threats>
+      The following threats that are defined in this PP-Module extend the threats that are defined by the Base-PP.
       <threats>
         <threat name="T.FALSE_ENDPOINTS">
           <description>A malicious actor may falsely impersonate the TOE or a federated relying party in order to cause the TOE to operate in an insecure manner or 
@@ -566,7 +567,163 @@
 </f-element> 
         </f-component>
       </sec:man_fau>
-      
+     
+      <sec:man_fco title="Communications (FCO)">
+     
+        <f-component name="Selective Proof of Origin" cc-id="fco_nro.1">
+          <consistency-rationale>This SFR applies to implementation of the supported authentication protocol, which is beyond the original scope of the Base-PP.</consistency-rationale>
+          <f-element>
+            <title>
+              The TSF shall be able to generate evidence of origin for transmitted 
+              [<h:i>identity authentication assertions, 
+                <selectables>
+                  <selectable>authentication requests</selectable>
+                  <selectable>IKE authentication phase security associations</selectable>
+                  <selectable><assignable>claimant identity attributes</assignable></selectable>
+                  <selectable>no other data</selectable>
+                </selectables></h:i>] 
+              at the request of the [<h:i>relying party,
+                <selectables>
+                  <selectable>external authentication servers in support of pass-through</selectable>
+                  <selectable>no other entities</selectable>
+                </selectables></h:i>].
+            </title>
+            <note role="application">
+                The intent of this requirement is for the TOE to provide source of origin (non-repudiation) 
+                for assertions and sensitive data associated to claimants it provides to relying parties. 
+                The ST author will claim ‘authentication requests’ and ‘external authentication servers…’ 
+                if the TSF supports pass-through communication with external authentication servers. 
+                The ST author claims additional information provided to a relying party via an authenticated channel as appropriate. 
+            </note>
+          </f-element>
+          <f-element>
+            <title>
+              The TSF shall be able to relate the [<h:i>authenticator</h:i>] of the originator of the information, and the [<h:i>authentication request</h:i>] of the information to which the evidence applies.
+            </title>
+            <note role="application">
+              The intent of this requirement is for the TOE to be able to associate authentication assertions it makes to requests made to it by a relying party. 
+              For pass-through functionality, the TOE relates requests and response messages it forwards between external entities via identity information asserted in the EAP headers.
+            </note>
+          </f-element>
+          <f-element>
+            <title>The TSF shall provide a capability to verify the evidence of origin of information to [<h:i>recipient</h:i>] given [<h:i>an authenticated channel is established with a trusted relying party]</h:i>].</title>
+          <aactivity>
+              <TSS>
+                The evaluator shall ensure that the ST includes a description of authentication assertions, security associations or sensitive data associated with a claimant 
+                that is provided to a relying party, and a description of each protocol that carries such data.
+                <h:p/>
+                The evaluator shall ensure that the ST includes a description of support for pass-through methods and the method it uses to mutually authenticate to, external authentication servers.
+                <h:p/>
+                The evaluator shall verify that the descriptions indicate how the TSF authenticates itself to the external entities via those protocols, and that no data is passed via an unauthenticated protocol.
+                <h:p/>
+                The evaluator shall verify that the ST describes how the TSF handles session interruptions and resumptions to ensure the relying party is able to associate data associated with a claimant 
+                to the authentication request by the relying party and the authenticator provided by the claimant.
+                <h:p/>
+              </TSS>
+            <Guidance>The evaluator shall ensure that any instructions for configuring the TSF to meet the requirements are provided.<h:p/></Guidance>
+              <Tests>
+                The evaluator shall perform the following tests:
+                <testlist>
+                <test>
+                  <h:ul>
+                    <h:li>Step 1: The evaluator shall establish a connection with the TSF from two trusted relying parties RP1 and RP2 and verify that each of RP1 and RP2 are able to authenticate the TOE.</h:li> 
+                    <h:li>Step 2: The evaluator shall initiate an authentication request for a claimant C1 via RP1, providing valid authentication data, and verify that RP1 receives an authentication assertion via the authenticated channel indicating C1 is authenticated.</h:li>
+                    <h:li>Step 3: The evaluator shall initiate an authentication request for a claimant C2 via RP2, providing invalid authentication data and confirm that the TOE does not provide an authentication assertion indicating C2 is authenticated via the authenticated channel.</h:li> 
+                    <h:li>Step 4: The evaluator shall send correct authentication data associated with claimant C2 via RP1 without sending a new authentication request and observe that the TOE ignores the request.</h:li>
+                  </h:ul>
+                </test>
+                  <test>(conditional on support for pass-through). The intent of this test is to demonstrate the TSF is able to authenticate to external entities for registered users 
+                    over a pass-through method, and ignores requests for non-registered users.
+                    <h:ul>
+                      <h:li>Step 1: The evaluator shall follow AGD instructions to configure the TOE to connect to an external authentication server using pass-through functionality, 
+                        and initiate a request from a trusted relying party that results in the TSF exercising pass-through functionality to authenticate a registered claimant.</h:li> 
+                      <h:li>Step 2: The evaluator shall observe that the TSF authenticates to the external authentication server prior to sending any authentication requests.</h:li>
+                      <h:li>Step 3: The evaluator shall then follow AGD guidance to de-register the claimant at the TOE, and ensure the claimant is still registered at the external authentication server. 
+                        The evaluator shall repeat initiation of the authentication request for the claimant, and observe that the TSF associates the identifier of the request by dropping the request without forwarding.</h:li>
+                    </h:ul>
+                  </test>
+                </testlist>
+              </Tests>
+            </aactivity>
+          </f-element>
+        </f-component>
+     
+     
+     
+        <f-component name="Selective Proof of Receipt" cc-id="fco_nrr.1">
+          <consistency-rationale>This SFR applies to implementation of the supported authentication protocol, which is beyond the original scope of the Base-PP.</consistency-rationale>
+          <f-element>
+            <title>
+              The TSF shall be able to generate evidence of receipt for received [<h:i>authentication requests, 
+                <selectables>
+                  <selectable>authentication responses and queries</selectable>
+                  <selectable>none</selectable>
+                </selectables></h:i>] at the request of the [<h:i>originator</h:i>].
+            </title>
+            <note role="application">
+              The intent of this requirement is for the TOE to be able to return a valid response to the relying party upon receipt of an Access-Request. 
+              If the TSF supports pass-through functionality, the ST author claims ‘authentication responses and queries’ 
+              in the selection for authentication in communications with external authentication servers.  
+            </note>
+          </f-element>
+          <f-element>
+            <title>
+              The TSF shall be able to relate the [<h:i>claimant identifier, claimant authenticators</h:i>] of the recipient of the information, and the 
+              [<h:i>identity assertion, information requests and error responses</h:i>] of the information to which the evidence applies.
+            </title>
+            <note role="application">
+              The intent of this requirement is for the ST author to list the information supplied by the TOE in response to an authentication request that confirms receipt of the request, and identifies: 
+              <h:ul>
+                <h:li>the authentication request that is being responded to;</h:li> 
+                <h:li>the mutually authenticated channel between the trusted relying party and the TOE.</h:li> 
+              </h:ul>
+            </note>
+          </f-element>
+          <f-element>
+            <title>The TSF shall provide a capability to verify the evidence of receipt of information to 
+              [<h:i>originator</h:i>] given [<h:i>establishment of a mutually authenticated channel with a trusted relying party</h:i>].</title>
+            <aactivity>
+              <TSS>
+                The evaluator shall ensure that the ST includes a description of each messaging protocol and the specific messages provided to a relying party in response to authentication requests, 
+                to include any affirmative and negative responses, and requests for additional information.
+                <h:p/>
+                The evaluator shall verify that the descriptions indicate how the TSF indicates the identity of the claimant associated with any responses to a request.
+                <h:p/>
+                The evaluator shall verify that the ST describes how the TSF handles session interruptions and resumptions to ensure the relying party is able to associate data 
+                associated with a claimant to the authentication request by the relying party and the authenticator provided by the claimant.
+                <h:p/>
+              </TSS>
+              <Guidance>The evaluator shall ensure that any instructions for configuring the TSF to meet the requirements are provided.<h:p/></Guidance>
+              <Tests>
+                The evaluator shall perform the following tests:
+                <testlist>
+                  <test>
+                    <h:ul>
+                      <h:li>Step 1: The evaluator shall establish a connection with the TSF from two trusted relying parties RP1 and RP2 and verify that each of RP1 and RP2 are able to authenticate the TOE.</h:li> 
+                      <h:li>Step 2: The evaluator shall initiate an authentication request for a claimant C1 via RP1, providing valid authentication data, and verify that RP1 receives an authentication assertion via the authenticated channel indicating C1 is authenticated.</h:li>
+                      <h:li>Step 3: The evaluator shall initiate an authentication request for a claimant C2 via RP2, providing invalid authentication data and confirm that the TOE does not provide an authentication assertion indicating C2 is authenticated via the authenticated channel.</h:li> 
+                      <h:li>Step 4: The evaluator shall send correct authentication data associated with claimant C2 via RP1 without sending a new authentication request and observe that the TOE ignores the request.</h:li>
+                    </h:ul>
+                  </test>
+                  <test>(conditional on support for pass-through). The intent of this test is to demonstrate the TSF is able to authenticate to external entities for registered users 
+                    over a pass-through method, and ignores requests for non-registered users.
+                    <h:ul>
+                      <h:li>Step 1: The evaluator shall follow AGD instructions to configure the TOE to connect to an external authentication server using pass-through functionality, 
+                        and initiate a request from a trusted relying party that results in the TSF exercising pass-through functionality to authenticate a registered claimant.</h:li> 
+                      <h:li>Step 2: The evaluator shall observe that the TSF authenticates to the external authentication server prior to sending any authentication requests.</h:li>
+                      <h:li>Step 3: The evaluator shall then follow AGD guidance to de-register the claimant at the TOE, and ensure the claimant is still registered at the external authentication server. 
+                        The evaluator shall repeat initiation of the authentication request for the claimant, and observe that the TSF associates the identifier of the request by dropping the request without forwarding.</h:li>
+                    </h:ul>
+                  </test>
+                </testlist>
+              </Tests>
+            </aactivity>
+          </f-element>
+        </f-component>
+        
+     
+     </sec:man_fco>
+     
       <sec:man_fcs title="Cryptographic Support (FCS)">
         
         <!-- previously FCS_CKM.1(2). Covers key gen for both WPA2 and WPA3 -->
