@@ -86,6 +86,7 @@
       <term full="Credential">
         An object or data structure that authoritatively binds an identity - via an identifier or identifiers - and (optionally) additional attributes, to at least one authenticator possessed and controlled by a subscriber.
       </term>
+      <term abbr="CRL" full="Certificate Revocation List"></term>
       <term abbr="CSI" full="Cryptographic Security Information"></term>
       <term full="Federation Protocol">
         A protocol to establish a trusted relationship with a relying party, and for the purposes of this PP module, to communicate authentication status for entities requesting access to resources managed by the relying party. 
@@ -93,10 +94,11 @@
         Federation protocols that only support bearer assertions are out of scope for this PP-Module.
       </term>
       
-      
+      <term abbr="DTLS"   full="Datagram Transport Layer Security"/>
       <term abbr="EAP" full="Extensible Authentication Protocol"></term>
       <term abbr="HOTP" full="Hash-Based One-Time Password"></term>
       <term abbr="IPsec" full="Internet Protocol Security"/>
+      <term abbr="OCSP" full="Online Certificate Status Protocol"></term>
       <term abbr="PSK" full="Pre-Shared Key"></term>
       <term abbr="RADIUS" full="Remote Authentication Dial In User Service"/>
       <term abbr="RBG" full="Random Bit Generator"></term>
@@ -1088,25 +1090,215 @@
           </f-element>
         </f-component>
       
+      
+        <f-component name="X.509 Certificate Validation (Claimant)" cc-id="fia_x509_ext.1" iteration="AuthSvr">
+          <consistency-rationale>The Base-PP defines X.509 validation requirements for external entities presenting certificates to the TOE. This PP-Module
+          defines a separate iteration of this function to define the certificate validation behavior that is enforced against claimants requesting to be authenticated by the TOE. It is substantially refined
+          from its original definition to address issues specific to the handling of claimant certificates.</consistency-rationale>
+          <f-element>
+            <title>
+              The TSF shall validate certificates in accordance with the following rules: 
+              <h:ul>
+                <h:li>RFC 5280 <h:b>version 3</h:b> certificate validation and certification path validation supporting <h:b><selectables>
+                  <selectable>a minimum path length of <assignable>value greater than or equal to 3</assignable></selectable>
+                  <selectable>no prior constraints on path length</selectable></selectables></h:b></h:li>
+                <h:li>The certification path must terminate with a CA certificate <h:b>trusted by the TSF specifically for claimant authentication.</h:b></h:li>
+                <h:li>The TSF shall validate a certification path by ensuring that all CA certificates in the certification path contain the basicConstraints extension with the CA flag set to TRUE.</h:li>
+                <h:li>The TSF shall validate the revocation status of <h:b>each certificate in the certificate path <selectables linebreak="yes">
+                  <selectable>containing an OCSP provider in the AIA extension using the Online Certificate Status Protocol (OCSP) as specified in RFC 6960</selectable>
+                  <selectable>containing a CRL distribution point in the 
+                    CRLDP extension or AIA extension using <selectables>
+                      <selectable>a Certificate Revocation List (CRL) as specified in RFC 5280 Section 6.3</selectable>
+                      <selectable>a Certificate Revocation List (CRL) as specified in RFC 5759 Section 5</selectable></selectables></selectable></selectables></h:b>.
+                </h:li>
+                <h:li>
+                  The TSF shall validate the extendedKeyUsage field <h:b>is present and contains key usage values</h:b> according to the following rules: <h:b>
+                  <selectables linebreak="yes">
+                    <selectable>Certificates do not assert anyExtendedKeyUsage (OID 2.5.29.37.0)</selectable>
+                    <selectable>Client certificates associated with authenticated entities presented for <selectables>
+                      <selectable>TLS</selectable>
+                      <selectable>DTLS</selectable></selectables> shall have the Client Authentication purpose (id-kp 2 with OID 1.3.6.1.5.5.7.3.2) in the extendedKeyUsage field.</selectable>
+                    <selectable>
+                      <selectables linebreak="yes">
+                        <selectable>Server certificates presented for <selectables><selectable>TLS</selectable><selectable>DTLS</selectable></selectables> shall 
+                          have the Server Authentication purpose (id-kp 1 with OID 1.3.6.1.5.5.7.3.1) in the extendedKeyUsage field.</selectable>
+                        <selectable>Certificates presented for IPsec shall have the ipsec-IKE purpose (id-kp 17 with OID 1.3.6.1.5.5.7.3.17)</selectable>
+                        <selectable>OCSP certificates presented for OCSP responses shall have the OCSP Signing purpose (id-kp 9 with OID 1.3.6.1.5.5.7.3.9) in the extendedKeyUsage field.</selectable></selectables></selectable></selectables></h:b>.
+                </h:li><h:b>
+                <h:li>
+                  The TSF shall validate that each CA certificate in the certification path indicating a path length constraint in the basicConstraints 
+                  extension does not have more than the specified number of subordinate CA certificates in the certification path from the end-entity certificate 
+                  to the CA certificate indicating the constraint, not counting the CA certificate itself or any self-issued certificates in the certification path.
+                </h:li>
+                <h:li>
+                  The TSF shall process name constraints of type Directory Name and <selectables>
+                    <selectable>rfc822Name</selectable>
+                    <selectable>dnsName</selectable>
+                    <selectable>UPN Name (Ohter Name = id-ms-san-sc-logon-upn)</selectable>
+                    <selectable><assignable>other name type</assignable></selectable>
+                    <selectable>no other name type</selectable></selectables> 
+                  by verifying that each name of a supported name type present in the end-entity certificate subject field or subjectAlternateName extension, 
+                  is allowed in each CA certificate in the certification path, is not disallowed by any of the CA certificates in the certification path, 
+                  and that each name type included in the end-entity certificate and constrained by a CA certificate in the certification path is processed.
+                </h:li>
+                <h:li>
+                  The TSF shall process the following certificate extensions: <selectables>
+                    <selectable>Certificate Policy extension in accordance with RFC 5280 and <selectables linebreak="yes">
+                      <selectable>Policy mapping extension in accordance with RFC 5280</selectable>
+                      <selectable>Policy constraints extension in accordance with RFC 5280</selectable>
+                      <selectable>Inhibit anyPolicy extension in accordance with RFC 5280</selectable>
+                      <selectable>No other policy related extension</selectable></selectables> in support of claimant authentication and <assignable>
+                        other intended purposes and limitations of policy related extension processing</assignable></selectable>
+                    <selectable><assignable>other standard extensions</assignable></selectable>
+                    <selectable>no other extensiosn</selectable></selectables>.
+                </h:li></h:b>
+              </h:ul>
+            </title>
+            <note role="Application">
+              The ST author claims supported certificate validity checking options for each rule. For name constraints, all supported name types used to match names presented in a certificate to registered users 
+              and the associated standard matching method are described.
+              <h:p/>
+              The ST author claims supported certificate policies. ‘Policy Constraints…’ is claimed if the TOE’s authentication policy depends on the certificate policies for claimant certificates. 
+              Other policy related extensions within the selection are claimed if supported. 
+              The extension inhibitPolicyMapping is not claimed if the TSF does not support certificate chains of length 4 or more. 
+              The Policy related extensions, if supported, are primarily used in this PP-Module for claimant authentication, but are allowed for other certificate authentications. 
+              The ST author specifies the intended use and any limits of support for these extensions or specifies ‘no other purposes or constraints’ in the assignment of this selection.
+              <h:p/>
+              The ST author specifies any additional supported X509 extensions, and the associated extension processing rules used to determine claimant identity attributes or conditions that can be used in the TOE’s authentication policy. 
+            </note>
+          </f-element>
+          <f-element>
+            <title>The TSF shall only treat a certificate as a CA certificate if the basicConstraints extension is present and the CA flag is set to TRUE.</title>
+            <aactivity>
+              <TSS>
+                The evaluator shall ensure the TSS describes where the check of validity of the certificates takes place. 
+                The evaluator ensures the TSS also provides a description of the certificate path validation algorithm. 
+              </TSS>
+              <Guidance>
+                The evaluator shall ensure that instructions for any configurable features of the validation process are included. 
+                If the ST includes provisions for exception processing of certificate revocation status information,
+                the evaluator shall ensure the operational guidance contains instructions on how the indicated options are configured. 
+                <h:p/>
+                If the TOE supports processing of the policy constraints extension and the TOE requires configuration to validate the policy of a claimant certificate, the evaluator shall verify that the operational guidance includes instructions for 
+                configuring this behavior.
+              </Guidance>
+              <Tests>
+                The evaluator shall perform the following tests. The tests for the extendedKeyUsage rules, name constraints and policy constraints, if supported, are performed in conjunction with the uses that require those rules.
+                <testlist>
+                  <test>
+                    The evaluator shall demonstrate that validating a certificate without a valid certification path results in the function failing, for each of the following reasons, in turn: 
+                    <h:ul>
+                      <h:li>by establishing a certificate path in which one of the issuing certificates is not a CA certificate</h:li>
+                      <h:li>by omitting the basicConstraints field in one of the issuing certificates</h:li>
+                      <h:li>by setting the basicConstraints field in an issuing certificate to have CA=False</h:li>
+                      <h:li>by omitting the CA signing bit of the key usage field in an issuing certificate</h:li>
+                      <h:li>by setting the path length field of a valid CA field to a value strictly less than the certificate path</h:li>
+                    </h:ul>. <h:p/>
+                    The evaluator shall then establish a valid certificate path consisting of valid CA certificates, and demonstrate that the function succeeds. 
+                    The evaluator shall then remove trust in one of the CA certificates, and show that the function fails. 
+                  </test>
+                  <test>
+                    The evaluator shall demonstrate that validating an expired certificate results in the function failing. 
+                  </test>
+                  <test>
+                    The evaluator shall test that the TOE can properly handle revoked certificates – conditional on the revocation method that is selected; if multiple methods are selected, then the test is repeated for each method. 
+                    The evaluator tests revocation for each certificate in the trust chain which advertises certificate status information. 
+                    The evaluator shall ensure that a valid certificate is used, and that the validation function succeeds. 
+                    The evaluator shall then attempt the test with a certificate that will be revoked (for each method chosen in the selection) and verify that the validation function fails. 
+                  </test>
+                  <test>
+                    If any OCSP option is selected, the evaluator shall present a delegated OCSP certificate that does not have the OCSP signing purpose and verify that validation of the OCSP response fails. 
+                    If CRL is selected, the evaluator shall configure the CA to sign a CRL with a certificate that does not have the cRLsign key usage bit set and verify that validation of the CRL fails.
+                  </test>
+                  <test>
+                    [conditional] If the TOE supports EC certificates, then the evaluator shall establish a valid, trusted certificate chain consisting of an EC leaf certificate, 
+                    an EC Intermediate CA certificate not designated as a trust anchor, and an EC certificate designated as a trusted anchor, 
+                    where the elliptic curve parameters are specified as a named curve. The evaluator shall confirm that the TOE validates the certificate chain. 
+                  </test>
+                  <test>
+                    [conditional] If the TOE supports EC certificates, then the evaluator shall replace the intermediate certificate in the certificate chain for Test 5 with a modified certificate, 
+                    where the modified intermediate CA has a public key information field where the EC parameters uses an explicit format version of the Elliptic Curve parameters 
+                    in the public key information field of the intermediate CA certificate from Test 5, and the modified Intermediate CA certificate is signed by the trusted EC root CA, but having no other changes. 
+                    The evaluator shall confirm the TOE treats the certificate as invalid.
+                  </test>
+                  <test>
+                    The evaluator shall test the following name constraints: <h:ul>
+                      <h:li>Test 7a: For each name type supported, the evaluator shall establish a valid certificate for a registered entity. 
+                        The evaluator shall ensure the certificate has a valid path length of at least 3, consisting of a trusted root, 
+                        an issuing CA that is not a trust anchor, and the leaf certificate representing the entity. 
+                        The evaluator shall ensure that the leaf certificate includes a single name of the supported name type and no other DN or SAN entries. 
+                        The evaluator shall initiate an application requiring authentication of that entity using the certificate and verify the TSF successfully authenticates the entity. </h:li>
+                      <h:li>Test 7b: For each leaf certificate used in test 7a, the evaluator shall establish a new leaf certificate that includes the same name and name type, 
+                        but which is issued by a different subordinate CA asserting an allowed-list that does not include the name for the name-type. 
+                        The evaluator shall ensure the subordinate CA is included in a valid chain to the same trusted root. 
+                        The evaluator shall initiate the same application attempt as in test 7a for the new certificate and observe that the TSF indicates the certificate is invalid.</h:li>
+                      <h:li>Test 7c: For each leaf certificate used in test 7a, 
+                        the evaluator shall establish a new leaf certificate that includes the same name and name type, 
+                        but which is issued by a different subordinate CA asserting a deny-list matching the name for the name type. 
+                        The evaluator shall ensure the subordinate CA is included in a valid certificate path to the same trusted root. 
+                        The evaluator shall initiate the same application attempt as in test 7a using the new certificate and observe that the TSF indicates the certificate is invalid. </h:li>
+                    </h:ul> 
+                  </test>
+                  <test>
+                    [conditional] If the TOE supports processing of the policy constraints extension, then for each distinct purpose and within the constraints indicated in the ST 
+                    (claimant authentication and any other supported subject types), the evaluator shall follow the operational guidance as necessary to configure the TOE to require the subject’s certificate to assert a specific certificate policy. 
+                    The evaluator shall perform the following sub-tests: <h:ul>
+                      <h:li>Test 8a: The evaluator shall establish a certificate for the subject asserting the certificate policy OID required, issued by a Certification Authority also specifying the required certificate policy. 
+                        The evaluator shall present the established certificate for authentication and verify that the TSF successfully validates the certificate. </h:li>
+                      <h:li>Test 8b: The evaluator shall repeat test 8a using a certificate asserting the required policy but issued by a Certification Authority only asserting the ‘anyPolicy’ OID (value {2 5 29 32 0}) in its policy constraints extension. The evaluator shall observe that the TSF successfully validates the certificate.</h:li>
+                      <h:li>Test 8c: [conditional] If the ST indicates support for the policy mapping extension, 
+                        the evaluator shall repeat test 8a using a certificate asserting a new policy OID that does not match the required policy OID, 
+                        which is issued by a CA asserting the new policy OID in the policy constraints extension, 
+                        and which is in turn issued by a CA asserting the required OID in its certificate constraints extension and containing a policy mapping extension 
+                        including the mapping of the asserted policy to the required policy. 
+                        The evaluator shall observe that the TSF successfully validates the certificate.<h:p/> 
+                        Note that installing a root CA trusted by the TOE with the required policy constraints and policy mapping extensions may be required if the TSF limits the path length of certificate chains.</h:li>
+                      <h:li>Test 8d: [conditional] If the ST indicates support for both policy mapping and policy constraints extensions and also supports certificate chains of length 4 or more, 
+                        the evaluator shall establish a certificate for the subject asserting a new policy OID that does not match the required policy OID, 
+                        which is issued by a CA asserting the new policy OID, which in turn is issued by a CA which includes the policy mapping extension mapping the required policy OID to the new policy OID, 
+                        which is in turn issued by a CA with the extension policy constraints with the inhibitPolicyMapping field having value 0. 
+                        The evaluator shall present the certificate to the TSF for authentication and observe that the TSF indicates the certificate is invalid.</h:li>
+                      <h:li>Test 8e: [conditional] If the ST indicates support for both policy mapping and policy constraints extensions, 
+                        the evaluator shall select a policy OID not required for authentication in the TOE’s current configuration. 
+                        The evaluator shall establish a certificate for the subject that does not assert the (non-required) policy, 
+                        which is issued by a CA also asserting the new policy OID, which in turn, is issued by a CA asserting the ‘anyPolicy’ OID and having a critical policy constraints extension 
+                        with explicitPolicy field with value 0. The evaluator shall present the certificate to the TSF for authentication and observe that the TSF indicates the certificate is invalid.</h:li>
+                      <h:li>Test 8f: The evaluator shall establish a certificate for the subject asserting the required policy but issued by a Certification Authority that does not include any certificate policy related extensions. 
+                        The evaluator shall present the certificate for authentication and observe that the TSF indicates the certificate is invalid.</h:li>
+                      <h:li>Test 8g: The evaluator shall establish a certificate for the subject asserting the required certificate policy issued by a Certification Authority that includes only asserts a single, 
+                        non-matching policy OID in its policy related extensions (i.e. the CA certificate does not include the matching OID, ‘anyPolicy’ assertions or assert an OID that is mapped to the required OID 
+                        via policy matching extensions by previous Certification Authorities in the certificate chain, if supported). 
+                        The evaluator shall present the certificate to the TSF for authentication and observe the TSF indicates the certificate is invalid.</h:li>
+                      <h:li>Test 8h: [conditional] If the ST indicates the inhibitAnyPolicy extension is supported, the evaluator shall establish a certificate for the subject asserting the required policy issued by a CA 
+                        asserting the ‘anyPolicy’ OID, which is in turn issued by a CA with an inhibitAny extension with value 0. 
+                        The evaluator shall present the certificate to the TSF for authentication and observe the TSF indicates the certificate is invalid. <h:p/>
+                        Note that installing a root CA trusted by the TOE with the inhibitAny extension may be required if the TSF limits the path length of certificate chains.</h:li>
+                    </h:ul>
+                  </test>
+                </testlist>
+              </Tests>
+            </aactivity>
+          </f-element>
+        </f-component>
+          
     
       <f-component name="Re-Authenticating" cc-id="fia_uau.6">
-        <consistency-rationale>This SFR defines support for re-authentication of wireless users, which are a type of subject beyond the scope of what the Base-PP originally defined.</consistency-rationale>
+        <consistency-rationale>This SFR defines support for re-authentication of administrators, which expands on the authentication functionality defined in the Base-PP.</consistency-rationale>
         <f-element>
           <title>The TSF shall re-authenticate the <h:b>administrative</h:b> user under the conditions [<h:i>when the user
             changes their password, <selectables>
               <selectable>following TSF-initiated session locking</selectable>
               <selectable><assignable>other conditions</assignable></selectable>
-              <selectable exclusive="yes">no other conditions</selectable>
-            </selectables></h:i>]. 
+              <selectable exclusive="yes">no other conditions</selectable></selectables></h:i>]. 
           </title>
           <aactivity>
-            <TSS>There are no TSS evaluation activities for this component.<h:br/><h:br/></TSS>
-            <Guidance>There are no guidance evaluation activities for this component.<h:br/><h:br/></Guidance>
+            <TSS>There are no TSS evaluation activities for this component.<h:p/></TSS>
+            <Guidance>The evaluator shall ensure that the operational guidance includes instructions on how an administrator of the TOE can change their own password.<h:p/></Guidance>
             <Tests>
-	      The evaluator will attempt to change their password as directed by the operational guidance.
+	      The evaluator will access the TOE using a particular administrative account and then attempt to change the password of that account as directed by the operational guidance.
               While making this attempt, the evaluator will verify that re-authentication is required.
 	      <h:p>
-		If other re-authentication conditions are specified, the evaluator will cause those conditions to
+		If other re-authentication conditions are specified, the evaluator shall cause those conditions to
 		occur and verify that the TSF re-authenticates the authenticated user.
 	      </h:p>
             </Tests>
