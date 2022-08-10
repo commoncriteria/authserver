@@ -278,7 +278,7 @@
             The NDcPP does not define any TOE objectives; instead, it maps SFRs directly to threats. 
             The TOE objectives defined by this PP-Module are therefore assumed not to conflict with the NDcPP by virtue of the fact that the SFRs used to satisfy these objectives do not conflict with the NDcPP SFRs.
 	  </consistency-rationale>
-	  <addressed-by>FCS_EAP-TLS_EXT.1</addressed-by>
+	  <addressed-by>FCS_EAPTLS_EXT.1</addressed-by>
 	  <rationale>
 	    TBD
 	  </rationale>
@@ -322,7 +322,7 @@
             The NDcPP does not define any TOE objectives; instead, it maps SFRs directly to threats. 
             The TOE objectives defined by this PP-Module are therefore assumed not to conflict with the NDcPP by virtue of the fact that the SFRs used to satisfy these objectives do not conflict with the NDcPP SFRs.
           </consistency-rationale>
-          <addressed-by>FCS_EAP-TLS_EXT.1</addressed-by>
+          <addressed-by>FCS_EAPTLS_EXT.1</addressed-by>
           <rationale>
             TBD
           </rationale>
@@ -425,7 +425,7 @@
             <title> The TSF shall be able to generate an audit record of the following auditable
               events: <h:ol type="a">
                 <h:li>Start-up and shutdown of the audit functions;</h:li>
-                <h:li>All auditable events for the [not specified] level of audit; and</h:li>
+                <h:li>All auditable events for the [<h:i>not specified</h:i>] level of audit; and</h:li>
                 <h:li>[<h:i>Auditable events listed in the Auditable Events table (<xref to="auditAuthSvr"/>)</h:i></h:li>
               </h:ol>
             <h:table>
@@ -445,12 +445,12 @@
               </h:tr>
               <h:tr>
                 <h:td>FCS_CKM.3</h:td>
-                <h:td>[<h:i>selection: attempt to export plaintext key or CSI via defined interface, none]</h:i><h:p/>
+                <h:td>[<h:i>selection: attempt to export plaintext key or CSI via defined interface, none</h:i>]<h:p/>
                   Note: if no defined interfaces have access to persistend keys or CSI, select 'none'</h:td>
                 <h:td>If attempt is detected, record process identifier, authorized user's identifier (if any)</h:td>
               </h:tr>
               <h:tr>
-                <h:td rowspan="2">FCS_EAP-TLS_EXT.1</h:td>
+                <h:td rowspan="2">FCS_EAPTLS_EXT.1</h:td>
                 <h:td>Protocol failures</h:td>
                 <h:td>If failure occurs, record a descriptive reason for the failure</h:td>
               </h:tr>
@@ -459,9 +459,13 @@
                 <h:td>Identifier of claimant</h:td>
               </h:tr>
               <h:tr>
-                <h:td>FCS_RADIUS_EXT.1</h:td>
+                <h:td rowspan="2">FCS_RADIUS_EXT.1</h:td>
                 <h:td>Protocol failures</h:td>
                 <h:td>If failure occurs, record a descriptive reason for the failure</h:td>
+              </h:tr>
+              <h:tr>
+                <h:td>Success/failure of authentication</h:td>
+                <h:td>None</h:td>
               </h:tr>
               <h:tr>
                 <h:td>FCS_RADSEC_EXT.1 (selection-based)</h:td>
@@ -559,8 +563,8 @@
 		context of a conforming Security Target.
 	      </h:p>
 	      <h:p>
-		The Auditable Events (<xref to="auditAuthSvr"/>) includes optional and objective SFRs.
-		The auditing of optional and objective SFRs is only required if that SFR is included in the ST.
+		The Auditable Events (<xref to="auditAuthSvr"/>) includes selection-based SFRs.
+		The auditing of selection-based SFRs is only required if that SFR is included in the ST.
 	      </h:p>
 	      <h:p>
 		Per FAU_STG_EXT.1 in the Base-PP, the TOE must support transfer of the audit data to an
@@ -598,13 +602,11 @@
                   <selectable>authentication requests</selectable>
                   <selectable>IKE authentication phase security associations</selectable>
                   <selectable><assignable>claimant identity attributes</assignable></selectable>
-                  <selectable>no other data</selectable>
-                </selectables></h:i>] 
+                  <selectable>no other data</selectable></selectables></h:i>] 
               at the request of the [<h:i>relying party,
                 <selectables>
                   <selectable>external authentication servers in support of pass-through</selectable>
-                  <selectable>no other entities</selectable>
-                </selectables></h:i>].
+                  <selectable>no other entities</selectable></selectables></h:i>].
             </title>
             <note role="application">
                 The intent of this requirement is for the TOE to provide source of origin (non-repudiation) 
@@ -675,8 +677,7 @@
               The TSF shall be able to generate evidence of receipt for received [<h:i>authentication requests, 
                 <selectables>
                   <selectable>authentication responses and queries</selectable>
-                  <selectable>none</selectable>
-                </selectables></h:i>] at the request of the [<h:i>originator</h:i>].
+                  <selectable>none</selectable></selectables></h:i>] at the request of the [<h:i>originator</h:i>].
             </title>
             <note role="application">
               The intent of this requirement is for the TOE to be able to return a valid response to the relying party upon receipt of an Access-Request. 
@@ -767,7 +768,7 @@
 		              The evaluator shall attempt to export each key and critical security parameter using available interfaces and verify the mechanism is effective at preventing exposure of the key in plaintext.
 		            </test>
 		            <test>
-		              The evaluator shall assume each of the privileged user roles and attempt to gain read access each of the keys and critical security parameters via available interfaces.
+		              The evaluator shall assume each of the privileged user roles and attempt to gain read access to each of the keys and critical security parameters via available interfaces.
 		            </test>
 		          </testlist>
               </Tests>
@@ -778,9 +779,10 @@
         <ext-comp-def title="EAP-TLS Protocol" fam-id="FCS_EAPTLS_EXT">
           <fam-behavior>This family defines requirements for how the TSF implements the Extensible Authentication Protocol (EAP) and EAP-Transport Layer Security.</fam-behavior> 
         </ext-comp-def>
-        <f-component name="EAP-TLS Protocol" cc-id="fcs_eaptls_ext.1" status="invisible">
-          <consistency-rationale/>
-          
+        
+        <f-component name="EAP-TLS Protocol" cc-id="fcs_eaptls_ext.1">
+          <consistency-rationale>This SFR applies to implementation of EAP-TLS; the Base-PP defines implementation requirements for (D)TLS, but EAP-TLS is beyond the original scope of the Base-PP. </consistency-rationale>
+
           <comp-lev>requires the TSF to implement EAP and EAP-TLS according to appropriate standards.</comp-lev>
           <management>No specific management functions are identified.</management>
           <audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
@@ -796,27 +798,23 @@
             FCS_DTLSC_EXT.2 DTLS Client Support for Mutual Authentication]<h:p/>
             FIA_X509_EXT.1 X.509 Certificate Validation
           </dependencies>
-          
+         
           <f-element>
             <title>
               The TSF shall implement <selectables>
                 <selectable>EAP-TLS as specified in RFC 5216</selectable>
-                <selectable>EAP-TTLS as specified in RFC 5881</selectable>
-              </selectables> as updated by RFC 8996 with <selectables>
+                <selectable>EAP-TTLS as specified in RFC 5881</selectable></selectables> as updated by RFC 8996 with <selectables>
                 <selectable>TLS</selectable>
-                <selectable>DTLS</selectable>
-              </selectables> implemented using mutual authentication in accordance with <selectables>
+                <selectable>DTLS</selectable></selectables> implemented using mutual authentication in accordance with <selectables>
                 <selectable>FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</selectable>
-                <selectable>FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</selectable>
-              </selectables>.
+                <selectable>FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</selectable></selectables>.
             </title>
           </f-element>
           <f-element>
             <title>
               The TSF shall generate random values used in the <selectables>
                 <selectable>EAP-TLS</selectable>
-                <selectable>EAP-TTLS</selectable>
-              </selectables> exchange using the RBG specified in FCS_RBG_EXT.1.
+                <selectable>EAP-TTLS</selectable></selectables> exchange using the RBG specified in FCS_RBG_EXT.1.
             </title>
           </f-element>
           <f-element>
@@ -827,8 +825,7 @@
                 <selectable>TOTP</selectable>
                 <selectable><assignable>other authentication-verification protocols</assignable></selectable>
                 <selectable>other authentication-verification protocols via pass-through functionality</selectable>
-                <selectable>no other authentication methods</selectable>
-              </selectables>.
+                <selectable>no other authentication methods</selectable></selectables>.
             </title>
           </f-element>
           <f-element>
@@ -836,126 +833,199 @@
               The TSF shall not forward an EAP-success response to the relying party if the client certificate is not valid according to FIA_X509_EXT.1, 
               if the <selectables>
                 <selectable>TLS</selectable>
-                <selectable>DTLS</selectable>
-              </selectables> session is not established, or if any of <selectables>
+                <selectable>DTLS</selectable></selectables> session is not established, or if any of <selectables>
                 <selectable>PSK</selectable>
                 <selectable>HOTP value</selectable>
                 <selectable>TOTP value</selectable>
-                <selectable>no other authenticator</selectable>
-              </selectables> required by the authentication policy are not provided or if any of the required authenticators presented in the authentication request is not valid.
+                <selectable>no other authenticator</selectable></selectables> required by the authentication policy are not provided or if any of the required authenticators presented in the authentication request is not valid.
             </title>
-            <aactivity>
-              <no-tests></no-tests>
-            </aactivity>
-          </f-element>
-        </f-component>
-        
-        
-        <f-component name="EAP-TLS Protocol" cc-id="fcs_eaptls_ext.1">
-          <consistency-rationale>This SFR applies to implementation of EAP-TLS; the Base-PP defines implementation requirements for (D)TLS, but EAP-TLS is beyond the original scope of the Base-PP. </consistency-rationale>
-
-         
-          <f-element>
-            <title>
-              The TSF shall implement <selectables>
-                <selectable>EAP-TLS as specified in RFC 5216</selectable>
-                <selectable>EAP-TTLS as specified in RFC 5881</selectable>
-              </selectables> as updated by RFC 8996 with <selectables>
-                <selectable>TLS</selectable>
-                <selectable>DTLS</selectable>
-              </selectables> implemented using mutual authentication in accordance with <selectables>
-                <selectable>FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</selectable>
-                <selectable>FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</selectable>
-              </selectables>.
-            </title>
-          </f-element>
-          <f-element>
-            <title>
-              The TSF shall generate random values used in the <selectables>
-                <selectable>EAP-TLS</selectable>
-                <selectable>EAP-TTLS</selectable>
-              </selectables> exchange using the RBG specified in FCS_RBG_EXT.1.
-            </title>
-          </f-element>
-          <f-element>
-            <title>
-              The TSF shall support claimant authentication using certificates and <selectables>
-                <selectable>static PSK</selectable>
-                <selectable>HOTP</selectable>
-                <selectable>TOTP</selectable>
-                <selectable><assignable>other authentication-verification protocols</assignable></selectable>
-                <selectable>other authentication-verification protocols via pass-through functionality</selectable>
-                <selectable>no other authentication methods</selectable>
-              </selectables>.
-            </title>
-          </f-element>
-          <f-element>
-            <title>
-              The TSF shall not forward an EAP-success response to the relying party if the client certificate is not valid according to FIA_X509_EXT.1<h:b>/AuthSvr</h:b>, 
-              if the <selectables>
-                <selectable>TLS</selectable>
-                <selectable>DTLS</selectable>
-              </selectables> session is not established, or if any of <selectables>
-                <selectable>PSK</selectable>
-                <selectable>HOTP value</selectable>
-                <selectable>TOTP value</selectable>
-                <selectable>no other authenticator</selectable>
-              </selectables> required by the authentication policy are not provided or if any of the required authenticators presented in the authentication request is not valid.
-            </title>
-            <note role="application">The ST author should indicate support for EAP-TLS or EAP-TTLS in FCS_EAPTLS_EXT.1.1.
-              <h:p/>
-              In the second selection, ‘FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2’ or 'FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2’ is selected according to the TLS or DTLS support indicated in the first selection, with
+            <note role="application">The ST author should indicate support for EAP-TLS or EAP-TTLS in FCS_EAPTLS_EXT.1.1. In the third selection, ‘FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2’ or 'FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2’ is selected 
+              according to the TLS or DTLS support indicated in the second selection, with
               the expectation that the corresponding SFRs from the Base-PP are claimed.
               <h:p/>
-              The selection in FCS_EAP-TLS_EXT.1.2 matches the first selection in FCS_EAP-TLS_EXT.1.1.
+              The selection in FCS_EAPTLS_EXT.1.2 matches the first selection in FCS_EAPTLS_EXT.1.1.
               <h:p/>
-              The ST author claims any additional supported authentication methods in FCS_EAP-TLS_EXT.1.3. Each supported method is claimed independently, even if combinations of the methods are required for individual claimant authentication. 
+              The ST author claims any additional supported authentication methods in FCS_EAPTLS_EXT.1.3. Each supported method is claimed independently, even if combinations of the methods are required for individual claimant authentication. 
               For any authentication methods that are only supported by pass-through functionality, the ST author should claim 'other authentication-verification protocls via pass-through functionality' without claiming the corresponding method
               in the same selection. Pass-through functionality can typically support any authentication method, including ones not specified in the SFR.
               </note>
             <aactivity>
-              <TSS>TBD
+              <TSS>The evaluator shall examine the ST to ensure the EAP protocol is described in accordance with the claimed RFC and, for each supported mode, the evaluator ensures the ST describes the following:
+                <h:ul>
+                  <h:li>The mechanism to authenticate a claimant uses (D)TLS with client certificate authentication in combination with any other supported authenticator outputs, and any configurable features.</h:li>
+                  <h:li>The source of randomness meets FCS_RBG_EXT.1 for use in key and nonce generation for the underlying (D)TLS channel and supported authentication methods.</h:li>
+                </h:ul>
+                <h:p/>
+                The evaluator shall also verify that the ST contains a description of the user access policy, 
+                including which authenticator outputs are required under the default configuration and which features of the user access policy are configurable. 
                 <h:p/>
               </TSS>
-              <Guidance>TBD
+              <Guidance>The evaluator shall ensure that the operational guidance includes any instructions for configuring the TOE to support the claimed functions.
                 <h:p/>
+                If any features of the access control policy are configurable (e.g. the supported authentication mechanism), the evaluator shall confirm that the operational guidance describes how to configure these features.
               </Guidance>
               <Tests>
-		  TBD
+                The evaluator shall perform the following tests:
+                <testlist>
+                  <test>TLS/DTLS testing is performed as part of FCS_TLSS_EXT.1 and .2 or FCS_DTLSS_EXT.1 and .2. 
+                    When TLS/DTLS cannot be invoked directly using available TOE interfaces, the test procedures are modified in the following manner:
+                    <h:ul>
+                    <h:li>When required to send a client handshake to the TOE, the evaluator shall establish a connection with the test relying party and sends the specified 
+                      TLS client handshake messages in response to requests from the test relying party.</h:li> 
+                    <h:li>The evaluator ensures the test relying party encapsulates the TLS handshake messages received from the test client and forwards the EAP messages to the TOE. 
+                      Alternatively the evaluator may use a test relying party to modify client handshake messages as specified. 
+                      When required to observe TLS server responses produced by the TOE, the evaluator shall ensure the test relying party properly extracts the TLS messages from the EAP messages, 
+                      and shall observe the response received at the test TLS client to verify that the TOE responds as indicated in test procedures. 
+                      Alternatively, the evaluator may extract and reconstruct TLS responses received within the EAP messages received from the TOE at the test relying party.</h:li>
+                    </h:ul>
+                  </test>
+                  <test>
+                    EAP testing: For each EAP mode supported, the evaluator shall perform any configuration of the TOE necessary to select the desired mode according to AGD instructions, and perform the following tests: 
+                    <h:ul>
+                      <h:li>
+                        Test 2a: The evaluator shall determine the user access policy enforced by the TOE (if the TOE has a configurable user access policy, the evaluator may configure the TOE according to operational guidance 
+                        to require claimant authentication using only a certificate to simplify subsequent test procedures). 
+                        The evaluator shall initiate an authentication request from a test relying party to the TOE for a valid claimant registered with the TOE. 
+                        The evaluator shall observe that once the EAP identity is established, the TOE sends an EAP request indicating the expected EAP mode (EAP-TLS or EAP-TTLS) and having the start-bit set.
+                        <h:p/>
+                        The evaluator shall ensure a TLS client hello message from the valid claimant at a test client is EAP encapsulated by the test relying party and provided to the TOE. 
+                        The evaluator shall observe that the TOE responds with an EAP encapsulated hello messages to include a certificate request message.
+                        <h:p/>
+                        The evaluator shall ensure the test client successfully completes the TLS handshake, and the test relying party properly encapsulates the TLS messages, to include the client finished message, 
+                        and observes that the TOE that the TOE responds in a manner indicating the TLS channel was successfully established. 
+                        Note – if the user access policy is to only require certificate verification, then the expected response is an EAP-success message. 
+                        If the user access policy requires additional factors as supported under EAP-TTLS, additional EAP-TTLS messages are sent to the test relying party to request additional factors 
+                        from the test client that are encrypted under the TLS tunnel established between the claimant and the TOE. In this case the evaluator observes these requests at the test client to confirm the certificate verification 
+                        was successful.
+                      </h:li>
+                      <h:li>
+                        Test 2b: The evaluator shall initiate an authentication request from the test relying party for a valid claimant registered with the TOE, different than the claimant used for Test 2a if performed. 
+                        The evaluator shall send appropriate encapsulated TLS handshake messages to the TOE, to include a valid certificate response, 
+                        but send an EAP-encapsulation of a modified client finished message to the TOE. 
+                        The evaluator shall observe that the TOE does not send an EAP-success message; the TOE is allowed either to send an EAP-request message to initiate a new TLS handshake or an EAP-Failure message.
+                      </h:li>
+                      <h:li>
+                        Test 2c [conditional on support for additional authentication factors under EAP-TTLS]: For each combination of authentication factors supported by the TOE’s user authentication policy, 
+                        the evaluator shall follow the operational guidance to configure the TOE’s user access policy to require the desired combination. 
+                        The evaluator shall initiate an authentication request from a test client with a registered claimant having valid credentials for all factors. 
+                        The evaluator shall observe that the TOE responds to the authentication request with an exchange of EAP-requests to successfully establish a mutually authenticated TLS/DTLS tunnel 
+                        and that on completion, the TOE provides additional EAP-requests that when decrypted at the test client results in prompts for additional factors. 
+                        <h:p/>
+                        For each additional factor in the combination, the evaluator shall input an incorrect value for requested authentication factors and observe that the TOE responds with an EAP-request 
+                        that prompts the claimant to re-enter the value. 
+                        The evaluator shall then input the correct value and observe that the TOE responds with an EAP-request resulting in a prompt for the next factor. 
+                        The evaluator shall continue, in turn entering first, invalid, and then valid entries until all factors have been successfully provided. 
+                        The evaluator shall confirm that on successful submission of valid factors, the TOE sends an EAP-Success message to the test relying party.
+                      </h:li>
+                    </h:ul>
+                  </test>
+                </testlist>
               </Tests>
             </aactivity>
           </f-element>
         </f-component>
         
+        <ext-comp-def title="Authentication Protocol" fam-id="FCS_RADIUS_EXT">
+          <fam-behavior>Components in this family define requirements for implementation of authentication protocols.</fam-behavior> 
+        </ext-comp-def>
         
-        <!-- previously FCS_CKM.2(2) -->
-        <f-component name="Cryptographic Key Distribution (PMK)" cc-id="fcs_ckm.2" iteration="PMK">
-          <consistency-rationale>This SFR defines additional cryptographic functionality not defined in the Base-PP that is used for functionality outside the original scope of the Base-PP.</consistency-rationale>
+        <f-component name="Authentication Protocol" cc-id="fcs_radius_ext.1">
+          <consistency-rationale>This SFR applies to implementation of authentication protocols, which is beyond the original scope of the Base-PP.</consistency-rationale>
+          
+          <comp-lev>requires the TSF to implement the specified authentication protocols.</comp-lev>
+          <management>The following actions could be considered for the management functions in FMT:
+            <h:ul>
+              <h:li>Ability to configure RADIUS shared secret</h:li>
+              <h:li>Ability to define authorized NAS</h:li>
+            </h:ul></management>
+          <audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+            <h:ul>
+              <h:li>Protocol failures</h:li>
+              <h:li>Success/failure of authentication</h:li>
+            </h:ul>
+          </audit>
+          <dependencies>FCS_EAPTLS_EXT.1 EAP-TLS Protocol</dependencies>
+          
           <f-element>
             <title>
-              The TSF shall <h:b>receive the 802.11 Pairwise Master Key (PMK)</h:b> in
-              accordance with a specified cryptographic key distribution method: [<h:i>from 802.1X Authorization Server</h:i>]
-              that meets the following: [<h:i>IEEE 802.11-2020</h:i>] <h:b>and does not expose the cryptographic keys</h:b>.
+              The TSF shall implement the <selectables>
+                <selectable>RADIUS protocol as specified in RFC 2865</selectable>
+                <selectable>DIAMETER protocol as specified in RFC 6733</selectable>
+                <selectable><assignable>other direct identity federation protocol</assignable></selectable></selectables>
+               for communication of identity and authentication information with a relying party.
+            </title>
+          </f-element>
+          <f-element>
+            <title>
+              The TSF shall implement encapsulated EAP in accordance with FCS_EAPTLS_EXT.1.
+            </title>
+          </f-element>
+          <f-element>
+            <title>
+              The TSF shall provide <selectables>
+                <selectable>a key indicator</selectable>
+                <selectable>an encrypted parameter</selectable>
+                <selectable>an encrypted value</selectable></selectables> 
+              for a key held by the successfully authenticated claimant derived from the supported EAP mode and provided to the relying party in accordance with the protocol indicated in FCS_RADIUS_EXT.1.1.
             </title>
             <note role="application">
-              This requirement applies to the Pairwise Master Key that is received from the RADIUS
-              server by the TOE. The intent of this requirement is to ensure conformant TOEs implement 802.1X
-              authentication prior to establishing secure communications with the client.
-              The intent is that any WLAN AS evaluated against this PP-Module will support both
-              WPA2-Enterprise and WPA3-Enterprise at a minimum and certificate-based authentication mechanisms
-              and therefore disallows implementations that support only pre-shared keys. Because communications
-              with the RADIUS server are required to be performed over a protected connection, the transfer
-              of the PMK will be protected.
+              The ST author describes how the TSF communicates with a relying party at the application layer to receive authentication requests and provide identity assertions. 
+              RADIUS and DIAMETER protocols are used with AAA servers when the relying party is a NAS, 
+              but other direct access identity federation protocols that support FCS_EAPTLS_EXT.1 and identify a key held by the authenticated claimant that can be confirmed by the relying party are acceptable. 
+              If other protocols are claimed, the ST author includes the RFCs and indicates the messages used for authentication requests and assertions. 
+              <h:p/>
+              The ST author indicates which keys held by the authenticated claimant are available to the relying party for key-holder verification. 
+              For RADIUS/DIAMETER, the encrypted key is the derived from the EAP-TLS/EAP-TTLS master key established during the TLS handshake, 
+              and used by the relying party as the AUTH MSK/security association for the IPsec session established between the network access server and the authenticated claimant. 
+              More generally, a key indicator can be a reference identifier for a shared secret key, or a public key, certificate, or other identifier associated with a private asymmetric key controlled by the authenticated claimant.
             </note>
             <aactivity>
-              <TSS>The evaluator will examine the TSS to determine that it describes how the PMK is transferred (that is,
-                through what EAP attribute) to the TOE.<h:br/><h:br/></TSS>
-              <Guidance>There are no guidance evaluation activities for this component.<h:br/><h:br/></Guidance>
-              <Tests>The evaluator will establish a session between the TOE and a RADIUS server according to the
-              configuration guidance provided.
-	      The evaluator will then examine the traffic that passes between the
-              RADIUS server and the TOE during a successful attempt to connect a wireless client to the TOE to
-              determine that the PMK is not exposed.</Tests>
+              <TSS>The evaluator shall review the ST to ensure the supported protocols are described and that the description includes the following: <h:ul>
+                <h:li>Types of claimant-held keys that can be used by the relying party for key-holder verification in accordance with the supported EAP mode claimed in FCS_EAPTLS_EXT.1</h:li>
+                <h:li>How information provided by the TOE to the relying party allows the relying party to perform key-holder verification using the key</h:li> 
+                <h:li>How key related information provided by the TOE is protected in transit to the relying party.</h:li>
+              </h:ul><h:p/>
+              </TSS>
+              <Guidance>The evaluator shall verify that all configurable features of the TSF are described and instructions are provided to meet the requirements.<h:p/></Guidance>
+              <Tests>The evaluator shall perform the following test in conjunction with testing for FCS_EAP-TLS_EXT.1 after successful authentication:
+                <testlist>
+                  <test>
+                    For each type of claimant held key supported, the evaluator shall confirm that communication between the test client and the test relying party encrypted using the indicated key is successful.
+                  </test>
+                </testlist>
+               </Tests>
+            </aactivity>
+          </f-element>
+        </f-component>
+        
+
+        <ext-comp-def title="Cryptographic Key Storage" fam-id="FCS_STG_EXT">
+          <fam-behavior>Components in this family define requirements for secure storage of cryptographic keys.</fam-behavior> 
+        </ext-comp-def>
+        
+        <f-component name="Authentication Protocol" cc-id="fcs_radius_ext.1">
+          <consistency-rationale>This SFR is consistent with the FPT_SKP_EXT.1 requirement of the Base-PP but requires the TSF to implement a specific method of protecting key data rather than a general statement
+          that such data is not stored in plaintext.</consistency-rationale>
+          
+          <comp-lev>requires the TSF to identify a mechanism used to securely store cryptographic keys.</comp-lev>
+          <management>No specific management functions are identified.</management>
+          <audit>There are no auditable events foreseen.</audit>
+          <dependencies>None</dependencies>
+
+          <f-element>
+            <title>
+              Persistent private and secret keys shall be stored within the TSF
+              <selectables linebreak="yes">
+                <selectable>encrypted within a hardware protected key</selectable>
+                <selectable>in a hardware cryptographic module</selectable>
+                <selectable>within an isolated execution environment protected by a hardware key</selectable></selectables>.
+            </title>
+            <aactivity>
+              <TSS>The evaluator shall verify the TSS includes a description of protected key storage.<h:p/>
+              </TSS>
+              <Guidance>The evaluator shall verify that the operational guidance includes any information needed to configure the TOE to meet this requirement.<h:p/></Guidance>
+              <Tests>There are no test EAs for this component.
+              </Tests>
             </aactivity>
           </f-element>
         </f-component>
@@ -964,95 +1034,55 @@
       
       
       <sec:man_fia title="Identification and Authentication (FIA)">
-      <!-- FIA_AFL.1 no longer needed, removed -->
         
-        
-        
-        <ext-comp-def title="802.1X Port Access Entity (Authenticator) Authentication" fam-id="FIA_8021X_EXT">
-          <fam-behavior>Components in this family describe requirements for implementation of 802.1X port-based network access control.</fam-behavior> 
-        </ext-comp-def>   
-        
-        <f-component name="802.1X Port Access Entity (Authenticator) Authentication" cc-id="fia_8021x_ext.1">
+        <f-component name="Authentication Failure Handling (Claimant)" cc-id="fia_afl.1" iteration="AuthSvr">
           
-          <consistency-rationale>This SFR defines support for 802.1X communications, which is a logical interface that extends the scope of what the Base-PP originally defined.</consistency-rationale>
-          
-          <comp-lev>requires the TSF to securely implement IEEE 802.1X as an authenticator.</comp-lev>
-          <management>No specific management functions are identified.</management>
-          <audit>The following actions should be auditable if FAU_GEN Security Audit Data Generation is included in the ST: <h:ul>
-              <h:li>Attempts to access the 802.1X controlled port prior to successful completion of the authentication exchange</h:li>
-            </h:ul>
-          </audit>
-          <dependencies>No dependencies</dependencies>
-          
-          <f-element><title>The TSF shall conform to IEEE Standard 802.1X for a Port Access Entity (PAE) in the
-            “Authenticator” role.</title></f-element>
-          <f-element><title>The TSF shall support communications to a RADIUS authentication server
-            conforming to RFCs 2865 and 3579.</title></f-element>
-          <f-element><title>The TSF shall ensure that no access to its 802.1X controlled port is given to the
-            wireless client prior to successful completion of this authentication exchange.</title>
+          <consistency-rationale>This SFR defines functional behavior enforced on external users being authenticated by the TOE, which is functionality that is not covered by the Base-PP.</consistency-rationale>
+
+          <f-element>
+            <title>The TSF shall detect when [<h:i>an administrator configurable positive integer <h:b>of successive</h:b></h:i>] unsuccessful authentication attempts occur related to [<h:i>claimants attempting to authenticate</h:i>]. 
+            </title>
+          </f-element>
+          <f-element><title>When the defined number of unsuccessful authentication attempts has been [<h:i>met</h:i>], 
+            the TSF shall <selectables onlyone="yes">
+              <selectable>prevent the offending remote entity from successfully authenticating until 
+                <assignable>action</assignable> is taken by a local Administrator</selectable>
+              <selectable>prevent the offending claimant from successfully authenticating until an administrator-defined time period has elapsed</selectable></selectables>. 
+            </title>
             <note role="application">
-	      <h:p>
-            This requirement covers the TOE's role as the authenticator in an 802.1X
-            authentication exchange. If the exchange is completed successfully, the TOE will obtain the PMK from
-            the RADIUS server and perform the four-way handshake with the wireless client (supplicant) to begin
-            802.11 communications.</h:p>
-	    <h:p>
-            As indicated previously, there are at least three communication paths present during the exchange; two
-            with the TOE as an endpoint and one with the TOE acting as a transfer point only.
-	    The TOE establishes an EAP over Local Area Network (EAPOL) connection with the wireless
-	    client as specified in 802.1X-2007.
-	    The TOE also establishes (or has established) a RADIUS protocol connection protected either
-	    by IPsec or RadSec (TLS) with the RADIUS server. 
-            The wireless client and RADIUS server establish an EAP-TLS session
-            (RFC 5216); in this transaction the TOE merely takes the EAP-TLS packets from its EAPOL/RADIUS
-            endpoint and transfers them to the other endpoint. Because the specific authentication method (TLS in
-            this case) is opaque to the TOE, there are no requirements with respect to RFC 5126 in this PP-Module.
-            However, the base RADIUS protocol (2865) has an update (3579) that will need to be addressed in the
-            implementation and evaluation activities. Additionally, RFC 5080 contains implementation issues that
-            will need to be addressed by developers but which levy no new requirements.</h:p>
-	    <h:p>
-            
-            The point of performing 802.1X authentication is to provide access to the network (assuming the
-            authentication was successful and that all 802.11 negotiations are performed successfully); in the
-            terminology of 802.1X, this means the wireless client has access to the "controlled port" maintained by
-            the TOE.
-	    </h:p>
+              This requirement applies to claimant authentication attempts in support of an authentication service provided for a federated relying party. 
+              This requirement does not apply to login to the TOE by privileged users for administrative accesses; these cases are addressed by the Base-PP iteration of this SFR. 
+              Responses to authentication queries to aid the claimant in providing acceptable authenticators is not considered a preventative action and are allowed prior to reaching the lockout threshold. 
+              The “action” taken by a local administrator is implementation specific and is defined in the operational guidance (for example, lockout reset or password reset). 
+              The ST author chooses one of the selections for handling of authentication failures depending on how the TOE has implemented this handler. 
           </note>
             <aactivity>
               <TSS>
-                In order to show that the TSF implements the 802.1X-2010 standard correctly, the evaluator will ensure
-                that the TSS contains the following information: <h:ul>
-                <h:li>The sections (clauses) of the standard that the TOE implements</h:li>
-                <h:li>For each identified section, any options selected in the implementation allowed by the
-                standards are specified</h:li>
-                <h:li>For each identified section, any non-conformance is identified and described, including a
-                justification for the non-conformance</h:li>
-                </h:ul>
-                Because the connection to the RADIUS server will be contained in an IPsec or RadSec (TLS) tunnel,
-                the security mechanisms detailed in the RFCs identified in the requirement are not relied on to provide
-                protection for these communications. Consequently, no extensive analysis of the RFCs is required.
-                However, the evaluator will ensure that the TSS describes the measures (documentation, testing) that
-                are taken by the product developer to ensure that the TOE conforms to the RFCs listed in this
-                requirement.<h:br/><h:br/>
+                The evaluator shall examine the TSS to verify that it contains a description of how successive unsuccessful authentication attempts by claimants are detected and tracked. 
+                The evaluator shall verify that the TSS describes the method by which the offending claimant is prevented from successfully being authenticated by the TOE, and the actions necessary to restore this ability. 
+                <h:p/>
               </TSS>
-              <Guidance>There are no guidance evaluation activities for this component.<h:br/><h:br/></Guidance>
+              <Guidance>The evaluator shall examine the operational guidance to verify that it describes how to configure the threshold for unsuccessful claimant authentication attempts and how to perform 
+                any actions that affect claimants that are limited in this manner (e.g. instructions for configuring the lockout period or for manually unlocking the offending claimant).<h:p/>
+              </Guidance>
               <Tests>
-                The evaluator will perform the following tests:
+                The evaluator shall perform the following tests in conjunction with testing for FCS_EAPTLS_EXT.1 test 2a and, if applicable, test 2c for each claimant authentication method:
                 <testlist>
-                  <test>The evaluator will demonstrate that a wireless client has no access to the test network. After
-                    successfully authenticating with a RADIUS server through the TOE, the evaluator will demonstrate that
-                    the wireless client does have access to the test network.</test>
-                  <test>The evaluator will demonstrate that a wireless client has no access to the test network. The
-                    evaluator will attempt to authenticate using an invalid client certificate, such that the EAP-TLS
-                    negotiation fails. This should result in the wireless client still being unable to access the test network.
+                  <test>
+                    The evaluator shall follow the operational guidance to configure a number of failed attempts that will cause lockout behavior to be enforced against a claimant. 
+                    The evaluator shall establish a registered user and provide invalid input for the authentication method repeatedly to reach the configured limit. 
+                    The evaluator shall then observe the configured penalty is imposed.
                   </test>
-                  <test>The evaluator will demonstrate that a wireless client has no access to the test network. The
-                    evaluator will attempt to authenticate using an invalid RADIUS certificate, such that the EAP-TLS
-                    negotiation fails. This should result in the wireless client still being unable to access the test network.</test>
+                  <test>
+                    If the administrator action selection is claimed in FIA_AFL.1.2/AuthSvr, the evaluator shall ensure that following the operational guidance for restoring access to a locked-out claimant will subsequently allow that claimant to be
+                    authenticated.
+                    <h:p/>
+                    If the time period selection is claimed in FIA_AFL.1.2/AuthSvr, the evaluator shall follow the operational guidance to configure a certain lockout time for claimants that are locked out due to excessive authentication failures.
+                    The evaluator shall cause a claimant to be locked out in this manner, wait for a time period that is just less than the configured value, and verify that an authentication attempt using valid credentials still does not result in
+                    successful access.
+                    The evaluator shall then repeat this behavior but wait for just after the configured time period has elapsed to show that an authentication attempt using valid credentials results in successful access.
+                  </test>
                 </testlist>
-                <h:b>Note: </h:b>Tests 2 and 3 above are not tests that "EAP-TLS works," although that is a by-product of the test.
-                The test is actually that a failed authentication (under two failure modes) results in denial of access to
-                the network, which demonstrates the enforcement of FIA_8021X_EXT.1.3.
               </Tests>
             </aactivity>
           </f-element>
