@@ -2,7 +2,6 @@ output/authserver-release-linkable.html: 1X
 output/authserver-release-linkable.html: 2e
 output/authserver-release-linkable.html: 63b
 output/authserver-release-linkable.html: AIA
-output/authserver-release-linkable.html: Auth
 output/authserver-release-linkable.html: CEM
 output/authserver-release-linkable.html: CRLDP
 output/authserver-release-linkable.html: DTLSC
@@ -43,7 +42,6 @@ output/authserver-release.html: 1X
 output/authserver-release.html: 2e
 output/authserver-release.html: 63b
 output/authserver-release.html: AIA
-output/authserver-release.html: Auth
 output/authserver-release.html: CEM
 output/authserver-release.html: CRLDP
 output/authserver-release.html: DTLSC
