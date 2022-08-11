@@ -285,7 +285,7 @@
 	  <rationale>
 	    TBD
 	  </rationale>
-          <addressed-by>FIA_PSK_EXT.1/Auth</addressed-by>
+          <addressed-by>FIA_PSK_EXT.1/AuthSvr</addressed-by>
           <rationale>
          TBD   
           </rationale>          
@@ -1761,7 +1761,7 @@
                 The evaluator shall also perform the following tests for each protocol (or instantiation of a protocol, 
                 if performed by a different implementation on the TOE). 
                 <testlist>
-                  <test>For each mechanism selected in FIA_PSK_EXT.1.2, the evaluator shall attempt to establish a connection 
+                  <test>For each mechanism selected in FIA_PSK_EXT.1.2/AuthSvr, the evaluator shall attempt to establish a connection 
                     and confirm that the connection requires the selected factors in the PSK to establish the connection. </test>
                 </testlist>
               </Tests>
