@@ -1469,7 +1469,7 @@
             <title>
               The TSF shall perform relying party authentication using <selectables>
               <selectable id="s-x509-certs">X.509v3 certificates</selectable>
-              <selectable id="s-radsec-psk">pre-shared keys</selectable></selectables>.
+              <selectable id="radsec-uses-psk">pre-shared keys</selectable></selectables>.
             </title>
             <note role="application">
               It is recommended that both X.509v3 certificates and pre-shared keys be supported for resiliency purposes.
@@ -1660,7 +1660,6 @@
 		
 		<!-- FIA_PSK_EXT.1 Pre-Shared Key Composition -->
         <f-component cc-id="fia_psk_ext.1" name="Pre-Shared Key Usage" status="invisible">
-          <!--     <depends on-sel="sel-ipsec-e11-psk"/> -->
           <consistency-rationale/>
           <comp-lev>defines the use and composition of pre-shared keys used for authentication.</comp-lev>
           <management>No specific management functions are identified.</management>
@@ -1687,7 +1686,7 @@
         
         
         <f-component cc-id="fia_psk_ext.1" name="Pre-Shared Key Usage (Claimant Authentication)" iteration="AuthSvr">
-     <!--     <depends on-sel="sel-ipsec-e11-psk"/> -->
+          <depends on-sel="eaptls-uses-psk" and="radsec-uses-psk"/>
           <consistency-rationale>This SFR extends the functionality of the Base-PP by defining the use of pre-shared keys as an authenticator.</consistency-rationale>
           
           <f-element id="fia-psk-ext-1e1">
