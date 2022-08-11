@@ -249,7 +249,6 @@
           </objective-refer>
         </threat>
 
-
       </threats>
     </sec:Threats>
     <sec:Assumptions>
@@ -274,6 +273,62 @@
     <sec:Security_Objectives_for_the_TOE>
 
       <SOs>
+        
+        
+        <SO name="O.AUTHORIZED_USE">
+          <description>The TOE shall provide mechanisms that prevent and detect its unauthorized use.
+          </description>
+          <consistency-rationale>
+            The NDcPP does not define any TOE objectives; instead, it maps SFRs directly to threats. 
+            This TOE objective is intended to mitigate the T.UNAUTHORIZED_ADMINISTRATOR_ACCESS and T.UNDETECTED_ACTIVITY threats
+            for the functions defined by this PP-Module.
+          </consistency-rationale>
+          <addressed-by>FAU_GEN.1/AuthSvr</addressed-by>
+          <rationale>
+            The TOE implements an audit mechanism to detect potential misuse of the TOE.
+          </rationale>
+          <addressed-by>FCS_CKM.3</addressed-by>
+          <rationale>
+            The TOE implements a cryptographic key access control mechanism to prevent compromise
+            of data in transit confidentiality mechanisms.
+          </rationale>
+          <addressed-by>FCS_STG_EXT.1</addressed-by>
+          <rationale>
+            The TOE implements a cryptographic key storage mechanism to prevent compromise
+            of data in transit confidentiality mechanisms.
+          </rationale>
+          <addressed-by>FIA_UAU.6</addressed-by>
+          <rationale>
+            The TOE implements a re-authentication mechanism to prevent compromise of an administrator
+            account to an unattended session.
+          </rationale>
+          <addressed-by>FMT_SMF.1/AuthSvr</addressed-by>
+          <rationale>
+            The TOE implements management functions as a legitimate mechanism to control the behavior of the TSF.
+          </rationale>
+        </SO>
+        
+        <SO name="O.SECURITY_ASSOCIATION">
+          <description>The TOE shall provide the information to the relying party to enable the relying party to verify that the claimant has possession of an authentication key.
+          </description>
+          <consistency-rationale>
+            The NDcPP does not define any TOE objectives; instead, it maps SFRs directly to threats. 
+            The TOE objectives defined by this PP-Module are therefore assumed not to conflict with the NDcPP by virtue of the fact that the SFRs used to satisfy these objectives do not conflict with the NDcPP SFRs.
+          </consistency-rationale>
+          <addressed-by>FCO_NRO.1</addressed-by>
+          <rationale>
+            The TOE provides a non-repudiation function to assert the source of origin of its communications with the relying party.
+          </rationale>
+          <addressed-by>FCO_NRR.1</addressed-by>
+          <rationale>
+            The TOE provides a proof of receipt function to assert to a relying part that communications with it are successful.
+          </rationale>
+          <addressed-by>FCS_EAPTLS_EXT.1</addressed-by>
+          <rationale>
+            The TOE implements either EAP-TLS or EAP-TTLS as a mechanism to assert the success or failure of claimant authentication requests to the relying party.
+          </rationale>
+        </SO>
+        
         <SO name="O.TRUSTED_RP">
           <description>The TOE shall provide mechanisms to authenticate itself to a federated RP and authenticate a federated RP before providing an identity assertion.
           </description>
@@ -281,18 +336,23 @@
             The NDcPP does not define any TOE objectives; instead, it maps SFRs directly to threats. 
             The TOE objectives defined by this PP-Module are therefore assumed not to conflict with the NDcPP by virtue of the fact that the SFRs used to satisfy these objectives do not conflict with the NDcPP SFRs.
 	  </consistency-rationale>
-	  <addressed-by>FCS_EAPTLS_EXT.1</addressed-by>
-	  <rationale>
-	    TBD
-	  </rationale>
-          <addressed-by>FIA_PSK_EXT.1/AuthSvr</addressed-by>
+          <addressed-by>FCS_EAPTLS_EXT.1</addressed-by>
           <rationale>
-         TBD   
-          </rationale>          
+            The TOE implements either EAP-TLS or EAP-TTLS with mutual authentication to authenticate itself to a relying party. 
+          </rationale>    
           <addressed-by>FTP_ITC.1/NAS</addressed-by>
           <rationale>
-            TBD
-          </rationale>
+            The TOE implements a cryptographically secure trusted channel with a relying party that allows to authorize itself to the relying party.
+          </rationale>      
+          <addressed-by>FCS_RADSEC_EXT.1</addressed-by>
+          <rationale>
+            RadSec is one potential mechanism by which the TOE can establish a trusted channel with the relying party.   
+          </rationale>          
+          <addressed-by>FIA_PSK_EXT.1/AuthSvr</addressed-by>
+          <rationale>
+            Depending on the configuration of the trusted channel used to communicate with the relying party, the TOE may use a pre-shared key as the mechanism by which it authenticates itself to the relying party.  
+          </rationale>                   
+
 		  </SO>
          
          
@@ -303,33 +363,45 @@
             The NDcPP does not define any TOE objectives; instead, it maps SFRs directly to threats. 
             The TOE objectives defined by this PP-Module are therefore assumed not to conflict with the NDcPP by virtue of the fact that the SFRs used to satisfy these objectives do not conflict with the NDcPP SFRs.
           </consistency-rationale>
+          <addressed-by>FCS_RADIUS_EXT.1</addressed-by>
+          <rationale>
+            The TOE implements RADIUS, DIAMETER, or some other direct identity federation protocol to communicate the success or failure of claimant authentication requests.
+          </rationale>
           <addressed-by>FIA_AFL.1/AuthSvr</addressed-by>
           <rationale>
-            TBD
-          </rationale>
-          <addressed-by>FIA_UAU.6</addressed-by>
+            The TOE implements a mechanism to prevent claimant authentication attempts if an excessive number of failed attempts have been made. 
+          </rationale> 
+          <addressed-by>FTA_X509_EXT.1/AuthSvr</addressed-by>
           <rationale>
-            TBD   
-          </rationale>          
+            The TOE implements a mechanism to determine the validity of X.509 certificates that are used as claimant authenticators.
+          </rationale>
           <addressed-by>FTA_TSE.1</addressed-by>
           <rationale>
-            TBD
+            The TOE implements a mechanism to assert the failure of a claimant authentication attempt based on attributes of the claimant or of the attempt.
           </rationale>
-        </SO>
-
-  
-        <SO name="O.SECURITY_ASSOCIATION">
-          <description>The TOE shall provide the information to the relying party to enable the relying party to verify that the claimant has possession of an authentication key.
-          </description>
-          <consistency-rationale>
-            The NDcPP does not define any TOE objectives; instead, it maps SFRs directly to threats. 
-            The TOE objectives defined by this PP-Module are therefore assumed not to conflict with the NDcPP by virtue of the fact that the SFRs used to satisfy these objectives do not conflict with the NDcPP SFRs.
-          </consistency-rationale>
-          <addressed-by>FCS_EAPTLS_EXT.1</addressed-by>
+          <addressed-by>FIA_HOTP_EXT.1</addressed-by>
           <rationale>
-            TBD
+            The TOE optionally supports HOTP as a form of claimant authenticator and implements mechanisms to determine the validity of a HOTP credential if supported. 
+          </rationale>
+          <addressed-by>FIA_PSK_EXT.1/AuthSvr</addressed-by>
+          <rationale>
+            The TOE optionally supports PSKs as a form of claimant authenticator and may specifically support one or more of HOTP, TOTP, or password-based PSK.
+          </rationale>
+          <addressed-by>FIA_PSK_EXT.2</addressed-by>
+          <rationale>
+            The TOE optionally supports randomly generated PSKs as a form of claimant authenticator.
+          </rationale>
+          <addressed-by>FIA_PSK_EXT.3</addressed-by>
+          <rationale>
+            The TOE optionally supports password-based PSKs as a form of claimant authenticator and implements mechanisms to determine the validity of a password-based PSK credential if supported.
+          </rationale>
+          <addressed-by>FIA_TOTP_EXT.1</addressed-by>
+          <rationale>
+            The TOE optionally supports TOTP as a form of claimant authenticator and implements mechanisms to determine the validity of a TOTP credential if supported.
           </rationale>
         </SO>
+        
+        
       </SOs>
       </sec:Security_Objectives_for_the_TOE>
       
