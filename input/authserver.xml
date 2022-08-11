@@ -458,7 +458,7 @@
                 <h:td>If failure occurs, record a descriptive reason for the failure</h:td>
               </h:tr>
               <h:tr>
-                <h:td>Successful authentication of claimant</h:td>
+                <h:td>Successful and failed authentication of claimant</h:td>
                 <h:td>Identifier of claimant</h:td>
               </h:tr>
               <h:tr>
@@ -783,11 +783,15 @@
           <consistency-rationale>This SFR applies to implementation of EAP-TLS; the Base-PP defines implementation requirements for (D)TLS, but EAP-TLS is beyond the original scope of the Base-PP. </consistency-rationale>
 
           <comp-lev>requires the TSF to implement EAP and EAP-TLS according to appropriate standards.</comp-lev>
-          <management>No specific management functions are identified.</management>
+          <management>The following actions could be considered for the management functions in FMT:
+            <h:ul>
+              <h:li>Configuration of claimant verification data</h:li>
+              <h:li>Configuration of claimant authentication policy</h:li>
+            </h:ul></management>
           <audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
             <h:ul>
               <h:li>Protocol failures</h:li>
-              <h:li>Establishment of a TLS session</h:li>
+              <h:li>Successful and failed authentication attempts</h:li>
             </h:ul>
           </audit>
           <dependencies>FCS_RBG_EXT.1 Random Bit Generation<h:p/>
@@ -1028,7 +1032,10 @@
           that such data is not stored in plaintext.</consistency-rationale>
           
           <comp-lev>requires the TSF to identify a mechanism used to securely store cryptographic keys.</comp-lev>
-          <management>No specific management functions are identified.</management>
+          <management>The following actions could be considered for the management functions in FMT:
+            <h:ul>
+              <h:li>Configuration of cryptographic key storage</h:li>
+            </h:ul></management>
           <audit>There are no auditable events foreseen.</audit>
           <dependencies>None</dependencies>
 
@@ -1332,13 +1339,26 @@
 			<title>The TSF shall be capable of performing the following management functions: 
 			  <h:ul>
 			    <h:li>Ability to configure claimant verification data</h:li>
-			    <h:li>Ability to manage relying party trust store data</h:li>
-			    <h:li>Ability to enable, disable, and determine and modify the behavior of all the security functions of the TOE identified in this PP-Module to include <assignable>list of supported functions</assignable></h:li>
+			    <h:li>Ability to manage trust store data</h:li>
+			    <h:li>Ability to configure administrator authentication credential</h:li>
+			    <h:li>Ability to configure trusted channel to relying party</h:li>
 			    <h:li><selectables linebreak="yes">
 			      <selectable>Ability to configure IPsec functionality</selectable>
 			      <selectable>Ability to configure DTLS functionality</selectable>
 			      <selectable>Ability to configure TLS functionality</selectable>
 			      <selectable>Ability to manage claimant authentication policy</selectable>
+			      <selectable>Ability to configure RADIUS shared secret</selectable>
+			      <selectable>Ability to define authorized NAS</selectable>
+			      <selectable>Ability to configure cryptographic key storage</selectable>
+			      <selectable>Ability to configure lockout policy for failed claimant authentication</selectable>
+			      <selectable>Ability to unlock a claimant account</selectable>
+			      <selectable>Ability to configure certificate validation checking mechanisms</selectable>
+			      <selectable>Ability to define conditions in which claimant authentication attempts are rejected</selectable>
+			      <selectable>Ability to associate pre-shared keys with claimants or external entities</selectable>
+			      <selectable>Ability to configure restrictions on the composition of pre-shared keys</selectable>
+			      <selectable>Ability to configure restrictions on the validation of pre-shared keys</selectable>
+			      <selectable>Ability to generate pre-shared keys</selectable>
+			      <selectable>Ability to accept pre-shared keys</selectable>
 			      <selectable>No other functions</selectable>
 			    </selectables>.</h:li>
 			  </h:ul>
@@ -1447,7 +1467,10 @@
             specified in the Base-PP, depending on the selected peer authentication method.</consistency-rationale>
           
           <comp-lev>defines implementation requirements for RadSec.</comp-lev>
-          <management>No specific management functions are identified.</management>
+          <management>The following actions could be considered for the management functions in FMT:
+            <h:ul>
+              <h:li>Configuration of trusted channel to relying party</h:li>
+            </h:ul></management>
           <audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
           <h:ul>
             <h:li>Failure to establish RadSec session.</h:li>
@@ -1511,7 +1534,11 @@
           <depends on-sel="eaptls-uses-hotp" and="psk-uses-hotp"/>
           <consistency-rationale>This SFR extends the functionality of the Base-PP by defining the use of pre-shared keys as an authenticator.</consistency-rationale>
           <comp-lev> defines the implementation of HOTP.</comp-lev>
-          <management>No specific management functions are identified.</management>
+          <management>The following actions could be considered for the management functions in FMT:
+            <h:ul>
+              <h:li>Ability to configure restrictions on the composition of pre-shared keys</h:li>
+              <h:li>Ability to configure restrictions on the validation of pre-shared keys</h:li>
+            </h:ul></management>
           <audit>There are no auditable events foreseen.
           </audit>
           <dependencies>FCS_COP.1 Cryptographic Operation<h:p/>
@@ -1662,7 +1689,10 @@
         <f-component cc-id="fia_psk_ext.1" name="Pre-Shared Key Usage" status="invisible">
           <consistency-rationale/>
           <comp-lev>defines the use and composition of pre-shared keys used for authentication.</comp-lev>
-          <management>No specific management functions are identified.</management>
+          <management>The following actions could be considered for the management functions in FMT:
+            <h:ul>
+              <h:li>Ability to associate pre-shared keys with claimants or external entities</h:li>
+            </h:ul></management>
           <audit>There are no auditable events foreseen.
           </audit>
           <dependencies>[<no-link>FCS_EAPTLS_EXT.1</no-link> EAP-TLS Protocol, or <h:p/>
@@ -1715,7 +1745,7 @@
               This SFR is claimed if any other TOE functions require the use of pre-shared keys. Within the scope of this PP-Module, this includes the following:
               <h:ul>
                 <h:li>Any of "static PSK," "HOTP," or "TOTP" is selected in FCS_EAPTLS_EXT.1.3.</h:li>
-                <h:li>"pre-shared keys" is selected in FCS_RADSEC_EXT.1.1.</h:li>
+                <h:li>"pre-shared keys" is selected in FCS_RADSEC_EXT.1.2.</h:li>
                 <h:li>"pre-shared keys" is selected in FCS_IPSEC_EXT.1.13 (from the Base-PP).</h:li>
               </h:ul>
               <h:p/>
@@ -1777,11 +1807,12 @@
           
           <consistency-rationale>This SFR extends the functionality of the Base-PP by defining the use of pre-shared keys as an authenticator.</consistency-rationale>
           <comp-lev>defines the use and composition of generated pre-shared keys used for authentication.</comp-lev>
-          <management>No specific management functions are identified.</management>
-          <audit>The following actions should be auditable if FAU_GEN Security Audit Data Generation is included in the
-            PP/ST:<h:ul>
-              <h:li>Failure of the randomization process</h:li>
-            </h:ul>
+          <management>The following actions could be considered for the management functions in FMT:
+            <h:ul>
+              <h:li>Ability to generate pre-shared keys</h:li>
+              <h:li>Ability to accept pre-shared keys</h:li>
+            </h:ul></management>
+          <audit>There are no auditable events foreseen.
           </audit>
           <dependencies><no-link>FIA_PSK_EXT.1</no-link> Pre-Shared Key Usage</dependencies>
           <f-element id="fia-psk-ext-2e1">
@@ -1826,7 +1857,11 @@
           <depends on-sel="psk-password"/>
           <consistency-rationale>This SFR extends the functionality of the Base-PP by defining the use of pre-shared keys as an authenticator.</consistency-rationale>
           <comp-lev>defines the use and composition of password-based pre-shared keys used for authentication.</comp-lev>
-          <management>No specific management functions are identified.</management>
+          <management>The following actions could be considered for the management functions in FMT:
+            <h:ul>
+              <h:li>Ability to configure restrictions on the composition of pre-shared keys</h:li>
+              <h:li>Ability to configure restrictions on the validation of pre-shared keys</h:li>
+            </h:ul></management>
           <audit>No auditable events are foreseen.</audit>
           <dependencies>FCS_COP.1 Cryptographic Operation <h:p/>
             FCS_RBG_EXT.1 Random Bit Generation <h:p/>
@@ -1963,7 +1998,11 @@
           <depends on-sel="eaptls-uses-totp" and="psk-uses-totp"/>
           <consistency-rationale>This SFR extends the functionality of the Base-PP by defining the use of pre-shared keys as an authenticator.</consistency-rationale>
           <comp-lev> defines the implementation of TOTP.</comp-lev>
-          <management>No specific management functions are identified.</management>
+          <management>The following actions could be considered for the management functions in FMT:
+            <h:ul>
+              <h:li>Ability to configure restrictions on the composition of pre-shared keys</h:li>
+              <h:li>Ability to configure restrictions on the validation of pre-shared keys</h:li>
+            </h:ul></management>
           <audit>There are no auditable events foreseen.
           </audit>
           <dependencies>FCS_COP.1 Cryptographic Operation<h:p/>
