@@ -475,10 +475,6 @@
                 <h:td colspan="2">None</h:td>
               </h:tr>
               <h:tr>
-                <h:td>FCS_RADSEC_EXT.2 (selection-based)</h:td>
-                <h:td colspan="2">None</h:td>
-              </h:tr>
-              <h:tr>
                 <h:td>FCS_STG_EXT.1</h:td>
                 <h:td colspan="2">None</h:td>
               </h:tr>
@@ -500,7 +496,7 @@
                 <h:td>Result of comparison - success or failure</h:td>
               </h:tr>
               <h:tr>
-                <h:td>FIA_PSK_EXT.1 (selection-based)</h:td>
+                <h:td>FIA_PSK_EXT.1/AuthSvr (selection-based)</h:td>
                 <h:td colspan="2">None</h:td>
               </h:tr>
               <h:tr>
@@ -736,7 +732,7 @@
         
         
         <f-component name="Cryptographic Key Access" cc-id="fcs_ckm.3">
-            <consistency-rationale>TBD</consistency-rationale>
+            <consistency-rationale>The Base-PP requires confidentiality of cryptographic key data in FPT_SKP_EXT.1. This SFR defines more specific detail on how that function should be enforced.</consistency-rationale>
           <f-element>
             <title>
               The TSF shall perform [<h:i>access control for persistent private and secret keys and security critical parameters required by this PP-Module</h:i>] 
@@ -823,13 +819,14 @@
           <f-element>
             <title>
               The TSF shall support claimant authentication using certificates and <selectables>
-                <selectable>static PSK</selectable>
-                <selectable>HOTP</selectable>
-                <selectable>TOTP</selectable>
+                <selectable id="eaptls-uses-psk">static PSK</selectable>
+                <selectable id="eaptls-uses-hotp">HOTP</selectable>
+                <selectable id="eaptls-uses-totp">TOTP</selectable>
                 <selectable><assignable>other authentication-verification protocols</assignable></selectable>
                 <selectable>other authentication-verification protocols via pass-through functionality</selectable>
                 <selectable>no other authentication methods</selectable></selectables>.
             </title>
+            
           </f-element>
           <f-element>
 
@@ -860,6 +857,13 @@
               the expectation that the corresponding SFRs from the Base-PP are claimed.
               <h:p/>
               The selection in FCS_EAPTLS_EXT.1.2 matches the first selection in FCS_EAPTLS_EXT.1.1.
+              <h:p/>
+              The selections made in FCS_EAPTLS_EXT.1.3 may trigger the inclusion of selection-based SFRs, as follows: 
+              <h:ul>
+                <h:li>Any of "static PSK," "HOTP," or "TOTP" requires inclusion of FIA_PSK_EXT.1/AuthSvr.</h:li>
+                <h:li>"HOTP" requires inclusion of FIA_HOTP_EXT.1.</h:li>
+                <h:li>"TOTP" requires inclusion of FIA_TOTP_EXT.1</h:li>
+              </h:ul>
               <h:p/>
               The ST author claims any additional supported authentication methods in FCS_EAPTLS_EXT.1.3. Each supported method is claimed independently, even if combinations of the methods are required for individual claimant authentication. 
               For any authentication methods that are only supported by pass-through functionality, the ST author should claim 'other authentication-verification protocls via pass-through functionality' without claiming the corresponding method
@@ -960,7 +964,7 @@
               <h:li>Success/failure of authentication</h:li>
             </h:ul>
           </audit>
-          <dependencies>FCS_EAPTLS_EXT.1 EAP-TLS Protocol</dependencies>
+          <dependencies><no-link>FCS_EAPTLS_EXT.1</no-link> EAP-TLS Protocol</dependencies>
           
           <f-element>
             <title>
@@ -997,8 +1001,8 @@
             </note>
             <aactivity>
               <TSS>The evaluator shall review the ST to ensure the supported protocols are described and that the description includes the following: <h:ul>
-                <h:li>Types of claimant-held keys that can be used by the relying party for key-holder verification in accordance with the supported EAP mode claimed in FCS_EAPTLS_EXT.1</h:li>
-                <h:li>How information provided by the TOE to the relying party allows the relying party to perform key-holder verification using the key</h:li> 
+                <h:li>Types of claimant-held keys that can be used by the relying party for key-holder verification in accordance with the supported EAP mode claimed in FCS_EAPTLS_EXT.1.</h:li>
+                <h:li>How information provided by the TOE to the relying party allows the relying party to perform key-holder verification using the key.</h:li> 
                 <h:li>How key related information provided by the TOE is protected in transit to the relying party.</h:li>
               </h:ul><h:p/>
               </TSS>
@@ -1019,7 +1023,7 @@
           <fam-behavior>Components in this family define requirements for secure storage of cryptographic keys.</fam-behavior> 
         </ext-comp-def>
         
-        <f-component name="Authentication Protocol" cc-id="fcs_radius_ext.1">
+        <f-component name="Cryptographic Key Storage" cc-id="fcs_stg_ext.1">
           <consistency-rationale>This SFR is consistent with the FPT_SKP_EXT.1 requirement of the Base-PP but requires the TSF to implement a specific method of protecting key data rather than a general statement
           that such data is not stored in plaintext.</consistency-rationale>
           
@@ -1336,8 +1340,8 @@
 			      <selectable>Ability to configure TLS functionality</selectable>
 			      <selectable>Ability to manage claimant authentication policy</selectable>
 			      <selectable>No other functions</selectable>
-			    </selectables></h:li>
-			  </h:ul>.
+			    </selectables>.</h:li>
+			  </h:ul>
 			</title>
 			  <note role="Application">
 			    This SFR defines additional management functions for the TOE beyond what is defined in the Base-PP as FMT_SMF.1. 
@@ -1395,12 +1399,13 @@
 			  <title>
 			    The TSF shall provide <h:b><selectables>
 			      <selectable>an IPsec</selectable>
-			      <selectable>a RadSec</selectable>
+			      <selectable id="uses-radsec">a RadSec</selectable>
 			      <selectable>a mutually authenticated TLS</selectable>
 			      <selectable>a mutually authenticated DTLS</selectable></selectables></h:b>
 			    communication channel between itself and <h:b>a relying party</h:b> that is logically distinct from other communication channels and provides assured 
 			    identification of its end points and protection of the channel data from modification or disclosure.
 				  </title>
+			    <note role="Application">If "a RadSec" is selected, the selection-based SFR FCS_RADSEC_EXT.1 must be claimed.</note>
 				</f-element>
 			    <f-element>
 		<title>
@@ -1436,7 +1441,7 @@
         </ext-comp-def>
         
         <f-component name="RadSec" cc-id="fcs_radsec_ext.1">
-		  <depends on="s-radius"/>
+		  <depends on-sel="uses-radsec"/>
           <consistency-rationale>This SFR defines the implementation of RadSec and the peer authentication method that it uses. 
             This relies on the TLS requirements defined by the Base-PP and may also use the X.509v3 certificate validation methods
             specified in the Base-PP, depending on the selected peer authentication method.</consistency-rationale>
@@ -1449,9 +1454,9 @@
           </h:ul></audit>
           <dependencies>
 	    FCS_TLSC_EXT.1 TLS Client Protocol<h:p/>
-            FCS_RADIUS_EXT.1 Authentication Protocol<h:p/>
+            <no-link>FCS_RADIUS_EXT.1</no-link> Authentication Protocol<h:p/>
             FCS_RBG_EXT.1 Random Bit Generation<h:p/>
-            [FIA_PSK_EXT.1 Pre-Shared Key Composition, or<h:p/>
+            [<no-link>FIA_PSK_EXT.1</no-link> Pre-Shared Key Composition, or<h:p/>
             FIA_X509_EXT.1 X.509 Certificate Validation]
             
 	  </dependencies>
@@ -1477,6 +1482,7 @@
                 <selectable>TLS</selectable>
                 <selectable>DTLS</selectable></selectables> with mutual authentication.
             </title>
+            <note role="Application">This SFR is claimed if "a RadSec" is selected in FTP_ITC.1.1/NAS.</note>
           <aactivity>
               <TSS>
                 TBD<h:p/>
@@ -1502,8 +1508,8 @@
           <fam-behavior>Components in this family define requirements for use of HMAC-based One-Time Password authentication, including generation methods and usage restrictions.</fam-behavior>
         </ext-comp-def>
         <f-component cc-id="fia_hotp_ext.1" id="fia-hotp-ext-1" name="HMAC-Based One-Time Password Pre-Shared Keys">
-          <!-- <depends on-sel="sel-verify-hotp"/> -->
-          <consistency-rationale/>
+          <depends on-sel="eaptls-uses-hotp" and="psk-uses-hotp"/>
+          <consistency-rationale>This SFR extends the functionality of the Base-PP by defining the use of pre-shared keys as an authenticator.</consistency-rationale>
           <comp-lev> defines the implementation of HOTP.</comp-lev>
           <management>No specific management functions are identified.</management>
           <audit>There are no auditable events foreseen.
@@ -1592,6 +1598,8 @@
             </title>
             
             <note role="application">
+              This SFR is claimed if "HOTP" is selected in FCS_EAPTLS_EXT.1.3 or if "HMAC based one-time password" is selected in FIA_PSK_EXT.1.2/AuthSvr.
+              <h:p/>
               The selection in FIA_HOTP_EXT.1.4 must be consistent with the key size specified for the size of the keys used in conjunction with the keyed-hash message authentication.
               <h:p/>In FIA_HOTP_EXT.1.5 the ST author may either provide a configurable character length of at least 6 or a preset size between 6 and 10.
               <h:p/>In FIA_HOTP_EXT.1.6 the ST may select throttle requests, account lockout, or both.
@@ -1651,14 +1659,14 @@
         </ext-comp-def>
 		
 		<!-- FIA_PSK_EXT.1 Pre-Shared Key Composition -->
-        <f-component cc-id="fia_psk_ext.1" id="fia-psk-ext-1" name="Pre-Shared Key Usage" status="invisible">
+        <f-component cc-id="fia_psk_ext.1" name="Pre-Shared Key Usage" status="invisible">
           <!--     <depends on-sel="sel-ipsec-e11-psk"/> -->
           <consistency-rationale/>
           <comp-lev>defines the use and composition of pre-shared keys used for authentication.</comp-lev>
           <management>No specific management functions are identified.</management>
           <audit>There are no auditable events foreseen.
           </audit>
-          <dependencies>[FCS_EAPTLS_EXT.1 EAP-TLS Protocol, or <h:p/>
+          <dependencies>[<no-link>FCS_EAPTLS_EXT.1</no-link> EAP-TLS Protocol, or <h:p/>
             FCS_IPSEC_EXT.1 IPsec]</dependencies>
           <f-element>
             <title>
@@ -1678,9 +1686,9 @@
         
         
         
-        <f-component cc-id="fia_psk_ext.1" id="fia-psk-ext-1" name="Pre-Shared Key Usage (Claimant Authentication)" iteration="AuthSvr">
+        <f-component cc-id="fia_psk_ext.1" name="Pre-Shared Key Usage (Claimant Authentication)" iteration="AuthSvr">
      <!--     <depends on-sel="sel-ipsec-e11-psk"/> -->
-          <consistency-rationale>TBD</consistency-rationale>
+          <consistency-rationale>This SFR extends the functionality of the Base-PP by defining the use of pre-shared keys as an authenticator.</consistency-rationale>
           
           <f-element id="fia-psk-ext-1e1">
             <title>
@@ -1699,12 +1707,19 @@
             <title>
               The TSF shall be able to accept the following as pre-shared keys: 
               <selectables>
-                <selectable id="pskgen">generated bit-based</selectable>
-                <selectable id="pskpw">password-based</selectable>
-                <selectable id="pskhotp">HMAC-based one-time password</selectable>
-                <selectable id="psktotp">time-based one-time password</selectable></selectables>.
+                <selectable id="psk-generated">generated bit-based</selectable>
+                <selectable id="psk-password">password-based</selectable>
+                <selectable id="psk-uses-hotp">HMAC-based one-time password</selectable>
+                <selectable id="psk-uses-totp">time-based one-time password</selectable></selectables>.
             </title>
             <note role="application">
+              This SFR is claimed if any other TOE functions require the use of pre-shared keys. Within the scope of this PP-Module, this includes the following:
+              <h:ul>
+                <h:li>Any of "static PSK," "HOTP," or "TOTP" is selected in FCS_EAPTLS_EXT.1.3.</h:li>
+                <h:li>"pre-shared keys" is selected in FCS_RADSEC_EXT.1.1.</h:li>
+                <h:li>"pre-shared keys" is selected in FCS_IPSEC_EXT.1.13 (from the Base-PP).</h:li>
+              </h:ul>
+              <h:p/>
               IPsec is claimed in FIA_PSK_EXT.1.1/AuthSvr if IPsec is claimed in FTP_ITC.1/NAS and the selection for FCS_IPSEC_EXT.1.13 in the Base-PP includes ‘pre-shared keys’.  
               PSK in IPsec may use any supported type of PSK – those supported are claimed in FIA_PSK_EXT.1.2/AuthSvr. Use of certificates in IPsec is preferred.
               <h:p/>
@@ -1725,7 +1740,8 @@
               <h:p/>
               HOTP or TOTP, respectively, are claimed if the respective entry is claimed in FCS_EAPTLS_EXT.1.3 and the TSF validates the HOTP or TOTP values presented in an authentication request. 
               If claimed, the PSK represents the seed key value generated by the TOE and shared via out-of-band mechanisms with the claimant as well as 
-              the HOTP or TOTP values presented by a claimant to be validated; the ‘generated as bit-based PSK’ as well as the respective HOTP or TOTP entries are claimed in FIA_PSK_EXT.1.2/AuthSvr.
+              the HOTP or TOTP values presented by a claimant to be validated; the ‘generated as bit-based PSK’ as well as the respective HOTP or TOTP entries are claimed in FIA_PSK_EXT.1.2/AuthSvr. The selection-based SFRs
+              FIA_HOTP_EXT.1 and FIA_TOTP_EXT.1 must also be claimed if HOTP or TOTP are claimed, respectively.
               <h:p/>
               Note that if HOTP or TOTP mechanisms are supported, but the values are only validated by an external entity, the HOTP or TOTP entries are not claimed in FIA_PSK_EXT.1/AuthSvr.
               <h:p/>
@@ -1757,12 +1773,10 @@
         
         
         <f-component cc-id="fia_psk_ext.2" id="fia-psk-ext-2" name="Generated Pre-Shared Keys">
-          <!-- 
-          <depends on-sel="pskgen"/>
-          <depends on-sel="pskgenhotp"/>
-          <depends on-sel="pskgentotp"/>
-          -->
-          <consistency-rationale>TBD</consistency-rationale>
+          
+          <depends on-sel="psk-generated"/>
+          
+          <consistency-rationale>This SFR extends the functionality of the Base-PP by defining the use of pre-shared keys as an authenticator.</consistency-rationale>
           <comp-lev>defines the use and composition of generated pre-shared keys used for authentication.</comp-lev>
           <management>No specific management functions are identified.</management>
           <audit>The following actions should be auditable if FAU_GEN Security Audit Data Generation is included in the
@@ -1770,7 +1784,7 @@
               <h:li>Failure of the randomization process</h:li>
             </h:ul>
           </audit>
-          <dependencies>FIA_PSK_EXT.1 Pre-Shared Key Usage</dependencies>
+          <dependencies><no-link>FIA_PSK_EXT.1</no-link> Pre-Shared Key Usage</dependencies>
           <f-element id="fia-psk-ext-2e1">
             <title>
               The TSF shall be able to 
@@ -1784,9 +1798,11 @@
                   </selectable></selectables>.
             </title>
             <note role="application">
+              This SFR is claimed if "generated bit-based" is selected in FIA_PSK_EXT.1.2/AuthSvr.
+              <h:p/>
               Generated PSKs are expected to be shared between components via an out of band mechanism. 
                             <h:p/>
-              This requirement is selection-dependent on FIA_PSK_EXT.1/AuthSvr.
+              
             </note>
             <aactivity>
               <TSS>If "generate" is selected, the evaluator shall confirm that this process uses the RBG specified in FCS_RBG_EXT.1 
@@ -1808,17 +1824,14 @@
         </f-component>
         
         <f-component cc-id="fia_psk_ext.3" id="fia-psk-ext-3" name="Password-Based Pre-Shared Keys">
-          <!-- 
-          <depends on-sel="pskpw"/>
-          <depends on-sel="pskpwhotp"/>
-          <depends on-sel="pskpwtotp"/>  -->
-          <consistency-rationale>TBD</consistency-rationale>
+          <depends on-sel="psk-password"/>
+          <consistency-rationale>This SFR extends the functionality of the Base-PP by defining the use of pre-shared keys as an authenticator.</consistency-rationale>
           <comp-lev>defines the use and composition of password-based pre-shared keys used for authentication.</comp-lev>
           <management>No specific management functions are identified.</management>
           <audit>No auditable events are foreseen.</audit>
           <dependencies>FCS_COP.1 Cryptographic Operation <h:p/>
             FCS_RBG_EXT.1 Random Bit Generation <h:p/>
-            FIA_PSK_EXT.1 Pre-Shared Key Usage</dependencies>
+            <no-link>FIA_PSK_EXT.1</no-link> Pre-Shared Key Usage</dependencies>
           <f-element id="fia-psk-ext-3e1">
             <title>
               The TSF shall support a PSK of up to <assignable>positive integer of 64 or more</assignable> characters. 
@@ -1879,6 +1892,8 @@
                   <selectable>perform no action to assist the user in choosing a strong password</selectable></selectables>. 
               </title>
             <note role="application">
+              This SFR is claimed if "password-based" is selected in FIA_PSK_EXT.1.2/AuthSvr.
+              <h:p/>
               For FIA_PSK_EXT.3.1, the ST author assigns the maximum size of the PSK it supports; it must support at least 64 characters. 
               <h:p/>
               For FIA_PSK_EXT.3.2, the ST author assigns any other supported characters; if there are no other supported characters, they should select "no other characters." 
@@ -1946,9 +1961,8 @@
           <fam-behavior>Components in this family define requirements for use of Time-Based One-Time password authentication, including generation methods and usage restrictions.</fam-behavior>
         </ext-comp-def>
         <f-component cc-id="fia_totp_ext.1" id="fia-totp-ext-1" name="Time-Based One-Time Password Pre-Shared Keys">
-          <!-- 
-          <depends on-sel="sel-psk5-ext-e2-verify"/> -->
-          <consistency-rationale>TBD</consistency-rationale>
+          <depends on-sel="eaptls-uses-totp" and="psk-uses-totp"/>
+          <consistency-rationale>This SFR extends the functionality of the Base-PP by defining the use of pre-shared keys as an authenticator.</consistency-rationale>
           <comp-lev> defines the implementation of TOTP.</comp-lev>
           <management>No specific management functions are identified.</management>
           <audit>There are no auditable events foreseen.
@@ -2044,6 +2058,8 @@
             </title>
          
             <note role="application">
+              This SFR is claimed if "TOTP" is selected in FCS_EAPTLS_EXT.1.3 or if "time based one-time password" is selected in FIA_PSK_EXT.1.2/AuthSvr.
+              <h:p/>
               The selection FIA_TOTP_EXT.1.4 must be consistent with the key size specified for the size of the keys used in conjunction with the keyed-hash message authentication.
               <h:p/>
               In FIA_TOTP_EXT.1.5, the ST author may either provide a configurable character length of at least 6 or a preset size between 6 and 10.
@@ -2132,103 +2148,102 @@
         <h:td>Description</h:td>
         <h:td>Distributed TOE SFR Allocation</h:td>
       </h:tr>
-      <!--  
       <h:tr>
-        <h:td>FCS_COP.1/DataEncryption</h:td>
-        <h:td>Cryptographic Operation (AES Data Encryption/Decryption)</h:td>
-        <h:td>All</h:td>
-      </h:tr>
-     <h:tr>
-     <h:td>FPT_TST_EXT.1</h:td>
-       <h:td>TSF Testing</h:td>
-       <h:td>All</h:td> 
-     </h:tr>
-      <h:tr>
-        <h:td>FTP_ITC.1</h:td>
-        <h:td>Inter-TSF Trusted Channel</h:td>
-        <h:td>One</h:td>
-        </h:tr>
-     -->
-      <h:tr>
-        <h:td>FAU_GEN.1/WLAN</h:td>
-        <h:td>Audit Data Generation</h:td>
+        <h:td>FAU_GEN.1/AuthSvr</h:td>
+        <h:td>Audit Data Generation (Authentication Server)</h:td>
         <h:td>All</h:td>
       </h:tr>
       <h:tr>
-        <h:td>FCS_CKM.1/WPA</h:td>
-        <h:td>Cryptographic Key Generation (Symmetric Keys for WPA2 Connections)</h:td>
-        <h:td>One</h:td>
+        <h:td>FCO_NRO.1</h:td>
+        <h:td>Selective Proof of Origin</h:td>
+        <h:td>Implementation-dependent</h:td>
       </h:tr>
       <h:tr>
-        <h:td>FCS_CKM.2/GTK</h:td>
-        <h:td>Cryptographic Key Distribution (GTK)</h:td>
-        <h:td>Feature Dependent</h:td>
+        <h:td>FCO_NRR.1</h:td>
+        <h:td>Selective Proof of Receipt</h:td>
+        <h:td>Implementation-dependent</h:td>
       </h:tr>
       <h:tr>
-        <h:td>FCS_CKM.2/PMK</h:td>
-        <h:td>Cryptographic Key Distribution (PMK)</h:td>
-        <h:td>Feature Dependent</h:td>
+        <h:td>FCS_CKM.3</h:td>
+        <h:td>Cryptographic Key Access</h:td>
+        <h:td>All</h:td>
       </h:tr>
       <h:tr>
-        <h:td>FIA_8021X_EXT.1</h:td>
-        <h:td>802.1X Port Access Entity (Authenticator) Authentication</h:td>
-        <h:td>One</h:td>
+        <h:td>FCS_EAPTLS_EXT.1</h:td>
+        <h:td>EAP-TLS Protocol</h:td>
+        <h:td>Implementation-dependent</h:td>
+      </h:tr>
+      <h:tr>
+        <h:td>FCS_RADIUS_EXT.1</h:td>
+        <h:td>Authentication Protocol</h:td>
+        <h:td>Implementation-dependent</h:td>
+      </h:tr>
+      <h:tr>
+        <h:td>FCS_STG_EXT.1</h:td>
+        <h:td>Cryptographic Key Storage</h:td>
+        <h:td>All</h:td>
+      </h:tr>
+      <h:tr>
+        <h:td>FIA_AFL.1/AuthSvr</h:td>
+        <h:td>Authentication Failure Handling (Claimant)</h:td>
+        <h:td>Implementation-dependent</h:td>
+      </h:tr>
+      <h:tr>
+        <h:td>FIA_X509_EXT.1/AuthSvr</h:td>
+        <h:td>X.509 Certificate Validation (Claimant)</h:td>
+        <h:td>Implementation-dependent</h:td>
       </h:tr>
       <h:tr>
         <h:td>FIA_UAU.6</h:td>
         <h:td>Re-Authenticating</h:td>
-        <h:td>Feature Dependent</h:td>
+        <h:td>Implementation-dependent</h:td>
       </h:tr>
       <h:tr>
-        <h:td>FMT_SMF.1/AccessSystem</h:td>
-        <h:td>Specification of Management Functions</h:td>
-        <h:td>Feature Dependent</h:td>
-      </h:tr>
-      <h:tr>
-        <h:td>FMT_SMR_EXT.1</h:td>
-        <h:td>No Administration from Client</h:td>
-        <h:td>All</h:td>
-      </h:tr>
-      <h:tr>
-        <h:td>FPT_FLS.1</h:td>
-        <h:td>Failure with Preservation of Secure State</h:td>
+        <h:td>FMT_SMF.1/AuthSvr</h:td>
+        <h:td>Specification of Management Functions (Authentication Server)</h:td>
         <h:td>All</h:td>
       </h:tr>
       <h:tr>
         <h:td>FTA_TSE.1</h:td>
         <h:td>TOE Session Establishment</h:td>
-        <h:td>All</h:td>
+        <h:td>Implementation-dependent</h:td>
       </h:tr>
       <h:tr>
-        <h:td>FTP_ITC.1/Client</h:td>
-        <h:td>Inter-TSF Trusted Channel (WLAN Client Communications)</h:td>
-        <h:td>All</h:td>
+        <h:td>FTP_ITC.1/NAS</h:td>
+        <h:td>Inter-TSF Trusted Channel (Relying Party Communications)</h:td>
+        <h:td>Implementation-dependent</h:td>
       </h:tr>
       <h:tr>
-        <h:td>FCS_CKM.2/DISTRIB</h:td>
-        <h:td>Cryptographic Key Distribution (802.11 Keys)</h:td>
-        <h:td>Feature Dependent</h:td>
-      </h:tr>
-      <h:tr>
-        <h:td>FCS_RADSEC_EXT.1</h:td>
+        <h:td>FCS_RADSEC_EXT.1 (selection-based)</h:td>
         <h:td>RadSec</h:td>
-        <h:td>Feature Dependent</h:td>
+        <h:td>Implementation-dependent</h:td>
       </h:tr>
       <h:tr>
-        <h:td>FCS_RADSEC_EXT.2</h:td>
-        <h:td>RadSec using Pre-Shared Keys</h:td>
-        <h:td>Feature Dependent</h:td>
+        <h:td>FIA_HOTP_EXT.1 (selection-based)</h:td>
+        <h:td>HMAC-Based One-Time Password Pre-Shared Keys</h:td>
+        <h:td>Implementation-dependent</h:td>
       </h:tr>
       <h:tr>
-        <h:td>FCS_RADSEC_EXT.3</h:td>
-        <h:td>RadSec using Pre-Shared Keys and RSA</h:td>
-        <h:td>Feature Dependent</h:td>
+        <h:td>FIA_PSK_EXT.1/AuthSvr (selection-based)</h:td>
+        <h:td>Pre-Shared Key Usage</h:td>
+        <h:td>Implementation-dependent</h:td>
       </h:tr>
       <h:tr>
-        <h:td>FIA_PSK_EXT.1</h:td>
-        <h:td>Pre-Shared Key Composition</h:td>
-        <h:td>Feature Dependent</h:td>
+        <h:td>FIA_PSK_EXT.2 (selection-based)</h:td>
+        <h:td>Generated Pre-Shared Keys</h:td>
+        <h:td>Implementation-dependent</h:td>
       </h:tr>
+      <h:tr>
+        <h:td>FIA_PSK_EXT.3 (selection-based)</h:td>
+        <h:td>Password-Based Pre-Shared Keys</h:td>
+        <h:td>Implementation-dependent</h:td>
+      </h:tr>
+      <h:tr>
+        <h:td>FIA_TOTP_EXT.1 (selection-based)</h:td>
+        <h:td>Time-Based One-Time Password Pre-Shared Keys</h:td>
+        <h:td>Implementation-dependent</h:td>
+      </h:tr>
+      
     </h:table>
     
   </appendix>
