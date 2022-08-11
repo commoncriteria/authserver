@@ -15,7 +15,6 @@ output/authserver-release-linkable.html: PSKs
 output/authserver-release-linkable.html: RadSec
 output/authserver-release-linkable.html: SKP
 output/authserver-release-linkable.html: SP800
-output/authserver-release-linkable.html: TBD
 output/authserver-release-linkable.html: TTLS
 output/authserver-release-linkable.html: UPN
 output/authserver-release-linkable.html: anyExtendedKeyUsage
@@ -55,7 +54,6 @@ output/authserver-release.html: PSKs
 output/authserver-release.html: RadSec
 output/authserver-release.html: SKP
 output/authserver-release.html: SP800
-output/authserver-release.html: TBD
 output/authserver-release.html: TTLS
 output/authserver-release.html: UPN
 output/authserver-release.html: anyExtendedKeyUsage
