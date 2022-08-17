@@ -421,7 +421,7 @@
     </sec:Security_Objectives_Rationale>
   </sec:Security_Objectives>
   <sec:Security_Requirements>
-    <base-pp id="ND" version="2.2e" name="Network Device" product="Network Device" short="ND" plural="Network Devices">
+    <base-pp id="ND" version="2.2e" name="Network Device" product="Network Device" short="ND" plural="NDs">
       <url><![CDATA[https://www.niap-ccevs.org/profile/Info.cfm?PPID=447&id=447]]></url>
   	  <cPP/>
       <modified-sfrs>
