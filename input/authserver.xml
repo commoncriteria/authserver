@@ -35,14 +35,14 @@
       An authentication server provides assertions to a relying party that a particular request for access is from an authentic digital identity associated with various identity attributes, such as a registered account within an information system, 
       or a certified identity as validated by a trusted certification authority or both. 
       The digital identities can represent people, devices, or processes. Authentication servers validate various authenticators controlled by the entities represented by the presented digital identity. 
-      When the entity is a person, authenticators can provide indications of what the entity knows (e.g., a password, pin or passphrase), what the entity has (e.g., a registered device in the control of the user), 
+      When the entity is a person, authenticators can provide indications of what the entity knows (e.g., a password, pin, or passphrase), what the entity has (e.g., a registered device in the control of the user), 
       or what the entity is (a biometric). NIST SP 800-63-3 Part B provides recommendations about how these authenticators can be leveraged individually or in combinations to 
       provide assurance that the entity is authentic and describes requirements for validation of the authenticators to various assurance levels. 
       <h:p/>
       A relying party may delegate verification of authenticators to an authentication server; 
       such delegation creates a relationship between the relying party and the authentication server that is referred to as an identity federation. 
       Assertions to a federated relying party can be via bearer assertions or via direct communication with the relying party. 
-      The latter mechanism is modeled after that used by Authentication, Access and Accounting (AAA) servers, which used the RADIUS protocol. 
+      The latter mechanism is modeled after that used by Authentication, Access, and Accounting (AAA) servers, which used the RADIUS protocol. 
       RADIUS has been largely replaced by DIAMETER, a protocol that addresses many of the security issues with RADIUS. 
       These provide direct, back-end assertions protected by an authenticated and encrypted channel to a Network Access Server (NAS) that further governs accesses to resources on a network. 
       <h:p/>
@@ -155,7 +155,7 @@
     
     
     <sec:Use_Cases>
-      This PP-Module defines potential the use cases for the authentication server TOE, defined below. Use Case 1 defines the physical embodiment of the TOE, while Use Cases 2-4 define its role in a network infrastructure.
+      This PP-Module defines potential the use cases below for the authentication server TOE. Use Case 1 defines the physical embodiment of the TOE, while Use Cases 2-4 define its role in a network infrastructure.
       <usecases>
         <usecase id="usecase-dedicated" title="Dedicated Appliance">
           <description>The authentication server is integrated on a standalone network appliance. In this use case, conformance to the NDcPP and this PP-Module is sufficient to ensure security. 
@@ -743,7 +743,7 @@
      
      
         <f-component name="Selective Proof of Receipt" cc-id="fco_nrr.1">
-          <consistency-rationale>This SFR applies to implementation of the supported authentication protocol, which is beyond the original scope of the Base-PP.</consistency-rationale>
+          <consistency-rationale>This SFR applies to the implementation of the supported authentication protocol, which is beyond the original scope of the Base-PP.</consistency-rationale>
           <f-element>
             <title>
               The TSF shall be able to generate evidence of receipt for received [<h:i>authentication requests, 
@@ -2174,7 +2174,7 @@
             </title>
          
             <note role="application">
-              This SFR is claimed if "TOTP" is selected in FCS_EAPTLS_EXT.1.3 or if "time based one-time password" is selected in FIA_PSK_EXT.1.2/AuthSvr.
+              This SFR is claimed if "TOTP" is selected in FCS_EAPTLS_EXT.1.3 or if "time-based one-time password" is selected in FIA_PSK_EXT.1.2/AuthSvr.
               <h:p/>
               The selection FIA_TOTP_EXT.1.4 must be consistent with the key size specified for the size of the keys used in conjunction with the keyed-hash message authentication.
               <h:p/>
