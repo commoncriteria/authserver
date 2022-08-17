@@ -908,7 +908,7 @@
           <f-element>
 
             <title>
-              The TSF shall not forward an EAP-success response to the relying party if the client certificate is not valid according to FIA_X509_EXT.1<h:b>/Rev</h:b>, 
+              The TSF shall not forward an EAP-Success response to the relying party if the client certificate is not valid according to FIA_X509_EXT.1<h:b>/Rev</h:b>, 
               if the <selectables>
                 <selectable>TLS</selectable>
                 <selectable>DTLS</selectable></selectables> session is not established, or if any of <selectables>
@@ -919,7 +919,7 @@
             </title>
             <ext-comp-def-title>
               <title>
-                The TSF shall not forward an EAP-success response to the relying party if the client certificate is not valid according to FIA_X509_EXT.1, 
+                The TSF shall not forward an EAP-Success response to the relying party if the client certificate is not valid according to FIA_X509_EXT.1, 
                 if the <selectables>
                   <selectable>TLS</selectable>
                   <selectable>DTLS</selectable></selectables> session is not established, or if any of <selectables>
@@ -990,7 +990,7 @@
                         <h:p/>
                         The evaluator shall ensure the test client successfully completes the TLS handshake, and the test relying party properly encapsulates the TLS messages, to include the client finished message, 
                         and observes that the TOE responds in a manner indicating the TLS channel was successfully established. 
-                        Note – if the user access policy is to only require certificate verification, then the expected response is an EAP-success message. 
+                        Note – if the user access policy is to only require certificate verification, then the expected response is an EAP-Success message. 
                         If the user access policy requires additional factors to be supported under EAP-TTLS, additional EAP-TTLS messages must be sent to the test relying party to request those additional factors 
                         from the test client. These are encrypted under the TLS tunnel established between the claimant and the TOE. In this case, the evaluator observes these requests at the test client to confirm the certificate verification 
                         was successful.
@@ -999,7 +999,7 @@
                         Test 2b: The evaluator shall initiate an authentication request from the test relying party for a valid claimant registered with the TOE, different than the claimant used for Test 2a if performed. 
                         The evaluator shall send appropriate encapsulated TLS handshake messages to the TOE, to include a valid certificate response, 
                         but send an EAP-encapsulation of a modified client finished message to the TOE. 
-                        The evaluator shall observe that the TOE does not send an EAP-success message; the TOE is allowed either to send an EAP-request message to initiate a new TLS handshake or an EAP-Failure message.
+                        The evaluator shall observe that the TOE does not send an EAP-Success message; the TOE is allowed either to send an EAP-request message to initiate a new TLS handshake or an EAP-Failure message.
                       </h:li>
                       <h:li>
                         Test 2c [conditional on support for additional authentication factors under EAP-TTLS]: For each combination of authentication factors supported by the TOE’s user authentication policy, 
@@ -1188,6 +1188,29 @@
           </f-element>
         </f-component>
       
+        <f-component name="Re-Authenticating" cc-id="fia_uau.6">
+          <consistency-rationale>This SFR defines support for re-authentication of administrators, which expands on the authentication functionality defined in the Base-PP.</consistency-rationale>
+          <f-element>
+            <title>The TSF shall re-authenticate the <h:b>administrative</h:b> user under the conditions [<h:i>when the user
+              changes their password, <selectables>
+                <selectable>following TSF-initiated session locking</selectable>
+                <selectable><assignable>other conditions</assignable></selectable>
+                <selectable exclusive="yes">no other conditions</selectable></selectables></h:i>]. 
+            </title>
+            <aactivity>
+              <TSS>There are no TSS evaluation activities for this component.<h:p/></TSS>
+              <Guidance>The evaluator shall ensure that the operational guidance includes instructions on how an administrator of the TOE can change their own password.<h:p/></Guidance>
+              <Tests>
+                The evaluator will access the TOE using a particular administrative account and then attempt to change the password of that account as directed by the operational guidance.
+                While making this attempt, the evaluator will verify that re-authentication is required.
+                <h:p>
+                  If other re-authentication conditions are specified, the evaluator shall cause those conditions to
+                  occur and verify that the TSF re-authenticates the authenticated user.
+                </h:p>
+              </Tests>
+            </aactivity>
+          </f-element>
+        </f-component>
       
         <f-component name="X.509 Certificate Validation (Claimant)" cc-id="fia_x509_ext.1" iteration="AuthSvr">
           <consistency-rationale>The Base-PP defines X.509 validation requirements for external entities presenting certificates to the TOE. This PP-Module
@@ -1380,29 +1403,7 @@
         </f-component>
           
     
-      <f-component name="Re-Authenticating" cc-id="fia_uau.6">
-        <consistency-rationale>This SFR defines support for re-authentication of administrators, which expands on the authentication functionality defined in the Base-PP.</consistency-rationale>
-        <f-element>
-          <title>The TSF shall re-authenticate the <h:b>administrative</h:b> user under the conditions [<h:i>when the user
-            changes their password, <selectables>
-              <selectable>following TSF-initiated session locking</selectable>
-              <selectable><assignable>other conditions</assignable></selectable>
-              <selectable exclusive="yes">no other conditions</selectable></selectables></h:i>]. 
-          </title>
-          <aactivity>
-            <TSS>There are no TSS evaluation activities for this component.<h:p/></TSS>
-            <Guidance>The evaluator shall ensure that the operational guidance includes instructions on how an administrator of the TOE can change their own password.<h:p/></Guidance>
-            <Tests>
-	      The evaluator will access the TOE using a particular administrative account and then attempt to change the password of that account as directed by the operational guidance.
-              While making this attempt, the evaluator will verify that re-authentication is required.
-	      <h:p>
-		If other re-authentication conditions are specified, the evaluator shall cause those conditions to
-		occur and verify that the TSF re-authenticates the authenticated user.
-	      </h:p>
-            </Tests>
-          </aactivity>
-        </f-element>
-      </f-component>
+  
       </sec:man_fia>
       
       <sec:man_fmt title="Security Management (FMT)">
@@ -1612,8 +1613,8 @@
             </h:ul></management>
           <audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
             <h:ul>
-              <h:li>Generation of a TOTP seed key</h:li>
-              <h:li>Entity TOTP value comparison</h:li>
+              <h:li>Generation of a HOTP seed key</h:li>
+              <h:li>Entity HOTP value comparison</h:li>
             </h:ul>
           </audit>
           <dependencies>FCS_COP.1 Cryptographic Operation<h:p/>
@@ -1653,7 +1654,7 @@
           </f-element>
           <f-element id="fia-hotp-ext-1e5">
             <title>
-              The TSF shall truncate the HOTP hash per FIA_HOTP_EXT.1.4 to create an HOTP of  
+              The TSF shall truncate the HOTP hash per FIA_HOTP_EXT.1.4 to create a HOTP of  
               <selectables linebreak="yes">
                 <selectable>administrator configurable character length of at least 6</selectable>
                 <selectable>preset character length of
@@ -1684,11 +1685,11 @@
           </f-element>
           <f-element id="fia-hotp-ext-1e7">
             <title>
-              The TSF shall not verify HOTP attempts outside of the counter look ahead window of 
+              The TSF shall not verify HOTP attempts outside of the counter look-ahead window of 
               <assignable>a value less than or equal to three</assignable> 
               <selectables>
                 <selectable>except for rescynchronization</selectable>
-                <selectable>where a look ahead window of <selectables>
+                <selectable>where a look-ahead window of <selectables>
                   <selectable>a configurable value</selectable>
                   <selectable><assignable>fixed value</assignable></selectable></selectables> is used to reset the counter but which is not considered a valid HOTP value</selectable>
                 <selectable>with no exception</selectable></selectables>.
@@ -1708,7 +1709,7 @@
               <h:p/>The selections in FIA_HOTP_EXT.1.7 indicate an optional resynchronization process that allows an arbitrary look-ahead to determine a new counter value by the verifier. 
               This can be used for out-of-sync claimants or for initial use of a HOTP mechanism.  
               The HOTP value presented for resynchronization does not serve to authenticate a user. 
-              A second verification using a small look ahead window (at most three) is required after resynchronization to ensure the claimant and the TOE counter values are indeed synchronized 
+              A second verification using a small look-ahead window (at most three) is required after resynchronization to ensure the claimant and the TOE counter values are indeed synchronized 
               so that arbitrary values are not considered valid. If such a resynchronization function is not supported, ‘with no exception’ is claimed. 
               <h:p/>The HOTP seed and all derived values are considered secret keys for purposes of protection.
             </note>
@@ -1721,7 +1722,7 @@
                 The evaluator shall confirm that the TSS describes HOTP seed keys and HOTP security parameters and indicates controlled access in accordance with FCS_CKM.3, 
                 and that it includes a description of encrypted export for seed keys that require transfer to claimant devices.
                 <h:p/>
-                The evaluator shall confirm the TSS describes how a new HOTP seed is assigned for each claimant and how each client is uniquely identified.
+                The evaluator shall confirm the TSS describes how a new HOTP seed is assigned for each claimant and how each claimant is uniquely identified.
                 <h:p/>
                 The evaluator shall confirm the TSS describes how the HOTP seed is conditioned into a HOTP hash and verify it matches the selection in FIA_HOTP_EXT.1.4.
                 <h:p/>
@@ -1744,7 +1745,7 @@
                 Any of these responses is acceptable; a response that the authentication request is successful in Test 2 or Test 3 represents a failed test.
                 <testlist>
                   <test>The evaluator shall attempt to authenticate the claimant using a valid HOTP token and confirm that the TSF determines the value to be valid.</test>
-                  <test>The evaluator shall advance a registered claimant’s HOTP token counter beyond the look ahead window and attempt to validate the claimant using the next HOTP token value. 
+                  <test>The evaluator shall advance a registered claimant’s HOTP token counter beyond the look-ahead window and attempt to validate the claimant using the next HOTP token value. 
                     The evaluator shall observe that the TSF does not indicate the claimant is authenticated. </test>
                   <test>The evaluator shall replay a previous HOTP value from a registered claimant (e.g., the value used in Test 1) and confirm that the TSF does not indicate the claimant is authenticated.</test>
                   <test>[conditional on support for resynchronization] The evaluator shall repeat Test 2 and then follow the operational guidance to resynchronize the counter. 
