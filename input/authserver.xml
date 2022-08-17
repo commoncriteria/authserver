@@ -34,18 +34,19 @@
     <sec:Overview>
       An authentication server provides assertions to a relying party that a particular request for access is from an authentic digital identity associated with various identity attributes, such as a registered account within an information system, 
       or a certified identity as validated by a trusted certification authority or both. 
-      The digital identities can represent people, devices or processes. Authentication servers validate various authenticators controlled by the entities represented by the presented digital identity. 
+      The digital identities can represent people, devices, or processes. Authentication servers validate various authenticators controlled by the entities represented by the presented digital identity. 
       When the entity is a person, authenticators can provide indications of what the entity knows (e.g., a password, pin or passphrase), what the entity has (e.g., a registered device in the control of the user), 
       or what the entity is (a biometric). NIST SP 800-63-3 Part B provides recommendations about how these authenticators can be leveraged individually or in combinations to 
       provide assurance that the entity is authentic and describes requirements for validation of the authenticators to various assurance levels. 
-      A relying party may delegate verification of authenticator(s) to an authentication server; 
+      <h:p/>
+      A relying party may delegate verification of authenticators to an authentication server; 
       such delegation creates a relationship between the relying party and the authentication server that is referred to as an identity federation. 
       Assertions to a federated relying party can be via bearer assertions or via direct communication with the relying party. 
       The latter mechanism is modeled after that used by Authentication, Access and Accounting (AAA) servers, which used the RADIUS protocol. 
       RADIUS has been largely replaced by DIAMETER, a protocol that addresses many of the security issues with RADIUS. 
-      These provide direct, back-end assertions protected by an authenticated and encrypted channel to a Network Access Server that further governs accesses to resources on a network. 
+      These provide direct, back-end assertions protected by an authenticated and encrypted channel to a Network Access Server (NAS) that further governs accesses to resources on a network. 
       <h:p/>
-      This PP-module describes the security functionality of authentication servers supporting RADIUS/DIAMETER and other messaging protocols intended for direct communications with relying parties via authenticated, real-time protected channels.
+      This PP-module describes the security functionality of authentication servers supporting RADIUS or DIAMETER and other messaging protocols intended for direct communications with relying parties via authenticated, real-time protected channels.
       <h:p/>
       The scope of this PP-Module is to describe the security functionality of an authentication server in terms of [CC] and to define functional and assurance requirements for such products. This PP-Module is intended for use with the following Base-PP:
 
@@ -67,7 +68,7 @@
       <suppress>Functional Package,Extended Package</suppress>
       <term full="Assertion">
         A statement from the TOE to an RP that contains information about a subscriber. Assertions may also contain verified attributes. 
-        For the purposes of this PP-Module, Assertions containing authentication status and identity attributes are made by EAP response messages in accordance with EAP-TLS or EAP-TTLS.
+        For the purposes of this PP-Module, assertions containing authentication status and identity attributes are made by EAP response messages in accordance with EAP-TLS or EAP-TTLS.
       </term>
       <term abbr="AAA" full="Authentication, Authorization, and Accounting"></term>
       <term full="Authenticator">
@@ -84,7 +85,7 @@
         A subject whose identity is to be verified using one or more authentication protocols. 
       </term>
       <term full="Credential">
-        An object or data structure that authoritatively binds an identity - via an identifier or identifiers - and (optionally) additional attributes, to at least one authenticator possessed and controlled by a subscriber.
+        An object or data structure that authoritatively binds an identity via an identifier or identifiers and (optionally) additional attributes, to at least one authenticator possessed and controlled by a subscriber.
       </term>
       <term abbr="CRL" full="Certificate Revocation List"></term>
       <term abbr="CSI" full="Cryptographic Security Information"></term>
@@ -104,7 +105,7 @@
       <term abbr="RADIUS" full="Remote Authentication Dial In User Service"/>
       <term abbr="RBG" full="Random Bit Generator"></term>
       <term abbr="RP" full="Relying Party">
-        An entity that relies upon the subscriber’s authenticator(s) and credentials or a verifier’s assertion of a claimant’s identity, typically to process a transaction or grant access to information or a system.
+        An entity that relies upon the subscriber’s authenticators and credentials or a verifier’s assertion of a claimant’s identity, typically to process a transaction or grant access to information or a system.
       </term>
       <term abbr="SSH" full="Secure Shell"></term>
       <term abbr="TLS"   full="Transport Layer Security"/>
@@ -116,13 +117,13 @@
     </tech-terms>
     <sec:Compliant_Targets_of_Evaluation>
       This PP-Module specifically addresses a dedicated network device that performs entity (device or user) authentication via direct, back-end connections with a relying party. 
-      The entity to be authenticated is referred to as the claimant, though different terms have been used for specific protocols (e.g., peer for RADIUS/DIAMETER). 
+      The entity to be authenticated is referred to as the claimant, though different terms have been used for specific protocols (e.g., peer for RADIUS or DIAMETER). 
       The relying party can manage a single resource or provide access control for resources within a network. 
       For example, a Wireless Local Area Network (WLAN) Access System may use the services of a dedicated authentication server during tunnel establishment. 
       In this use case, an authentication server must support IEEE 802.1X Port-Based Network Access Control and must fulfill the IEEE 802.11 authentication server role using Extensible Authentication Protocol (EAP) messaging. 
       <h:p/>
       Similarly, the authentication server may be used during Virtual Private Network (VPN) tunnel establishment. 
-      The relying party in this case is a VPN Gateway acting as a Network Access Server using passthrough between the VPN client and authentication server (the TOE), also using EAP messaging.
+      The relying party in this case is a VPN Gateway acting as a Network Access Server using pass-through between the VPN client and authentication server (the TOE), also using EAP messaging.
       <h:p/>
       In general, any relying party using a direct authentication federation protocol that supports EAP-TLS or EAP-TTLS messaging is addressed by this PP-Module.
       <h:p/>
@@ -154,7 +155,7 @@
     
     
     <sec:Use_Cases>
-      This PP-Module defines potential use cases for the authentication server TOE, defined below. The first use case defines the physical embodiment of the TOE, while the latter three define its role in a network infrastructure.
+      This PP-Module defines potential the use cases for the authentication server TOE, defined below. Use Case 1 defines the physical embodiment of the TOE, while Use Cases 2-4 define its role in a network infrastructure.
       <usecases>
         <usecase id="usecase-dedicated" title="Dedicated Appliance">
           <description>The authentication server is integrated on a standalone network appliance. In this use case, conformance to the NDcPP and this PP-Module is sufficient to ensure security. 
@@ -170,10 +171,10 @@
             In this deployment, the authentication server’s interactions with the relying party are internal-only. 
             Regardless of whether the relying party is a standalone component or the authentication server executable code also provides relying party functionality, 
             the TOE’s logical boundary still only includes the authentication server component. 
-            Additionally, if the authentication server is a software application that can be deployed independently of the relying party, 
+            Additionally, if the authentication server is a software application that can be deployed independent of the relying party, 
             the required external trusted communications must still be supported; 
             an authentication server cannot use the fact that it can be deployed on the same physical server as the relying party as a 
-            way to exempt itself from implementation of IPsec, RadSec or mutually authenticated (D)TLS with an external relying party.
+            way to exempt itself from implementation of IPsec, RadSec, or mutually authenticated (D)TLS with an external relying party.
           </description>
         </usecase>
         <usecase id="usecase-integrated" title="Integrated as an Authorization Server Component">
@@ -182,7 +183,7 @@
             (e.g., as part of an AAA server) that provides authorization services in addition to the authentication server. 
             Assertions made via the direct connection can also include authorization information, and an unauthorized, but 
             authenticated user may result in a negative response to the relying party. 
-            Regardless of whether these are all standalone components or whether the authentication server executable code also provides authorization functionality, 
+            Regardless of whether these are all standalone components or the authentication server executable code also provides authorization functionality, 
             the TOE’s logical boundary still only includes the authentication server component. 
             As in the case where the authentication server is co-located with the relying party, 
             this deployment does not exempt the TOE from being able to implement all the functionality that this PP-Module requires.
@@ -309,11 +310,11 @@
         </SO>
         
         <SO name="O.SECURITY_ASSOCIATION">
-          <description>The TOE shall provide the information to the relying party to enable the relying party to verify that the claimant has possession of an authentication key.
+          <description>The TOE shall provide the information to the relying party to enable it to verify that the claimant has possession of an authentication key.
           </description>
           <consistency-rationale>
             The NDcPP does not define any TOE objectives; instead, it maps SFRs directly to threats. 
-            The TOE objectives defined by this PP-Module are therefore assumed not to conflict with the NDcPP by virtue of the fact that the SFRs used to satisfy these objectives do not conflict with the NDcPP SFRs.
+            This objective is therefore assumed not to conflict with the NDcPP by virtue of the fact that the SFRs used to satisfy this objective do not conflict with the NDcPP SFRs.
           </consistency-rationale>
           <addressed-by>FCO_NRO.1</addressed-by>
           <rationale>
@@ -334,7 +335,7 @@
           </description>
           <consistency-rationale>
             The NDcPP does not define any TOE objectives; instead, it maps SFRs directly to threats. 
-            The TOE objectives defined by this PP-Module are therefore assumed not to conflict with the NDcPP by virtue of the fact that the SFRs used to satisfy these objectives do not conflict with the NDcPP SFRs.
+            This objective is therefore assumed not to conflict with the NDcPP by virtue of the fact that the SFRs used to satisfy this objective do not conflict with the NDcPP SFRs.
 	  </consistency-rationale>
           <addressed-by>FCS_EAPTLS_EXT.1</addressed-by>
           <rationale>
@@ -342,7 +343,7 @@
           </rationale>    
           <addressed-by>FTP_ITC.1/NAS</addressed-by>
           <rationale>
-            The TOE implements a cryptographically secure trusted channel with a relying party that allows to authorize itself to the relying party.
+            The TOE implements a cryptographically secure trusted channel with a relying party that allows it to authorize itself to the relying party.
           </rationale>      
           <addressed-by>FCS_RADSEC_EXT.1</addressed-by>
           <rationale>
@@ -361,7 +362,7 @@
           </description>
           <consistency-rationale>
             The NDcPP does not define any TOE objectives; instead, it maps SFRs directly to threats. 
-            The TOE objectives defined by this PP-Module are therefore assumed not to conflict with the NDcPP by virtue of the fact that the SFRs used to satisfy these objectives do not conflict with the NDcPP SFRs.
+            This objective is therefore assumed not to conflict with the NDcPP by virtue of the fact that the SFRs used to satisfy this objective do not conflict with the NDcPP SFRs.
           </consistency-rationale>
           <addressed-by>FCS_RADIUS_EXT.1</addressed-by>
           <rationale>
@@ -371,7 +372,7 @@
           <rationale>
             The TOE implements a mechanism to prevent claimant authentication attempts if an excessive number of failed attempts have been made. 
           </rationale> 
-          <addressed-by>FTA_X509_EXT.1/AuthSvr</addressed-by>
+          <addressed-by>FIA_X509_EXT.1/AuthSvr</addressed-by>
           <rationale>
             The TOE implements a mechanism to determine the validity of X.509 certificates that are used as claimant authenticators.
           </rationale>
@@ -420,7 +421,7 @@
     </sec:Security_Objectives_Rationale>
   </sec:Security_Objectives>
   <sec:Security_Requirements>
-    <base-pp id="ND" version="2.2e" name="Network Device" product="Network Device" short="ND" plural="NDs">
+    <base-pp id="ND" version="2.2e" name="Network Device" product="Network Device" short="ND" plural="Network Devices">
       <url><![CDATA[https://www.niap-ccevs.org/profile/Info.cfm?PPID=447&id=447]]></url>
   	  <cPP/>
       <modified-sfrs>
@@ -560,7 +561,7 @@
               </h:tr>
               <h:tr>
                 <h:td rowspan="2">FIA_HOTP_EXT.1 (selection-based)</h:td>
-                <h:td>Generation of a HOTP seed value</h:td>
+                <h:td>Generation of a HOTP seed key</h:td>
                 <h:td>Entity identifier</h:td>
               </h:tr>
               <h:tr>
@@ -581,7 +582,7 @@
               </h:tr>
               <h:tr>
                 <h:td rowspan="2">FIA_TOTP_EXT.1 (selection-based)</h:td>
-                <h:td>Generation of a TOTP seed value</h:td>
+                <h:td>Generation of a TOTP seed key</h:td>
                 <h:td>Entity identifier</h:td>
               </h:tr>
               <h:tr>
@@ -664,7 +665,7 @@
       <sec:man_fco title="Communications (FCO)">
      
         <f-component name="Selective Proof of Origin" cc-id="fco_nro.1">
-          <consistency-rationale>This SFR applies to implementation of the supported authentication protocol, which is beyond the original scope of the Base-PP.</consistency-rationale>
+          <consistency-rationale>This SFR applies to the implementation of the supported authentication protocol, which is beyond the original scope of the Base-PP.</consistency-rationale>
           <f-element>
             <title>
               The TSF shall be able to generate evidence of origin for transmitted 
@@ -680,7 +681,7 @@
                   <selectable>no other entities</selectable></selectables></h:i>].
             </title>
             <note role="application">
-                The intent of this requirement is for the TOE to provide source of origin (non-repudiation) 
+                The intent of this requirement is for the TOE to provide the source of origin (non-repudiation) 
                 for assertions and sensitive data associated to claimants it provides to relying parties. 
                 The ST author will claim ‘authentication requests’ and ‘external authentication servers…’ 
                 if the TSF supports pass-through communication with external authentication servers. 
@@ -726,10 +727,10 @@
                   <test>[conditional on support for pass-through] The intent of this test is to demonstrate the TSF is able to authenticate to external entities for registered users 
                     over a pass-through method, and ignores requests for non-registered users.
                     <h:ul>
-                      <h:li>Step 1: The evaluator shall follow AGD instructions to configure the TOE to connect to an external authentication server using pass-through functionality, 
+                      <h:li>Step 1: The evaluator shall follow operational guidance to configure the TOE to connect to an external authentication server using pass-through functionality, 
                         and initiate a request from a trusted relying party that results in the TSF exercising pass-through functionality to authenticate a registered claimant.</h:li> 
                       <h:li>Step 2: The evaluator shall observe that the TSF authenticates to the external authentication server prior to sending any authentication requests.</h:li>
-                      <h:li>Step 3: The evaluator shall then follow AGD guidance to de-register the claimant at the TOE, and ensure the claimant is still registered at the external authentication server. 
+                      <h:li>Step 3: The evaluator shall then follow operational guidance to de-register the claimant at the TOE, and ensure the claimant is still registered at the external authentication server. 
                         The evaluator shall repeat initiation of the authentication request for the claimant, and observe that the TSF associates the identifier of the request by dropping the request without forwarding.</h:li>
                     </h:ul>
                   </test>
@@ -758,8 +759,8 @@
           </f-element>
           <f-element>
             <title>
-              The TSF shall be able to relate the [<h:i>claimant identifier, claimant authenticators</h:i>] of the recipient of the information, and the 
-              [<h:i>identity assertion, information requests and error responses</h:i>] of the information to which the evidence applies.
+              The TSF shall be able to relate the [<h:i>claimant identifier and claimant authenticators</h:i>] of the recipient of the information, and the 
+              [<h:i>identity assertion, information requests, and error responses</h:i>] of the information to which the evidence applies.
             </title>
             <note role="application">
               The intent of this requirement is for the ST author to list the information supplied by the TOE in response to an authentication request that confirms receipt of the request, and identifies: 
@@ -777,7 +778,7 @@
                 The evaluator shall ensure that the ST includes a description of each messaging protocol and the specific messages provided to a relying party in response to authentication requests, 
                 to include any affirmative and negative responses, and requests for additional information.
                 <h:p/>
-                The evaluator shall verify that the descriptions indicate how the TSF indicates the identity of the claimant associated with any responses to a request.
+                The evaluator shall verify that the descriptions specify how the TSF indicates the identity of the claimant associated with any responses to a request.
                 <h:p/>
                 The evaluator shall verify that the ST describes how the TSF handles session interruptions and resumptions to ensure the relying party is able to associate data 
                 associated with a claimant to the authentication request by the relying party and the authenticator provided by the claimant.
@@ -810,7 +811,7 @@
               The TSF shall perform [<h:i>access control for persistent private and secret keys and security critical parameters required by this PP-Module</h:i>] 
               in accordance with a specified cryptographic key access method 
               [<h:i>ensuring only authorized security functionality can access plaintext keys or security critical information</h:i>] 
-              that meets the following: [<h:i>keys and security critical information are not exportable in plaintext, keys and security critical information are not viewable in plaintext</h:i>].
+              that meets the following: [<h:i>keys and security critical information are not exportable in plaintext and keys and security critical information are not viewable in plaintext</h:i>].
             </title>
             <note role="application">
               Keys used for assertion signatures, including private keys associated to certificates used to establish a protected channel to 
@@ -825,7 +826,7 @@
             <aactivity>
               <TSS>
                 The evaluator shall verify the ST includes a description of all persistent secret and private keys used by the TSF to perform functions in this PP-Module. 
-                The evaluator shall verify the ST describes mechanism(s) used to prevent unauthorized exposure of keys.
+                The evaluator shall verify the ST describes mechanisms used to prevent unauthorized exposure of keys.
                 <h:p/>
               </TSS>
               <Guidance>The evaluator shall verify that any configuration required to meet the requirements are described.<h:p/></Guidance>
@@ -863,14 +864,14 @@
           <audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
             <h:ul>
               <h:li>Protocol failures</h:li>
-              <h:li>Successful and failed authentication attempts</h:li>
+              <h:li>Successful and failed authentication of claimant</h:li>
             </h:ul>
           </audit>
           <dependencies>FCS_RBG_EXT.1 Random Bit Generation<h:p/>
-            [FCS_TLSC_EXT.1 TLS Client Protocol Without Mutual Authentication, or<h:p/>
-            FCS_DTLSC_EXT.1 DTLS Client Protocol Without Mutual Authentication]<h:p/>
-            [FCS_TLSC_EXT.2 TLS Client Support for Mutual Authentication, or<h:p/>
-            FCS_DTLSC_EXT.2 DTLS Client Support for Mutual Authentication]<h:p/>
+            [FCS_TLSS_EXT.1 TLS Server Protocol Without Mutual Authentication, or<h:p/>
+            FCS_DTLSS_EXT.1 DTLS Server Protocol Without Mutual Authentication]<h:p/>
+            [FCS_TLSS_EXT.2 TLS Server Support for Mutual Authentication, or<h:p/>
+            FCS_DTLSS_EXT.2 DTLS Server Support for Mutual Authentication]<h:p/>
             FIA_X509_EXT.1 X.509 Certificate Validation
           </dependencies>
          
@@ -946,7 +947,7 @@
               in the same selection. Pass-through functionality can typically support any authentication method, including ones not specified in the SFR.
               </note>
             <aactivity>
-              <TSS>The evaluator shall examine the ST to ensure the EAP protocol is described in accordance with the claimed RFC and, for each supported mode, the evaluator ensures the ST describes the following:
+              <TSS>The evaluator shall examine the ST to ensure the EAP protocol is described in accordance with the claimed RFC. For each supported mode, the evaluator shall ensure the ST describes the following:
                 <h:ul>
                   <h:li>The mechanism to authenticate a claimant uses (D)TLS with client certificate authentication in combination with any other supported authenticator outputs, and any configurable features.</h:li>
                   <h:li>The source of randomness meets FCS_RBG_EXT.1 for use in key and nonce generation for the underlying (D)TLS channel and supported authentication methods.</h:li>
@@ -958,7 +959,7 @@
               </TSS>
               <Guidance>The evaluator shall ensure that the operational guidance includes any instructions for configuring the TOE to support the claimed functions.
                 <h:p/>
-                If any features of the access control policy are configurable (e.g. the supported authentication mechanism), the evaluator shall confirm that the operational guidance describes how to configure these features.
+                If any features of the access control policy are configurable (e.g., the supported authentication mechanism), the evaluator shall confirm that the operational guidance describes how to configure these features.
               </Guidance>
               <Tests>
                 The evaluator shall perform the following tests:
@@ -966,7 +967,7 @@
                   <test>TLS/DTLS testing is performed as part of FCS_TLSS_EXT.1 and .2 or FCS_DTLSS_EXT.1 and .2. 
                     When TLS/DTLS cannot be invoked directly using available TOE interfaces, the test procedures are modified in the following manner:
                     <h:ul>
-                    <h:li>When required to send a client handshake to the TOE, the evaluator shall establish a connection with the test relying party and sends the specified 
+                    <h:li>When required to send a client handshake to the TOE, the evaluator shall establish a connection with the test relying party and send the specified 
                       TLS client handshake messages in response to requests from the test relying party.</h:li> 
                     <h:li>The evaluator ensures the test relying party encapsulates the TLS handshake messages received from the test client and forwards the EAP messages to the TOE. 
                       Alternatively the evaluator may use a test relying party to modify client handshake messages as specified. 
@@ -976,7 +977,7 @@
                     </h:ul>
                   </test>
                   <test>
-                    EAP testing: For each EAP mode supported, the evaluator shall perform any configuration of the TOE necessary to select the desired mode according to AGD instructions, and perform the following tests: 
+                    EAP testing: For each EAP mode supported, the evaluator shall perform any configuration of the TOE necessary to select the desired mode according to the operational guidance and perform the following tests: 
                     <h:ul>
                       <h:li>
                         Test 2a: The evaluator shall determine the user access policy enforced by the TOE (if the TOE has a configurable user access policy, the evaluator may configure the TOE according to operational guidance 
@@ -984,14 +985,14 @@
                         The evaluator shall initiate an authentication request from a test relying party to the TOE for a valid claimant registered with the TOE. 
                         The evaluator shall observe that once the EAP identity is established, the TOE sends an EAP request indicating the expected EAP mode (EAP-TLS or EAP-TTLS) and having the start-bit set.
                         <h:p/>
-                        The evaluator shall ensure a TLS client hello message from the valid claimant at a test client is EAP encapsulated by the test relying party and provided to the TOE. 
-                        The evaluator shall observe that the TOE responds with an EAP encapsulated hello messages to include a certificate request message.
+                        The evaluator shall ensure a TLS client hello message from the valid claimant at a test client is EAP-encapsulated by the test relying party and provided to the TOE. 
+                        The evaluator shall observe that the TOE responds with an EAP-encapsulated hello message to include a certificate request message.
                         <h:p/>
                         The evaluator shall ensure the test client successfully completes the TLS handshake, and the test relying party properly encapsulates the TLS messages, to include the client finished message, 
-                        and observes that the TOE that the TOE responds in a manner indicating the TLS channel was successfully established. 
+                        and observes that the TOE responds in a manner indicating the TLS channel was successfully established. 
                         Note – if the user access policy is to only require certificate verification, then the expected response is an EAP-success message. 
-                        If the user access policy requires additional factors as supported under EAP-TTLS, additional EAP-TTLS messages are sent to the test relying party to request additional factors 
-                        from the test client that are encrypted under the TLS tunnel established between the claimant and the TOE. In this case the evaluator observes these requests at the test client to confirm the certificate verification 
+                        If the user access policy requires additional factors to be supported under EAP-TTLS, additional EAP-TTLS messages must be sent to the test relying party to request those additional factors 
+                        from the test client. These are encrypted under the TLS tunnel established between the claimant and the TOE. In this case, the evaluator observes these requests at the test client to confirm the certificate verification 
                         was successful.
                       </h:li>
                       <h:li>
@@ -1005,7 +1006,7 @@
                         the evaluator shall follow the operational guidance to configure the TOE’s user access policy to require the desired combination. 
                         The evaluator shall initiate an authentication request from a test client with a registered claimant having valid credentials for all factors. 
                         The evaluator shall observe that the TOE responds to the authentication request with an exchange of EAP-requests to successfully establish a mutually authenticated TLS/DTLS tunnel 
-                        and that on completion, the TOE provides additional EAP-requests that when decrypted at the test client results in prompts for additional factors. 
+                        and that on completion, the TOE provides additional EAP-requests that when decrypted at the test client, results in prompts for additional factors. 
                         <h:p/>
                         For each additional factor in the combination, the evaluator shall input an incorrect value for requested authentication factors and observe that the TOE responds with an EAP-request 
                         that prompts the claimant to re-enter the value. 
@@ -1066,12 +1067,12 @@
             </title>
             <note role="application">
               The ST author describes how the TSF communicates with a relying party at the application layer to receive authentication requests and provide identity assertions. 
-              RADIUS and DIAMETER protocols are used with AAA servers when the relying party is a NAS, 
-              but other direct access identity federation protocols that support FCS_EAPTLS_EXT.1 and identify a key held by the authenticated claimant that can be confirmed by the relying party are acceptable. 
+              RADIUS and DIAMETER protocols are used with AAA servers when the relying party is a NAS. However, 
+              other direct access identity federation protocols that support FCS_EAPTLS_EXT.1 and identify a key held by the authenticated claimant that can be confirmed by the relying party are acceptable. 
               If other protocols are claimed, the ST author includes the RFCs and indicates the messages used for authentication requests and assertions. 
               <h:p/>
               The ST author indicates which keys held by the authenticated claimant are available to the relying party for key-holder verification. 
-              For RADIUS/DIAMETER, the encrypted key is the derived from the EAP-TLS/EAP-TTLS master key established during the TLS handshake, 
+              For RADIUS and DIAMETER, the encrypted key is derived from the EAP-TLS/EAP-TTLS master key established during the TLS handshake, 
               and used by the relying party as the AUTH MSK/security association for the IPsec session established between the network access server and the authenticated claimant. 
               More generally, a key indicator can be a reference identifier for a shared secret key, or a public key, certificate, or other identifier associated with a private asymmetric key controlled by the authenticated claimant.
             </note>
@@ -1082,7 +1083,7 @@
                 <h:li>How key related information provided by the TOE is protected in transit to the relying party.</h:li>
               </h:ul><h:p/>
               </TSS>
-              <Guidance>The evaluator shall verify that all configurable features of the TSF are described and instructions are provided to meet the requirements.<h:p/></Guidance>
+              <Guidance>The evaluator shall verify that all configurable features of the TSF are described, and that instructions are provided to meet the requirements.<h:p/></Guidance>
               <Tests>The evaluator shall perform the following test in conjunction with testing for FCS_EAP-TLS_EXT.1 after successful authentication:
                 <testlist>
                   <test>
@@ -1162,10 +1163,10 @@
                 <h:p/>
               </TSS>
               <Guidance>The evaluator shall examine the operational guidance to verify that it describes how to configure the threshold for unsuccessful claimant authentication attempts and how to perform 
-                any actions that affect claimants that are limited in this manner (e.g. instructions for configuring the lockout period or for manually unlocking the offending claimant).<h:p/>
+                any actions that affect claimants that are limited in this manner (e.g., instructions for configuring the lockout period or for manually unlocking the offending claimant).<h:p/>
               </Guidance>
               <Tests>
-                The evaluator shall perform the following tests in conjunction with testing for FCS_EAPTLS_EXT.1 test 2a and, if applicable, test 2c for each claimant authentication method:
+                The evaluator shall perform the following tests in conjunction with testing for FCS_EAPTLS_EXT.1 test 2a, and if applicable, test 2c for each claimant authentication method:
                 <testlist>
                   <test>
                     The evaluator shall follow the operational guidance to configure a number of failed attempts that will cause lockout behavior to be enforced against a claimant. 
@@ -1196,17 +1197,17 @@
             <title>
               The TSF shall validate certificates in accordance with the following rules: 
               <h:ul>
-                <h:li>RFC 5280 <h:b>version 3</h:b> certificate validation and certification path validation supporting <h:b><selectables>
-                  <selectable>a minimum path length of <assignable>value greater than or equal to 3</assignable></selectable>
+                <h:li>RFC 5280 <h:b>version 3</h:b> certificate validation and certification path validation <h:b>supporting <selectables>
+                  <selectable>a minimum path length of <assignable>value greater than or equal to three</assignable></selectable>
                   <selectable>no prior constraints on path length</selectable></selectables></h:b></h:li>
                 <h:li>The certification path must terminate with a CA certificate <h:b>trusted by the TSF specifically for claimant authentication.</h:b></h:li>
                 <h:li>The TSF shall validate a certification path by ensuring that all CA certificates in the certification path contain the basicConstraints extension with the CA flag set to TRUE.</h:li>
                 <h:li>The TSF shall validate the revocation status of <h:b>each certificate in the certificate path <selectables linebreak="yes">
                   <selectable>containing an OCSP provider in the AIA extension using the Online Certificate Status Protocol (OCSP) as specified in RFC 6960</selectable>
-                  <selectable>containing a CRL distribution point in the 
+                  <selectable>containing a certificate revocation list (CRL) distribution point in the 
                     CRLDP extension or AIA extension using <selectables>
-                      <selectable>a Certificate Revocation List (CRL) as specified in RFC 5280 Section 6.3</selectable>
-                      <selectable>a Certificate Revocation List (CRL) as specified in RFC 5759 Section 5</selectable></selectables></selectable></selectables></h:b>.
+                      <selectable>a CRL as specified in RFC 5280 Section 6.3</selectable>
+                      <selectable>a CRL as specified in RFC 5759 Section 5</selectable></selectables></selectable></selectables></h:b>.
                 </h:li>
                 <h:li>
                   The TSF shall validate the extendedKeyUsage field <h:b>is present and contains key usage values</h:b> according to the following rules: <h:b>
@@ -1231,7 +1232,7 @@
                   The TSF shall process name constraints of type Directory Name and <selectables>
                     <selectable>rfc822Name</selectable>
                     <selectable>dnsName</selectable>
-                    <selectable>UPN Name (Ohter Name = id-ms-san-sc-logon-upn)</selectable>
+                    <selectable>UPN Name (Other Name = id-ms-san-sc-logon-upn)</selectable>
                     <selectable><assignable>other name type</assignable></selectable>
                     <selectable>no other name type</selectable></selectables> 
                   by verifying that each name of a supported name type present in the end-entity certificate subject field or subjectAlternateName extension, 
@@ -1247,7 +1248,7 @@
                       <selectable>No other policy related extension</selectable></selectables> in support of claimant authentication and <assignable>
                         other intended purposes and limitations of policy related extension processing</assignable></selectable>
                     <selectable><assignable>other standard extensions</assignable></selectable>
-                    <selectable>no other extensiosn</selectable></selectables>.
+                    <selectable>no other extensions</selectable></selectables>.
                 </h:li></h:b>
               </h:ul>
             </title>
@@ -1257,9 +1258,9 @@
               <h:p/>
               The ST author claims supported certificate policies. ‘Policy Constraints…’ is claimed if the TOE’s authentication policy depends on the certificate policies for claimant certificates. 
               Other policy related extensions within the selection are claimed if supported. 
-              The extension inhibitPolicyMapping is not claimed if the TSF does not support certificate chains of length 4 or more. 
-              The Policy related extensions, if supported, are primarily used in this PP-Module for claimant authentication, but are allowed for other certificate authentications. 
-              The ST author specifies the intended use and any limits of support for these extensions or specifies ‘no other purposes or constraints’ in the assignment of this selection.
+              The extension inhibitPolicyMapping is not claimed if the TSF does not support certificate chains of length four or more. 
+              The policy related extensions, if supported, are primarily used in this PP-Module for claimant authentication, but are allowed for other certificate authentications. 
+              The ST author specifies the intended use and any limits of support for these extensions or specifies ‘no other policy related extension’ in the assignment of this selection.
               <h:p/>
               The ST author specifies any additional supported X509 extensions, and the associated extension processing rules used to determine claimant identity attributes or conditions that can be used in the TOE’s authentication policy. 
             </note>
@@ -1290,9 +1291,9 @@
                       <h:li>by setting the basicConstraints field in an issuing certificate to have CA=False</h:li>
                       <h:li>by omitting the CA signing bit of the key usage field in an issuing certificate</h:li>
                       <h:li>by setting the path length field of a valid CA field to a value strictly less than the certificate path</h:li>
-                    </h:ul>. <h:p/>
-                    The evaluator shall then establish a valid certificate path consisting of valid CA certificates, and demonstrate that the function succeeds. 
-                    The evaluator shall then remove trust in one of the CA certificates, and show that the function fails. 
+                    </h:ul> <h:p/>
+                    The evaluator shall then establish a valid certificate path consisting of valid CA certificates and demonstrate that the function succeeds. 
+                    The evaluator shall then remove trust in one of the CA certificates and show that the function fails. 
                   </test>
                   <test>
                     The evaluator shall demonstrate that validating an expired certificate results in the function failing. 
@@ -1304,7 +1305,7 @@
                     The evaluator shall then attempt the test with a certificate that will be revoked (for each method chosen in the selection) and verify that the validation function fails. 
                   </test>
                   <test>
-                    If any OCSP option is selected, the evaluator shall present a delegated OCSP certificate that does not have the OCSP signing purpose and verify that validation of the OCSP response fails. 
+                    [conditional] If any OCSP option is selected, the evaluator shall present a delegated OCSP certificate that does not have the OCSP signing purpose and verify that validation of the OCSP response fails. 
                     If CRL is selected, the evaluator shall configure the CA to sign a CRL with a certificate that does not have the cRLsign key usage bit set and verify that validation of the CRL fails.
                   </test>
                   <test>
@@ -1313,15 +1314,15 @@
                     where the elliptic curve parameters are specified as a named curve. The evaluator shall confirm that the TOE validates the certificate chain. 
                   </test>
                   <test>
-                    [conditional] If the TOE supports EC certificates, then the evaluator shall replace the intermediate certificate in the certificate chain for Test 5 with a modified certificate, 
-                    where the modified intermediate CA has a public key information field where the EC parameters uses an explicit format version of the Elliptic Curve parameters 
-                    in the public key information field of the intermediate CA certificate from Test 5, and the modified Intermediate CA certificate is signed by the trusted EC root CA, but having no other changes. 
+                    [conditional] If the TOE supports EC certificates, then the evaluator shall replace the intermediate certificate in the certificate chain for Test 5 with a modified certificate.
+                    This certificate is modified to have the public key information field where the EC parameters use an explicit format version of the Elliptic Curve parameters 
+                    in the corresponding field of intermediate CA certificate from Test 5. This certificate is also modified to be signed by the trusted EC root CA, but with no other changes. 
                     The evaluator shall confirm the TOE treats the certificate as invalid.
                   </test>
                   <test>
                     The evaluator shall test the following name constraints: <h:ul>
                       <h:li>Test 7a: For each name type supported, the evaluator shall establish a valid certificate for a registered entity. 
-                        The evaluator shall ensure the certificate has a valid path length of at least 3, consisting of a trusted root, 
+                        The evaluator shall ensure the certificate has a valid path length of at least three, consisting of a trusted root, 
                         an issuing CA that is not a trust anchor, and the leaf certificate representing the entity. 
                         The evaluator shall ensure that the leaf certificate includes a single name of the supported name type and no other DN or SAN entries. 
                         The evaluator shall initiate an application requiring authentication of that entity using the certificate and verify the TSF successfully authenticates the entity. </h:li>
@@ -1331,7 +1332,7 @@
                         The evaluator shall initiate the same application attempt as in test 7a for the new certificate and observe that the TSF indicates the certificate is invalid.</h:li>
                       <h:li>Test 7c: For each leaf certificate used in test 7a, 
                         the evaluator shall establish a new leaf certificate that includes the same name and name type, 
-                        but which is issued by a different subordinate CA asserting a deny-list matching the name for the name type. 
+                        but which is issued by a different subordinate CA asserting a denylist matching the name for the name type. 
                         The evaluator shall ensure the subordinate CA is included in a valid certificate path to the same trusted root. 
                         The evaluator shall initiate the same application attempt as in test 7a using the new certificate and observe that the TSF indicates the certificate is invalid. </h:li>
                     </h:ul> 
@@ -1342,28 +1343,28 @@
                     The evaluator shall perform the following sub-tests: <h:ul>
                       <h:li>Test 8a: The evaluator shall establish a certificate for the subject asserting the certificate policy OID required, issued by a Certification Authority also specifying the required certificate policy. 
                         The evaluator shall present the established certificate for authentication and verify that the TSF successfully validates the certificate. </h:li>
-                      <h:li>Test 8b: The evaluator shall repeat test 8a using a certificate asserting the required policy but issued by a Certification Authority only asserting the ‘anyPolicy’ OID (value {2 5 29 32 0}) in its policy constraints extension. The evaluator shall observe that the TSF successfully validates the certificate.</h:li>
+                      <h:li>Test 8b: [conditional] If the ST selects 'Inhibit anyPolicy extension...," the evaluator shall repeat test 8a using a certificate asserting the required policy but issued by a Certification Authority only asserting the ‘anyPolicy’ OID (value {2 5 29 32 0}) in its policy constraints extension. The evaluator shall observe that the TSF successfully validates the certificate.</h:li>
                       <h:li>Test 8c: [conditional] If the ST indicates support for the policy mapping extension, 
-                        the evaluator shall repeat test 8a using a certificate asserting a new policy OID that does not match the required policy OID, 
-                        which is issued by a CA asserting the new policy OID in the policy constraints extension, 
-                        and which is in turn issued by a CA asserting the required OID in its certificate constraints extension and containing a policy mapping extension 
+                        the evaluator shall repeat test 8a using a certificate asserting a new policy OID that does not match the required policy OID. This certificate  
+                        is issued by a CA asserting the new policy OID in the policy constraints extension, and the CA certificate is issued by a second CA. This second
+                        CA asserts the required OID in its certificate constraints extension and contains a policy mapping extension 
                         including the mapping of the asserted policy to the required policy. 
                         The evaluator shall observe that the TSF successfully validates the certificate.<h:p/> 
                         Note that installing a root CA trusted by the TOE with the required policy constraints and policy mapping extensions may be required if the TSF limits the path length of certificate chains.</h:li>
-                      <h:li>Test 8d: [conditional] If the ST indicates support for both policy mapping and policy constraints extensions and also supports certificate chains of length 4 or more, 
-                        the evaluator shall establish a certificate for the subject asserting a new policy OID that does not match the required policy OID, 
-                        which is issued by a CA asserting the new policy OID, which in turn is issued by a CA which includes the policy mapping extension mapping the required policy OID to the new policy OID, 
-                        which is in turn issued by a CA with the extension policy constraints with the inhibitPolicyMapping field having value 0. 
+                      <h:li>Test 8d: [conditional] If the ST indicates support for both policy mapping and policy constraints extensions and also supports certificate chains of length four or more, 
+                        the evaluator shall establish a certificate for the subject asserting a new policy OID that does not match the required policy OID. This certificate 
+                        is issued by a CA asserting the new policy OID, which in turn is issued by a second CA which includes the policy mapping extension that maps the required policy OID to the new policy OID.  
+                        The second CA is in turn issued by a third CA that has the extension policy constraints with the inhibitPolicyMapping field having value 0. 
                         The evaluator shall present the certificate to the TSF for authentication and observe that the TSF indicates the certificate is invalid.</h:li>
                       <h:li>Test 8e: [conditional] If the ST indicates support for both policy mapping and policy constraints extensions, 
                         the evaluator shall select a policy OID not required for authentication in the TOE’s current configuration. 
-                        The evaluator shall establish a certificate for the subject that does not assert the (non-required) policy, 
+                        The evaluator shall establish a certificate for the subject that does not assert the non-required policy, 
                         which is issued by a CA also asserting the new policy OID, which in turn, is issued by a CA asserting the ‘anyPolicy’ OID and having a critical policy constraints extension 
-                        with explicitPolicy field with value 0. The evaluator shall present the certificate to the TSF for authentication and observe that the TSF indicates the certificate is invalid.</h:li>
+                        with the explicitPolicy field with value 0. The evaluator shall present the certificate to the TSF for authentication and observe that the TSF indicates the certificate is invalid.</h:li>
                       <h:li>Test 8f: The evaluator shall establish a certificate for the subject asserting the required policy but issued by a Certification Authority that does not include any certificate policy related extensions. 
                         The evaluator shall present the certificate for authentication and observe that the TSF indicates the certificate is invalid.</h:li>
-                      <h:li>Test 8g: The evaluator shall establish a certificate for the subject asserting the required certificate policy issued by a Certification Authority that includes only asserts a single, 
-                        non-matching policy OID in its policy related extensions (i.e. the CA certificate does not include the matching OID, ‘anyPolicy’ assertions or assert an OID that is mapped to the required OID 
+                      <h:li>Test 8g: The evaluator shall establish a certificate for the subject asserting the required certificate policy issued by a Certification Authority that only asserts a single, 
+                        non-matching policy OID in its policy related extensions (i.e., the CA certificate does not include the matching OID, ‘anyPolicy’ assertions or assert an OID that is mapped to the required OID 
                         via policy matching extensions by previous Certification Authorities in the certificate chain, if supported). 
                         The evaluator shall present the certificate to the TSF for authentication and observe the TSF indicates the certificate is invalid.</h:li>
                       <h:li>Test 8h: [conditional] If the ST indicates the inhibitAnyPolicy extension is supported, the evaluator shall establish a certificate for the subject asserting the required policy issued by a CA 
@@ -1408,7 +1409,7 @@
         <f-component name="Specification of Management Functions (Authentication Server)" id="fel-managementfun-as" cc-id="fmt_smf.1" iteration="AuthSvr">
 			<consistency-rationale>This SFR defines additional management functionality that is specific to the PP-Module’s product type and would therefore not be expected to be present in the Base-PP.</consistency-rationale>
 			<f-element>
-			<title>The TSF shall be capable of performing the following management functions: 
+			<title>The TSF shall be capable of performing the following management functions: [<h:i>
 			  <h:ul>
 			    <h:li>Ability to configure claimant verification data</h:li>
 			    <h:li>Ability to manage trust store data</h:li>
@@ -1432,8 +1433,8 @@
 			      <selectable>Ability to generate pre-shared keys</selectable>
 			      <selectable>Ability to accept pre-shared keys</selectable>
 			      <selectable>No other functions</selectable>
-			    </selectables>.</h:li>
-			  </h:ul>
+			    </selectables></h:li>
+			  </h:ul></h:i>].
 			</title>
 			  <note role="Application">
 			    This SFR defines additional management functions for the TOE beyond what is defined in the Base-PP as FMT_SMF.1. 
@@ -1543,12 +1544,8 @@
             <h:ul>
               <h:li>Configuration of trusted channel to relying party</h:li>
             </h:ul></management>
-          <audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
-          <h:ul>
-            <h:li>Failure to establish RadSec session.</h:li>
-          </h:ul></audit>
+          <audit>There are no auditable events foreseen.</audit>
           <dependencies>
-	    FCS_TLSC_EXT.1 TLS Client Protocol<h:p/>
             <no-link>FCS_RADIUS_EXT.1</no-link> Authentication Protocol<h:p/>
             FCS_RBG_EXT.1 Random Bit Generation<h:p/>
             [<no-link>FIA_PSK_EXT.1</no-link> Pre-Shared Key Composition, or<h:p/>
@@ -1577,7 +1574,9 @@
                 <selectable>TLS</selectable>
                 <selectable>DTLS</selectable></selectables> with mutual authentication.
             </title>
-            <note role="Application">This SFR is claimed if "a RadSec" is selected in FTP_ITC.1.1/NAS.</note>
+            <note role="Application">This SFR is claimed if "a RadSec" is selected in FTP_ITC.1.1/NAS.
+            <h:p/>
+            If "pre-shared keys" is selected in FCS_RADSEC_EXT.1.2, the selection-based SFR FIA_PSK_EXT.1/AuthSvr must be claimed.</note>
           <aactivity>
               <TSS>
                 TBD<h:p/>
@@ -1600,7 +1599,7 @@
         
         
         <ext-comp-def title="HMAC-Based One-Time Password Pre-Shared Keys" fam-id="FIA_HOTP_EXT">
-          <fam-behavior>Components in this family define requirements for use of HMAC-based One-Time Password authentication, including generation methods and usage restrictions.</fam-behavior>
+          <fam-behavior>Components in this family define requirements for the use of HMAC-based One-Time Password authentication, including generation methods and usage restrictions.</fam-behavior>
         </ext-comp-def>
         <f-component cc-id="fia_hotp_ext.1" id="fia-hotp-ext-1" name="HMAC-Based One-Time Password Pre-Shared Keys">
           <depends on-sel="eaptls-uses-hotp" and="psk-uses-hotp"/>
@@ -1611,7 +1610,11 @@
               <h:li>Ability to configure restrictions on the composition of pre-shared keys</h:li>
               <h:li>Ability to configure restrictions on the validation of pre-shared keys</h:li>
             </h:ul></management>
-          <audit>There are no auditable events foreseen.
+          <audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+            <h:ul>
+              <h:li>Generation of a TOTP seed key</h:li>
+              <h:li>Entity TOTP value comparison</h:li>
+            </h:ul>
           </audit>
           <dependencies>FCS_COP.1 Cryptographic Operation<h:p/>
             FCS_RBG_EXT.1 Random Bit Generation</dependencies>
@@ -1629,7 +1632,7 @@
             </title>
           </f-element>
           <f-element id="fia-hotp-ext-1e3">
-            <title>The TSF shall generate a new HOTP seed value for each claimant to be authenticated.
+            <title>The TSF shall generate a new HOTP seed key for each claimant to be authenticated.
             </title>
           </f-element>
           <f-element id="fia-hotp-ext-1e4">
@@ -1682,7 +1685,7 @@
           <f-element id="fia-hotp-ext-1e7">
             <title>
               The TSF shall not verify HOTP attempts outside of the counter look ahead window of 
-              <assignable>a value less than or equal to 3</assignable> 
+              <assignable>a value less than or equal to three</assignable> 
               <selectables>
                 <selectable>except for rescynchronization</selectable>
                 <selectable>where a look ahead window of <selectables>
@@ -1697,15 +1700,15 @@
             </title>
             
             <note role="application">
-              This SFR is claimed if "HOTP" is selected in FCS_EAPTLS_EXT.1.3 or if "HMAC based one-time password" is selected in FIA_PSK_EXT.1.2/AuthSvr.
+              This SFR is claimed if "HOTP" is selected in FCS_EAPTLS_EXT.1.3 or if "HMAC-based one-time password" is selected in FIA_PSK_EXT.1.2/AuthSvr.
               <h:p/>
               The selection in FIA_HOTP_EXT.1.4 must be consistent with the key size specified for the size of the keys used in conjunction with the keyed-hash message authentication.
-              <h:p/>In FIA_HOTP_EXT.1.5 the ST author may either provide a configurable character length of at least 6 or a preset size between 6 and 10.
-              <h:p/>In FIA_HOTP_EXT.1.6 the ST may select throttle requests, account lockout, or both.
+              <h:p/>In FIA_HOTP_EXT.1.5, the ST author may either provide a configurable character length of at least 6 or a preset size between 6 and 10.
+              <h:p/>In FIA_HOTP_EXT.1.6, the ST may select throttle requests, account lockout, or both.
               <h:p/>The selections in FIA_HOTP_EXT.1.7 indicate an optional resynchronization process that allows an arbitrary look-ahead to determine a new counter value by the verifier. 
               This can be used for out-of-sync claimants or for initial use of a HOTP mechanism.  
               The HOTP value presented for resynchronization does not serve to authenticate a user. 
-              A second verification using a small look ahead window (at most 3) is required after resynchronization to ensure the claimant and the TOE counter values are indeed synchronized 
+              A second verification using a small look ahead window (at most three) is required after resynchronization to ensure the claimant and the TOE counter values are indeed synchronized 
               so that arbitrary values are not considered valid. If such a resynchronization function is not supported, ‘with no exception’ is claimed. 
               <h:p/>The HOTP seed and all derived values are considered secret keys for purposes of protection.
             </note>
@@ -1716,9 +1719,9 @@
                 The evaluator shall confirm the TSS describes how the HOTP seed is protected and ensure it aligns with the key storage requirements in FCS_STG_EXT.1.
                 <h:p/>
                 The evaluator shall confirm that the TSS describes HOTP seed keys and HOTP security parameters and indicates controlled access in accordance with FCS_CKM.3, 
-                and that it includes a description of encrypted export for seed values that require transfer to claimant devices.
+                and that it includes a description of encrypted export for seed keys that require transfer to claimant devices.
                 <h:p/>
-                The evaluator shall confirm the TSS describes how a new HOTP seed is assigned for each client and how each client is uniquely identified.
+                The evaluator shall confirm the TSS describes how a new HOTP seed is assigned for each claimant and how each client is uniquely identified.
                 <h:p/>
                 The evaluator shall confirm the TSS describes how the HOTP seed is conditioned into a HOTP hash and verify it matches the selection in FIA_HOTP_EXT.1.4.
                 <h:p/>
@@ -1726,14 +1729,14 @@
                 <h:p/>
                 The evaluator shall confirm the TSS describes how the TOE handles multiple incoming invalid requests and verify it provides an anti-hammer mechanism that matches the selections made in FIA_HOTP_EXT.1.6.
                 <h:p/>
-                The evaluator shall confirm the TSS describes how the TOE handles resynchronization and how it rejects attempts outside of the look-ahead window selected in FIA_TOTP_EXT.1.7 for claimant authentication.
+                The evaluator shall confirm the TSS describes how the TOE handles resynchronization and how it rejects values outside of the look-ahead window selected in FIA_TOTP_EXT.1.7 for claimant authentication.
                 <h:p/>
               </TSS>
               <Guidance>The evaluator shall verify the operational guidance contains all configuration guidance for setting any administrative value that is configurable in the FIA_HOTP_EXT.1 requirements.<h:p/>
               </Guidance>
               <Tests>
                 The following tests may be performed in conjunction with those in FCS_EAPTLS_EXT.1. 
-                The evaluator shall follow any instructions in the operational guidance to establish a HOTP seed value for a registered claimant, 
+                The evaluator shall follow any instructions in the operational guidance to establish a HOTP seed key for a registered claimant, 
                 initialize a claimant HOTP token, synchronize the counter between the token and the TSF if necessary, and perform the tests listed below.
                 <h:p/>
                 Note that response of the TSF for an invalid HOTP value may be a request for the claimant to submit a new value, 
@@ -1776,7 +1779,7 @@
           </f-element>
           <f-element>
             <title>
-              The TSF shall be able to accept the following as pre-shared keys: <assignable>types of supported pre-shared keys (e.g. randomly generated, password-based, OTP)</assignable>.
+              The TSF shall be able to accept the following as pre-shared keys: <assignable>types of supported pre-shared keys (e.g., randomly generated, password-based, OTP)</assignable>.
             </title>
             <aactivity>
               <no-tests></no-tests>
@@ -1821,10 +1824,10 @@
                 <h:li>"pre-shared keys" is selected in FCS_IPSEC_EXT.1.13 (from the Base-PP).</h:li>
               </h:ul>
               <h:p/>
-              IPsec is claimed in FIA_PSK_EXT.1.1/AuthSvr if IPsec is claimed in FTP_ITC.1/NAS and the selection for FCS_IPSEC_EXT.1.13 in the Base-PP includes ‘pre-shared keys’.  
+              IPsec is claimed in FIA_PSK_EXT.1.1/AuthSvr, if IPsec is claimed in FTP_ITC.1/NAS and the selection for FCS_IPSEC_EXT.1.13 in the Base-PP includes ‘pre-shared keys.’  
               PSK in IPsec may use any supported type of PSK – those supported are claimed in FIA_PSK_EXT.1.2/AuthSvr. Use of certificates in IPsec is preferred.
               <h:p/>
-              RadSec is claimed in FIA_PSK_EXT.1.1/AuthSvr if RadSec is selected in FTP_ITC.1/NAS and the (D)TLS implementation in RadSec allows server-only authentication or supports a PSK ciphersuite. 
+              RadSec is claimed in FIA_PSK_EXT.1.1/AuthSvr, if RadSec is selected in FTP_ITC.1/NAS and the (D)TLS implementation in RadSec allows server-only authentication or supports a PSK ciphersuite. 
               RadSec can use any type of PSK – those supported should be claimed in FIA_PSK_EXT.1.2/AuthSvr. Use of a mutually authenticated (D)TLS channel using certificate-based authentication is preferred.
               <h:p/>
               If a pre-shared key used for RADIUS is validated directly using legacy methods, RADIUS is claimed. 
@@ -1832,7 +1835,7 @@
               Use of a mutually authenticated channel using certificates to authenticate the relying party is preferred.
               <h:p/>
               EAP-TTLS is claimed in FIA_PSK_EXT.1.1/AuthSvr if it is claimed in FCS_EAPTLS_EXT.1.1 and support for static PSK (alone or in combination) is indicated in FCS_EAPTLS_EXT.1.3. 
-              When EAP-TTLS is claimed in FIA_PSK_EXT.1.1/AuthSvr, at least one of ‘password-based,’ ‘HMAC based one-time-password,’ or ‘Time based one-time password’ is claimed in FIA_PSK_EXT.1.2/AuthSvr. 
+              When EAP-TTLS is claimed in FIA_PSK_EXT.1.1/AuthSvr, at least one of ‘password-based,’ ‘HMAC-based one-time password,’ or ‘Time-based one-time password’ is claimed in FIA_PSK_EXT.1.2/AuthSvr. 
               Multiple password types are claimed if the TSF supports validation of combinations of password types, even if presented in a single payload.
               <h:p/>
               Note that even if presented by a claimant, PSK are ignored in EAP-TLS implementations.
@@ -1902,7 +1905,7 @@
             <note role="application">
               This SFR is claimed if "generated bit-based" is selected in FIA_PSK_EXT.1.2/AuthSvr.
               <h:p/>
-              Generated PSKs are expected to be shared between components via an out of band mechanism. 
+              Generated PSKs are expected to be shared between components via an out-of-band mechanism. 
                             <h:p/>
               
             </note>
@@ -1916,7 +1919,7 @@
               <Tests>
                 <testlist>
                   <test>For each selection made in FIA_PSK_EXT.2.1, the evaluator shall input and register the PSK (whether this involves generating the key or inputting it). 
-                    The evaluator shall attempt to use the PSK (e.g. by making a claimant authentication attempt using the registered key) and confirm that the TSF indicates the PSK matches.
+                    The evaluator shall attempt to use the PSK (e.g., by making a claimant authentication attempt using the registered key) and confirm that the TSF indicates the PSK matches.
                   </test>
                 </testlist>
               </Tests>
@@ -2010,8 +2013,6 @@
               the ST author fills in the assignment with the minimum length the PSK must be. This requirement is to ensure bounds work properly.
               <h:p/>
               For FIA_PSK_EXT.3.7, the ST author may select one, both, or neither of the functions in alignment with NIST SP800-63b.
-              <h:p/>
-              This requirement is selection-dependent on FIA_PSK_EXT.1/AuthSvr. 
               </note>
             <aactivity>
               <TSS>The evaluator shall examine the TSS to ensure it describes the process by which the bit-based pre-shared keys are used.  
@@ -2051,7 +2052,7 @@
                     to include one having the maximum length, one having the minimum length, and which, 
                     in aggregate, contain each of the supported special characters and each type of character supported. 
                     For each of the PSK, the evaluator shall demonstrate successful registration and use of the PSK.  </test>
-                  <test>For each of password policy constraints indicated in FCS_PSK_EXT.3.4, 
+                  <test>For each of the password policy constraints indicated in FCS_PSK_EXT.3.4, 
                     the evaluator shall compose a password violating the constraint and demonstrate that the TSF rejects the PSK.</test>
                   <test>[conditional] If a password strength meter is supported, when performing Tests 1 and 2, the evaluator shall confirm that the TSF reflects the indicated strength of the PSK.</test>
                   <test>[conditional] If the TOE supports a password denylist, the evaluator shall enter a denylisted password and verify that the password is rejected or flagged as such.</test>
@@ -2064,7 +2065,7 @@
      
         
         <ext-comp-def title="Time-Based One-Time Password Pre-Shared Keys" fam-id="FIA_TOTP_EXT">
-          <fam-behavior>Components in this family define requirements for use of Time-Based One-Time password authentication, including generation methods and usage restrictions.</fam-behavior>
+          <fam-behavior>Components in this family define requirements for the use of Time-Based One-Time password authentication, including generation methods and usage restrictions.</fam-behavior>
         </ext-comp-def>
         <f-component cc-id="fia_totp_ext.1" id="fia-totp-ext-1" name="Time-Based One-Time Password Pre-Shared Keys">
           <depends on-sel="eaptls-uses-totp" and="psk-uses-totp"/>
@@ -2075,7 +2076,11 @@
               <h:li>Ability to configure restrictions on the composition of pre-shared keys</h:li>
               <h:li>Ability to configure restrictions on the validation of pre-shared keys</h:li>
             </h:ul></management>
-          <audit>There are no auditable events foreseen.
+          <audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+            <h:ul>
+              <h:li>Generation of a TOTP seed key</h:li>
+              <h:li>Entity TOTP value comparison</h:li>
+            </h:ul>
           </audit>
           <dependencies>FCS_COP.1 Cryptographic Operation<h:p/>
             FCS_RBG_EXT.1 Random Bit Generation</dependencies>
@@ -2093,7 +2098,7 @@
             </title>
           </f-element>
           <f-element id="fia-totp-ext-1e3">
-            <title>The TSF shall generate a new TOTP seed for each client.
+            <title>The TSF shall generate a new TOTP seed for each claimant.
             </title>
           </f-element>
           <f-element id="fia-totp-ext-1e4">
@@ -2177,7 +2182,6 @@
               In FIA_TOTP_EXT.1.6, the ST author may select throttle requests, account lockout, or both.
               <h:p/>
               The TOTP seed and all derived values are considered secret keys for purposes of protection.
-              <h:p/>This requirement is selection-dependent on FCS_EAPTLS_EXT.1.3.
               </note>
             <aactivity>
               <TSS>
@@ -2188,7 +2192,7 @@
                 The evaluator shall confirm the TSS describes how the TOTP seed is protected and ensure it aligns with FCS_STG_EXT.1. 
                 <h:p/>
                 The evaluator shall confirm that the TSS describes TOTP seed keys and TOTP security parameters and indicates controlled access in accordance with FCS_CKM.3, 
-                and that it includes a description of encrypted export for seed values that require transfer to claimant devices. 
+                and that it includes a description of encrypted export for seed keys that require transfer to claimant devices. 
                 <h:p/>
                 The evaluator shall confirm the TSS describes how a new TOTP seed is assigned for each claimant and how each claimant is uniquely identified.
                 <h:p/>
@@ -2196,7 +2200,7 @@
                 <h:p/>
                 The evaluator shall confirm the TSS describes how the TOTP hash is truncated and verify that it matches the selection in FIA_TOTP_EXT.1.5.
                 <h:p/>
-                The evaluator shall confirm the TSS describes how the TOE handles multiple incoming invalid requests and verify it provides an anti-hammer mechanism that matches the selections FIA_TOTP_EXT.1.6.
+                The evaluator shall confirm the TSS describes how the TOE handles multiple incoming invalid requests and verify it provides an anti-hammer mechanism that matches the selections in FIA_TOTP_EXT.1.6.
                 <h:p/>
                 The evaluator shall confirm the TSS describes how the TOE handles resynchronization and how it rejects values outside of the look-ahead window selected in FIA_TOTP_EXT.1.7 for claimant authentication.
                 <h:p/>
@@ -2204,7 +2208,7 @@
               <Guidance>The evaluator shall verify the operational guidance contains all configuration guidance for setting any administrative value that is configurable in the FIA_TOTP_EXT.1 requirements.<h:p/></Guidance>
               <Tests>
                 The following tests may be performed in conjunction with those in FCS_EAPTLS_EXT.1.
-                The evaluator shall follow any instructions in the operational guidance to establish a TOTP seed value for a registered claimant, 
+                The evaluator shall follow any instructions in the operational guidance to establish a TOTP seed key for a registered claimant, 
                 initialize a claimant TOTP token, synchronize time between the token and the TSF if necessary, and perform the tests listed below.
                 <h:p/>
                 Note that the response of the TSF for an invalid TOTP value may be a request for the claimant to submit a new value, 
@@ -2215,7 +2219,7 @@
                   <test>The evaluator shall attempt to authenticate the claimant using the TOTP token and confirm that the TSF determines the value to be valid.</test>
                   <test>The evaluator shall advance a registered claimant’s TOTP token time beyond the allowed time drift and attempt to validate the claimant using the TOTP token value. 
                     The evaluator shall observe that the TSF does not indicate the claimant is authenticated. </test>
-                  <test>The evaluator shall replay a previous TOTP value from a registered claimant (e.g., the value used in Test 1) after a delay equal to 1 time step and confirm that the TSF does not indicate the claimant is authenticated.</test>
+                  <test>The evaluator shall replay a previous TOTP value from a registered claimant (e.g., the value used in Test 1) after a delay equal to one time step and confirm that the TSF does not indicate the claimant is authenticated.</test>
                 </testlist>
               </Tests>
             </aactivity>
@@ -2238,15 +2242,15 @@
   
   <appendix title="Allocation of Requirements in Distributed TOEs" id="allocation">
     
-    For a distributed TOE, the security functional requirements in this PP-Module need to be met by the
+    For a distributed TOE, the SFRs in this PP-Module need to be met by the
     TOE as a whole, but not all SFRs will necessarily be implemented by all components. The
     following categories are defined in order to specify when each SFR must be implemented by a
     component: <h:ul>
-      <h:li><h:b>All Components ("All")</h:b> &#8212;All components that comprise the distributed TOE must
+      <h:li><h:b>All Components ("All"):</h:b> All components that comprise the distributed TOE must
         independently satisfy the requirement.</h:li>
-      <h:li><h:b>At least one Component ("One")</h:b> &#8212;This requirement must be fulfilled by at least one
+      <h:li><h:b>At least one Component ("One"):</h:b> This requirement must be fulfilled by at least one
         component within the distributed TOE.</h:li>
-      <h:li><h:b>Feature Dependent ("Feature Dependent")</h:b> &#8212; These requirements will only be
+      <h:li><h:b>Feature Dependent ("Feature Dependent"):</h:b> These requirements will only be
         fulfilled where the feature is implemented by the distributed TOE component (note
         that the requirement to meet the PP-Module as a whole requires that at least one component
         implements these requirements if they are claimed by the TOE).</h:li></h:ul>
@@ -2266,12 +2270,12 @@
       <h:tr>
         <h:td>FCO_NRO.1</h:td>
         <h:td>Selective Proof of Origin</h:td>
-        <h:td>Implementation-dependent</h:td>
+        <h:td>Feature-dependent</h:td>
       </h:tr>
       <h:tr>
         <h:td>FCO_NRR.1</h:td>
         <h:td>Selective Proof of Receipt</h:td>
-        <h:td>Implementation-dependent</h:td>
+        <h:td>Feature-dependent</h:td>
       </h:tr>
       <h:tr>
         <h:td>FCS_CKM.3</h:td>
@@ -2281,12 +2285,12 @@
       <h:tr>
         <h:td>FCS_EAPTLS_EXT.1</h:td>
         <h:td>EAP-TLS Protocol</h:td>
-        <h:td>Implementation-dependent</h:td>
+        <h:td>Feature-dependent</h:td>
       </h:tr>
       <h:tr>
         <h:td>FCS_RADIUS_EXT.1</h:td>
         <h:td>Authentication Protocol</h:td>
-        <h:td>Implementation-dependent</h:td>
+        <h:td>Feature-dependent</h:td>
       </h:tr>
       <h:tr>
         <h:td>FCS_STG_EXT.1</h:td>
@@ -2296,17 +2300,17 @@
       <h:tr>
         <h:td>FIA_AFL.1/AuthSvr</h:td>
         <h:td>Authentication Failure Handling (Claimant)</h:td>
-        <h:td>Implementation-dependent</h:td>
+        <h:td>Feature-dependent</h:td>
       </h:tr>
       <h:tr>
         <h:td>FIA_X509_EXT.1/AuthSvr</h:td>
         <h:td>X.509 Certificate Validation (Claimant)</h:td>
-        <h:td>Implementation-dependent</h:td>
+        <h:td>Feature-dependent</h:td>
       </h:tr>
       <h:tr>
         <h:td>FIA_UAU.6</h:td>
         <h:td>Re-Authenticating</h:td>
-        <h:td>Implementation-dependent</h:td>
+        <h:td>Feature-dependent</h:td>
       </h:tr>
       <h:tr>
         <h:td>FMT_SMF.1/AuthSvr</h:td>
@@ -2316,42 +2320,42 @@
       <h:tr>
         <h:td>FTA_TSE.1</h:td>
         <h:td>TOE Session Establishment</h:td>
-        <h:td>Implementation-dependent</h:td>
+        <h:td>Feature-dependent</h:td>
       </h:tr>
       <h:tr>
         <h:td>FTP_ITC.1/NAS</h:td>
         <h:td>Inter-TSF Trusted Channel (Relying Party Communications)</h:td>
-        <h:td>Implementation-dependent</h:td>
+        <h:td>Feature-dependent</h:td>
       </h:tr>
       <h:tr>
         <h:td>FCS_RADSEC_EXT.1 (selection-based)</h:td>
         <h:td>RadSec</h:td>
-        <h:td>Implementation-dependent</h:td>
+        <h:td>Feature-dependent</h:td>
       </h:tr>
       <h:tr>
         <h:td>FIA_HOTP_EXT.1 (selection-based)</h:td>
         <h:td>HMAC-Based One-Time Password Pre-Shared Keys</h:td>
-        <h:td>Implementation-dependent</h:td>
+        <h:td>Feature-dependent</h:td>
       </h:tr>
       <h:tr>
         <h:td>FIA_PSK_EXT.1/AuthSvr (selection-based)</h:td>
         <h:td>Pre-Shared Key Usage</h:td>
-        <h:td>Implementation-dependent</h:td>
+        <h:td>Feature-dependent</h:td>
       </h:tr>
       <h:tr>
         <h:td>FIA_PSK_EXT.2 (selection-based)</h:td>
         <h:td>Generated Pre-Shared Keys</h:td>
-        <h:td>Implementation-dependent</h:td>
+        <h:td>Feature-dependent</h:td>
       </h:tr>
       <h:tr>
         <h:td>FIA_PSK_EXT.3 (selection-based)</h:td>
         <h:td>Password-Based Pre-Shared Keys</h:td>
-        <h:td>Implementation-dependent</h:td>
+        <h:td>Feature-dependent</h:td>
       </h:tr>
       <h:tr>
         <h:td>FIA_TOTP_EXT.1 (selection-based)</h:td>
         <h:td>Time-Based One-Time Password Pre-Shared Keys</h:td>
-        <h:td>Implementation-dependent</h:td>
+        <h:td>Feature-dependent</h:td>
       </h:tr>
       
     </h:table>
