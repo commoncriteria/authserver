@@ -635,7 +635,7 @@
 		context of a conforming Security Target.
 	      </h:p>
 	      <h:p>
-		The Auditable Events (<xref to="auditAuthSvr"/>) includes selection-based SFRs.
+		The Auditable Events table (<xref to="auditAuthSvr"/>) includes selection-based SFRs.
 		The auditing of selection-based SFRs is only required if that SFR is included in the ST.
 	      </h:p>
 	      <h:p>
@@ -643,7 +643,17 @@
 		external IT entity using a trusted channel.
 	      </h:p>
 	    </note>
-  <aactivity>
+</f-element>
+          <f-element>
+            <title>
+              The TSF shall record within each audit record at least the following information: <h:ol type="a">
+                <h:li>Date and time of the event, type of event, subject identity, and the outcome (success or failure) of the event; and</h:li>
+                <h:li>For each audit event type, based on the auditable event definitions of the functional components included in the 
+                  PP<h:b>-Module</h:b>/ST, [<h:i>information specified in column three of the Auditable Events table (<xref to="auditAuthSvr"/>)</h:i>].</h:li>
+              </h:ol>
+            </title>
+          
+          <aactivity>
     <TSS> There are no TSS evaluation activities for this SFR.<h:br/><h:br/>
     </TSS>
     <Guidance>The evaluator shall ensure that the operational guidance identifies the auditable events and includes representative examples of each event so that the presentation of each event can be identified.<h:br/><h:br/>
