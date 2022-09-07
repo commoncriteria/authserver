@@ -1144,8 +1144,9 @@ provide all of its security functionality.
                 <p></p>
               </div><div class="eacategory">Guidance</div><div class="ea">The evaluator shall ensure that any instructions for configuring the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to meet the requirements are provided.<p></p></div><div class="eacategory">Tests</div><div class="ea">
                 The evaluator shall perform the following tests:
-                <ul>
-                <li id="_t_1"><b><a href="#_t_1" class="definition">Test 1</a>: </b>
+                <span class="testlist-"><ul>
+                <li class="test-" id="_t_1"><a href="#_t_1" class="definition">Test 1</a>:
+      
                   <ul>
                     <li>Step 1: The evaluator shall establish a connection with the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> from two trusted relying parties RP1 and RP2 and verify that each of RP1 and RP2 are able to authenticate the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</li> 
                     <li>Step 2: The evaluator shall initiate an authentication request for a claimant C1 via RP1, providing valid authentication data, and verify that RP1 receives an authentication assertion via the authenticated channel indicating C1 is authenticated.</li>
@@ -1153,7 +1154,8 @@ provide all of its security functionality.
                     <li>Step 4: The evaluator shall send correct authentication data associated with claimant C2 via RP1 without sending a new authentication request and observe that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> ignores the request.</li>
                   </ul>
                 </li>
-                  <li id="_t_2"><b><a href="#_t_2" class="definition">Test 2</a>: </b>[conditional on support for pass-through] The intent of this test is to demonstrate the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> is able to authenticate to external entities for registered users 
+                  <li class="test-" id="_t_2"><a href="#_t_2" class="definition">Test 2</a>:
+      [conditional on support for pass-through] The intent of this test is to demonstrate the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> is able to authenticate to external entities for registered users 
                     over a pass-through method, and ignores requests for non-registered users.
                     <ul>
                       <li>Step 1: The evaluator shall follow operational guidance to configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to connect to an external authentication server using pass-through functionality, 
@@ -1163,7 +1165,7 @@ provide all of its security functionality.
                         The evaluator shall repeat initiation of the authentication request for the claimant, and observe that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> associates the identifier of the request by dropping the request without forwarding.</li>
                     </ul>
                   </li>
-                </ul>
+                </ul></span>
               </div></div></div></div>
      
      
@@ -1209,12 +1211,13 @@ provide all of its security functionality.
                 <p></p>
               </div><div class="eacategory">Guidance</div><div class="ea">The evaluator shall ensure that any instructions for configuring the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to meet the requirements are provided.<p></p></div><div class="eacategory">Tests</div><div class="ea">
                 For each messaging protocol supported, the evaluator shall perform the following test:
-                <ul>
-                  <li id="_t_3"><b><a href="#_t_3" class="definition">Test 1</a>: </b>
+                <span class="testlist-"><ul>
+                  <li class="test-" id="_t_3"><a href="#_t_3" class="definition">Test 3</a>:
+      
                     The evaluator shall establish a connection between a trusted relying party and the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and send an authentication request for a registered claimant, in accordance with the messaging protocol standard. 
                     The evaluator shall confirm the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> responds to each message sent by the relying party with a message that appropriately identifies the claimant and confirms receipt of the request.
                   </li>
-                </ul>
+                </ul></span>
               </div></div></div></div>
         
      
@@ -1255,14 +1258,16 @@ provide all of its security functionality.
                 It is not intended for the evaluator to attempt to cause a system crash in order to read keys and critical security parameters directly from memory or to modify functionality of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.
                 <p></p>
                 The evaluator shall perform the following tests:
-		          <ul>
-		            <li id="_t_4"><b><a href="#_t_4" class="definition">Test 1</a>: </b>
+		          <span class="testlist-"><ul>
+		            <li class="test-" id="_t_4"><a href="#_t_4" class="definition">Test 4</a>:
+      
 		              The evaluator shall attempt to export each key and critical security parameter using available interfaces and verify the mechanism is effective at preventing exposure of the key in plaintext.
 		            </li>
-		            <li id="_t_5"><b><a href="#_t_5" class="definition">Test 2</a>: </b>
+		            <li class="test-" id="_t_5"><a href="#_t_5" class="definition">Test 5</a>:
+      
 		              The evaluator shall assume each of the privileged user roles and attempt to gain read access to each of the keys and critical security parameters via available interfaces.
 		            </li>
-		          </ul>
+		          </ul></span>
               </div></div></div></div>
         
         
@@ -1325,8 +1330,9 @@ provide all of its security functionality.
                 If any features of the access control policy are configurable (e.g., the supported authentication mechanism), the evaluator shall confirm that the operational guidance describes how to configure these features.
               </div><div class="eacategory">Tests</div><div class="ea">
                 The evaluator shall perform the following tests:
-                <ul>
-                  <li id="_t_6"><b><a href="#_t_6" class="definition">Test 1</a>: </b><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr> testing is performed as part of FCS_TLSS_EXT.1 and .2 or FCS_DTLSS_EXT.1 and .2. 
+                <span class="testlist-"><ul>
+                  <li class="test-" id="_t_6"><a href="#_t_6" class="definition">Test 6</a>:
+      <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr> testing is performed as part of FCS_TLSS_EXT.1 and .2 or FCS_DTLSS_EXT.1 and .2. 
                     When <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr> cannot be invoked directly using available <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interfaces, the test procedures are modified in the following manner:
                     <ul>
                     <li>When required to send a client handshake to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, the evaluator shall establish a connection with the test relying party and send the specified 
@@ -1338,7 +1344,8 @@ provide all of its security functionality.
                       Alternatively, the evaluator may extract and reconstruct <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> responses received within the <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr> messages received from the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> at the test relying party.</li>
                     </ul>
                   </li>
-                  <li id="_t_7"><b><a href="#_t_7" class="definition">Test 2</a>: </b>
+                  <li class="test-" id="_t_7"><a href="#_t_7" class="definition">Test 7</a>:
+      
                     <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr> testing: For each <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr> mode supported, the evaluator shall perform any configuration of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> necessary to select the desired mode according to the operational guidance and perform the following tests: 
                     <ul>
                       <li>
@@ -1378,7 +1385,7 @@ provide all of its security functionality.
                       </li>
                     </ul>
                   </li>
-                </ul>
+                </ul></span>
               </div></div></div></div>
         
         
@@ -1425,11 +1432,12 @@ provide all of its security functionality.
                 <li>How key related information provided by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is protected in transit to the relying party.</li>
               </ul><p></p>
               </div><div class="eacategory">Guidance</div><div class="ea">The evaluator shall verify that all configurable features of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> are described, and that instructions are provided to meet the requirements.<p></p></div><div class="eacategory">Tests</div><div class="ea">The evaluator shall perform the following test in conjunction with testing for FCS_EAP-TLS_EXT.1 after successful authentication:
-                <ul>
-                  <li id="_t_8"><b><a href="#_t_8" class="definition">Test 1</a>: </b>
+                <span class="testlist-"><ul>
+                  <li class="test-" id="_t_8"><a href="#_t_8" class="definition">Test 8</a>:
+      
                     For each type of claimant held key supported, the evaluator shall confirm that communication between the test client and the test relying party encrypted using the indicated key is successful.
                   </li>
-                </ul>
+                </ul></span>
                </div></div></div></div>
         
 
@@ -1491,13 +1499,15 @@ provide all of its security functionality.
                 any actions that affect claimants that are limited in this manner (e.g., instructions for configuring the lockout period or for manually unlocking the offending claimant).<p></p>
               </div><div class="eacategory">Tests</div><div class="ea">
                 The evaluator shall perform the following tests in conjunction with testing for <a href="#FCS_EAPTLS_EXT.1">FCS_EAPTLS_EXT.1</a> test 2a, and if applicable, test 2c for each claimant authentication method:
-                <ul>
-                  <li id="_t_9"><b><a href="#_t_9" class="definition">Test 1</a>: </b>
+                <span class="testlist-"><ul>
+                  <li class="test-" id="_t_9"><a href="#_t_9" class="definition">Test 9</a>:
+      
                     The evaluator shall follow the operational guidance to configure a number of failed attempts that will cause lockout behavior to be enforced against a claimant. 
                     The evaluator shall establish a registered user and provide invalid input for the authentication method repeatedly to reach the configured limit. 
                     The evaluator shall then observe the configured penalty is imposed.
                   </li>
-                  <li id="_t_10"><b><a href="#_t_10" class="definition">Test 2</a>: </b>
+                  <li class="test-" id="_t_10"><a href="#_t_10" class="definition">Test 10</a>:
+      
                     If the administrator action selection is claimed in <a href="#FIA_AFL.1.2/AuthSvr">FIA_AFL.1.2/AuthSvr</a>, the evaluator shall ensure that following the operational guidance for restoring access to a locked-out claimant will subsequently allow that claimant to be
                     authenticated.
                     <p></p>
@@ -1506,7 +1516,7 @@ provide all of its security functionality.
                     successful access.
                     The evaluator shall then repeat this behavior but wait for just after the configured time period has elapsed to show that an authentication attempt using valid credentials results in successful access.
                   </li>
-                </ul>
+                </ul></span>
               </div></div></div></div>
       
         <div class="comp" id="FIA_UAU.6"><h4>FIA_UAU.6 Re-Authenticating</h4>
@@ -1596,8 +1606,9 @@ provide all of its security functionality.
                 configuring this behavior.
               </div><div class="eacategory">Tests</div><div class="ea">
                 The evaluator shall perform the following tests. The tests for the extendedKeyUsage rules, name constraints and policy constraints, if supported, are performed in conjunction with the uses that require those rules.
-                <ul>
-                  <li id="_t_11"><b><a href="#_t_11" class="definition">Test 1</a>: </b>
+                <span class="testlist-"><ul>
+                  <li class="test-" id="_t_11"><a href="#_t_11" class="definition">Test 11</a>:
+      
                     The evaluator shall demonstrate that validating a certificate without a valid certification path results in the function failing, for each of the following reasons, in turn: 
                     <ul>
                       <li>by establishing a certificate path in which one of the issuing certificates is not a CA certificate</li>
@@ -1609,31 +1620,37 @@ provide all of its security functionality.
                     The evaluator shall then establish a valid certificate path consisting of valid CA certificates and demonstrate that the function succeeds. 
                     The evaluator shall then remove trust in one of the CA certificates and show that the function fails. 
                   </li>
-                  <li id="_t_12"><b><a href="#_t_12" class="definition">Test 2</a>: </b>
+                  <li class="test-" id="_t_12"><a href="#_t_12" class="definition">Test 12</a>:
+      
                     The evaluator shall demonstrate that validating an expired certificate results in the function failing. 
                   </li>
-                  <li id="_t_13"><b><a href="#_t_13" class="definition">Test 3</a>: </b>
+                  <li class="test-" id="_t_13"><a href="#_t_13" class="definition">Test 13</a>:
+      
                     The evaluator shall test that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can properly handle revoked certificates – conditional on the revocation method that is selected; if multiple methods are selected, then the test is repeated for each method. 
                     The evaluator tests revocation for each certificate in the trust chain which advertises certificate status information. 
                     The evaluator shall ensure that a valid certificate is used, and that the validation function succeeds. 
                     The evaluator shall then attempt the test with a certificate that will be revoked (for each method chosen in the selection) and verify that the validation function fails. 
                   </li>
-                  <li id="_t_14"><b><a href="#_t_14" class="definition">Test 4</a>: </b>
+                  <li class="test-" id="_t_14"><a href="#_t_14" class="definition">Test 14</a>:
+      
                     [conditional] If any <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> option is selected, the evaluator shall present a delegated <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> certificate that does not have the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> signing purpose and verify that validation of the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> response fails. 
                     If <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> is selected, the evaluator shall configure the CA to sign a <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> with a certificate that does not have the cRLsign key usage bit set and verify that validation of the <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> fails.
                   </li>
-                  <li id="_t_15"><b><a href="#_t_15" class="definition">Test 5</a>: </b>
+                  <li class="test-" id="_t_15"><a href="#_t_15" class="definition">Test 15</a>:
+      
                     [conditional] If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports EC certificates, then the evaluator shall establish a valid, trusted certificate chain consisting of an EC leaf certificate, 
                     an EC Intermediate CA certificate not designated as a trust anchor, and an EC certificate designated as a trusted anchor, 
                     where the elliptic curve parameters are specified as a named curve. The evaluator shall confirm that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> validates the certificate chain. 
                   </li>
-                  <li id="_t_16"><b><a href="#_t_16" class="definition">Test 6</a>: </b>
+                  <li class="test-" id="_t_16"><a href="#_t_16" class="definition">Test 16</a>:
+      
                     [conditional] If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports EC certificates, then the evaluator shall replace the intermediate certificate in the certificate chain for Test 5 with a modified certificate.
                     This certificate is modified to have the public key information field where the EC parameters use an explicit format version of the Elliptic Curve parameters 
                     in the corresponding field of intermediate CA certificate from Test 5. This certificate is also modified to be signed by the trusted EC root CA, but with no other changes. 
                     The evaluator shall confirm the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> treats the certificate as invalid.
                   </li>
-                  <li id="_t_17"><b><a href="#_t_17" class="definition">Test 7</a>: </b>
+                  <li class="test-" id="_t_17"><a href="#_t_17" class="definition">Test 17</a>:
+      
                     The evaluator shall test the following name constraints: <ul>
                       <li>Test 7a: For each name type supported, the evaluator shall establish a valid certificate for a registered entity. 
                         The evaluator shall ensure the certificate has a valid path length of at least three, consisting of a trusted root, 
@@ -1651,7 +1668,8 @@ provide all of its security functionality.
                         The evaluator shall initiate the same application attempt as in test 7a using the new certificate and observe that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> indicates the certificate is invalid. </li>
                     </ul> 
                   </li>
-                  <li id="_t_18"><b><a href="#_t_18" class="definition">Test 8</a>: </b>
+                  <li class="test-" id="_t_18"><a href="#_t_18" class="definition">Test 18</a>:
+      
                     [conditional] If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports processing of the policy constraints extension, then for each distinct purpose and within the constraints indicated in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> 
                     (claimant authentication and any other supported subject types), the evaluator shall follow the operational guidance as necessary to configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to require the subject’s certificate to assert a specific certificate policy. 
                     The evaluator shall perform the following sub-tests: <ul>
@@ -1687,7 +1705,7 @@ provide all of its security functionality.
                         Note that installing a root CA trusted by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> with the inhibitAny extension may be required if the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> limits the path length of certificate chains.</li>
                     </ul>
                   </li>
-                </ul>
+                </ul></span>
               </div></div></div></div>
           
     
@@ -2077,14 +2095,18 @@ provide all of its security functionality.
                 Note that response of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> for an invalid <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> value may be a request for the claimant to submit a new value, 
                 an indication that resynchronization is required, or an indication that the claimant’s authentication request is rejected. 
                 Any of these responses is acceptable; a response that the authentication request is successful in Test 2 or Test 3 represents a failed test.
-                <ul>
-                  <li id="_t_19"><b><a href="#_t_19" class="definition">Test 1</a>: </b>The evaluator shall attempt to authenticate the claimant using a valid <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> token and confirm that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> determines the value to be valid.</li>
-                  <li id="_t_20"><b><a href="#_t_20" class="definition">Test 2</a>: </b>The evaluator shall advance a registered claimant’s <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> token counter beyond the look-ahead window and attempt to validate the claimant using the next <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> token value. 
+                <span class="testlist-"><ul>
+                  <li class="test-" id="_t_19"><a href="#_t_19" class="definition">Test 19</a>:
+      The evaluator shall attempt to authenticate the claimant using a valid <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> token and confirm that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> determines the value to be valid.</li>
+                  <li class="test-" id="_t_20"><a href="#_t_20" class="definition">Test 20</a>:
+      The evaluator shall advance a registered claimant’s <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> token counter beyond the look-ahead window and attempt to validate the claimant using the next <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> token value. 
                     The evaluator shall observe that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> does not indicate the claimant is authenticated. </li>
-                  <li id="_t_21"><b><a href="#_t_21" class="definition">Test 3</a>: </b>The evaluator shall replay a previous <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> value from a registered claimant (e.g., the value used in Test 1) and confirm that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> does not indicate the claimant is authenticated.</li>
-                  <li id="_t_22"><b><a href="#_t_22" class="definition">Test 4</a>: </b>[conditional on support for resynchronization] The evaluator shall repeat Test 2 and then follow the operational guidance to resynchronize the counter. 
+                  <li class="test-" id="_t_21"><a href="#_t_21" class="definition">Test 21</a>:
+      The evaluator shall replay a previous <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> value from a registered claimant (e.g., the value used in Test 1) and confirm that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> does not indicate the claimant is authenticated.</li>
+                  <li class="test-" id="_t_22"><a href="#_t_22" class="definition">Test 22</a>:
+      [conditional on support for resynchronization] The evaluator shall repeat Test 2 and then follow the operational guidance to resynchronize the counter. 
                     The evaluator shall observe that after resynchronization, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> does not indicate successful authentication, but instead requests an additional <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> value from the claimant.</li>
-                </ul>
+                </ul></span>
               </div></div></div></div>
 	  
         
@@ -2176,10 +2198,11 @@ provide all of its security functionality.
               </div><div class="eacategory">Tests</div><div class="ea">
                 The evaluator shall also perform the following tests for each protocol (or instantiation of a protocol, 
                 if performed by a different implementation on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>). 
-                <ul>
-                  <li id="_t_23"><b><a href="#_t_23" class="definition">Test 1</a>: </b>For each mechanism selected in <a href="#FIA_PSK_EXT.1.2/AuthSvr">FIA_PSK_EXT.1.2/AuthSvr</a>, the evaluator shall attempt to establish a connection 
+                <span class="testlist-"><ul>
+                  <li class="test-" id="_t_23"><a href="#_t_23" class="definition">Test 23</a>:
+      For each mechanism selected in <a href="#FIA_PSK_EXT.1.2/AuthSvr">FIA_PSK_EXT.1.2/AuthSvr</a>, the evaluator shall attempt to establish a connection 
                     and confirm that the connection requires the selected factors in the <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> to establish the connection. </li>
-                </ul>
+                </ul></span>
               </div></div></div></div>
         
         
@@ -2219,11 +2242,12 @@ provide all of its security functionality.
               </div><div class="eacategory">Guidance</div><div class="ea">The evaluator shall confirm the operational guidance contains instructions for generating or entering pre-shared keys (based on the selection made in <a href="#FIA_PSK_EXT.2.1">FIA_PSK_EXT.2.1</a>)
                 for each protocol identified in the <a href="#FIA_PSK_EXT.1.1/AuthSvr">FIA_PSK_EXT.1.1/AuthSvr</a>. <p></p>
               </div><div class="eacategory">Tests</div><div class="ea">
-                <ul>
-                  <li id="_t_24"><b><a href="#_t_24" class="definition">Test 1</a>: </b>For each selection made in <a href="#FIA_PSK_EXT.2.1">FIA_PSK_EXT.2.1</a>, the evaluator shall input and register the <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> (whether this involves generating the key or inputting it). 
+                <span class="testlist-"><ul>
+                  <li class="test-" id="_t_24"><a href="#_t_24" class="definition">Test 24</a>:
+      For each selection made in <a href="#FIA_PSK_EXT.2.1">FIA_PSK_EXT.2.1</a>, the evaluator shall input and register the <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> (whether this involves generating the key or inputting it). 
                     The evaluator shall attempt to use the <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> (e.g., by making a claimant authentication attempt using the registered key) and confirm that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> indicates the <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> matches.
                   </li>
-                </ul>
+                </ul></span>
               </div></div></div></div>
         
         <div class="comp" id="FIA_PSK_EXT.3"><h4>FIA_PSK_EXT.3 Password-Based Pre-Shared Keys</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
@@ -2318,16 +2342,20 @@ provide all of its security functionality.
                 If the password policy is not configurable, the evaluator will determine the password policy used by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.
                 <p></p>
                 The evaluator shall perform the following tests:
-                <ul>
-                  <li id="_t_25"><b><a href="#_t_25" class="definition">Test 1</a>: </b>The evaluator shall compose a representative set of <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> meeting the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>’s password policy, 
+                <span class="testlist-"><ul>
+                  <li class="test-" id="_t_25"><a href="#_t_25" class="definition">Test 25</a>:
+      The evaluator shall compose a representative set of <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> meeting the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>’s password policy, 
                     to include one having the maximum length, one having the minimum length, and which, 
                     in aggregate, contain each of the supported special characters and each type of character supported. 
                     For each of the <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>, the evaluator shall demonstrate successful registration and use of the <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>.  </li>
-                  <li id="_t_26"><b><a href="#_t_26" class="definition">Test 2</a>: </b>For each of the password policy constraints indicated in FCS_PSK_EXT.3.4, 
+                  <li class="test-" id="_t_26"><a href="#_t_26" class="definition">Test 26</a>:
+      For each of the password policy constraints indicated in FCS_PSK_EXT.3.4, 
                     the evaluator shall compose a password violating the constraint and demonstrate that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> rejects the <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>.</li>
-                  <li id="_t_27"><b><a href="#_t_27" class="definition">Test 3</a>: </b>[conditional] If a password strength meter is supported, when performing Tests 1 and 2, the evaluator shall confirm that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> reflects the indicated strength of the <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>.</li>
-                  <li id="_t_28"><b><a href="#_t_28" class="definition">Test 4</a>: </b>[conditional] If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports a password denylist, the evaluator shall enter a denylisted password and verify that the password is rejected or flagged as such.</li>
-                </ul>
+                  <li class="test-" id="_t_27"><a href="#_t_27" class="definition">Test 27</a>:
+      [conditional] If a password strength meter is supported, when performing Tests 1 and 2, the evaluator shall confirm that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> reflects the indicated strength of the <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>.</li>
+                  <li class="test-" id="_t_28"><a href="#_t_28" class="definition">Test 28</a>:
+      [conditional] If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports a password denylist, the evaluator shall enter a denylisted password and verify that the password is rejected or flagged as such.</li>
+                </ul></span>
               </div></div></div></div>
      
         
@@ -2431,12 +2459,15 @@ provide all of its security functionality.
                 or an indication that the claimant’s authentication request is rejected. 
                 Any of these responses is acceptable; a response that the authentication request is successful in Test 2 or Test 3 represents a failed test.
                 
-                <ul>
-                  <li id="_t_29"><b><a href="#_t_29" class="definition">Test 1</a>: </b>The evaluator shall attempt to authenticate the claimant using the <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> token and confirm that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> determines the value to be valid.</li>
-                  <li id="_t_30"><b><a href="#_t_30" class="definition">Test 2</a>: </b>The evaluator shall advance a registered claimant’s <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> token time beyond the allowed time drift and attempt to validate the claimant using the <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> token value. 
+                <span class="testlist-"><ul>
+                  <li class="test-" id="_t_29"><a href="#_t_29" class="definition">Test 29</a>:
+      The evaluator shall attempt to authenticate the claimant using the <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> token and confirm that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> determines the value to be valid.</li>
+                  <li class="test-" id="_t_30"><a href="#_t_30" class="definition">Test 30</a>:
+      The evaluator shall advance a registered claimant’s <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> token time beyond the allowed time drift and attempt to validate the claimant using the <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> token value. 
                     The evaluator shall observe that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> does not indicate the claimant is authenticated. </li>
-                  <li id="_t_31"><b><a href="#_t_31" class="definition">Test 3</a>: </b>The evaluator shall replay a previous <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> value from a registered claimant (e.g., the value used in Test 1) after a delay equal to one time step and confirm that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> does not indicate the claimant is authenticated.</li>
-                </ul>
+                  <li class="test-" id="_t_31"><a href="#_t_31" class="definition">Test 31</a>:
+      The evaluator shall replay a previous <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> value from a registered claimant (e.g., the value used in Test 1) after a delay equal to one time step and confirm that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> does not indicate the claimant is authenticated.</li>
+                </ul></span>
               </div></div></div></div>
     
     
@@ -2714,12 +2745,12 @@ provide all of its security functionality.
       <tr>
         <td><a href="#FCO_NRO.1">FCO_NRO.1</a></td>
         <td>Selective Proof of Origin</td>
-        <td>Feature-dependent</td>
+        <td>Feature Dependent</td>
       </tr>
       <tr>
         <td><a href="#FCO_NRR.1">FCO_NRR.1</a></td>
         <td>Selective Proof of Receipt</td>
-        <td>Feature-dependent</td>
+        <td>Feature Dependent</td>
       </tr>
       <tr>
         <td><a href="#FCS_CKM.3">FCS_CKM.3</a></td>
@@ -2729,12 +2760,12 @@ provide all of its security functionality.
       <tr>
         <td><a href="#FCS_EAPTLS_EXT.1">FCS_EAPTLS_EXT.1</a></td>
         <td><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS Protocol</td>
-        <td>Feature-dependent</td>
+        <td>Feature Dependent</td>
       </tr>
       <tr>
         <td><a href="#FCS_RADIUS_EXT.1">FCS_RADIUS_EXT.1</a></td>
         <td>Authentication Protocol</td>
-        <td>Feature-dependent</td>
+        <td>Feature Dependent</td>
       </tr>
       <tr>
         <td><a href="#FCS_STG_EXT.1">FCS_STG_EXT.1</a></td>
@@ -2744,17 +2775,17 @@ provide all of its security functionality.
       <tr>
         <td><a href="#FIA_AFL.1/AuthSvr">FIA_AFL.1/AuthSvr</a></td>
         <td>Authentication Failure Handling (Claimant)</td>
-        <td>Feature-dependent</td>
+        <td>Feature Dependent</td>
       </tr>
       <tr>
         <td><a href="#FIA_X509_EXT.1/AuthSvr">FIA_X509_EXT.1/AuthSvr</a></td>
         <td>X.509 Certificate Validation (Claimant)</td>
-        <td>Feature-dependent</td>
+        <td>Feature Dependent</td>
       </tr>
       <tr>
         <td><a href="#FIA_UAU.6">FIA_UAU.6</a></td>
         <td>Re-Authenticating</td>
-        <td>Feature-dependent</td>
+        <td>Feature Dependent</td>
       </tr>
       <tr>
         <td><a href="#FMT_SMF.1/AuthSvr">FMT_SMF.1/AuthSvr</a></td>
@@ -2764,42 +2795,42 @@ provide all of its security functionality.
       <tr>
         <td><a href="#FTA_TSE.1">FTA_TSE.1</a></td>
         <td><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Session Establishment</td>
-        <td>Feature-dependent</td>
+        <td>Feature Dependent</td>
       </tr>
       <tr>
         <td><a href="#FTP_ITC.1/NAS">FTP_ITC.1/NAS</a></td>
         <td>Inter-TSF Trusted Channel (Relying Party Communications)</td>
-        <td>Feature-dependent</td>
+        <td>Feature Dependent</td>
       </tr>
       <tr>
         <td><a href="#FCS_RADSEC_EXT.1">FCS_RADSEC_EXT.1</a> (selection-based)</td>
         <td>RadSec</td>
-        <td>Feature-dependent</td>
+        <td>Feature Dependent</td>
       </tr>
       <tr>
         <td><a href="#FIA_HOTP_EXT.1">FIA_HOTP_EXT.1</a> (selection-based)</td>
         <td>HMAC-Based One-Time Password Pre-Shared Keys</td>
-        <td>Feature-dependent</td>
+        <td>Feature Dependent</td>
       </tr>
       <tr>
         <td><a href="#FIA_PSK_EXT.1/AuthSvr">FIA_PSK_EXT.1/AuthSvr</a> (selection-based)</td>
         <td>Pre-Shared Key Usage</td>
-        <td>Feature-dependent</td>
+        <td>Feature Dependent</td>
       </tr>
       <tr>
         <td><a href="#FIA_PSK_EXT.2">FIA_PSK_EXT.2</a> (selection-based)</td>
         <td>Generated Pre-Shared Keys</td>
-        <td>Feature-dependent</td>
+        <td>Feature Dependent</td>
       </tr>
       <tr>
         <td><a href="#FIA_PSK_EXT.3">FIA_PSK_EXT.3</a> (selection-based)</td>
         <td>Password-Based Pre-Shared Keys</td>
-        <td>Feature-dependent</td>
+        <td>Feature Dependent</td>
       </tr>
       <tr>
         <td><a href="#FIA_TOTP_EXT.1">FIA_TOTP_EXT.1</a> (selection-based)</td>
         <td>Time-Based One-Time Password Pre-Shared Keys</td>
-        <td>Feature-dependent</td>
+        <td>Feature Dependent</td>
       </tr>
       
     </table>
