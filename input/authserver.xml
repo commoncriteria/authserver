@@ -1555,10 +1555,15 @@
 			    identification of its end points and protection of the channel data from modification or disclosure.
 				  </title>
 			    <note role="Application">
-			      If “an IPsec” is selected, the Base-PP SFR FCS_IPSEC_EXT.1 must be claimed;
-			      If "a RadSec" is selected, the selection-based SFR FCS_RADSEC_EXT.1 must be claimed;
-			      If “a mutually authenticated TLS” is selected, the Base-PP SFRs FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2 must be claimed;
-			      If “a mutually authenticated DTLS” is selected, the Base-PP SFRs FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2 must be claimed.</note>
+			      <h:p>
+			      If “an IPsec” is selected, the Base-PP SFR FCS_IPSEC_EXT.1 must be claimed.
+			      </h:p><h:p>
+			      If "a RadSec" is selected, the selection-based SFR FCS_RADSEC_EXT.1 must be claimed.
+			      </h:p><h:p>
+			      If “a mutually authenticated TLS” is selected, the Base-PP SFRs FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2 must be claimed.
+			      </h:p><h:p>
+			      If “a mutually authenticated DTLS” is selected, the Base-PP SFRs FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2 must be claimed.
+			    </h:p></note>
 				</f-element>
 			    <f-element>
 		<title>
@@ -1640,23 +1645,31 @@
             <title>
               The TSF shall implement RadSec using 
               <selectables>
-                <selectable>TLS in accordance with FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</selectable>
-                <selectable>DTLS in accordance with FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</selectable></selectables> with mutual authentication.
+                <selectable>TLS in accordance with FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2 <h:b>from the Base-PP</h:b></selectable>
+                <selectable>DTLS in accordance with FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2 <h:b>from the Base-PP</h:b></selectable></selectables> with mutual authentication.
             </title>
+            <ext-comp-def-title>
+              <title>
+                The TSF shall implement RadSec using 
+                <selectables>
+                  <selectable>TLS in accordance with FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</selectable>
+                  <selectable>DTLS in accordance with FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</selectable></selectables> with mutual authentication.  
+              </title>
+            </ext-comp-def-title>
             <note role="Application">This SFR is claimed if "a RadSec" is selected in FTP_ITC.1.1/NAS.
             <h:p/>
             If "pre-shared keys" is selected in FCS_RADSEC_EXT.1.2, the selection-based SFR FIA_PSK_EXT.1/AuthSvr must be claimed.</note>
           <aactivity>
               <TSS>
                 <h:p>
-                The evaluator shall review the ST and verify that the RADsec protocol is described and that the description of the RADsec protocol 
+                The evaluator shall review the ST and verify that the RadSec protocol is described and that the description of the RadSec protocol 
                 includes a description of the support for relying party authentication in accordance with the requirement.
                 </h:p>
 	      </TSS>
               <Guidance>
                 <h:p>
                   If the ST indicates multiple options for relying party authentication, 
-                  the evaluator shall review the AGD guidance to ensure it includes instructions for configuring the options.
+                  the evaluator shall review the operational guidance to ensure it includes instructions for configuring the options.
                 </h:p>
 	      </Guidance>
               <Tests>
