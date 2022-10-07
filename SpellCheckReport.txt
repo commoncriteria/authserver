@@ -71,7 +71,6 @@ output/authserver-sd.html: C2
 output/authserver-sd.html: CEM
 output/authserver-sd.html: DTLSS
 output/authserver-sd.html: PBKDF2
-output/authserver-sd.html: RADsec
 output/authserver-sd.html: RP1
 output/authserver-sd.html: RP2
 output/authserver-sd.html: RadSec
@@ -91,7 +90,6 @@ output/authserver-sd.html: verifier
 output/authserver.html: 1X
 output/authserver.html: 2e
 output/authserver.html: 63b
-output/authserver.html: AGD
 output/authserver.html: AIA
 output/authserver.html: C1
 output/authserver.html: C2
