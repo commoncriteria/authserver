@@ -542,7 +542,7 @@
               <h:tr>
                 <h:td>FCS_CKM.3</h:td>
                 <h:td>[<h:i>selection: attempt to export plaintext key or CSI via defined interface, none</h:i>]<h:p/>
-                  Note: if no defined interfaces have access to persistend keys or CSI, select 'none'</h:td>
+                  Note: if no defined interfaces have access to persistent keys or CSI, select 'none'</h:td>
                 <h:td>If attempt is detected, record process identifier, authorized user's identifier (if any)</h:td>
               </h:tr>
               <h:tr>
@@ -1775,7 +1775,7 @@
               The TSF shall not verify HOTP attempts outside of the counter look-ahead window of 
               <assignable>a value less than or equal to three</assignable> 
               <selectables>
-                <selectable>except for rescynchronization</selectable>
+                <selectable>except for resynchronization</selectable>
                 <selectable>where a look-ahead window of <selectables>
                   <selectable>a configurable value</selectable>
                   <selectable><assignable>fixed value</assignable></selectable></selectables> is used to reset the counter but which is not considered a valid HOTP value</selectable>
@@ -2096,7 +2096,7 @@
               For FIA_PSK_EXT.3.4, if the minimum length is settable, then the ST author chooses "a value settable by the administrator." If the minimum length is not settable, 
               the ST author fills in the assignment with the minimum length the PSK must be. This requirement is to ensure bounds work properly.
               <h:p/>
-              For FIA_PSK_EXT.3.7, the ST author may select one, both, or neither of the functions in alignment with NIST SP800-63b.
+              For FIA_PSK_EXT.3.7, the ST author may select one, both, or neither of the functions in alignment with NIST SP 800-63B.
               </note>
             <aactivity>
               <TSS>The evaluator shall examine the TSS to ensure it describes the process by which the bit-based pre-shared keys are used.  
