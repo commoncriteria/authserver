@@ -1,6 +1,6 @@
 output/authserver-release-linkable.html: 1X
 output/authserver-release-linkable.html: 2e
-output/authserver-release-linkable.html: 63b
+output/authserver-release-linkable.html: 63B
 output/authserver-release-linkable.html: AIA
 output/authserver-release-linkable.html: CEM
 output/authserver-release-linkable.html: CRLDP
@@ -12,7 +12,6 @@ output/authserver-release-linkable.html: PSKs
 output/authserver-release-linkable.html: RADsec
 output/authserver-release-linkable.html: RadSec
 output/authserver-release-linkable.html: SKP
-output/authserver-release-linkable.html: SP800
 output/authserver-release-linkable.html: TTLS
 output/authserver-release-linkable.html: UPN
 output/authserver-release-linkable.html: anyExtendedKeyUsage
@@ -22,8 +21,6 @@ output/authserver-release-linkable.html: denylist
 output/authserver-release-linkable.html: dnsName
 output/authserver-release-linkable.html: inhibitPolicyMapping
 output/authserver-release-linkable.html: ipsec
-output/authserver-release-linkable.html: persistend
-output/authserver-release-linkable.html: rescynchronization
 output/authserver-release-linkable.html: resynchronization
 output/authserver-release-linkable.html: rfc822Name
 output/authserver-release-linkable.html: san
@@ -33,7 +30,7 @@ output/authserver-release-linkable.html: upn
 output/authserver-release-linkable.html: verifier
 output/authserver-release.html: 1X
 output/authserver-release.html: 2e
-output/authserver-release.html: 63b
+output/authserver-release.html: 63B
 output/authserver-release.html: AIA
 output/authserver-release.html: CEM
 output/authserver-release.html: CRLDP
@@ -45,7 +42,6 @@ output/authserver-release.html: PSKs
 output/authserver-release.html: RADsec
 output/authserver-release.html: RadSec
 output/authserver-release.html: SKP
-output/authserver-release.html: SP800
 output/authserver-release.html: TTLS
 output/authserver-release.html: UPN
 output/authserver-release.html: anyExtendedKeyUsage
@@ -55,8 +51,6 @@ output/authserver-release.html: denylist
 output/authserver-release.html: dnsName
 output/authserver-release.html: inhibitPolicyMapping
 output/authserver-release.html: ipsec
-output/authserver-release.html: persistend
-output/authserver-release.html: rescynchronization
 output/authserver-release.html: resynchronization
 output/authserver-release.html: rfc822Name
 output/authserver-release.html: san
@@ -89,7 +83,7 @@ output/authserver-sd.html: resynchronize
 output/authserver-sd.html: verifier
 output/authserver.html: 1X
 output/authserver.html: 2e
-output/authserver.html: 63b
+output/authserver.html: 63B
 output/authserver.html: AIA
 output/authserver.html: C1
 output/authserver.html: C2
@@ -106,7 +100,6 @@ output/authserver.html: RP1
 output/authserver.html: RP2
 output/authserver.html: RadSec
 output/authserver.html: SKP
-output/authserver.html: SP800
 output/authserver.html: TTLS
 output/authserver.html: UPN
 output/authserver.html: anyExtendedKeyUsage
@@ -121,8 +114,6 @@ output/authserver.html: inhibitAny
 output/authserver.html: inhibitAnyPolicy
 output/authserver.html: inhibitPolicyMapping
 output/authserver.html: ipsec
-output/authserver.html: persistend
-output/authserver.html: rescynchronization
 output/authserver.html: resynchronization
 output/authserver.html: resynchronize
 output/authserver.html: rfc822Name
