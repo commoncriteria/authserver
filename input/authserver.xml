@@ -99,6 +99,7 @@
       <term abbr="EAP" full="Extensible Authentication Protocol"></term>
       <term abbr="HOTP" full="Hash-Based One-Time Password"></term>
       <term abbr="IPsec" full="Internet Protocol Security"/>
+      <term abbr="MSK" full="Master Session Key"></term>
       <term abbr="OCSP" full="Online Certificate Status Protocol"></term>
       <term abbr="PBKDF" full="Password-Based Key Derivation Function"></term>
       <term abbr="PSK" full="Pre-Shared Key"></term>
@@ -272,6 +273,9 @@
           <description>
             The organization defines, for each protected resource, an authentication policy that specifies the authenticators that must be provided to access a given resource.
           </description>
+          <consistency-rationale>
+            This OSP relates to behavior that is not part of the Base-PP and so the Base-PP is not contradicted by guidance on its implementation.
+          </consistency-rationale>
           <objective-refer ref="OE.REQUIRE_AUTH">
             <rationale>
               Definition of an authentication policy, which can be enforced through deployment of a conformant TOE, can be used to ensure that organizational
@@ -678,14 +682,21 @@
     </TSS>
     <Guidance>The evaluator shall ensure that the operational guidance identifies the auditable events and includes representative examples of each event so that the presentation of each event can be identified.<h:br/><h:br/>
     </Guidance>
-    <Tests>The evaluator shall test the TOE’s ability to correctly generate audit records
-      by having the TOE generate audit records in accordance with the evaluation activities
-      associated with the functional requirements in this PP-Module. When verifying the
-      test results, the evaluator will ensure the audit records generated during testing
-      match the format specified in the administrative guide and that the fields in each
-      audit record have the proper entries. <h:p/>
-      Note that the testing here can
-      be accomplished in conjunction with the testing of the security mechanisms directly.
+    <Tests>
+      <testlist>
+        <test>
+          <h:p>
+          The evaluator shall test the TOE’s ability to correctly generate audit records
+          by having the TOE generate audit records in accordance with the evaluation activities
+          associated with the functional requirements in this PP-Module. When verifying the
+          test results, the evaluator will ensure the audit records generated during testing
+          match the format specified in the administrative guide and that the fields in each
+          audit record have the proper entries. </h:p><h:p>
+          Note that the testing here can
+          be accomplished in conjunction with the testing of the security mechanisms directly.
+          </h:p>
+        </test>
+      </testlist>
       </Tests>
   </aactivity>
 </f-element> 
@@ -1247,12 +1258,16 @@
               <TSS>There are no TSS evaluation activities for this component.<h:p/></TSS>
               <Guidance>The evaluator shall ensure that the operational guidance includes instructions on how an administrator of the TOE can change their own password.<h:p/></Guidance>
               <Tests>
-                The evaluator will access the TOE using a particular administrative account and then attempt to change the password of that account as directed by the operational guidance.
-                While making this attempt, the evaluator will verify that re-authentication is required.
-                <h:p>
-                  If other re-authentication conditions are specified, the evaluator shall cause those conditions to
-                  occur and verify that the TSF re-authenticates the authenticated user.
-                </h:p>
+                <testlist>
+                  <test>
+                    The evaluator will access the TOE using a particular administrative account and then attempt to change the password of that account as directed by the operational guidance.
+                    While making this attempt, the evaluator will verify that re-authentication is required.
+                    <h:p>
+                      If other re-authentication conditions are specified, the evaluator shall cause those conditions to
+                      occur and verify that the TSF re-authenticates the authenticated user.
+                    </h:p>
+                  </test>
+                </testlist>
               </Tests>
             </aactivity>
           </f-element>
@@ -1322,16 +1337,20 @@
               </h:ul>
             </title>
             <note role="Application">
+              <h:p>
+                This SFR is iterated from the Base-PP to define X.509 validation requirements that are specific to claimaint authentication.
+              </h:p><h:p>
               The ST author claims supported certificate validity checking options for each rule. For name constraints, all supported name types used to match names presented in a certificate to registered users 
               and the associated standard matching method are described.
-              <h:p/>
+              </h:p><h:p>
               The ST author claims supported certificate policies. ‘Policy Constraints…’ is claimed if the TOE’s authentication policy depends on the certificate policies for claimant certificates. 
               Other policy related extensions within the selection are claimed if supported. 
               The extension inhibitPolicyMapping is not claimed if the TSF does not support certificate chains of length four or more. 
               The policy related extensions, if supported, are primarily used in this PP-Module for claimant authentication, but are allowed for other certificate authentications. 
               The ST author specifies the intended use and any limits of support for these extensions or specifies ‘no other policy related extension’ in the assignment of this selection.
-              <h:p/>
-              The ST author specifies any additional supported X509 extensions, and the associated extension processing rules used to determine claimant identity attributes or conditions that can be used in the TOE’s authentication policy. 
+              </h:p><h:p>
+              The ST author specifies any additional supported X.509 extensions, and the associated extension processing rules used to determine claimant identity attributes or conditions that can be used in the TOE’s authentication policy. 
+              </h:p>
             </note>
           </f-element>
           <f-element>
@@ -1503,8 +1522,12 @@
 			    For each claimed management function, the evaluator shall ensure that the operational guidance contains instructions for how to configure the function.<h:p/>
 			  </Guidance>
 			  <Tests>
-			  For each claimed management function, the evaluator shall follow the operational guidance to configure the behavior of that function and ensure that applying the configuration settings have the intended effect. 
-			  Note that some or all of these functions may be tested in the course of performing the test activities for other claimed SFRs. 
+			    <testlist>
+			      <test>
+			        For each claimed management function, the evaluator shall follow the operational guidance to configure the behavior of that function and ensure that applying the configuration settings have the intended effect. 
+			        Note that some or all of these functions may be tested in the course of performing the test activities for other claimed SFRs.
+			      </test>
+			    </testlist>
 			  </Tests>
 			</aactivity>
 		</f-element>
@@ -1530,9 +1553,14 @@
               <TSS>The evaluator shall examine the TSS to determine that all of the attributes on which a claimant session can be denied are specifically defined.<h:p/>
               </TSS>
               <Guidance>The evaluator shall examine the operational guidance to verify that it contains instructions for configuring each of the attributes identified in the TSS.<h:p/> </Guidance>
-              <Tests>The evaluator shall successfully have a claimant be authenticated by the TOE. 
+              <Tests>
+                <testlist>
+                  <test>
+                The evaluator shall successfully have a claimant be authenticated by the TOE. 
                 For each attribute claimed in the SFR, the evaluator shall configure the TOE to deny user access based on a specific value of that attribute.
-                The evaluator shall then attempt to establish a new session in contravention to the attribute setting while still providing valid authentication data. The evaluator shall observe that the access attempt fails.  
+                The evaluator shall then attempt to establish a new session in contravention to the attribute setting while still providing valid authentication data. The evaluator shall observe that the access attempt fails.
+                  </test>
+                </testlist>
               </Tests>
             </aactivity>
           </f-element>
@@ -1581,8 +1609,13 @@
 				    <Guidance>
 				      The evaluator shall confirm that the guidance documentation contains instructions for establishing and reestablishing the allowed protocols with each authorized IT entity. 
 				    </Guidance>
-				    <Tests>For each claimed trusted channel mechanism, the evaluator shall configure the TOE to interact with a relying party using that channel and verify using packet captures that the claimed mechanism
-				    is used.</Tests>
+				    <Tests>
+				      <testlist>
+				        <test>
+				      For each claimed trusted channel mechanism, the evaluator shall configure the TOE to interact with a relying party using that channel and verify using packet captures that the claimed mechanism
+				    is used.
+				        </test>
+				      </testlist></Tests>
 				  </aactivity>	  
 			  </f-element>
 		  </f-component>
