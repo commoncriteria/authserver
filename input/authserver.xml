@@ -88,7 +88,7 @@
         An object or data structure that authoritatively binds an identity via an identifier or identifiers and (optionally) additional attributes, to at least one authenticator possessed and controlled by a subscriber.
       </term>
       <term abbr="CRL" full="Certificate Revocation List"></term>
-      <term abbr="CSI" full="Cryptographic Security Information"></term>
+      <term abbr="CSP" full="Critical Security Parameters"></term>
       <term full="Federation Protocol">
         A protocol to establish a trusted relationship with a relying party, and for the purposes of this PP module, to communicate authentication status for entities requesting access to resources managed by the relying party. 
         In this PP-module, Federation Protocols include RADIUS, DIAMETER, and other standard protocols used in direct communication between the relying party and the TOE.  
@@ -545,8 +545,8 @@
               </h:tr>
               <h:tr>
                 <h:td>FCS_CKM.3</h:td>
-                <h:td>[<h:i>selection: attempt to export plaintext key or CSI via defined interface, none</h:i>]<h:p/>
-                  Note: if no defined interfaces have access to persistent keys or CSI, select 'none'</h:td>
+                <h:td>[<h:i>selection: attempt to export plaintext key or CSP via defined interface, none</h:i>]<h:p/>
+                  Note: if no defined interfaces have access to persistent keys or CSP, select 'none'</h:td>
                 <h:td>If attempt is detected, record process identifier, authorized user's identifier (if any)</h:td>
               </h:tr>
               <h:tr>
@@ -850,18 +850,18 @@
             <consistency-rationale>The Base-PP requires confidentiality of cryptographic key data in FPT_SKP_EXT.1. This SFR defines more specific detail on how that function should be enforced.</consistency-rationale>
           <f-element>
             <title>
-              The TSF shall perform [<h:i>access control for persistent private and secret keys and security critical parameters required by this PP-Module</h:i>] 
+              The TSF shall perform [<h:i>access control for persistent private and secret keys and critical security parameters required by this PP-Module</h:i>] 
               in accordance with a specified cryptographic key access method 
-              [<h:i>ensuring only authorized security functionality can access plaintext keys or security critical information</h:i>] 
-              that meets the following: [<h:i>keys and security critical information are not exportable in plaintext and keys and security critical information are not viewable in plaintext</h:i>].
+              [<h:i>ensuring only authorized security functionality can access plaintext keys or critical security parameters</h:i>] 
+              that meets the following: [<h:i>keys and critical security parameters are not exportable in plaintext and keys and critical security parameters are not viewable in plaintext</h:i>].
             </title>
             <note role="application">
               Exposure of keys used for assertion signatures, including private keys associated to certificates used to establish a protected channel to 
               relying parties and claimants, one-time-password seed keys, 
               and plaintext passwords can undermine or bypass the protections required for TOE functionality. 
-              The ST author describes the specific methods used to prevent unauthorized or unnecessary access to these keys and security critical information. 
+              The ST author describes the specific methods used to prevent unauthorized or unnecessary access to these keys and critical security parameters. 
               This requirement is not intended to cover unanticipated exploits; 
-              it is only required that plaintext keys and security critical values not be exportable or viewable by defined interfaces. 
+              it is only required that plaintext keys and critical security parameters not be exportable or viewable by defined interfaces. 
               OTP seed key values are shared using out-of-band methods with the associated entities. 
               This requirement implies that the method to export these values uses encrypted key transport methods.
             </note>
@@ -1219,7 +1219,8 @@
                 The evaluator shall verify that the TSS describes the method by which the offending claimant is prevented from successfully being authenticated by the TOE, and the actions necessary to restore this ability. 
                 <h:p/>
               </TSS>
-              <Guidance>The evaluator shall examine the operational guidance to verify that it describes how to configure the threshold for unsuccessful claimant authentication attempts and how to perform 
+              <Guidance>The evaluator shall examine the operational guidance to verify that it describes how to configure the threshold for unsuccessful claimant authentication attempts,
+                what the acceptable range of values for that threshold is, and how to perform 
                 any actions that affect claimants that are limited in this manner (e.g., instructions for configuring the lockout period or for manually unlocking the offending claimant).<h:p/>
               </Guidance>
               <Tests>
@@ -1622,6 +1623,7 @@
       </sec:man_ftp>
         
     </man-sfrs>
+    <mod-sars/>
    <opt-sfrs/>
     <sel-sfrs>
       
