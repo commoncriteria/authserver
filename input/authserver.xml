@@ -233,6 +233,22 @@
           </objective-refer>
         </threat>
 
+	<threat name="T.UNAUTHORIZED_ADMINISTRATOR_ACCESS">
+	  <from base="NDcPP"/>
+	  <objective-refer ref="O.AUTHORIZED_USE">
+	    <rationale>YYYYY</rationale>
+	  </objective-refer>
+	</threat>
+	
+	<threat name="T.UNDETECTED_ACTIVITY">
+	  <from base="NDcPP"/>
+	  <objective-refer ref="O.AUTHORIZED_USE">
+	    <rationale>YYYYY</rationale>
+	  </objective-refer>
+	</threat>
+
+
+	
         <threat name="T.INVALID_USERS">
           <description>A malicious user may supply incorrect or insufficient credential data or an otherwise invalid authentication request that is approved or ignored by the TSF such that protected resources are subject to unauthenticated access.
           </description>
@@ -445,7 +461,11 @@
     <base-pp id="ND" version="2.2e" name="Network Device" product="Network Device" short="ND" plural="Network Devices">
       <url><![CDATA[https://www.niap-ccevs.org/profile/Info.cfm?PPID=447&id=447]]></url>
   	  <cPP/>
-      <modified-sfrs>
+
+	  <threats>
+	  </threats>
+
+	<modified-sfrs>
         <!-- per open comment, it's unclear whether we need to treat any other NDcPP SFRs as 'modified' (most notably FIA_X509_EXT.1/Rev and FTP_ITC.1, or are those completely separate from what is needed for auth server) -->
 
         <sec:from_nd_fia title="Identification and Authentication (FIA)">
