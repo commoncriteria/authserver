@@ -233,24 +233,6 @@
           </objective-refer>
         </threat>
 
-	<threat name="T.UNAUTHORIZED_ADMINISTRATOR_ACCESS">
-	  <from base="NDcPP"/>
-	  <objective-refer ref="O.AUTHORIZED_USE">
-	    <rationale>The TOE further mitigates this threat originally defined in the Base-PP by defining additional 
-	      management functions that require authorization 
-	      and additional interfaces that can be used securely to execute management activities.</rationale>
-	  </objective-refer>
-	</threat>
-	
-	<threat name="T.UNDETECTED_ACTIVITY">
-	  <from base="NDcPP"/>
-	  <objective-refer ref="O.AUTHORIZED_USE">
-	    <rationale>The TOE further mitigates this threat originally defined in the Base-PP by implementing 
-	      measures to generate audit records for security-relevant events that are specific
-	      to the functionality defined by this PP-Module.</rationale>
-	  </objective-refer>
-	</threat>
-
 
 	
         <threat name="T.INVALID_USERS">
@@ -268,6 +250,25 @@
             <rationale>The TOE’s proper implementation of the claimant authentication ensures that it will accurately process authentication attempts to allow only valid authentication attempts. 
               The TOE’s ability to use trusted communications as part of the federation protocol implementation ensures that modification or disclosure of authentication data cannot be used 
               as a method to gain access to credentials or modify an authentication result.</rationale>
+          </objective-refer>
+        </threat>
+
+
+        <threat name="T.UNAUTHORIZED_ADMINISTRATOR_ACCESS">
+          <from base="NDcPP"/>
+          <objective-refer ref="O.AUTHORIZED_USE">
+            <rationale>The TOE further mitigates this threat originally defined in the Base-PP by defining additional 
+              management functions that require authorization 
+              and additional interfaces that can be used securely to execute management activities.</rationale>
+          </objective-refer>
+        </threat>
+        
+        <threat name="T.UNDETECTED_ACTIVITY">
+          <from base="NDcPP"/>
+          <objective-refer ref="O.AUTHORIZED_USE">
+            <rationale>The TOE further mitigates this threat originally defined in the Base-PP by implementing 
+              measures to generate audit records for security-relevant events that are specific
+              to the functionality defined by this PP-Module.</rationale>
           </objective-refer>
         </threat>
 
