@@ -13,7 +13,6 @@ output/authserver-release-linkable.html: RadSec
 output/authserver-release-linkable.html: SKP
 output/authserver-release-linkable.html: TTLS
 output/authserver-release-linkable.html: UPN
-output/authserver-release-linkable.html: YYYYY
 output/authserver-release-linkable.html: anyExtendedKeyUsage
 output/authserver-release-linkable.html: anyPolicy
 output/authserver-release-linkable.html: claimaint
@@ -41,7 +40,6 @@ output/authserver-release.html: RadSec
 output/authserver-release.html: SKP
 output/authserver-release.html: TTLS
 output/authserver-release.html: UPN
-output/authserver-release.html: YYYYY
 output/authserver-release.html: anyExtendedKeyUsage
 output/authserver-release.html: anyPolicy
 output/authserver-release.html: claimaint
@@ -104,7 +102,6 @@ output/authserver.html: RadSec
 output/authserver.html: SKP
 output/authserver.html: TTLS
 output/authserver.html: UPN
-output/authserver.html: YYYYY
 output/authserver.html: anyExtendedKeyUsage
 output/authserver.html: anyPolicy
 output/authserver.html: anyPolicy’
