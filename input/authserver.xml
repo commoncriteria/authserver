@@ -236,16 +236,18 @@
 	<threat name="T.UNAUTHORIZED_ADMINISTRATOR_ACCESS">
 	  <from base="NDcPP"/>
 	  <objective-refer ref="O.AUTHORIZED_USE">
-	    <rationale>The TOE's enforcement of mechanisms to authorize access to the TSF 
-	    will mitigate the threat of unauthorized usage.</rationale>
+	    <rationale>The TOE further mitigates this threat originally defined in the Base-PP by defining additional 
+	      management functions that require authorization 
+	      and additional interfaces that can be used securely to execute management activities.</rationale>
 	  </objective-refer>
 	</threat>
 	
 	<threat name="T.UNDETECTED_ACTIVITY">
 	  <from base="NDcPP"/>
 	  <objective-refer ref="O.AUTHORIZED_USE">
-	    <rationale>The TOE's enforcement of mechanisms to audit the actions performed against the TSF
-	    will ensure that any incorrect usage of the TOE is detected.</rationale>
+	    <rationale>The TOE further mitigates this threat originally defined in the Base-PP by implementing 
+	      measures to generate audit records for security-relevant events that are specific
+	      to the functionality defined by this PP-Module.</rationale>
 	  </objective-refer>
 	</threat>
 
