@@ -236,14 +236,16 @@
 	<threat name="T.UNAUTHORIZED_ADMINISTRATOR_ACCESS">
 	  <from base="NDcPP"/>
 	  <objective-refer ref="O.AUTHORIZED_USE">
-	    <rationale>YYYYY</rationale>
+	    <rationale>The TOE's enforcement of mechanisms to authorize access to the TSF 
+	    will mitigate the threat of unauthorized usage.</rationale>
 	  </objective-refer>
 	</threat>
 	
 	<threat name="T.UNDETECTED_ACTIVITY">
 	  <from base="NDcPP"/>
 	  <objective-refer ref="O.AUTHORIZED_USE">
-	    <rationale>YYYYY</rationale>
+	    <rationale>The TOE's enforcement of mechanisms to audit the actions performed against the TSF
+	    will ensure that any incorrect usage of the TOE is detected.</rationale>
 	  </objective-refer>
 	</threat>
 
