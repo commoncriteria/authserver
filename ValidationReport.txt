@@ -1,1 +1,0 @@
-/home/runner/work/authserver/authserver/input/authserver.xml:465:13: error: element "threats" not allowed here; expected element "app-unmod-sfrs", "modified-sfrs" or "sec-func-req-dir"
