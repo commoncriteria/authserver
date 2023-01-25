@@ -17,6 +17,7 @@ See the [release](#Release-Version) section if you are looking for the officiall
 * [PP-Module for Authentication Servers](https://commoncriteria.github.io/pp/authserver/authserver-release.html) (html)
 * [PP-Module for Authentication Servers](https://commoncriteria.github.io/pp/authserver/authserver-release.pdf) (pdf)
 * [SD for Authentication Servers](https://commoncriteria.github.io/pp/authserver/authserver-sd.html) (html)
+* [SD for Authentication Servers](https://commoncriteria.github.io/pp/authserver/authserver-sd.pdf) (pdf)
 * [Combined PP-Module and SD for Authentication Servers](https://commoncriteria.github.io/pp/authserver/authserver.html) (html)
 
 ## Release Version
