@@ -21,7 +21,7 @@ See the [release](#Release-Version) section if you are looking for the officiall
 * [Combined PP-Module and SD for Authentication Servers](https://commoncriteria.github.io/pp/authserver/authserver.html) (html)
 
 ## Release Version
-* [PP-Module for Authentication Servers](TBD)
+* [PP-Module for Authentication Servers](https://www.niap-ccevs.org/Profile/Info.cfm?PPID=470&id=470)
 
 ## Contributing
 
