@@ -13,9 +13,9 @@
  
   <PPReference>
     <ReferenceTable>
-      <PPVersion>1.0</PPVersion>
+      <PPVersion>1.1</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2023-01-25</PPPubDate>
+      <PPPubDate>2025-03-24</PPPubDate>
       <Keywords>authentication server, AAA, RADIUS, DIAMETER</Keywords>
     </ReferenceTable>
   </PPReference>
@@ -24,6 +24,11 @@
       <version>1.0</version>
       <date>2023-01-25</date>
       <subject>Initial Release</subject>
+    </entry>
+    <entry>
+      <version>1.1</version>
+      <date>2025-03-24</date>
+      <subject>Incorporate NIAP Technical Decisions, Update to CC:2022</subject>
     </entry>
   </RevisionHistory>
   
@@ -1176,6 +1181,9 @@
                 <testlist>
                   <test>
                     For each type of claimant held key supported, the evaluator shall confirm that communication between the test client and the test relying party encrypted using the indicated key is successful.
+                    <h:br/><h:br/>
+                    NOTE: This test, while not directly involving the TOE, is intended to confirm that the key provided by the TOE to the test client (via EAP-TLS negotiation) and to the test relying party 
+                    (via RadSec or other encrypted messaging protocol) to enable communication between the client and relying party is valid. 
                   </test>
                 </testlist>
                </Tests>
