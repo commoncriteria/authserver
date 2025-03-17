@@ -1,3 +1,4 @@
+output/authserver-esr.html: CESG
 output/authserver-release-linkable.html: 1X
 output/authserver-release-linkable.html: 2e
 output/authserver-release-linkable.html: 63B
