@@ -1,6 +1,6 @@
 output/authserver-esr.html: CESG
+output/authserver-release-linkable.html: 0e
 output/authserver-release-linkable.html: 1X
-output/authserver-release-linkable.html: 2e
 output/authserver-release-linkable.html: 63B
 output/authserver-release-linkable.html: AIA
 output/authserver-release-linkable.html: C1
@@ -34,8 +34,8 @@ output/authserver-release-linkable.html: rfc822Name
 output/authserver-release-linkable.html: san
 output/authserver-release-linkable.html: subjectAlternateName
 output/authserver-release-linkable.html: upn
+output/authserver-release.html: 0e
 output/authserver-release.html: 1X
-output/authserver-release.html: 2e
 output/authserver-release.html: 2’
 output/authserver-release.html: 63B
 output/authserver-release.html: AIA
@@ -68,7 +68,7 @@ output/authserver-release.html: subjectAlternateName
 output/authserver-release.html: upn
 output/authserver-release.html: verifier’s
 output/authserver-release.html: ’
-output/authserver-sd.html: 2e
+output/authserver-sd.html: 0e
 output/authserver-sd.html: AGD
 output/authserver-sd.html: C1
 output/authserver-sd.html: C2
@@ -91,8 +91,8 @@ output/authserver-sd.html: inhibitAnyPolicy
 output/authserver-sd.html: inhibitPolicyMapping
 output/authserver-sd.html: pass’
 output/authserver-sd.html: verifier’s
+output/authserver.html: 0e
 output/authserver.html: 1X
-output/authserver.html: 2e
 output/authserver.html: 2’
 output/authserver.html: 63B
 output/authserver.html: AIA

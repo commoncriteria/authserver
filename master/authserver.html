@@ -633,10 +633,10 @@ function showTarget(id){
       Version: 1.1<br/>2025-03-24<br/><b>National Information Assurance Partnership</b><br/></div><h2 style="page-break-before:always;">Revision History</h2><table><tr class="header"><th>Version</th><th>Date</th><th>Comment</th></tr><tr><td>1.0</td><td>2023-01-25</td><td>Initial Release</td></tr>
 <tr><td>1.1</td><td>2025-03-24</td><td>Incorporate NIAP Technical Decisions, Update to <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022</td></tr>
 </table><h2>Contents</h2><div class="toc" id="toc"><a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#Compliant_Targets_of_Evaluation" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOE_Boundary" style="text-indent:10px">1.4<span>TOE Boundary</span></a><a href="#Use_Cases" style="text-indent:10px">1.5<span>Use Cases</span></a><a href="#Conformance_Claims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Problem_Definition" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#Threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#Assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Organizational_Security_Policies" style="text-indent:10px">3.3<span>Organizational Security Policies</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#Security_Objectives_for_the_TOE" style="text-indent:10px">4.1<span>Security Objectives for the TOE</span></a><a href="#Security_Objectives_for_the_Operational_Environment" style="text-indent:10px">4.2<span>Security Objectives for the Operational Environment</span></a><a href="#" style="text-indent:10px">4.3<span>Security Objectives Rationale</span></a><a href="#Security_Requirements" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#secreq-ND" style="text-indent:10px">5.1<span>Collaborative 
-    Protection Profile for Network Devices
+    Protection Profile for Network Device
        Security Functional Requirements Direction
     </span></a><a href="#modsfr-ND" style="text-indent:20px">5.1.1<span> Modified SFRs </span></a><a href="#from_nd_fia" style="text-indent:30px">5.1.1.1<span>Identification and Authentication (FIA)</span></a><a href="#man-sfrs" style="text-indent:10px">5.2<span>TOE Security Functional Requirements</span></a><a href="#man_fau" style="text-indent:20px">5.2.1<span>Security Audit (FAU)</span></a><a href="#man_fco" style="text-indent:20px">5.2.2<span>Communications (FCO)</span></a><a href="#man_fcs" style="text-indent:20px">5.2.3<span>Cryptographic Support (FCS)</span></a><a href="#man_fia" style="text-indent:20px">5.2.4<span>Identification and Authentication (FIA)</span></a><a href="#man_fmt" style="text-indent:20px">5.2.5<span>Security Management (FMT)</span></a><a href="#man_fta" style="text-indent:20px">5.2.6<span>TOE Access (FTA)</span></a><a href="#man_ftp" style="text-indent:20px">5.2.7<span>Trusted Path/Channels (FTP)</span></a><a href="#obj-req-map" style="text-indent:10px">5.3<span>TOE Security Functional Requirements Rationale</span></a><a href="#mod-sars" style="text-indent:10px">5.4<span>TOE Security Assurance Requirements</span></a><a href="#mod-conrat" style="text-indent:0px">6<span>Consistency Rationale</span></a><a href="#conrat-ND" style="text-indent:10px">6.1<span>Collaborative 
-    Protection Profile for Network Devices</span></a><a href="#contoe-ND" style="text-indent:20px">6.1.1<span>
+    Protection Profile for Network Device</span></a><a href="#contoe-ND" style="text-indent:20px">6.1.1<span>
 	Consistency of TOE Type
       </span></a><a href="#consecprob-ND" style="text-indent:20px">6.1.2<span>
 	Consistency of Security Problem Definition
@@ -670,7 +670,7 @@ function showTarget(id){
 
       <ul>
         <li>collaborative Protection Profile for
-          Network Devices, Version 2.2e (NDcPP)</li>
+          Network Devices, Version 3.0e (NDcPP)</li>
       </ul>
       This <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> is valid because an authentication server can be deployed as a dedicated network appliance. 
       The use case of deploying the authentication server as an application on a general-purpose computer is outside the scope of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. 
@@ -819,8 +819,15 @@ The following sections list Common Criteria and technology terms used in this do
 					This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not claim conformance to 
 					any Protection Profile.
 				</dd><p></p><dd>There are no <abbr class="dyn-abbr"><a href="#abbr_PP">PPs</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Modules that are allowed in a <abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> 
-					with this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</dd><dt>Package Claim</dt><p></p><dd>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is not conformant to any 
-						Functional or Assurance Packages.</dd></dl>
+					with this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</dd><dt>Package Claim</dt><p></p><dd><ul><li>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is 
+					    Functional Package for <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>, version 2.0 conformant.</li><li>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not conform to any 
+						assurance packages.</li></ul></dd><p></p><dd>
+		The functional packages to which the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> conforms may include <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> that are not mandatory 
+		to claim for the sake of conformance. An <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> that claims one or more of these functional 
+		packages may include any non-mandatory <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> that are appropriate to claim based on the 
+		capabilities of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> and on any triggers for their inclusion based inherently on the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> 
+		selections made. 
+	</dd></dl>
     
   <h1 class="indexable" data-level="1" id="Security_Problem_Definition">3 Security Problem Definition</h1>
     The security problem is described in terms of the threats that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is expected to address, assumptions about its Operational Environment, and any organizational security policies that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is expected to enforce.
@@ -906,7 +913,7 @@ provide all of its security functionality.
        </li>
      </ul>
    <h2 id="secreq-ND" class="indexable" data-level="2">5.1 Collaborative 
-    Protection Profile for Network Devices
+    Protection Profile for Network Device
        Security Functional Requirements Direction
     </h2>
       In a <abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> that includes the NDcPP,
@@ -1206,20 +1213,20 @@ Network Device
                 <li class="test-"><a id="_t_2" class="defined" href="#_t_2">Test FCO_NRO.1:1</a>:
       
                   <ul>
-                    <li>Step 1: The evaluator shall establish a connection with the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> from two trusted relying parties RP1 and RP2 and verify that each of RP1 and RP2 are able to authenticate the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</li> 
-                    <li>Step 2: The evaluator shall initiate an authentication request for a claimant C1 via RP1, providing valid authentication data, and verify that RP1 receives an authentication assertion via the authenticated channel indicating C1 is authenticated.</li>
-                    <li>Step 3: The evaluator shall initiate an authentication request for a claimant C2 via RP2, providing invalid authentication data and confirm that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not provide an authentication assertion indicating C2 is authenticated via the authenticated channel.</li> 
-                    <li>Step 4: The evaluator shall send correct authentication data associated with claimant C2 via RP1 without sending a new authentication request and observe that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> ignores the request.</li>
+                    <li><b>Step 1: </b>The evaluator shall establish a connection with the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> from two trusted relying parties RP1 and RP2 and verify that each of RP1 and RP2 are able to authenticate the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</li> 
+                    <li><b>Step 2: </b>The evaluator shall initiate an authentication request for a claimant C1 via RP1, providing valid authentication data, and verify that RP1 receives an authentication assertion via the authenticated channel indicating C1 is authenticated.</li>
+                    <li><b>Step 3: </b>The evaluator shall initiate an authentication request for a claimant C2 via RP2, providing invalid authentication data and confirm that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not provide an authentication assertion indicating C2 is authenticated via the authenticated channel.</li> 
+                    <li><b>Step 4: </b>The evaluator shall reinitialize the <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr> session for C1 on RP1, but send correct authentication data associated with claimant C2 via RP1 without resetting the <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr> session and observe that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not indicate a successful authentication.</li>
                   </ul>
                 </li>
                   <li class="test-"><a id="_t_3" class="defined" href="#_t_3">Test FCO_NRO.1:2</a>:
       [conditional on support for pass-through] The intent of this test is to demonstrate the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> is able to authenticate to external entities for registered users 
                     over a pass-through method, and ignores requests for non-registered users.
                     <ul>
-                      <li>Step 1: The evaluator shall follow operational guidance to configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to connect to an external authentication server using pass-through functionality, 
+                      <li><b>Step 1: </b>The evaluator shall follow operational guidance to configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to connect to an external authentication server using pass-through functionality, 
                         and initiate a request from a trusted relying party that results in the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> exercising pass-through functionality to authenticate a registered claimant.</li> 
-                      <li>Step 2: The evaluator shall observe that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> authenticates to the external authentication server prior to sending any authentication requests.</li>
-                      <li>Step 3: The evaluator shall then follow operational guidance to de-register the claimant at the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, and ensure the claimant is still registered at the external authentication server. 
+                      <li><b>Step 2: </b>The evaluator shall observe that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> authenticates to the external authentication server prior to sending any authentication requests.</li>
+                      <li><b>Step 3: </b>The evaluator shall then follow operational guidance to de-register the claimant at the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, and ensure the claimant is still registered at the external authentication server. 
                         The evaluator shall repeat initiation of the authentication request for the claimant, and observe that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> associates the identifier of the request by dropping the request without forwarding.</li>
                     </ul>
                   </li>
@@ -1342,7 +1349,7 @@ Network Device
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement [<b>selection</b>: <span class="selectable-content" id="_s_9"><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS as specified in RFC 5216</span>, <span class="selectable-content" id="_s_10"><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TTLS as specified in RFC 5881</span>] as updated by RFC 8996 with [<b>selection</b>: <span class="selectable-content" id="_s_11"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr></span>, <span class="selectable-content" id="_s_12"><abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr></span>] implemented using mutual authentication in accordance with [<b>selection</b>: <span class="selectable-content" id="_s_13">FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</span>, <span class="selectable-content" id="_s_14">FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</span>].
             </div></div>
           <div class="element"><div class="reqid" id="FCS_EAPTLS_EXT.1.2"><a href="#FCS_EAPTLS_EXT.1.2" class="abbr">FCS_EAPTLS_EXT.1.2</a></div><div class="reqdesc">
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate random values used in the [<b>selection</b>: <span class="selectable-content" id="_s_15"><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS</span>, <span class="selectable-content" id="_s_16"><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TTLS</span>] exchange using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> specified in FCS_RBG_EXT.1.
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate random values used in the [<b>selection</b>: <span class="selectable-content" id="_s_15"><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS</span>, <span class="selectable-content" id="_s_16"><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TTLS</span>] exchange using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> specified in FCS_RBG.1.
             </div></div>
           <div class="element"><div class="reqid" id="FCS_EAPTLS_EXT.1.3"><a href="#FCS_EAPTLS_EXT.1.3" class="abbr">FCS_EAPTLS_EXT.1.3</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support claimant authentication using certificates and [<b>selection</b>: <span class="selectable-content" id="eaptls-uses-psk">static <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr></span>, <span class="selectable-content" id="eaptls-uses-hotp"><abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr></span>, <span class="selectable-content" id="eaptls-uses-totp"><abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr></span>, <span class="selectable-content" id="_s_20">other authentication-verification methods via pass-through</span>, <span class="selectable-content" id="_s_21">no other methods</span>].
@@ -1381,7 +1388,7 @@ Network Device
             <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> to ensure the <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr> protocol is described in accordance with the claimed RFC. For each supported mode, the evaluator shall ensure the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> describes the following:
                 <ul>
                   <li>The mechanism to authenticate a claimant uses (D)<abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> with client certificate authentication in combination with any other supported authenticator outputs, and any configurable features.</li>
-                  <li>The source of randomness meets FCS_RBG_EXT.1 for use in key and nonce generation for the underlying (D)<abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> channel and supported authentication methods.</li>
+                  <li>The source of randomness meets FCS_RBG.1 for use in key and nonce generation for the underlying (D)<abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> channel and supported authentication methods.</li>
                 </ul>
                 <p></p>
                 The evaluator shall also verify that the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> contains a description of the user access policy, 
@@ -1930,7 +1937,7 @@ Network Device
     showing that the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> are suitable to address the specified threats:<br/><table><caption><span class="ctr" data-myid="t-obj_map" data-counter-type="ct-Table" id="t-obj_map">Table <span class="counter">3</span></span>: <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> Rationale</caption><tr><th>Threat</th><th>Addressed by</th><th>Rationale</th></tr></table></p><h2 id="mod-sars" class="indexable" data-level="2">5.4 TOE Security Assurance Requirements</h2>
 			This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any Security Assurance requirements. The <abbr class="dyn-abbr"><a href="#abbr_SAR">SARs</a></abbr> from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> must be satisfied.
 	      <h1 id="mod-conrat" class="indexable" data-level="1">6 Consistency Rationale</h1><h2 id="conrat-ND" class="indexable" data-level="2">6.1 Collaborative 
-    Protection Profile for Network Devices</h2><h3 id="contoe-ND" class="indexable" data-level="3">6.1.1 
+    Protection Profile for Network Device</h2><h3 id="contoe-ND" class="indexable" data-level="3">6.1.1 
 	Consistency of TOE Type
       </h3> 
         When this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is used to extend the NDcPP, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> type for the overall <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is still a network device.
@@ -2078,7 +2085,7 @@ Network Device
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support HMAC-Based One-Time Password authentication (<abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr>) in accordance with RFC 4226. 
             </div></div>
           <div class="element"><div class="reqid" id="FIA_HOTP_EXT.1.2"><a href="#FIA_HOTP_EXT.1.2" class="abbr">FIA_HOTP_EXT.1.2</a></div><div class="reqdesc">
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate a <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> seed key according to FCS_RBG_EXT.1 of 
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate a <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> seed key according to FCS_RBG.1 of 
               [<b>selection</b>: <span class="selectable-content" id="_s_113">128</span>, <span class="selectable-content" id="_s_114">256</span>] bits.
             </div></div>
           <div class="element"><div class="reqid" id="FIA_HOTP_EXT.1.3"><a href="#FIA_HOTP_EXT.1.3" class="abbr">FIA_HOTP_EXT.1.3</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate a new <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> seed key for each claimant to be authenticated.
@@ -2134,7 +2141,7 @@ Network Device
               
               
             <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">
-                The evaluator shall confirm the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes how the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> complies with the RFC.<p></p>The evaluator shall confirm the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes how the <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> seed is generated and ensure it aligns with FCS_RBG_EXT.1.
+                The evaluator shall confirm the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes how the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> complies with the RFC.<p></p>The evaluator shall confirm the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes how the <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> seed is generated and ensure it aligns with FCS_RBG.1.
                 <p></p>
                 The evaluator shall confirm the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes how the <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> seed is protected and ensure it aligns with the key storage requirements in <a href="#FCS_STG_EXT.1">FCS_STG_EXT.1</a>.
                 <p></p>
@@ -2267,7 +2274,7 @@ Network Device
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to 
               [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_153">accept externally generated pre-shared keys</span></li><li style=""><span class="selectable-content" id="_s_154">
                   generate 
-                  [<b>selection</b>: <span class="selectable-content" id="_s_155">128</span>, <span class="selectable-content" id="_s_156">256</span>] bit-based pre-shared keys via FCS_RBG_EXT.1. 
+                  [<b>selection</b>: <span class="selectable-content" id="_s_155">128</span>, <span class="selectable-content" id="_s_156">256</span>] bit-based pre-shared keys via FCS_RBG.1. 
                   </span></li></ul>].
             <div class="appnote"><span class="note-header">Application
       Note:
@@ -2283,7 +2290,7 @@ Network Device
               
               
               
-            <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">If "generate" is selected, the evaluator shall confirm that this process uses the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> specified in FCS_RBG_EXT.1 
+            <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">If "generate" is selected, the evaluator shall confirm that this process uses the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> specified in FCS_RBG.1 
                 and the output matches the size selected in <a href="#FIA_PSK_EXT.2.1">FIA_PSK_EXT.2.1</a>.<p></p> 
               </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall confirm the operational guidance contains instructions for generating or entering pre-shared keys (based on the selection made in <a href="#FIA_PSK_EXT.2.1">FIA_PSK_EXT.2.1</a>)
                 for each protocol identified in the <a href="#FIA_PSK_EXT.1.1/AuthSvr">FIA_PSK_EXT.1.1/AuthSvr</a>. <p></p>
@@ -2326,7 +2333,7 @@ Network Device
      <span class="assignable-content">password policy indicating minimum length and types of characters required</span>]</span>, <span class="selectable-content" id="_s_167">no additional password constraints</span>].
             </div></div>
           <div class="element"><div class="reqid" id="FIA_PSK_EXT.3.5"><a href="#FIA_PSK_EXT.3.5" class="abbr">FIA_PSK_EXT.3.5</a></div><div class="reqdesc">
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate all salts using an <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> that meets FCS_RBG_EXT.1 and with entropy corresponding 
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate all salts using an <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> that meets FCS_RBG.1 and with entropy corresponding 
               to the key size selected for <abbr class="dyn-abbr"><a href="#abbr_PBKDF">PBKDF</a></abbr> in <a href="#FIA_PSK_EXT.3.3">FIA_PSK_EXT.3.3</a>.
             </div></div>
           <div class="element"><div class="reqid" id="FIA_PSK_EXT.3.6"><a href="#FIA_PSK_EXT.3.6" class="abbr">FIA_PSK_EXT.3.6</a></div><div class="reqdesc">
@@ -2373,7 +2380,7 @@ Network Device
                 <p></p>
                 The evaluator shall confirm that the minimum length is described.
                 <p></p>
-                The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author shall provide a description in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> regarding the salt generation. The evaluator shall confirm that the salt is generated using an <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> described in FCS_RBG_EXT.1.
+                The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author shall provide a description in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> regarding the salt generation. The evaluator shall confirm that the salt is generated using an <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> described in FCS_RBG.1.
                 <p></p>
                 [conditional] If password strength meter or password denylist is selected, the evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to ensure 
                 any password checking functionality provided by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> is described and contains details on how the function operates.
@@ -2419,7 +2426,7 @@ Network Device
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support Time-Based One-Time Password (<abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr>) authentication in accordance with RFC 6238. 
             </div></div>
           <div class="element"><div class="reqid" id="FIA_TOTP_EXT.1.2"><a href="#FIA_TOTP_EXT.1.2" class="abbr">FIA_TOTP_EXT.1.2</a></div><div class="reqdesc">
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate a <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> seed according to FCS_RBG_EXT.1 of 
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate a <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> seed according to FCS_RBG.1 of 
               [<b>selection</b>: <span class="selectable-content" id="_s_173">128</span>, <span class="selectable-content" id="_s_174">256</span>] bits.
             </div></div>
           <div class="element"><div class="reqid" id="FIA_TOTP_EXT.1.3"><a href="#FIA_TOTP_EXT.1.3" class="abbr">FIA_TOTP_EXT.1.3</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate a new <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> seed for each claimant.
@@ -2479,7 +2486,7 @@ Network Device
             <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">
                 The evaluator shall confirm the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes how the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> complies with the RFC.
                 <p></p>
-                The evaluator shall confirm the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes how the <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> seed is generated and ensure it aligns with FCS_RBG_EXT.1.
+                The evaluator shall confirm the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes how the <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> seed is generated and ensure it aligns with FCS_RBG.1.
                 <p></p>
                 The evaluator shall confirm the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes how the <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> seed is protected and ensure it aligns with <a href="#FCS_STG_EXT.1">FCS_STG_EXT.1</a>. 
                 <p></p>
@@ -2539,7 +2546,7 @@ Network Device
               <li>Protocol failures</li>
               <li>Successful and failed authentication of claimant</li>
             </ul>
-          </p><h4>FCS_EAPTLS_EXT.1 EAP-TLS Protocol</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>FCS_RBG_EXT.1 Random Bit Generation<p></p>
+          </p><h4>FCS_EAPTLS_EXT.1 EAP-TLS Protocol</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>FCS_RBG.1 Random Bit Generation<p></p>
             [FCS_TLSS_EXT.1 <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> Server Protocol Without Mutual Authentication, or<p></p>
             FCS_DTLSS_EXT.1 <abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr> Server Protocol Without Mutual Authentication]<p></p>
             [FCS_TLSS_EXT.2 <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> Server Support for Mutual Authentication, or<p></p>
@@ -2548,7 +2555,7 @@ Network Device
           </td></tr></table><h4 id="ext-comp-FCS_EAPTLS_EXT.1.1">FCS_EAPTLS_EXT.1.1</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement [<b>selection</b>: <span class="selectable-content" id="_s_9"><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS as specified in RFC 5216</span>, <span class="selectable-content" id="_s_10"><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TTLS as specified in RFC 5881</span>] as updated by RFC 8996 with [<b>selection</b>: <span class="selectable-content" id="_s_11"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr></span>, <span class="selectable-content" id="_s_12"><abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr></span>] implemented using mutual authentication in accordance with [<b>selection</b>: <span class="selectable-content" id="_s_13">FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</span>, <span class="selectable-content" id="_s_14">FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</span>].
             <h4 id="ext-comp-FCS_EAPTLS_EXT.1.2">FCS_EAPTLS_EXT.1.2</h4>
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate random values used in the [<b>selection</b>: <span class="selectable-content" id="_s_15"><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS</span>, <span class="selectable-content" id="_s_16"><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TTLS</span>] exchange using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> specified in FCS_RBG_EXT.1.
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate random values used in the [<b>selection</b>: <span class="selectable-content" id="_s_15"><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS</span>, <span class="selectable-content" id="_s_16"><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TTLS</span>] exchange using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> specified in FCS_RBG.1.
             <h4 id="ext-comp-FCS_EAPTLS_EXT.1.3">FCS_EAPTLS_EXT.1.3</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support claimant authentication using certificates and [<b>selection</b>: <span class="selectable-content" id="eaptls-uses-psk">static <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr></span>, <span class="selectable-content" id="eaptls-uses-hotp"><abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr></span>, <span class="selectable-content" id="eaptls-uses-totp"><abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr></span>, <span class="selectable-content" id="_s_20">other authentication-verification methods via pass-through</span>, <span class="selectable-content" id="_s_21">no other methods</span>].
             <h4 id="ext-comp-FCS_EAPTLS_EXT.1.4">FCS_EAPTLS_EXT.1.4</h4>
@@ -2589,7 +2596,7 @@ Network Device
               <li>Configuration of trusted channel to relying party</li>
             </ul></p><h4>Audit: FCS_RADSEC_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FCS_RADSEC_EXT.1 RadSec</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>
             <span class="no-link">FCS_RADIUS_EXT.1</span> Authentication Protocol<p></p>
-            FCS_RBG_EXT.1 Random Bit Generation<p></p>
+            FCS_RBG.1 Random Bit Generation<p></p>
             [<span class="no-link">FIA_PSK_EXT.1</span> Pre-Shared Key Composition, or<p></p>
             FIA_X509_EXT.1 X.509 Certificate Validation]
             
@@ -2616,10 +2623,10 @@ Network Device
               <li>Entity <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> value comparison</li>
             </ul>
           </p><h4>FIA_HOTP_EXT.1 HMAC-Based One-Time Password Pre-Shared Keys</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>FCS_COP.1 Cryptographic Operation<p></p>
-            FCS_RBG_EXT.1 Random Bit Generation</td></tr></table><h4 id="ext-comp-FIA_HOTP_EXT.1.1">FIA_HOTP_EXT.1.1</h4>
+            FCS_RBG.1 Random Bit Generation</td></tr></table><h4 id="ext-comp-FIA_HOTP_EXT.1.1">FIA_HOTP_EXT.1.1</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support HMAC-Based One-Time Password authentication (<abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr>) in accordance with RFC 4226. 
             <h4 id="ext-comp-FIA_HOTP_EXT.1.2">FIA_HOTP_EXT.1.2</h4>
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate a <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> seed key according to FCS_RBG_EXT.1 of 
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate a <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> seed key according to FCS_RBG.1 of 
               [<b>selection</b>: <span class="selectable-content" id="_s_113">128</span>, <span class="selectable-content" id="_s_114">256</span>] bits.
             <h4 id="ext-comp-FIA_HOTP_EXT.1.3">FIA_HOTP_EXT.1.3</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate a new <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> seed key for each claimant to be authenticated.
             <h4 id="ext-comp-FIA_HOTP_EXT.1.4">FIA_HOTP_EXT.1.4</h4>
@@ -2674,14 +2681,14 @@ Network Device
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to 
               [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_153">accept externally generated pre-shared keys</span></li><li style=""><span class="selectable-content" id="_s_154">
                   generate 
-                  [<b>selection</b>: <span class="selectable-content" id="_s_155">128</span>, <span class="selectable-content" id="_s_156">256</span>] bit-based pre-shared keys via FCS_RBG_EXT.1. 
+                  [<b>selection</b>: <span class="selectable-content" id="_s_155">128</span>, <span class="selectable-content" id="_s_156">256</span>] bit-based pre-shared keys via FCS_RBG.1. 
                   </span></li></ul>].
             </div><h4>Management: FIA_PSK_EXT.3</h4><p>The following actions could be considered for the management functions in FMT:
             <ul>
               <li>Ability to configure restrictions on the composition of pre-shared keys</li>
               <li>Ability to configure restrictions on the validation of pre-shared keys</li>
             </ul></p><h4>Audit: FIA_PSK_EXT.3</h4><p>No auditable events are foreseen.</p><h4>FIA_PSK_EXT.3 Password-Based Pre-Shared Keys</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>FCS_COP.1 Cryptographic Operation <p></p>
-            FCS_RBG_EXT.1 Random Bit Generation <p></p>
+            FCS_RBG.1 Random Bit Generation <p></p>
             <span class="no-link">FIA_PSK_EXT.1</span> Pre-Shared Key Usage</td></tr></table><h4 id="ext-comp-FIA_PSK_EXT.3.1">FIA_PSK_EXT.3.1</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support a <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> of up to [<b>assignment</b>: 
      <span class="assignable-content">positive integer of 64 or more</span>] characters. 
@@ -2699,7 +2706,7 @@ Network Device
               password policy indicating the maximum <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> length consistent with <a href="#FIA_PSK_EXT.3.1">FIA_PSK_EXT.3.1</a> and [<b>selection</b>: <span class="selectable-content" id="_s_166">[<b>assignment</b>: 
      <span class="assignable-content">password policy indicating minimum length and types of characters required</span>]</span>, <span class="selectable-content" id="_s_167">no additional password constraints</span>].
             <h4 id="ext-comp-FIA_PSK_EXT.3.5">FIA_PSK_EXT.3.5</h4>
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate all salts using an <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> that meets FCS_RBG_EXT.1 and with entropy corresponding 
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate all salts using an <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> that meets FCS_RBG.1 and with entropy corresponding 
               to the key size selected for <abbr class="dyn-abbr"><a href="#abbr_PBKDF">PBKDF</a></abbr> in <a href="#FIA_PSK_EXT.3.3">FIA_PSK_EXT.3.3</a>.
             <h4 id="ext-comp-FIA_PSK_EXT.3.6">FIA_PSK_EXT.3.6</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall require the <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> to be entered in accordance with the 
@@ -2719,10 +2726,10 @@ Network Device
               <li>Entity <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> value comparison</li>
             </ul>
           </p><h4>FIA_TOTP_EXT.1 Time-Based One-Time Password Pre-Shared Keys</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>FCS_COP.1 Cryptographic Operation<p></p>
-            FCS_RBG_EXT.1 Random Bit Generation</td></tr></table><h4 id="ext-comp-FIA_TOTP_EXT.1.1">FIA_TOTP_EXT.1.1</h4>
+            FCS_RBG.1 Random Bit Generation</td></tr></table><h4 id="ext-comp-FIA_TOTP_EXT.1.1">FIA_TOTP_EXT.1.1</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support Time-Based One-Time Password (<abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr>) authentication in accordance with RFC 6238. 
             <h4 id="ext-comp-FIA_TOTP_EXT.1.2">FIA_TOTP_EXT.1.2</h4>
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate a <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> seed according to FCS_RBG_EXT.1 of 
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate a <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> seed according to FCS_RBG.1 of 
               [<b>selection</b>: <span class="selectable-content" id="_s_173">128</span>, <span class="selectable-content" id="_s_174">256</span>] bits.
             <h4 id="ext-comp-FIA_TOTP_EXT.1.3">FIA_TOTP_EXT.1.3</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate a new <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> seed for each claimant.
             <h4 id="ext-comp-FIA_TOTP_EXT.1.4">FIA_TOTP_EXT.1.4</h4>
@@ -2933,7 +2940,7 @@ Network Device
             <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CEM2022R1.pdf">
                  Evaluation methodology</a>, CCMB-2022-11-006, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.</li>
           </ul></span></td></tr><tr><td><span id="bibNDcPP">[NDcPP]</span></td><td><span class="description">
-        <a href="https://www.niap-ccevs.org/MMO/PP/CPP_ND_V2.2E.pdf">collaborative Protection Profile for Network Devices</a>, Version 2.2e, March 23, 2020
+        <a href="https://www.niap-ccevs.org/MMO/PP/CPP_ND_V3.0E.pdf">collaborative Protection Profile for Network Devices</a>, Version 3.0e, 06 December 2023
       </span></td></tr><tr><td><span id="bibNDSD">[NDcPP SD]</span></td><td><span class="description">
-        <a href="https://www.niap-ccevs.org/MMO/PP/CPP_ND_V2.2-SD.pdf">Supporting Document - Evaluation Activities for Network Device cPP</a>, Version 2.2, December 2019
+        <a href="https://www.niap-ccevs.org/MMO/PP/CPP_ND_V3.0E-SD.pdf">Supporting Document - Evaluation Activities for Network Device cPP</a>, Version 3.0e, 06 December 2023
       </span></td></tr></table></body></html>

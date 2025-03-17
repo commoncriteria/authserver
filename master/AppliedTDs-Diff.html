@@ -46,7 +46,7 @@
         </h3>
         <h2>Contents</h2>
         <div class="toc" id="toc">
-            <a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#Compliant_Targets_of_Evaluation" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOE_Boundary" style="text-indent:10px">1.4<span>TOE Boundary</span></a><a href="#Use_Cases" style="text-indent:10px">1.5<span>Use Cases</span></a><a href="#Conformance_Claims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Problem_Definition" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#Threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#Assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Organizational_Security_Policies" style="text-indent:10px">3.3<span>Organizational Security Policies</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#Security_Objectives_for_the_TOE" style="text-indent:10px">4.1<span>Security Objectives for the TOE</span></a><a href="#Security_Objectives_for_the_Operational_Environment" style="text-indent:10px">4.2<span>Security Objectives for the Operational Environment</span></a><a href="#" style="text-indent:10px">4.3<span>Security Objectives Rationale</span></a><a href="#Security_Requirements" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#secreq-ND" style="text-indent:10px">5.1<span>Collaborative Protection Profile for Network Devices Security Functional Requirements Direction </span></a><a href="#modsfr-ND" style="text-indent:20px">5.1.1<span> Modified SFRs </span></a><a href="#from_nd_fia" style="text-indent:30px">5.1.1.1<span>Identification and Authentication (FIA)</span></a><a href="#man-sfrs" style="text-indent:10px">5.2<span>TOE Security Functional Requirements</span></a><a href="#man_fau" style="text-indent:20px">5.2.1<span>Security Audit (FAU)</span></a><a href="#man_fco" style="text-indent:20px">5.2.2<span>Communications (FCO)</span></a><a href="#man_fcs" style="text-indent:20px">5.2.3<span>Cryptographic Support (FCS)</span></a><a href="#man_fia" style="text-indent:20px">5.2.4<span>Identification and Authentication (FIA)</span></a><a href="#man_fmt" style="text-indent:20px">5.2.5<span>Security Management (FMT)</span></a><a href="#man_fta" style="text-indent:20px">5.2.6<span>TOE Access (FTA)</span></a><a href="#man_ftp" style="text-indent:20px">5.2.7<span>Trusted Path/Channels (FTP)</span></a><a href="#obj-req-map" style="text-indent:10px">5.3<span>TOE Security Functional Requirements Rationale</span></a><a href="#mod-sars" style="text-indent:10px">5.4<span>TOE Security Assurance Requirements</span></a><a href="#mod-conrat" style="text-indent:0px">6<span>Consistency Rationale</span></a><a href="#conrat-ND" style="text-indent:10px">6.1<span>Collaborative Protection Profile for Network Devices</span></a><a href="#contoe-ND" style="text-indent:20px">6.1.1<span> Consistency of TOE Type </span></a><a href="#consecprob-ND" style="text-indent:20px">6.1.2<span> Consistency of Security Problem Definition </span></a><a href="#conobj-ND" style="text-indent:20px">6.1.3<span> Consistency of OE Objectives </span></a><a href="#conreq-ND" style="text-indent:20px">6.1.4<span> Consistency of Requirements </span></a><a href="#opt-sfrs" style="text-indent:0px">Appendix A - <span>Optional SFRs</span></a><a href="#opt-sfrs" style="text-indent:10px">A.1<span>Strictly Optional Requirements </span></a><a href="#obj-sfrs" style="text-indent:10px">A.2<span>Objective Requirements </span></a><a href="#impl-dep-sfrs" style="text-indent:10px">A.3<span>Implementation-dependent Requirements </span></a><a href="#sel-sfrs" style="text-indent:0px">Appendix B - <span>Selection-based Requirements </span></a><a href="#sel_fcs" style="text-indent:10px">B.1<span>Cryptographic Support (FCS)</span></a><a href="#sel_fia" style="text-indent:10px">B.2<span>Identification and Authentication (FIA)</span></a><a href="#ext-comp-defs" style="text-indent:0px">Appendix C - <span>Extended Component Definitions</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">C.1<span>Extended Components Table</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">C.2<span>Extended Component Definitions</span></a><a href="#ext-comp-FCS" style="text-indent:20px">C.2.1<span>Cryptographic Support (FCS)</span></a><a href="#ext-comp-FCS_EAPTLS_EXT" style="text-indent:30px">C.2.1.1<span>FCS_EAPTLS_EXT EAP-TLS Protocol</span></a><a href="#ext-comp-FCS_RADIUS_EXT" style="text-indent:30px">C.2.1.2<span>FCS_RADIUS_EXT Authentication Protocol</span></a><a href="#ext-comp-FCS_STG_EXT" style="text-indent:30px">C.2.1.3<span>FCS_STG_EXT Cryptographic Key Storage</span></a><a href="#ext-comp-FCS_RADSEC_EXT" style="text-indent:30px">C.2.1.4<span>FCS_RADSEC_EXT RadSec</span></a><a href="#ext-comp-FIA" style="text-indent:20px">C.2.2<span>Identification and Authentication (FIA)</span></a><a href="#ext-comp-FIA_HOTP_EXT" style="text-indent:30px">C.2.2.1<span>FIA_HOTP_EXT HMAC-Based One-Time Password Pre-Shared Keys</span></a><a href="#ext-comp-FIA_PSK_EXT" style="text-indent:30px">C.2.2.2<span>FIA_PSK_EXT Pre-Shared Keys</span></a><a href="#ext-comp-FIA_TOTP_EXT" style="text-indent:30px">C.2.2.3<span>FIA_TOTP_EXT Time-Based One-Time Password Pre-Shared Keys</span></a><a href="#satisfiedreqs" style="text-indent:0px">Appendix D - <span>Implicitly Satisfied Requirements</span></a><a href="#allocation" style="text-indent:0px">Appendix E - <span>Allocation of Requirements in Distributed TOEs</span></a><a href="#EAR" style="text-indent:0px">Appendix F - <span>Entropy Documentation and Assessment</span></a><a href="#acronyms" style="text-indent:0px">Appendix G - <span>Acronyms</span></a><a href="#appendix-bibliography" style="text-indent:0px">Appendix H - <span>Bibliography</span></a>
+            <a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#Compliant_Targets_of_Evaluation" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOE_Boundary" style="text-indent:10px">1.4<span>TOE Boundary</span></a><a href="#Use_Cases" style="text-indent:10px">1.5<span>Use Cases</span></a><a href="#Conformance_Claims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Problem_Definition" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#Threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#Assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Organizational_Security_Policies" style="text-indent:10px">3.3<span>Organizational Security Policies</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#Security_Objectives_for_the_TOE" style="text-indent:10px">4.1<span>Security Objectives for the TOE</span></a><a href="#Security_Objectives_for_the_Operational_Environment" style="text-indent:10px">4.2<span>Security Objectives for the Operational Environment</span></a><a href="#" style="text-indent:10px">4.3<span>Security Objectives Rationale</span></a><a href="#Security_Requirements" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#secreq-ND" style="text-indent:10px">5.1<span>Collaborative Protection Profile for Network Device Security Functional Requirements Direction </span></a><a href="#modsfr-ND" style="text-indent:20px">5.1.1<span> Modified SFRs </span></a><a href="#from_nd_fia" style="text-indent:30px">5.1.1.1<span>Identification and Authentication (FIA)</span></a><a href="#man-sfrs" style="text-indent:10px">5.2<span>TOE Security Functional Requirements</span></a><a href="#man_fau" style="text-indent:20px">5.2.1<span>Security Audit (FAU)</span></a><a href="#man_fco" style="text-indent:20px">5.2.2<span>Communications (FCO)</span></a><a href="#man_fcs" style="text-indent:20px">5.2.3<span>Cryptographic Support (FCS)</span></a><a href="#man_fia" style="text-indent:20px">5.2.4<span>Identification and Authentication (FIA)</span></a><a href="#man_fmt" style="text-indent:20px">5.2.5<span>Security Management (FMT)</span></a><a href="#man_fta" style="text-indent:20px">5.2.6<span>TOE Access (FTA)</span></a><a href="#man_ftp" style="text-indent:20px">5.2.7<span>Trusted Path/Channels (FTP)</span></a><a href="#obj-req-map" style="text-indent:10px">5.3<span>TOE Security Functional Requirements Rationale</span></a><a href="#mod-sars" style="text-indent:10px">5.4<span>TOE Security Assurance Requirements</span></a><a href="#mod-conrat" style="text-indent:0px">6<span>Consistency Rationale</span></a><a href="#conrat-ND" style="text-indent:10px">6.1<span>Collaborative Protection Profile for Network Device</span></a><a href="#contoe-ND" style="text-indent:20px">6.1.1<span> Consistency of TOE Type </span></a><a href="#consecprob-ND" style="text-indent:20px">6.1.2<span> Consistency of Security Problem Definition </span></a><a href="#conobj-ND" style="text-indent:20px">6.1.3<span> Consistency of OE Objectives </span></a><a href="#conreq-ND" style="text-indent:20px">6.1.4<span> Consistency of Requirements </span></a><a href="#opt-sfrs" style="text-indent:0px">Appendix A - <span>Optional SFRs</span></a><a href="#opt-sfrs" style="text-indent:10px">A.1<span>Strictly Optional Requirements </span></a><a href="#obj-sfrs" style="text-indent:10px">A.2<span>Objective Requirements </span></a><a href="#impl-dep-sfrs" style="text-indent:10px">A.3<span>Implementation-dependent Requirements </span></a><a href="#sel-sfrs" style="text-indent:0px">Appendix B - <span>Selection-based Requirements </span></a><a href="#sel_fcs" style="text-indent:10px">B.1<span>Cryptographic Support (FCS)</span></a><a href="#sel_fia" style="text-indent:10px">B.2<span>Identification and Authentication (FIA)</span></a><a href="#ext-comp-defs" style="text-indent:0px">Appendix C - <span>Extended Component Definitions</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">C.1<span>Extended Components Table</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">C.2<span>Extended Component Definitions</span></a><a href="#ext-comp-FCS" style="text-indent:20px">C.2.1<span>Cryptographic Support (FCS)</span></a><a href="#ext-comp-FCS_EAPTLS_EXT" style="text-indent:30px">C.2.1.1<span>FCS_EAPTLS_EXT EAP-TLS Protocol</span></a><a href="#ext-comp-FCS_RADIUS_EXT" style="text-indent:30px">C.2.1.2<span>FCS_RADIUS_EXT Authentication Protocol</span></a><a href="#ext-comp-FCS_STG_EXT" style="text-indent:30px">C.2.1.3<span>FCS_STG_EXT Cryptographic Key Storage</span></a><a href="#ext-comp-FCS_RADSEC_EXT" style="text-indent:30px">C.2.1.4<span>FCS_RADSEC_EXT RadSec</span></a><a href="#ext-comp-FIA" style="text-indent:20px">C.2.2<span>Identification and Authentication (FIA)</span></a><a href="#ext-comp-FIA_HOTP_EXT" style="text-indent:30px">C.2.2.1<span>FIA_HOTP_EXT HMAC-Based One-Time Password Pre-Shared Keys</span></a><a href="#ext-comp-FIA_PSK_EXT" style="text-indent:30px">C.2.2.2<span>FIA_PSK_EXT Pre-Shared Keys</span></a><a href="#ext-comp-FIA_TOTP_EXT" style="text-indent:30px">C.2.2.3<span>FIA_TOTP_EXT Time-Based One-Time Password Pre-Shared Keys</span></a><a href="#satisfiedreqs" style="text-indent:0px">Appendix D - <span>Implicitly Satisfied Requirements</span></a><a href="#allocation" style="text-indent:0px">Appendix E - <span>Allocation of Requirements in Distributed TOEs</span></a><a href="#EAR" style="text-indent:0px">Appendix F - <span>Entropy Documentation and Assessment</span></a><a href="#acronyms" style="text-indent:0px">Appendix G - <span>Acronyms</span></a><a href="#appendix-bibliography" style="text-indent:0px">Appendix H - <span>Bibliography</span></a>
         </div>
         <h1 class="indexable" data-level="1" id="Introduction">1 Introduction</h1>
         <h2 class="indexable" data-level="2" id="Overview">1.1 Overview</h2>
@@ -58,7 +58,7 @@
         <p></p>
          The scope of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is to describe the security functionality of an authentication server in terms of [<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>] and to define functional and assurance requirements for such products. This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is intended for use with the following <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>: 
         <ul>
-            <li>collaborative Protection Profile for Network Devices, Version 2.2e (NDcPP)</li>
+            <li>collaborative Protection Profile for Network Devices, Version 3.0e (NDcPP)</li>
         </ul>
          This <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> is valid because an authentication server can be deployed as a dedicated network appliance. The use case of deploying the authentication server as an application on a general-purpose computer is outside the scope of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. Authentication server products allow enterprises to provide a centralized and standardized method of evaluating user authentication requests made throughout the enterprise. This enables a centralized definition for user identity and credential data and allows for uniform application of authentication policies that define what credentials and user attributes are necessary to gain access to various systems and applications in the enterprise environment. 
         <p></p>
@@ -276,7 +276,18 @@
             <dt>Package Claim</dt>
             <p></p>
             <dd>
-                This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is not conformant to any Functional or Assurance Packages.
+                <ul>
+                    <li>
+                        This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is Functional Package for <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>, version 2.0 conformant.
+                    </li>
+                    <li>
+                        This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not conform to any assurance packages.
+                    </li>
+                </ul>
+            </dd>
+            <p></p>
+            <dd>
+                 The functional packages to which the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> conforms may include <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> that are not mandatory to claim for the sake of conformance. An <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> that claims one or more of these functional packages may include any non-mandatory <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> that are appropriate to claim based on the capabilities of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> and on any triggers for their inclusion based inherently on the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> selections made. 
             </dd>
         </dl>
          
@@ -398,7 +409,7 @@
                  <b>Iteration</b> operation: Is indicated by appending the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> name with a slash and unique identifier suggesting the purpose of the operation, e.g. "/EXAMPLE1." 
             </li>
         </ul>
-        <h2 id="secreq-ND" class="indexable" data-level="2">5.1 Collaborative Protection Profile for Network Devices Security Functional Requirements Direction </h2>
+        <h2 id="secreq-ND" class="indexable" data-level="2">5.1 Collaborative Protection Profile for Network Device Security Functional Requirements Direction </h2>
          In a <abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> that includes the NDcPP, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is expected to rely on some of the security functions implemented by the Network Device as a whole and evaluated against the NDcPP. The following sections describe any modifications that the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author must make to the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> defined in the NDcPP in addition to what is mandated by <a class="dynref" href="#man-sfrs">Section 5.2 TOE Security Functional Requirements</a>. 
         <h3 id="modsfr-ND" class="indexable" data-level="3">5.1.1 Modified SFRs </h3>
          The <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> listed in this section are defined in the NDcPP and relevant to the secure operation of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. 
@@ -674,7 +685,7 @@
                     <a href="#FCS_EAPTLS_EXT.1.2" class="abbr">FCS_EAPTLS_EXT.1.2</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate random values used in the [<b>selection</b>: <span class="selectable-content" id="_s_15"><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS</span>, <span class="selectable-content" id="_s_16"><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TTLS</span>] exchange using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> specified in FCS_RBG_EXT.1. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate random values used in the [<b>selection</b>: <span class="selectable-content" id="_s_15"><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS</span>, <span class="selectable-content" id="_s_16"><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TTLS</span>] exchange using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> specified in FCS_RBG.1. 
                 </div>
             </div>
             <div class="element">
@@ -1091,7 +1102,7 @@
         <h2 id="mod-sars" class="indexable" data-level="2">5.4 TOE Security Assurance Requirements</h2>
          This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any Security Assurance requirements. The <abbr class="dyn-abbr"><a href="#abbr_SAR">SARs</a></abbr> from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> must be satisfied. 
         <h1 id="mod-conrat" class="indexable" data-level="1">6 Consistency Rationale</h1>
-        <h2 id="conrat-ND" class="indexable" data-level="2">6.1 Collaborative Protection Profile for Network Devices</h2>
+        <h2 id="conrat-ND" class="indexable" data-level="2">6.1 Collaborative Protection Profile for Network Device</h2>
         <h3 id="contoe-ND" class="indexable" data-level="3">6.1.1 Consistency of TOE Type </h3>
          When this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is used to extend the NDcPP, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> type for the overall <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is still a network device. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> boundary is simply extended to include authentication server functionality that is provided by the network device. 
         <h3 id="consecprob-ND" class="indexable" data-level="3">6.1.2 Consistency of Security Problem Definition </h3>
@@ -1324,7 +1335,7 @@
                     <a href="#FIA_HOTP_EXT.1.2" class="abbr">FIA_HOTP_EXT.1.2</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate a <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> seed key according to FCS_RBG_EXT.1 of [<b>selection</b>: <span class="selectable-content" id="_s_113">128</span>, <span class="selectable-content" id="_s_114">256</span>] bits. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate a <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> seed key according to FCS_RBG.1 of [<b>selection</b>: <span class="selectable-content" id="_s_113">128</span>, <span class="selectable-content" id="_s_114">256</span>] bits. 
                 </div>
             </div>
             <div class="element">
@@ -1498,7 +1509,7 @@
                             <span class="selectable-content" id="_s_153">accept externally generated pre-shared keys</span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_154"> generate [<b>selection</b>: <span class="selectable-content" id="_s_155">128</span>, <span class="selectable-content" id="_s_156">256</span>] bit-based pre-shared keys via FCS_RBG_EXT.1. </span>
+                            <span class="selectable-content" id="_s_154"> generate [<b>selection</b>: <span class="selectable-content" id="_s_155">128</span>, <span class="selectable-content" id="_s_156">256</span>] bit-based pre-shared keys via FCS_RBG.1. </span>
                         </li>
                     </ul>
                     ]. 
@@ -1554,7 +1565,7 @@
                     <a href="#FIA_PSK_EXT.3.5" class="abbr">FIA_PSK_EXT.3.5</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate all salts using an <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> that meets FCS_RBG_EXT.1 and with entropy corresponding to the key size selected for <abbr class="dyn-abbr"><a href="#abbr_PBKDF">PBKDF</a></abbr> in <a href="#FIA_PSK_EXT.3.3">FIA_PSK_EXT.3.3</a>. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate all salts using an <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> that meets FCS_RBG.1 and with entropy corresponding to the key size selected for <abbr class="dyn-abbr"><a href="#abbr_PBKDF">PBKDF</a></abbr> in <a href="#FIA_PSK_EXT.3.3">FIA_PSK_EXT.3.3</a>. 
                 </div>
             </div>
             <div class="element">
@@ -1605,7 +1616,7 @@
                     <a href="#FIA_TOTP_EXT.1.2" class="abbr">FIA_TOTP_EXT.1.2</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate a <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> seed according to FCS_RBG_EXT.1 of [<b>selection</b>: <span class="selectable-content" id="_s_173">128</span>, <span class="selectable-content" id="_s_174">256</span>] bits. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate a <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> seed according to FCS_RBG.1 of [<b>selection</b>: <span class="selectable-content" id="_s_173">128</span>, <span class="selectable-content" id="_s_174">256</span>] bits. 
                 </div>
             </div>
             <div class="element">
@@ -1770,7 +1781,7 @@
                                 <td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td>
                             </tr>
                             <tr style="background-color: inherit">
-                                <td>Dependencies to:</td><td>FCS_RBG_EXT.1 Random Bit Generation
+                                <td>Dependencies to:</td><td>FCS_RBG.1 Random Bit Generation
                                     <p></p>
                                      [FCS_TLSS_EXT.1 <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> Server Protocol Without Mutual Authentication, or
                                     <p></p>
@@ -1786,7 +1797,7 @@
                         <h4 id="ext-comp-FCS_EAPTLS_EXT.1.1">FCS_EAPTLS_EXT.1.1</h4>
                          The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement [<b>selection</b>: <span class="selectable-content" id="_s_9"><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS as specified in RFC 5216</span>, <span class="selectable-content" id="_s_10"><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TTLS as specified in RFC 5881</span>] as updated by RFC 8996 with [<b>selection</b>: <span class="selectable-content" id="_s_11"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr></span>, <span class="selectable-content" id="_s_12"><abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr></span>] implemented using mutual authentication in accordance with [<b>selection</b>: <span class="selectable-content" id="_s_13">FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</span>, <span class="selectable-content" id="_s_14">FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</span>]. 
                         <h4 id="ext-comp-FCS_EAPTLS_EXT.1.2">FCS_EAPTLS_EXT.1.2</h4>
-                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate random values used in the [<b>selection</b>: <span class="selectable-content" id="_s_15"><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS</span>, <span class="selectable-content" id="_s_16"><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TTLS</span>] exchange using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> specified in FCS_RBG_EXT.1. 
+                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate random values used in the [<b>selection</b>: <span class="selectable-content" id="_s_15"><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS</span>, <span class="selectable-content" id="_s_16"><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TTLS</span>] exchange using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> specified in FCS_RBG.1. 
                         <h4 id="ext-comp-FCS_EAPTLS_EXT.1.3">FCS_EAPTLS_EXT.1.3</h4>
                          The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support claimant authentication using certificates and [<b>selection</b>: <span class="selectable-content" id="eaptls-uses-psk">static <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr></span>, <span class="selectable-content" id="eaptls-uses-hotp"><abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr></span>, <span class="selectable-content" id="eaptls-uses-totp"><abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr></span>, <span class="selectable-content" id="_s_20">other authentication-verification methods via pass-through</span>, <span class="selectable-content" id="_s_21">no other methods</span>]. 
                         <h4 id="ext-comp-FCS_EAPTLS_EXT.1.4">FCS_EAPTLS_EXT.1.4</h4>
@@ -1929,7 +1940,7 @@
                             <tr style="background-color: inherit">
                                 <td>Dependencies to:</td><td> <span class="no-link">FCS_RADIUS_EXT.1</span> Authentication Protocol
                                     <p></p>
-                                     FCS_RBG_EXT.1 Random Bit Generation
+                                     FCS_RBG.1 Random Bit Generation
                                     <p></p>
                                      [<span class="no-link">FIA_PSK_EXT.1</span> Pre-Shared Key Composition, or
                                     <p></p>
@@ -1991,13 +2002,13 @@
                             <tr style="background-color: inherit">
                                 <td>Dependencies to:</td><td>FCS_COP.1 Cryptographic Operation
                                     <p></p>
-                                     FCS_RBG_EXT.1 Random Bit Generation</td>
+                                     FCS_RBG.1 Random Bit Generation</td>
                             </tr>
                         </table>
                         <h4 id="ext-comp-FIA_HOTP_EXT.1.1">FIA_HOTP_EXT.1.1</h4>
                          The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support HMAC-Based One-Time Password authentication (<abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr>) in accordance with RFC 4226. 
                         <h4 id="ext-comp-FIA_HOTP_EXT.1.2">FIA_HOTP_EXT.1.2</h4>
-                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate a <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> seed key according to FCS_RBG_EXT.1 of [<b>selection</b>: <span class="selectable-content" id="_s_113">128</span>, <span class="selectable-content" id="_s_114">256</span>] bits. 
+                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate a <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> seed key according to FCS_RBG.1 of [<b>selection</b>: <span class="selectable-content" id="_s_113">128</span>, <span class="selectable-content" id="_s_114">256</span>] bits. 
                         <h4 id="ext-comp-FIA_HOTP_EXT.1.3">FIA_HOTP_EXT.1.3</h4>
                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate a new <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> seed key for each claimant to be authenticated. 
                         <h4 id="ext-comp-FIA_HOTP_EXT.1.4">FIA_HOTP_EXT.1.4</h4>
@@ -2129,7 +2140,7 @@
                                 <span class="selectable-content" id="_s_153">accept externally generated pre-shared keys</span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_154"> generate [<b>selection</b>: <span class="selectable-content" id="_s_155">128</span>, <span class="selectable-content" id="_s_156">256</span>] bit-based pre-shared keys via FCS_RBG_EXT.1. </span>
+                                <span class="selectable-content" id="_s_154"> generate [<b>selection</b>: <span class="selectable-content" id="_s_155">128</span>, <span class="selectable-content" id="_s_156">256</span>] bit-based pre-shared keys via FCS_RBG.1. </span>
                             </li>
                         </ul>
                         ]. 
@@ -2153,7 +2164,7 @@
                             <tr style="background-color: inherit">
                                 <td>Dependencies to:</td><td>FCS_COP.1 Cryptographic Operation 
                                     <p></p>
-                                     FCS_RBG_EXT.1 Random Bit Generation 
+                                     FCS_RBG.1 Random Bit Generation 
                                     <p></p>
                                      <span class="no-link">FIA_PSK_EXT.1</span> Pre-Shared Key Usage</td>
                             </tr>
@@ -2167,7 +2178,7 @@
                         <h4 id="ext-comp-FIA_PSK_EXT.3.4">FIA_PSK_EXT.3.4</h4>
                          The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall not accept PSKs failing to meet [<b>selection</b>: <span class="selectable-content" id="_s_164">an administrator-defined</span>, <span class="selectable-content" id="_s_165">a fixed</span>] password policy indicating the maximum <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> length consistent with <a href="#FIA_PSK_EXT.3.1">FIA_PSK_EXT.3.1</a> and [<b>selection</b>: <span class="selectable-content" id="_s_166">[<b>assignment</b>: <span class="assignable-content">password policy indicating minimum length and types of characters required</span>]</span>, <span class="selectable-content" id="_s_167">no additional password constraints</span>]. 
                         <h4 id="ext-comp-FIA_PSK_EXT.3.5">FIA_PSK_EXT.3.5</h4>
-                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate all salts using an <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> that meets FCS_RBG_EXT.1 and with entropy corresponding to the key size selected for <abbr class="dyn-abbr"><a href="#abbr_PBKDF">PBKDF</a></abbr> in <a href="#FIA_PSK_EXT.3.3">FIA_PSK_EXT.3.3</a>. 
+                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate all salts using an <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> that meets FCS_RBG.1 and with entropy corresponding to the key size selected for <abbr class="dyn-abbr"><a href="#abbr_PBKDF">PBKDF</a></abbr> in <a href="#FIA_PSK_EXT.3.3">FIA_PSK_EXT.3.3</a>. 
                         <h4 id="ext-comp-FIA_PSK_EXT.3.6">FIA_PSK_EXT.3.6</h4>
                          The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall require the <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> to be entered in accordance with the [<b>selection</b>: <span class="selectable-content" id="_s_168">user authentication policy</span>, <span class="selectable-content" id="_s_169">protocol authentication requirement</span>]. 
                         <h4 id="ext-comp-FIA_PSK_EXT.3.7">FIA_PSK_EXT.3.7</h4>
@@ -2218,13 +2229,13 @@
                             <tr style="background-color: inherit">
                                 <td>Dependencies to:</td><td>FCS_COP.1 Cryptographic Operation
                                     <p></p>
-                                     FCS_RBG_EXT.1 Random Bit Generation</td>
+                                     FCS_RBG.1 Random Bit Generation</td>
                             </tr>
                         </table>
                         <h4 id="ext-comp-FIA_TOTP_EXT.1.1">FIA_TOTP_EXT.1.1</h4>
                          The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support Time-Based One-Time Password (<abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr>) authentication in accordance with RFC 6238. 
                         <h4 id="ext-comp-FIA_TOTP_EXT.1.2">FIA_TOTP_EXT.1.2</h4>
-                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate a <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> seed according to FCS_RBG_EXT.1 of [<b>selection</b>: <span class="selectable-content" id="_s_173">128</span>, <span class="selectable-content" id="_s_174">256</span>] bits. 
+                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate a <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> seed according to FCS_RBG.1 of [<b>selection</b>: <span class="selectable-content" id="_s_173">128</span>, <span class="selectable-content" id="_s_174">256</span>] bits. 
                         <h4 id="ext-comp-FIA_TOTP_EXT.1.3">FIA_TOTP_EXT.1.3</h4>
                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate a new <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> seed for each claimant. 
                         <h4 id="ext-comp-FIA_TOTP_EXT.1.4">FIA_TOTP_EXT.1.4</h4>
@@ -2493,10 +2504,10 @@
                     </span></td>
             </tr>
             <tr>
-                <td><span id="bibNDcPP">[NDcPP]</span></td><td><span class="description"> <a href="https://www.niap-ccevs.org/MMO/PP/CPP_ND_V2.2E.pdf">collaborative Protection Profile for Network Devices</a>, Version 2.2e, March 23, 2020 </span></td>
+                <td><span id="bibNDcPP">[NDcPP]</span></td><td><span class="description"> <a href="https://www.niap-ccevs.org/MMO/PP/CPP_ND_V3.0E.pdf">collaborative Protection Profile for Network Devices</a>, Version 3.0e, 06 December 2023 </span></td>
             </tr>
             <tr>
-                <td><span id="bibNDSD">[NDcPP SD]</span></td><td><span class="description"> <a href="https://www.niap-ccevs.org/MMO/PP/CPP_ND_V2.2-SD.pdf">Supporting Document - Evaluation Activities for Network Device cPP</a>, Version 2.2, December 2019 </span></td>
+                <td><span id="bibNDSD">[NDcPP SD]</span></td><td><span class="description"> <a href="https://www.niap-ccevs.org/MMO/PP/CPP_ND_V3.0E-SD.pdf">Supporting Document - Evaluation Activities for Network Device cPP</a>, Version 3.0e, 06 December 2023 </span></td>
             </tr>
         </table>
     </body>

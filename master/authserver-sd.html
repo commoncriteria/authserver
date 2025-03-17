@@ -303,7 +303,7 @@
 
     
     The PP-Module is intended for use with the following Base-PP:
-        <ul><li>Network Device, version 2.2e.</li></ul><br/>
+        <ul><li>Network Device, version 3.0e.</li></ul><br/>
     This SD is mandatory for evaluations of TOEs that claim conformance to a PP-Configuration that includes the PP-Module for :
     <ul><li>Authentication Servers, Version 1.1</li></ul>
     As such it defines Evaluation Activities for the functionality described in the PP-Module as well as any impacts to the Evaluation Activities to the Base-PP(s) it modifies.
@@ -475,20 +475,20 @@ The following sections list Common Criteria and technology terms used in this do
                 <li class="test-"><a id="_t_2" class="defined" href="#_t_2">Test FCO_NRO.1:1</a>:
       
                   <ul>
-                    <li>Step 1: The evaluator shall establish a connection with the TSF from two trusted relying parties RP1 and RP2 and verify that each of RP1 and RP2 are able to authenticate the TOE.</li> 
-                    <li>Step 2: The evaluator shall initiate an authentication request for a claimant C1 via RP1, providing valid authentication data, and verify that RP1 receives an authentication assertion via the authenticated channel indicating C1 is authenticated.</li>
-                    <li>Step 3: The evaluator shall initiate an authentication request for a claimant C2 via RP2, providing invalid authentication data and confirm that the TOE does not provide an authentication assertion indicating C2 is authenticated via the authenticated channel.</li> 
-                    <li>Step 4: The evaluator shall send correct authentication data associated with claimant C2 via RP1 without sending a new authentication request and observe that the TOE ignores the request.</li>
+                    <li><b>Step 1: </b>The evaluator shall establish a connection with the TSF from two trusted relying parties RP1 and RP2 and verify that each of RP1 and RP2 are able to authenticate the TOE.</li> 
+                    <li><b>Step 2: </b>The evaluator shall initiate an authentication request for a claimant C1 via RP1, providing valid authentication data, and verify that RP1 receives an authentication assertion via the authenticated channel indicating C1 is authenticated.</li>
+                    <li><b>Step 3: </b>The evaluator shall initiate an authentication request for a claimant C2 via RP2, providing invalid authentication data and confirm that the TOE does not provide an authentication assertion indicating C2 is authenticated via the authenticated channel.</li> 
+                    <li><b>Step 4: </b>The evaluator shall reinitialize the EAP session for C1 on RP1, but send correct authentication data associated with claimant C2 via RP1 without resetting the EAP session and observe that the TOE does not indicate a successful authentication.</li>
                   </ul>
                 </li>
                   <li class="test-"><a id="_t_3" class="defined" href="#_t_3">Test FCO_NRO.1:2</a>:
       [conditional on support for pass-through] The intent of this test is to demonstrate the TSF is able to authenticate to external entities for registered users 
                     over a pass-through method, and ignores requests for non-registered users.
                     <ul>
-                      <li>Step 1: The evaluator shall follow operational guidance to configure the TOE to connect to an external authentication server using pass-through functionality, 
+                      <li><b>Step 1: </b>The evaluator shall follow operational guidance to configure the TOE to connect to an external authentication server using pass-through functionality, 
                         and initiate a request from a trusted relying party that results in the TSF exercising pass-through functionality to authenticate a registered claimant.</li> 
-                      <li>Step 2: The evaluator shall observe that the TSF authenticates to the external authentication server prior to sending any authentication requests.</li>
-                      <li>Step 3: The evaluator shall then follow operational guidance to de-register the claimant at the TOE, and ensure the claimant is still registered at the external authentication server. 
+                      <li><b>Step 2: </b>The evaluator shall observe that the TSF authenticates to the external authentication server prior to sending any authentication requests.</li>
+                      <li><b>Step 3: </b>The evaluator shall then follow operational guidance to de-register the claimant at the TOE, and ensure the claimant is still registered at the external authentication server. 
                         The evaluator shall repeat initiation of the authentication request for the claimant, and observe that the TSF associates the identifier of the request by dropping the request without forwarding.</li>
                     </ul>
                   </li>
@@ -545,7 +545,7 @@ The following sections list Common Criteria and technology terms used in this do
             <div class="eacategory">TSS</div><div class="ea"><div class="ea">The evaluator shall examine the ST to ensure the EAP protocol is described in accordance with the claimed RFC. For each supported mode, the evaluator shall ensure the ST describes the following:
                 <ul>
                   <li>The mechanism to authenticate a claimant uses (D)TLS with client certificate authentication in combination with any other supported authenticator outputs, and any configurable features.</li>
-                  <li>The source of randomness meets FCS_RBG_EXT.1 for use in key and nonce generation for the underlying (D)TLS channel and supported authentication methods.</li>
+                  <li>The source of randomness meets FCS_RBG.1 for use in key and nonce generation for the underlying (D)TLS channel and supported authentication methods.</li>
                 </ul>
                 <p></p>
                 The evaluator shall also verify that the ST contains a description of the user access policy, 
@@ -895,7 +895,7 @@ The following sections list Common Criteria and technology terms used in this do
               
               
             <div class="eacategory">TSS</div><div class="ea"><div class="ea">
-                The evaluator shall confirm the TSS describes how the TOE complies with the RFC.<p></p>The evaluator shall confirm the TSS describes how the HOTP seed is generated and ensure it aligns with FCS_RBG_EXT.1.
+                The evaluator shall confirm the TSS describes how the TOE complies with the RFC.<p></p>The evaluator shall confirm the TSS describes how the HOTP seed is generated and ensure it aligns with FCS_RBG.1.
                 <p></p>
                 The evaluator shall confirm the TSS describes how the HOTP seed is protected and ensure it aligns with the key storage requirements in FCS_STG_EXT.1.
                 <p></p>
@@ -955,7 +955,7 @@ The following sections list Common Criteria and technology terms used in this do
               
               
               
-            <div class="eacategory">TSS</div><div class="ea"><div class="ea">If "generate" is selected, the evaluator shall confirm that this process uses the RBG specified in FCS_RBG_EXT.1 
+            <div class="eacategory">TSS</div><div class="ea"><div class="ea">If "generate" is selected, the evaluator shall confirm that this process uses the RBG specified in FCS_RBG.1 
                 and the output matches the size selected in FIA_PSK_EXT.2.1.<p></p> 
               </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall confirm the operational guidance contains instructions for generating or entering pre-shared keys (based on the selection made in FIA_PSK_EXT.2.1)
                 for each protocol identified in the FIA_PSK_EXT.1.1/AuthSvr. <p></p>
@@ -985,7 +985,7 @@ The following sections list Common Criteria and technology terms used in this do
                 <p></p>
                 The evaluator shall confirm that the minimum length is described.
                 <p></p>
-                The ST author shall provide a description in the TSS regarding the salt generation. The evaluator shall confirm that the salt is generated using an RBG described in FCS_RBG_EXT.1.
+                The ST author shall provide a description in the TSS regarding the salt generation. The evaluator shall confirm that the salt is generated using an RBG described in FCS_RBG.1.
                 <p></p>
                 [conditional] If password strength meter or password denylist is selected, the evaluator shall examine the TSS to ensure 
                 any password checking functionality provided by the TSF is described and contains details on how the function operates.
@@ -1021,7 +1021,7 @@ The following sections list Common Criteria and technology terms used in this do
             <div class="eacategory">TSS</div><div class="ea"><div class="ea">
                 The evaluator shall confirm the TSS describes how the TOE complies with the RFC.
                 <p></p>
-                The evaluator shall confirm the TSS describes how the TOTP seed is generated and ensure it aligns with FCS_RBG_EXT.1.
+                The evaluator shall confirm the TSS describes how the TOTP seed is generated and ensure it aligns with FCS_RBG.1.
                 <p></p>
                 The evaluator shall confirm the TSS describes how the TOTP seed is protected and ensure it aligns with FCS_STG_EXT.1. 
                 <p></p>
@@ -1080,12 +1080,12 @@ guidance, and testing.</p><h1 id="biblio" class="indexable" data-level="A">Appen
     
     
     <tr><td><span id="bibNDcPP"></span>[NDcPP]</td><td>
-        <a href="https://www.niap-ccevs.org/MMO/PP/CPP_ND_V2.2E.pdf">collaborative Protection Profile for Network Devices</a>, Version 2.2e, March 23, 2020
+        <a href="https://www.niap-ccevs.org/MMO/PP/CPP_ND_V3.0E.pdf">collaborative Protection Profile for Network Devices</a>, Version 3.0e, 06 December 2023
       </td></tr>
 
     
     <tr><td><span id="bibNDSD"></span>[NDcPP SD]</td><td>
-        <a href="https://www.niap-ccevs.org/MMO/PP/CPP_ND_V2.2-SD.pdf">Supporting Document - Evaluation Activities for Network Device cPP</a>, Version 2.2, December 2019
+        <a href="https://www.niap-ccevs.org/MMO/PP/CPP_ND_V3.0E-SD.pdf">Supporting Document - Evaluation Activities for Network Device cPP</a>, Version 3.0e, 06 December 2023
       </td></tr>
 
 
