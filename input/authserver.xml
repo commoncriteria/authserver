@@ -31,8 +31,22 @@
       <subject>Incorporate NIAP Technical Decisions, Update to CC:2022</subject>
     </entry>
   </RevisionHistory>
+
+  <include-pkg id="pkgTLS">
+    <git>
+      <url>https://github.com/commoncriteria/tls</url>
+      <branch>release-2.0</branch>
+    </git>
+    <url>https://www.niap-ccevs.org/protectionprofiles/465</url>
+  </include-pkg>
   
-  
+  <include-pkg id="pkgX509">
+    <git>
+      <url>https://github.com/commoncriteria/x509</url>
+      <branch>release-1.0</branch>
+    </git>
+    <url>https://www.niap-ccevs.org/protectionprofiles/511</url>
+  </include-pkg>  
   <!-- TODO: see Issues for open items -->
   
   <sec:Introduction>
@@ -57,7 +71,7 @@
 
       <h:ul>
         <h:li>collaborative Protection Profile for
-          Network Devices, Version 2.2e (NDcPP)</h:li>
+          Network Devices, Version 3.0e (NDcPP)</h:li>
       </h:ul>
       This Base-PP is valid because an authentication server can be deployed as a dedicated network appliance. 
       The use case of deploying the authentication server as an application on a general-purpose computer is outside the scope of this PP-Module. 
@@ -206,7 +220,9 @@
       <cc-pt3-conf>conformant</cc-pt3-conf>
       <cc-pp-conf/>
       <cc-pp-config-with/>
-      <cc-pkg-claim/>
+      <cc-pkg-claim>
+        <FP-cc-ref conf="conformant">Functional Package for TLS, version 2.0</FP-cc-ref>
+      </cc-pkg-claim>
     </CClaimsInfo>
     <!-- <cclaims>
       <cclaim name="Conformance Statement">
@@ -477,8 +493,8 @@
     </sec:Security_Objectives_Rationale>
   </sec:Security_Objectives>
   <sec:Security_Requirements>
-    <base-pp id="ND" version="2.2e" name="Network Device" product="Network Device" short="ND" plural="Network Devices">
-      <url><![CDATA[https://www.niap-ccevs.org/profile/Info.cfm?PPID=447&id=447]]></url>
+    <base-pp id="ND" version="3.0e" name="Network Device" product="Network Device" short="ND">
+      <url>https://www.niap-ccevs.org/protectionprofiles/482</url>
   	  <cPP/>
 
 	<modified-sfrs>
@@ -795,22 +811,22 @@
                 The evaluator shall perform the following tests:
                 <testlist>
                 <test>
-                  <h:ul>
-                    <h:li>Step 1: The evaluator shall establish a connection with the TSF from two trusted relying parties RP1 and RP2 and verify that each of RP1 and RP2 are able to authenticate the TOE.</h:li> 
-                    <h:li>Step 2: The evaluator shall initiate an authentication request for a claimant C1 via RP1, providing valid authentication data, and verify that RP1 receives an authentication assertion via the authenticated channel indicating C1 is authenticated.</h:li>
-                    <h:li>Step 3: The evaluator shall initiate an authentication request for a claimant C2 via RP2, providing invalid authentication data and confirm that the TOE does not provide an authentication assertion indicating C2 is authenticated via the authenticated channel.</h:li> 
-                    <h:li>Step 4: The evaluator shall send correct authentication data associated with claimant C2 via RP1 without sending a new authentication request and observe that the TOE ignores the request.</h:li>
-                  </h:ul>
+                  <steplist>
+                    <step>The evaluator shall establish a connection with the TSF from two trusted relying parties RP1 and RP2 and verify that each of RP1 and RP2 are able to authenticate the TOE.</step> 
+                    <step>The evaluator shall initiate an authentication request for a claimant C1 via RP1, providing valid authentication data, and verify that RP1 receives an authentication assertion via the authenticated channel indicating C1 is authenticated.</step>
+                    <step>The evaluator shall initiate an authentication request for a claimant C2 via RP2, providing invalid authentication data and confirm that the TOE does not provide an authentication assertion indicating C2 is authenticated via the authenticated channel.</step> 
+                    <step>The evaluator shall reinitialize the EAP session for C1 on RP1, but send correct authentication data associated with claimant C2 via RP1 without resetting the EAP session and observe that the TOE does not indicate a successful authentication.</step>
+                  </steplist>
                 </test>
                   <test>[conditional on support for pass-through] The intent of this test is to demonstrate the TSF is able to authenticate to external entities for registered users 
                     over a pass-through method, and ignores requests for non-registered users.
-                    <h:ul>
-                      <h:li>Step 1: The evaluator shall follow operational guidance to configure the TOE to connect to an external authentication server using pass-through functionality, 
-                        and initiate a request from a trusted relying party that results in the TSF exercising pass-through functionality to authenticate a registered claimant.</h:li> 
-                      <h:li>Step 2: The evaluator shall observe that the TSF authenticates to the external authentication server prior to sending any authentication requests.</h:li>
-                      <h:li>Step 3: The evaluator shall then follow operational guidance to de-register the claimant at the TOE, and ensure the claimant is still registered at the external authentication server. 
-                        The evaluator shall repeat initiation of the authentication request for the claimant, and observe that the TSF associates the identifier of the request by dropping the request without forwarding.</h:li>
-                    </h:ul>
+                    <steplist>
+                      <step>The evaluator shall follow operational guidance to configure the TOE to connect to an external authentication server using pass-through functionality, 
+                        and initiate a request from a trusted relying party that results in the TSF exercising pass-through functionality to authenticate a registered claimant.</step> 
+                      <step>The evaluator shall observe that the TSF authenticates to the external authentication server prior to sending any authentication requests.</step>
+                      <step>The evaluator shall then follow operational guidance to de-register the claimant at the TOE, and ensure the claimant is still registered at the external authentication server. 
+                        The evaluator shall repeat initiation of the authentication request for the claimant, and observe that the TSF associates the identifier of the request by dropping the request without forwarding.</step>
+                    </steplist>
                   </test>
                 </testlist>
               </Tests>
@@ -945,7 +961,7 @@
               <h:li>Successful and failed authentication of claimant</h:li>
             </h:ul>
           </audit>
-          <dependencies>FCS_RBG_EXT.1 Random Bit Generation<h:p/>
+          <dependencies>FCS_RBG.1 Random Bit Generation<h:p/>
             [FCS_TLSS_EXT.1 TLS Server Protocol Without Mutual Authentication, or<h:p/>
             FCS_DTLSS_EXT.1 DTLS Server Protocol Without Mutual Authentication]<h:p/>
             [FCS_TLSS_EXT.2 TLS Server Support for Mutual Authentication, or<h:p/>
@@ -968,7 +984,7 @@
             <title>
               The TSF shall generate random values used in the <selectables>
                 <selectable>EAP-TLS</selectable>
-                <selectable>EAP-TTLS</selectable></selectables> exchange using the RBG specified in FCS_RBG_EXT.1.
+                <selectable>EAP-TTLS</selectable></selectables> exchange using the RBG specified in FCS_RBG.1.
             </title>
           </f-element>
           <f-element>
@@ -1032,7 +1048,7 @@
               <TSS>The evaluator shall examine the ST to ensure the EAP protocol is described in accordance with the claimed RFC. For each supported mode, the evaluator shall ensure the ST describes the following:
                 <h:ul>
                   <h:li>The mechanism to authenticate a claimant uses (D)TLS with client certificate authentication in combination with any other supported authenticator outputs, and any configurable features.</h:li>
-                  <h:li>The source of randomness meets FCS_RBG_EXT.1 for use in key and nonce generation for the underlying (D)TLS channel and supported authentication methods.</h:li>
+                  <h:li>The source of randomness meets FCS_RBG.1 for use in key and nonce generation for the underlying (D)TLS channel and supported authentication methods.</h:li>
                 </h:ul>
                 <h:p/>
                 The evaluator shall also verify that the ST contains a description of the user access policy, 
@@ -1686,7 +1702,7 @@
           <audit>There are no auditable events foreseen.</audit>
           <dependencies>
             <no-link>FCS_RADIUS_EXT.1</no-link> Authentication Protocol<h:p/>
-            FCS_RBG_EXT.1 Random Bit Generation<h:p/>
+            FCS_RBG.1 Random Bit Generation<h:p/>
             [<no-link>FIA_PSK_EXT.1</no-link> Pre-Shared Key Composition, or<h:p/>
             FIA_X509_EXT.1 X.509 Certificate Validation]
             
@@ -1796,7 +1812,7 @@
             </h:ul>
           </audit>
           <dependencies>FCS_COP.1 Cryptographic Operation<h:p/>
-            FCS_RBG_EXT.1 Random Bit Generation</dependencies>
+            FCS_RBG.1 Random Bit Generation</dependencies>
           <f-element id="fia-hotp-ext-1e1">
             <title>
               The TSF shall support HMAC-Based One-Time Password authentication (HOTP) in accordance with RFC 4226. 
@@ -1804,7 +1820,7 @@
           </f-element>
           <f-element id="fia-hotp-ext-1e2">
             <title>
-              The TSF shall generate a HOTP seed key according to FCS_RBG_EXT.1 of 
+              The TSF shall generate a HOTP seed key according to FCS_RBG.1 of 
               <selectables>
                 <selectable>128</selectable>
                 <selectable>256</selectable></selectables> bits.
@@ -1893,7 +1909,7 @@
             </note>
             <aactivity>
               <TSS>
-                The evaluator shall confirm the TSS describes how the TOE complies with the RFC.<h:p/>The evaluator shall confirm the TSS describes how the HOTP seed is generated and ensure it aligns with FCS_RBG_EXT.1.
+                The evaluator shall confirm the TSS describes how the TOE complies with the RFC.<h:p/>The evaluator shall confirm the TSS describes how the HOTP seed is generated and ensure it aligns with FCS_RBG.1.
                 <h:p/>
                 The evaluator shall confirm the TSS describes how the HOTP seed is protected and ensure it aligns with the key storage requirements in FCS_STG_EXT.1.
                 <h:p/>
@@ -2074,7 +2090,7 @@
                   generate 
                   <selectables>
                     <selectable>128</selectable>
-                    <selectable>256</selectable></selectables> bit-based pre-shared keys via FCS_RBG_EXT.1. 
+                    <selectable>256</selectable></selectables> bit-based pre-shared keys via FCS_RBG.1. 
                   </selectable></selectables>.
             </title>
             <note role="application">
@@ -2085,7 +2101,7 @@
               
             </note>
             <aactivity>
-              <TSS>If "generate" is selected, the evaluator shall confirm that this process uses the RBG specified in FCS_RBG_EXT.1 
+              <TSS>If "generate" is selected, the evaluator shall confirm that this process uses the RBG specified in FCS_RBG.1 
                 and the output matches the size selected in FIA_PSK_EXT.2.1.<h:p/> 
               </TSS>
               <Guidance>The evaluator shall confirm the operational guidance contains instructions for generating or entering pre-shared keys (based on the selection made in FIA_PSK_EXT.2.1)
@@ -2114,7 +2130,7 @@
             </h:ul></management>
           <audit>No auditable events are foreseen.</audit>
           <dependencies>FCS_COP.1 Cryptographic Operation <h:p/>
-            FCS_RBG_EXT.1 Random Bit Generation <h:p/>
+            FCS_RBG.1 Random Bit Generation <h:p/>
             <no-link>FIA_PSK_EXT.1</no-link> Pre-Shared Key Usage</dependencies>
           <f-element id="fia-psk-ext-3e1">
             <title>
@@ -2153,7 +2169,7 @@
           </f-element>
           <f-element id="fia-psk-ext-3e5">
             <title>
-              The TSF shall generate all salts using an RBG that meets FCS_RBG_EXT.1 and with entropy corresponding 
+              The TSF shall generate all salts using an RBG that meets FCS_RBG.1 and with entropy corresponding 
               to the key size selected for PBKDF in FIA_PSK_EXT.3.3.
             </title>
           </f-element>
@@ -2205,7 +2221,7 @@
                 <h:p/>
                 The evaluator shall confirm that the minimum length is described.
                 <h:p/>
-                The ST author shall provide a description in the TSS regarding the salt generation. The evaluator shall confirm that the salt is generated using an RBG described in FCS_RBG_EXT.1.
+                The ST author shall provide a description in the TSS regarding the salt generation. The evaluator shall confirm that the salt is generated using an RBG described in FCS_RBG.1.
                 <h:p/>
                 [conditional] If password strength meter or password denylist is selected, the evaluator shall examine the TSS to ensure 
                 any password checking functionality provided by the TSF is described and contains details on how the function operates.
@@ -2258,7 +2274,7 @@
             </h:ul>
           </audit>
           <dependencies>FCS_COP.1 Cryptographic Operation<h:p/>
-            FCS_RBG_EXT.1 Random Bit Generation</dependencies>
+            FCS_RBG.1 Random Bit Generation</dependencies>
           <f-element id="fia-totp-ext-1e1">
             <title>
               The TSF shall support Time-Based One-Time Password (TOTP) authentication in accordance with RFC 6238. 
@@ -2266,7 +2282,7 @@
           </f-element>
           <f-element id="fia-totp-ext-1e2">
             <title>
-              The TSF shall generate a TOTP seed according to FCS_RBG_EXT.1 of 
+              The TSF shall generate a TOTP seed according to FCS_RBG.1 of 
               <selectables>
                 <selectable>128</selectable>
                 <selectable>256</selectable></selectables> bits.
@@ -2362,7 +2378,7 @@
               <TSS>
                 The evaluator shall confirm the TSS describes how the TOE complies with the RFC.
                 <h:p/>
-                The evaluator shall confirm the TSS describes how the TOTP seed is generated and ensure it aligns with FCS_RBG_EXT.1.
+                The evaluator shall confirm the TSS describes how the TOTP seed is generated and ensure it aligns with FCS_RBG.1.
                 <h:p/>
                 The evaluator shall confirm the TSS describes how the TOTP seed is protected and ensure it aligns with FCS_STG_EXT.1. 
                 <h:p/>
@@ -2548,14 +2564,14 @@
     <entry id="bibNDcPP">
       <tag>NDcPP</tag>
       <description>
-        <h:a href="https://www.niap-ccevs.org/MMO/PP/CPP_ND_V2.2E.pdf">collaborative Protection Profile for Network Devices</h:a>, Version 2.2e, March 23, 2020
+        <h:a href="https://www.niap-ccevs.org/MMO/PP/CPP_ND_V3.0E.pdf">collaborative Protection Profile for Network Devices</h:a>, Version 3.0e, 06 December 2023
       </description>
     </entry>
     
     <entry id="bibNDSD">
       <tag>NDcPP SD</tag>
       <description>
-        <h:a href="https://www.niap-ccevs.org/MMO/PP/CPP_ND_V2.2-SD.pdf">Supporting Document - Evaluation Activities for Network Device cPP</h:a>, Version 2.2, December 2019
+        <h:a href="https://www.niap-ccevs.org/MMO/PP/CPP_ND_V3.0E-SD.pdf">Supporting Document - Evaluation Activities for Network Device cPP</h:a>, Version 3.0e, 06 December 2023
       </description>
     </entry>
 
