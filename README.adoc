@@ -16,9 +16,9 @@ image::https://raw.githubusercontent.com/commoncriteria/authserver/gh-pages/mast
 a|image::https://raw.githubusercontent.com/commoncriteria/authserver/gh-pages/master/transforms.svg[transforms,150]
 a|
 https://commoncriteria.github.io/authserver/master/authserver-esr.html[authserver-esr.html] +
-https://commoncriteria.github.io/authserver/master/authserver-release-linkable.html[retransmission-release-linkable.html] +
-https://commoncriteria.github.io/authserver/master/authserver-release.html[retransmission-release.html] +
-https://commoncriteria.github.io/authserver/master/retransmission.html[retransmission.html] +
+https://commoncriteria.github.io/authserver/master/authserver-release-linkable.html[authserver-release-linkable.html] +
+https://commoncriteria.github.io/authserver/master/authserver-release.html[authserver-release.html] +
+https://commoncriteria.github.io/authserver/master/authserver.html[authserver.html] +
 |===
 
 https://github.com/commoncriteria/authserver/issues[image:https://img.shields.io/github/issues/commoncriteria/authserver.svg?maxAge=2592000[GitHub
