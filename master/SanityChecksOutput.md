@@ -12,7 +12,6 @@
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/sec:TOE_Boundary[1]"This docu"/h:p[2]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/sec:TOE_Boundary[1]"This docu"/h:p[3]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/sec:TOE_Boundary[1]"This docu"/h:p[4]""
-* Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/sec:man_fau[1]""/f-component[1]""/f-element[1]""/title[1]"The TSF s"/h:table[1]""/h:tr[4]""/h:td[2]"["/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/sec:man_fco[1]""/f-component[1]""/f-element[3]""/aactivity[1]""/TSS[1]"The evalu"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/sec:man_fco[1]""/f-component[1]""/f-element[3]""/aactivity[1]""/TSS[1]"The evalu"/h:p[2]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/sec:man_fco[1]""/f-component[1]""/f-element[3]""/aactivity[1]""/TSS[1]"The evalu"/h:p[3]""
@@ -111,6 +110,7 @@
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/sec:sel_fia[1]""/f-component[5]""/f-element[7]""/aactivity[1]""/Guidance[1]"The evalu"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/sec:sel_fia[1]""/f-component[5]""/f-element[7]""/aactivity[1]""/Tests[1]"If the TS"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/sec:sel_fia[1]""/f-component[6]""/dependencies[1]"FCS_COP.1"/h:p[1]""
+* Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/sec:sel_fia[1]""/f-component[6]""/dependencies[1]"FCS_COP.1"/h:p[2]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/sec:sel_fia[1]""/f-component[6]""/f-element[9]""/note[1]"This SFR "/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/sec:sel_fia[1]""/f-component[6]""/f-element[9]""/note[1]"This SFR "/h:p[2]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/sec:sel_fia[1]""/f-component[6]""/f-element[9]""/note[1]"This SFR "/h:p[3]""
@@ -126,5 +126,6 @@
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/sec:sel_fia[1]""/f-component[6]""/f-element[9]""/aactivity[1]""/TSS[1]"The evalu"/h:p[9]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/sec:sel_fia[1]""/f-component[6]""/f-element[9]""/aactivity[1]""/Guidance[1]"The evalu"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/sec:sel_fia[1]""/f-component[6]""/f-element[9]""/aactivity[1]""/Tests[1]"The follo"/h:p[1]""
+ Failed to find a reference to auditAuthSvr.
 * Warning: Since FCS_EAPTLS_EXT.1.3 has an 'id' attribute in a descendant node in the title, you probably need to define an alternative 'ext-comp-def-title'.
                        
