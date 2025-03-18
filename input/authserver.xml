@@ -47,6 +47,10 @@
     </git>
     <url>https://www.niap-ccevs.org/protectionprofiles/511</url>
   </include-pkg>  
+
+  <pp-preferences>
+    <audit-events-in-sfrs/>
+  </pp-preferences>
   <!-- TODO: see Issues for open items -->
   
   <sec:Introduction>
@@ -569,18 +573,27 @@
 
     </base-pp>
     <man-sfrs>
+
+      <section title="Auditable Events for Mandatory SFRs">
+        <audit-table table="mandatory" id="at-mandatory">
+        </audit-table>
+      </section>
       
       <sec:man_fau title="Security Audit (FAU)">
         <f-component cc-id="fau_gen.1" name="Audit Data Generation (Authentication Server)" iteration="AuthSvr">
           <consistency-rationale>This SFR iterates the FAU_GEN.1 SFR defined in the Base-PP to define auditable events for the functionality that is specific to this PP-Module.</consistency-rationale>
 <f-element>
-            <title> The TSF shall be able to generate an audit record of the following auditable
+            <title> The TSF shall be able to generate audit data of the following auditable
               events: <h:ol type="a">
                 <h:li>Start-up and shutdown of the audit functions;</h:li>
-                <h:li>All auditable events for the [<h:i>not specified</h:i>] level of audit; and</h:li>
-                <h:li>[<h:i>Auditable events listed in the Auditable Events table (<xref to="auditAuthSvr"/>)</h:i></h:li>
-              </h:ol>
-            <h:table>
+                <h:li>All auditable events for the <h:i>not specified</h:i> level of audit; and</h:li>
+                <h:li>[<h:i>Auditable events listed in the Auditable Events for Mandatory SFRs table (<xref to="at-mandatory"/>)</h:i></h:li>
+                <h:li><h:i><selectables>
+                  <selectable>Auditable events listed in the Auditable Events for Selection-Based SFRs table (<xref to="at-sel-based"/>)</selectable>
+                  <selectable exclusive="yes">no other events</selectable>
+                </selectables></h:i></h:li>
+              </h:ol>].
+            <!-- <h:table>
               <h:tr>
                 <h:th>Requirement</h:th>
                 <h:th>Auditable Events</h:th>
@@ -699,25 +712,27 @@
                 <h:td>Target of failed trusted channels establishment attempt</h:td>
               </h:tr>
             </h:table>
-              <ctr ctr-type="Table" id="auditAuthSvr">: Auditable Events</ctr>
+              <ctr ctr-type="Table" id="auditAuthSvr">: Auditable Events</ctr> -->
             </title>
 	    <note role="application">
 	      <h:p>
-		The auditable events defined in <xref to="auditAuthSvr"/> are for the SFRs that
-		are explicitly defined in this PP-Module and are intended to extend FAU_GEN.1 in the Base-PP.
+          The auditable events defined in the audit tables are for the SFRs that
+          are explicitly defined in this PP-Module and are intended to extend FAU_GEN.1 in the Base-PP.
+          The events in the Auditable Events table should be combined with those of the NDcPP in the
+          context of a conforming Security Target.
 	      </h:p>
 	      <h:p>
-		The events in the Auditable Events table should be combined with those of the NDcPP in the
-		context of a conforming Security Target.
+          If the ST includes any selection-based SFRs, the selection for "Auditable events listed in the Auditable Events 
+          for Selection-Based SFRs table" must be made. If no selection-based SFRs are included, "no other events" should be selected.
+          The auditing of selection-based SFRs is only required if that SFR is included in the ST.
 	      </h:p>
 	      <h:p>
-		The Auditable Events table (<xref to="auditAuthSvr"/>) includes selection-based SFRs.
-		The auditing of selection-based SFRs is only required if that SFR is included in the ST.
+          Per FAU_STG.1 in the Base-PP, the TOE must support transfer of the audit data to an
+          external IT entity using a trusted channel.
 	      </h:p>
-	      <h:p>
-		Per FAU_STG_EXT.1 in the Base-PP, the TOE must support transfer of the audit data to an
-		external IT entity using a trusted channel.
-	      </h:p>
+        <h:p>
+          For FCS_CKM.3, if no defined interfaces have access to persistent keys or CSP, select 'none'.
+        </h:p>
 	    </note>
 </f-element>
           <f-element>
@@ -752,6 +767,7 @@
       </Tests>
   </aactivity>
 </f-element> 
+        <audit-event/>
         </f-component>
       </sec:man_fau>
      
@@ -832,6 +848,10 @@
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>Claimant request for which the TOE does not have credential verification data.</audit-event-descr>
+            <audit-event-info>Identity of the claimant.</audit-event-info>
+          </audit-event>
         </f-component>
      
      
@@ -843,7 +863,7 @@
               The TSF shall be able to generate evidence of receipt for received [<h:i>authentication requests, 
                 <selectables>
                   <selectable>authentication responses and queries</selectable>
-                  <selectable>none</selectable></selectables></h:i>] at the request of the [<h:i>originator</h:i>].
+                  <selectable>none</selectable></selectables></h:i>] at the request of the <h:i>originator</h:i>.
             </title>
             <note role="application">
               The intent of this requirement is for the TOE to be able to return a valid response to the relying party upon receipt of an Access-Request. 
@@ -890,6 +910,7 @@
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
         
      
@@ -940,6 +961,10 @@
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event type="optional">
+            <audit-event-descr>Attempt to export plaintext key or CSP via defined interface.</audit-event-descr>
+            <audit-event-info>If attempt is detected, record process identifier, authorized user's identifier (if any).</audit-event-info>
+          </audit-event>
         </f-component>
         
         <ext-comp-def title="EAP-TLS Protocol" fam-id="FCS_EAPTLS_EXT">
@@ -1126,6 +1151,14 @@
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>Protocol failures.</audit-event-descr>
+            <audit-event-info>If failure occurs, record a descriptive reason for the failure.</audit-event-info>
+          </audit-event>
+          <audit-event>
+            <audit-event-descr>Successful and failed authentication of claimant.</audit-event-descr>
+            <audit-event-info>Identifier of claimant.</audit-event-info>
+          </audit-event>
         </f-component>
         
         <ext-comp-def title="Authentication Protocol" fam-id="FCS_RADIUS_EXT">
@@ -1205,6 +1238,13 @@
                </Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>Protocol failures.</audit-event-descr>
+            <audit-event-info>If failure occurs, record a descriptive reason for the failure.</audit-event-info>
+          </audit-event>
+          <audit-event>
+            <audit-event-descr>Success/failure of authentication.</audit-event-descr>
+          </audit-event>
         </f-component>
         
 
@@ -1240,6 +1280,7 @@
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
         
       </sec:man_fcs>
@@ -1252,14 +1293,14 @@
           <consistency-rationale>This SFR defines functional behavior enforced on external users being authenticated by the TOE, which is functionality that is not covered by the Base-PP.</consistency-rationale>
 
           <f-element>
-            <title>The TSF shall detect when [<h:i>an administrator configurable positive integer <h:b>of successive</h:b></h:i>] unsuccessful authentication attempts occur related to [<h:i>claimants attempting to authenticate</h:i>]. 
+            <title>The TSF shall detect when <h:i>an administrator configurable positive integer <h:b>of successive</h:b></h:i> unsuccessful authentication attempts occur related to [<h:i>claimants attempting to authenticate</h:i>]. 
             </title>
           </f-element>
-          <f-element><title>When the defined number of unsuccessful authentication attempts has been [<h:i>met</h:i>], 
-            the TSF shall <selectables onlyone="yes">
+          <f-element><title>When the defined number of unsuccessful authentication attempts has been <h:i>met</h:i>, 
+            the TSF shall [<h:i><selectables onlyone="yes">
               <selectable>prevent the offending remote entity from successfully authenticating until 
                 <assignable>action</assignable> is taken by a local Administrator</selectable>
-              <selectable>prevent the offending claimant from successfully authenticating until an administrator-defined time period has elapsed</selectable></selectables>. 
+              <selectable>prevent the offending claimant from successfully authenticating until an administrator-defined time period has elapsed</selectable></selectables></h:i>]. 
             </title>
             <note role="application">
               This requirement applies to claimant authentication attempts in support of an authentication service provided for a federated relying party. 
@@ -1299,6 +1340,13 @@
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>The reaching of the threshold for the unsuccessful authentication attempts.</audit-event-descr>
+            <audit-event-info>The claimed identity of the entity attempting to authenticate or the IP where the attempts originated.</audit-event-info>
+          </audit-event>
+          <audit-event>
+            <audit-event-descr>Disabling an account due to the threshold being reached.</audit-event-descr>
+          </audit-event>
         </f-component>
       
         <f-component name="Re-Authenticating" cc-id="fia_uau.6">
@@ -1327,6 +1375,10 @@
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>All use of the authentication mechanism.</audit-event-descr>
+            <audit-event-info>Origin of the attempt (e.g., IP address).</audit-event-info>
+          </audit-event>
         </f-component>
       
         <f-component name="X.509 Certificate Validation (Claimant)" cc-id="fia_x509_ext.1" iteration="AuthSvr">
@@ -1526,6 +1578,10 @@
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>Certificate validation failure.</audit-event-descr>
+            <audit-event-info>Reason for failure.</audit-event-info>
+          </audit-event>
         </f-component>
           
     
@@ -1587,6 +1643,10 @@
 			  </Tests>
 			</aactivity>
 		</f-element>
+    <audit-event>
+      <audit-event-descr>All management actions.</audit-event-descr>
+      <audit-event-info>Identifier of initiator.</audit-event-info>
+    </audit-event>
 		</f-component>
         </sec:man_fmt>
       
@@ -1620,6 +1680,10 @@
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>Denial of session establishment due to the session establishment mechanism.</audit-event-descr>
+            <audit-event-info>Reason for denial, origin of establishment attempt.</audit-event-info>
+          </audit-event>
         </f-component>
       </sec:man_fta>
       
@@ -1651,7 +1715,7 @@
 				</f-element>
 			    <f-element>
 		<title>
-		  The TSF shall permit [<h:i>the TSF, <h:b>or the relying party</h:b></h:i>] to initiate communication via the trusted channel.
+		  The TSF shall permit <h:i>the TSF <h:b>or the relying party</h:b></h:i> to initiate communication via the trusted channel.
 		</title>
 	</f-element>
 			  <f-element>
@@ -1674,6 +1738,18 @@
 				      </testlist></Tests>
 				  </aactivity>	  
 			  </f-element>
+        <audit-event>
+          <audit-event-descr>Initiation of the trusted channel.</audit-event-descr>
+          <audit-event-info>Identification of the initiator.</audit-event-info>
+        </audit-event>
+        <audit-event>
+          <audit-event-descr>Termination of the trusted channel.</audit-event-descr>
+          <audit-event-info>Identification of the initiator.</audit-event-info>
+        </audit-event>
+        <audit-event>
+          <audit-event-descr>Failure of the trusted channel functions.</audit-event-descr>
+          <audit-event-info>Target of failed trusted channels establishment attempt.</audit-event-info>
+        </audit-event>
 		  </f-component>
       </sec:man_ftp>
         
@@ -1681,6 +1757,10 @@
     <mod-sars/>
    <opt-sfrs/>
     <sel-sfrs>
+      <section title="Auditable Events for Selection-Based SFRs">
+        <audit-table table="sel-based" id="at-sel-based">
+        </audit-table>
+      </section>
       
       <sec:sel_fcs title="Cryptographic Support (FCS)">
         
@@ -1784,6 +1864,7 @@
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
       
         
@@ -1948,7 +2029,14 @@
               </Tests>
             </aactivity>
           </f-element>
-          <audit-event/>
+          <audit-event>
+            <audit-event-descr>Generation of a HOTP seed key.</audit-event-descr>
+            <audit-event-info>Entity identifier.</audit-event-info>
+          </audit-event>
+          <audit-event>
+            <audit-event-descr>Entity HOTP value comparison.</audit-event-descr>
+            <audit-event-info>Result of comparison - success or failure.</audit-event-info>
+          </audit-event>
         </f-component>
 	  
         <ext-comp-def title="Pre-Shared Keys" fam-id="FIA_PSK_EXT">
@@ -1980,7 +2068,6 @@
               <no-tests></no-tests>
             </aactivity>
           </f-element>            
-          <audit-event/>
         </f-component>
         
         
@@ -2063,7 +2150,7 @@
               </Tests>
             </aactivity>
           </f-element>            
-		 <audit-event/>
+		      <audit-event/>
         </f-component>
         
         
@@ -2156,6 +2243,13 @@
                 <selectable>128</selectable>
                 <selectable>256</selectable></selectables> bits that meet the following: [<h:i>NIST SP 800-132</h:i>].
             </title>
+            <ext-comp-def-title>
+              <title>
+              The TSF shall perform Password-based Key Derivation Functions in accordance with a specified cryptographic algorithm <assignable>key derivation algorithm</assignable>, with 
+              <assignable>number or range of acceptable iterations</assignable> iterations, and output cryptographic key sizes 
+              <assignable>number of bits</assignable> bits that meet the following: <assignable>applicable standard</assignable>.
+            </title>
+            </ext-comp-def-title>
           </f-element>
           <f-element id="fia-psk-ext-3e4">
             <title>
@@ -2274,6 +2368,7 @@
             </h:ul>
           </audit>
           <dependencies>FCS_COP.1 Cryptographic Operation<h:p/>
+            FCS_NTP_EXT.1 NTP Protocol<h:p/>
             FCS_RBG.1 Random Bit Generation</dependencies>
           <f-element id="fia-totp-ext-1e1">
             <title>
@@ -2415,7 +2510,14 @@
               </Tests>
             </aactivity>
           </f-element>
-          <audit-event/>
+          <audit-event>
+            <audit-event-descr>Generation of a TOTP seed key.</audit-event-descr>
+            <audit-event-info>Entity identifier.</audit-event-info>
+          </audit-event>
+          <audit-event>
+            <audit-event-descr>Entity TOTP value comparison.</audit-event-descr>
+            <audit-event-info>Result of comparison - success or failure.</audit-event-info>
+          </audit-event>
         </f-component>
     
     
