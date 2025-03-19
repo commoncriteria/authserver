@@ -228,28 +228,7 @@
         <FP-cc-ref conf="conformant">Functional Package for TLS, version 2.0</FP-cc-ref>
       </cc-pkg-claim>
     </CClaimsInfo>
-    <!-- <cclaims>
-      <cclaim name="Conformance Statement">
-        <description>
-	  <h:p>
-	    This PP-Module inherits exact conformance as required from the specified
-            Base-PP and as defined in the CC and CEM addenda for Exact Conformance, Selection-Based
-          SFRs, and Optional SFRs (dated May 2017).</h:p>
-	  <h:p>
-            No PPs or PP-Modules may be specified in a PP-Configuration with this PP-Module other than the Base-PP specified
-	    in <xref to="Overview"/>.
-	  </h:p>
-        </description>
-      </cclaim>
-      <cclaim name="CC Conformance Claims">
-        <description>This PP-Module is conformant to Parts 2 (extended) and 3 (conformant) of Common
-          Criteria Version 3.1, Release 5 [CC]. </description>
-      </cclaim>
-      <cclaim name="Package Claims">
-        <description>This PP-Module does not
-          claim conformance to any packages.</description>
-      </cclaim>
-    </cclaims> -->
+
   </sec:Conformance_Claims>
   <sec:Security_Problem_Definition>
     The security problem is described in terms of the threats that the TOE is expected to address, assumptions about its Operational Environment, and any organizational security policies that the TOE is expected to enforce.
@@ -261,10 +240,22 @@
             to extract security-relevant, or sensitive user data from the TOE or its Operational Environment.</description>
           <consistency-rationale>This threat is similar to the T.WEAK_AUTHENTICATION_ENDPOINTS threat in the NDcPP but it applies specifically to the NAS, 
             which is an environmental component that is defined specifically in this PP-Module.</consistency-rationale>
-          <objective-refer ref="O.TRUSTED_RP">
-            <rationale>The TOE’s enforcement of mutual authentication allows it and the relying party to identify and reject attempts for each component to be impersonated.
-	    </rationale>
-          </objective-refer>
+          <addressed-by>FCS_EAPTLS_EXT.1</addressed-by>
+          <rationale>
+           Mitigates the threat by utilizing either EAP-TLS or EAP-TTLS with mutual authentication to authenticate itself to a relying party. 
+          </rationale>    
+          <addressed-by>FTP_ITC.1/NAS</addressed-by>
+          <rationale>
+            Mitigates the threat by utilizing a cryptographically secure trusted channel with a relying party that allows mutual authentication with the relying party.
+          </rationale>      
+          <addressed-by>FCS_RADSEC_EXT.1</addressed-by>
+          <rationale>
+             Mitigates the threat by utilizing RadSec to establish a trusted channel with the relying party.   
+          </rationale>          
+          <addressed-by>FIA_PSK_EXT.1/AuthSvr</addressed-by>
+          <rationale>
+            Mitigates the threat by using a pre-shared key as the mechanism by which it authenticates itself to the relying party.  
+          </rationale>                   
         </threat>
 
 
@@ -275,35 +266,109 @@
           <consistency-rationale>This threat is similar to the T.UNAUTHORIZED_ADMINISTRATOR_ACCESS threat in the NDcPP but it applies to user authentication brokered by the TSF rather than to 
             administrator authentication to the TOE itself. It is also similar to the T.UNTRUSTED_COMMUNICATION_CHANNELS threat in the NDcPP except that it applies specifically to the 
             RADIUS communications and the protocols used to secure those, which is an interface that is defined specifically in this PP-Module.</consistency-rationale>
-          <objective-refer ref="O.SECURITY_ASSOCIATION">
-            <rationale>
-              The TOE’s ability to maintain a security association ensures that a mechanism exists for the TSF to assert to an external entity that a given user is valid.
-	    </rationale>
-          </objective-refer>
-          <objective-refer ref="O.USER_AUTH">
-            <rationale>The TOE’s proper implementation of the claimant authentication ensures that it will accurately process authentication attempts to allow only valid authentication attempts. 
-              The TOE’s ability to use trusted communications as part of the federation protocol implementation ensures that modification or disclosure of authentication data cannot be used 
-              as a method to gain access to credentials or modify an authentication result.</rationale>
-          </objective-refer>
+          <addressed-by>FCO_NRO.1</addressed-by>
+          <rationale>
+            Mitigates the threat by providing a non-repudiation function to assert the source of origin of its communications with the relying party.
+          </rationale>
+          <addressed-by>FCO_NRR.1</addressed-by>
+          <rationale>
+            Mitigates the threat by providing a proof of receipt function to assert to a relying part that communications with it are successful.
+          </rationale>
+          <addressed-by>FCS_EAPTLS_EXT.1</addressed-by>
+          <rationale>
+            Mitigates the threat by utilizing either EAP-TLS or EAP-TTLS as a mechanism to assert the success or failure of claimant authentication requests to the relying party.
+          </rationale>
+          <addressed-by>FCS_RADIUS_EXT.1</addressed-by>
+          <rationale>
+            Mitigates the threat by implementing RADIUS, DIAMETER, or some other direct identity federation protocol to communicate the success or failure of claimant authentication requests.
+          </rationale>
+          <addressed-by>FIA_AFL.1/AuthSvr</addressed-by>
+          <rationale>
+            Mitigates the threat by implementing a mechanism to prevent claimant authentication attempts if an excessive number of failed attempts have been made. 
+          </rationale> 
+          <addressed-by>FIA_X509_EXT.1/AuthSvr</addressed-by>
+          <rationale>
+            Mitigates the threat by implementing a mechanism to determine the validity of X.509 certificates that are used as claimant authenticators.
+          </rationale>
+          <addressed-by>FTA_TSE.1</addressed-by>
+          <rationale>
+            Mitigates the threat by implementing a mechanism to assert the failure of a claimant authentication attempt based on attributes of the claimant or of the attempt.
+          </rationale>
+          <addressed-by>FIA_HOTP_EXT.1 (selection-based)</addressed-by>
+          <rationale>
+            Mitigates the threat by utilizing HOTP as a form of claimant authenticator and implementing mechanisms to determine the validity of a HOTP credential if supported. 
+          </rationale>
+          <addressed-by>FIA_PSK_EXT.1/AuthSvr (selection-based)</addressed-by>
+          <rationale>
+            Mitigates the threat by supporting PSKs in various forms as a form of claimant authenticator (password-based, HOTP, or TOTP).
+          </rationale>
+          <addressed-by>FIA_PSK_EXT.2 (selection-based)</addressed-by>
+          <rationale>
+            Mitigates the threat by utilizing randomly generated PSKs as a form of claimant authenticator.
+          </rationale>
+          <addressed-by>FIA_PSK_EXT.3 (selection-based)</addressed-by>
+          <rationale>
+            Mitigates the threat by utilizing password-based PSKs as a form of claimant authenticator and implementing mechanisms to determine the validity of a password-based PSK credential if supported.
+          </rationale>
+          <addressed-by>FIA_TOTP_EXT.1 (selection-based)</addressed-by>
+          <rationale>
+            Mitigates the threat by utilizing TOTP as a form of claimant authenticator and implementing mechanisms to determine the validity of a TOTP credential if supported.
+          </rationale>
         </threat>
 
 
         <threat name="T.UNAUTHORIZED_ADMINISTRATOR_ACCESS">
-          <from base="NDcPP"/>
-          <objective-refer ref="O.AUTHORIZED_USE">
-            <rationale>The TOE further mitigates this threat originally defined in the Base-PP by defining additional 
-              management functions that require authorization 
-              and additional interfaces that can be used securely to execute management activities.</rationale>
-          </objective-refer>
+          <from base="ND"/>
+          <addressed-by>FAU_GEN.1/AuthSvr</addressed-by>
+          <rationale>
+            Mitigates the threat by implementing an audit mechanism to detect potential misuse of the TOE.
+          </rationale>
+          <addressed-by>FCS_CKM.3</addressed-by>
+          <rationale>
+            Mitigates the threat by implementing a cryptographic key access control mechanism to prevent compromise
+            of the data in transit confidentiality mechanisms.
+          </rationale>
+          <addressed-by>FCS_STG_EXT.1</addressed-by>
+          <rationale>
+            Mitigates the threat by implementing a secure cryptographic key storage mechanism to prevent compromise
+            of the data in transit confidentiality mechanisms.
+          </rationale>
+          <addressed-by>FIA_UAU.6</addressed-by>
+          <rationale>
+            Mitigates the threat by implementing a re-authentication mechanism to prevent compromise of an administrator
+            account due to an unattended session.
+          </rationale>
+          <addressed-by>FMT_SMF.1/AuthSvr</addressed-by>
+          <rationale>
+            Mitigates the threat by defining management functions as a legitimate mechanism to control the behavior of the TSF.
+          </rationale>
         </threat>
         
         <threat name="T.UNDETECTED_ACTIVITY">
-          <from base="NDcPP"/>
-          <objective-refer ref="O.AUTHORIZED_USE">
-            <rationale>The TOE further mitigates this threat originally defined in the Base-PP by implementing 
-              measures to generate audit records for security-relevant events that are specific
-              to the functionality defined by this PP-Module.</rationale>
-          </objective-refer>
+          <from base="ND"/>
+          <addressed-by>FAU_GEN.1/AuthSvr</addressed-by>
+          <rationale>
+            Mitigates the threat by implementing an audit mechanism to detect potential misuse of the TOE.
+          </rationale>
+          <addressed-by>FCS_CKM.3</addressed-by>
+          <rationale>
+            Mitigates the threat by implementing a cryptographic key access control mechanism to prevent compromise
+            of the data in transit confidentiality mechanisms.
+          </rationale>
+          <addressed-by>FCS_STG_EXT.1</addressed-by>
+          <rationale>
+            Mitigates the threat by implementing a secure cryptographic key storage mechanism to prevent compromise
+            of the data in transit confidentiality mechanisms.
+          </rationale>
+          <addressed-by>FIA_UAU.6</addressed-by>
+          <rationale>
+            Mitigates the threat by implementing a re-authentication mechanism to prevent compromise of an administrator
+            account due to an unattended session.
+          </rationale>
+          <addressed-by>FMT_SMF.1/AuthSvr</addressed-by>
+          <rationale>
+            Mitigates the threat by defining management functions as a legitimate mechanism to control the behavior of the TSF.
+          </rationale>
         </threat>
 
       </threats>
@@ -342,140 +407,7 @@
     </sec:Organizational_Security_Policies>
   </sec:Security_Problem_Definition>
   <sec:Security_Objectives>
-    <sec:Security_Objectives_for_the_TOE>
-
-      <SOs>
-        
-        
-        <SO name="O.AUTHORIZED_USE">
-          <description>The TOE shall provide mechanisms that prevent and detect its unauthorized use.
-          </description>
-          <consistency-rationale>
-            The NDcPP does not define any TOE objectives; instead, it maps SFRs directly to threats. 
-            This TOE objective is intended to mitigate the T.UNAUTHORIZED_ADMINISTRATOR_ACCESS and T.UNDETECTED_ACTIVITY threats
-            for the functions defined by this PP-Module.
-          </consistency-rationale>
-          <addressed-by>FAU_GEN.1/AuthSvr</addressed-by>
-          <rationale>
-            The TOE implements an audit mechanism to detect potential misuse of the TOE.
-          </rationale>
-          <addressed-by>FCS_CKM.3</addressed-by>
-          <rationale>
-            The TOE implements a cryptographic key access control mechanism to prevent compromise
-            of data in transit confidentiality mechanisms.
-          </rationale>
-          <addressed-by>FCS_STG_EXT.1</addressed-by>
-          <rationale>
-            The TOE implements a cryptographic key storage mechanism to prevent compromise
-            of data in transit confidentiality mechanisms.
-          </rationale>
-          <addressed-by>FIA_UAU.6</addressed-by>
-          <rationale>
-            The TOE implements a re-authentication mechanism to prevent compromise of an administrator
-            account to an unattended session.
-          </rationale>
-          <addressed-by>FMT_SMF.1/AuthSvr</addressed-by>
-          <rationale>
-            The TOE implements management functions as a legitimate mechanism to control the behavior of the TSF.
-          </rationale>
-        </SO>
-        
-        <SO name="O.SECURITY_ASSOCIATION">
-          <description>The TOE shall provide the information to the relying party to enable it to verify that the claimant has possession of an authentication key.
-          </description>
-          <consistency-rationale>
-            The NDcPP does not define any TOE objectives; instead, it maps SFRs directly to threats. 
-            This objective is therefore assumed not to conflict with the NDcPP by virtue of the fact that the SFRs used to satisfy this objective do not conflict with the NDcPP SFRs.
-          </consistency-rationale>
-          <addressed-by>FCO_NRO.1</addressed-by>
-          <rationale>
-            The TOE provides a non-repudiation function to assert the source of origin of its communications with the relying party.
-          </rationale>
-          <addressed-by>FCO_NRR.1</addressed-by>
-          <rationale>
-            The TOE provides a proof of receipt function to assert to a relying part that communications with it are successful.
-          </rationale>
-          <addressed-by>FCS_EAPTLS_EXT.1</addressed-by>
-          <rationale>
-            The TOE implements either EAP-TLS or EAP-TTLS as a mechanism to assert the success or failure of claimant authentication requests to the relying party.
-          </rationale>
-        </SO>
-        
-        <SO name="O.TRUSTED_RP">
-          <description>The TOE shall provide mechanisms to authenticate itself to a federated RP and authenticate a federated RP before providing an identity assertion.
-          </description>
-          <consistency-rationale>
-            The NDcPP does not define any TOE objectives; instead, it maps SFRs directly to threats. 
-            This objective is therefore assumed not to conflict with the NDcPP by virtue of the fact that the SFRs used to satisfy this objective do not conflict with the NDcPP SFRs.
-	  </consistency-rationale>
-          <addressed-by>FCS_EAPTLS_EXT.1</addressed-by>
-          <rationale>
-            The TOE implements either EAP-TLS or EAP-TTLS with mutual authentication to authenticate itself to a relying party. 
-          </rationale>    
-          <addressed-by>FTP_ITC.1/NAS</addressed-by>
-          <rationale>
-            The TOE implements a cryptographically secure trusted channel with a relying party that allows it to authorize itself to the relying party.
-          </rationale>      
-          <addressed-by>FCS_RADSEC_EXT.1</addressed-by>
-          <rationale>
-            RadSec is one potential mechanism by which the TOE can establish a trusted channel with the relying party.   
-          </rationale>          
-          <addressed-by>FIA_PSK_EXT.1/AuthSvr</addressed-by>
-          <rationale>
-            Depending on the configuration of the trusted channel used to communicate with the relying party, the TOE may use a pre-shared key as the mechanism by which it authenticates itself to the relying party.  
-          </rationale>                   
-
-		  </SO>
-         
-         
-        <SO name="O.USER_AUTH">
-          <description>The TOE shall provide a mechanism to assess authentication requests and respond with an authentication assertion based on data that is supplied in the request.
-          </description>
-          <consistency-rationale>
-            The NDcPP does not define any TOE objectives; instead, it maps SFRs directly to threats. 
-            This objective is therefore assumed not to conflict with the NDcPP by virtue of the fact that the SFRs used to satisfy this objective do not conflict with the NDcPP SFRs.
-          </consistency-rationale>
-          <addressed-by>FCS_RADIUS_EXT.1</addressed-by>
-          <rationale>
-            The TOE implements RADIUS, DIAMETER, or some other direct identity federation protocol to communicate the success or failure of claimant authentication requests.
-          </rationale>
-          <addressed-by>FIA_AFL.1/AuthSvr</addressed-by>
-          <rationale>
-            The TOE implements a mechanism to prevent claimant authentication attempts if an excessive number of failed attempts have been made. 
-          </rationale> 
-          <addressed-by>FIA_X509_EXT.1/AuthSvr</addressed-by>
-          <rationale>
-            The TOE implements a mechanism to determine the validity of X.509 certificates that are used as claimant authenticators.
-          </rationale>
-          <addressed-by>FTA_TSE.1</addressed-by>
-          <rationale>
-            The TOE implements a mechanism to assert the failure of a claimant authentication attempt based on attributes of the claimant or of the attempt.
-          </rationale>
-          <addressed-by>FIA_HOTP_EXT.1</addressed-by>
-          <rationale>
-            The TOE optionally supports HOTP as a form of claimant authenticator and implements mechanisms to determine the validity of a HOTP credential if supported. 
-          </rationale>
-          <addressed-by>FIA_PSK_EXT.1/AuthSvr</addressed-by>
-          <rationale>
-            The TOE optionally supports PSKs as a form of claimant authenticator and may specifically support one or more of HOTP, TOTP, or password-based PSK.
-          </rationale>
-          <addressed-by>FIA_PSK_EXT.2</addressed-by>
-          <rationale>
-            The TOE optionally supports randomly generated PSKs as a form of claimant authenticator.
-          </rationale>
-          <addressed-by>FIA_PSK_EXT.3</addressed-by>
-          <rationale>
-            The TOE optionally supports password-based PSKs as a form of claimant authenticator and implements mechanisms to determine the validity of a password-based PSK credential if supported.
-          </rationale>
-          <addressed-by>FIA_TOTP_EXT.1</addressed-by>
-          <rationale>
-            The TOE optionally supports TOTP as a form of claimant authenticator and implements mechanisms to determine the validity of a TOTP credential if supported.
-          </rationale>
-        </SO>
-        
-        
-      </SOs>
-      </sec:Security_Objectives_for_the_TOE>
+    
       
     <sec:Security_Objectives_for_the_Operational_Environment>
       All objectives for the OE of the Base-PP also apply to this PP-Module.
@@ -504,60 +436,35 @@
 	<modified-sfrs>
         <!-- per open comment, it's unclear whether we need to treat any other NDcPP SFRs as 'modified' (most notably FIA_X509_EXT.1/Rev and FTP_ITC.1, or are those completely separate from what is needed for auth server) -->
 
-        <sec:from_nd_fia title="Identification and Authentication (FIA)">
-          <f-component cc-id="fia_x509_ext.1" iteration="Rev" name="X.509 Certificate Validation"> 
-            <consistency-rationale>This PP-Module modifies the Base-PP's definition of the SFR by making it mandatory rather than selection-based.</consistency-rationale>
-            <f-element>
-              <title>
-                This SFR is selection-based in the NDcPP. When the TOE conforms to this PP-Module it is mandatory 
-                because of the PP-Module's certificate-based authentication of the channel between the TOE and a federated relying party. 
-              </title>
-              <aactivity>
-                <TSS>There are no additional TSS evaluation activities for this component beyond what the NDcPP requires.<h:br/><h:br/></TSS>
-                <Guidance>There are no additional guidance evaluation activities for this component beyond what the NDcPP requires.<h:br/><h:br/></Guidance>
-                <Tests>
-                  There are no additional test evaluation activities for this component beyond what the NDcPP requires.
-                </Tests>
-              </aactivity>
-            </f-element>
-          </f-component>
+        <section title="Identification and Authentication (FIA)" id="nd-mod-fia">
           
-          <f-component cc-id="fia_x509_ext.2" name="X.509 Certificate Authentication"> 
-            <consistency-rationale>This PP-Module modifies the Base-PP's definition of the SFR by making it mandatory rather than selection-based.</consistency-rationale>
-            <f-element>
-              <title>
-                This SFR is selection-based in the NDcPP. When the TOE conforms to this PP-Module it is mandatory because of the PP-Module's requirement for 
+          <base-sfr-spec cc-id="fia_x509_ext.1" iteration="Rev" title="X.509 Certificate Validation" id="nd-mod-fia-x509-ext-1"> 
+          <consistency-rationale><comment>There is currently no way to accurately model the status of this SFR (as well as FIA_X509_EXT.2 and FIA_X509_EXT.3). 
+          Since the X.509 package will be replacing the definitions in the NDcPP, these are technically not going to be defined in the Base-PP, but we do not have an authoritative 
+          way to denote this in the XML schema. Additionally, it may be such that we need to list FIA_XCU_EXT.1 in this section and define certain selections as 
+          required instead of directly listing the SFRs, since the X.509 package uses that SFR as its 'entry point'. For now, these have only been moved to the updated modified SFR schema 
+          and no substantive changes have been applied.</comment>
+          This PP-Module modifies the Base-PP's definition of the SFR by making it mandatory rather than selection-based.</consistency-rationale>
+          <description>This SFR is selection-based in the NDcPP. When the TOE conforms to this PP-Module it is mandatory 
+                because of the PP-Module's certificate-based authentication of the channel between the TOE and a federated relying party. The SFR is unchanged from its definition in the NDcPP.</description>
+          <set-status status="mandatory"/>
+          <no-change/>
+          </base-sfr-spec>
+          <base-sfr-spec cc-id="fia_x509_ext.2" title="X.509 Certificate Authentication" id="nd-mod-fia-x509-ext-2">
+          <consistency-rationale>This PP-Module modifies the Base-PP's definition of the SFR by making it mandatory rather than selection-based.</consistency-rationale>
+          <description>This SFR is selection-based in the NDcPP. When the TOE conforms to this PP-Module it is mandatory because of the PP-Module's requirement for 
                 certificate-based authentication of the channel between the TOE and a federated relying party using IPsec with certificate-based authentication, 
-                mutually authenticated TLS or DTLS, or RADsec, which in turn uses IPsec or mutually authenticated TLS or DTLS. 
-              </title>
-              <aactivity>
-                <TSS>There are no additional TSS evaluation activities for this component beyond what the NDcPP requires.<h:br/><h:br/></TSS>
-                <Guidance>There are no additional guidance evaluation activities for this component beyond what the NDcPP requires.<h:br/><h:br/></Guidance>
-                <Tests>
-                  There are no additional test evaluation activities for this component beyond what the NDcPP requires.
-                </Tests>
-              </aactivity>
-            </f-element>
-          </f-component>
-          
-          
-          <f-component cc-id="fia_x509_ext.3" name="X.509 Certificate Requests"> 
-            <consistency-rationale>This PP-Module modifies the Base-PP's definition of the SFR by making it mandatory rather than selection-based.</consistency-rationale>
-            <f-element>
-              <title>
-                This SFR is selection-based in the NDcPP. When the TOE conforms to this PP-Module it is mandatory because of the PP-Module's requirement for implementation of mutually-authenticated TLS or DTLS.
-              </title>
-              <aactivity>
-                <TSS>There are no additional TSS evaluation activities for this component beyond what the NDcPP requires.<h:br/><h:br/></TSS>
-                <Guidance>There are no additional guidance evaluation activities for this component beyond what the NDcPP requires.<h:br/><h:br/></Guidance>
-                <Tests>
-                  There are no additional test evaluation activities for this component beyond what the NDcPP requires.
-                </Tests>
-              </aactivity>
-            </f-element>
-          </f-component>
-          
-        </sec:from_nd_fia>
+                mutually authenticated TLS or DTLS, or RADsec, which in turn uses IPsec or mutually authenticated TLS or DTLS. The SFR is unchanged from its definition in the NDcPP.</description>
+          <no-change/>
+          <set-status status="mandatory"/>
+          </base-sfr-spec>
+          <base-sfr-spec cc-id="fia_x509_ext.3" title="X.509 Certificate Requests" id="nd-mod-fia-x509-ext-3">
+          <consistency-rationale>This PP-Module modifies the Base-PP's definition of the SFR by making it mandatory rather than selection-based.</consistency-rationale>
+          <description>This SFR is selection-based in the NDcPP. When the TOE conforms to this PP-Module it is mandatory because of the PP-Module's requirement for implementation of mutually-authenticated TLS or DTLS.</description>
+          <no-change/>
+          <set-status status="mandatory"/>
+          </base-sfr-spec>
+        </section>
         
 
       </modified-sfrs>
@@ -593,126 +500,6 @@
                   <selectable exclusive="yes">no other events</selectable>
                 </selectables></h:i></h:li>
               </h:ol>].
-            <!-- <h:table>
-              <h:tr>
-                <h:th>Requirement</h:th>
-                <h:th>Auditable Events</h:th>
-                <h:th>Additional Audit Record Contents</h:th>
-              </h:tr>
-              <h:tr>
-                <h:td>FCO_NRO.1</h:td>
-                <h:td>Claimant request for which the TOE does not have credential verification data</h:td>
-                <h:td>Identity of the claimant</h:td>
-              </h:tr>
-              <h:tr>
-                <h:td>FCO_NRR.1</h:td>
-                <h:td colspan="2">None</h:td>
-              </h:tr>
-              <h:tr>
-                <h:td>FCS_CKM.3</h:td>
-                <h:td>[<h:i>selection: attempt to export plaintext key or CSP via defined interface, none</h:i>]<h:p/>
-                  Note: if no defined interfaces have access to persistent keys or CSP, select 'none'</h:td>
-                <h:td>If attempt is detected, record process identifier, authorized user's identifier (if any)</h:td>
-              </h:tr>
-              <h:tr>
-                <h:td rowspan="2">FCS_EAPTLS_EXT.1</h:td>
-                <h:td>Protocol failures</h:td>
-                <h:td>If failure occurs, record a descriptive reason for the failure</h:td>
-              </h:tr>
-              <h:tr>
-                <h:td>Successful and failed authentication of claimant</h:td>
-                <h:td>Identifier of claimant</h:td>
-              </h:tr>
-              <h:tr>
-                <h:td rowspan="2">FCS_RADIUS_EXT.1</h:td>
-                <h:td>Protocol failures</h:td>
-                <h:td>If failure occurs, record a descriptive reason for the failure</h:td>
-              </h:tr>
-              <h:tr>
-                <h:td>Success/failure of authentication</h:td>
-                <h:td>None</h:td>
-              </h:tr>
-              <h:tr>
-                <h:td>FCS_RADSEC_EXT.1 (selection-based)</h:td>
-                <h:td colspan="2">None</h:td>
-              </h:tr>
-              <h:tr>
-                <h:td>FCS_STG_EXT.1</h:td>
-                <h:td colspan="2">None</h:td>
-              </h:tr>
-              <h:tr>
-                <h:td rowspan="2">FIA_AFL.1/AuthSvr</h:td>
-                <h:td>The reaching of the threshold for the unsuccessful authentication attempts</h:td>
-                <h:td rowspan="2">The claimed identity of the entity attempting to authenticate or the IP where the attempts originated</h:td>
-              </h:tr>
-              <h:tr>
-                <h:td>Disabling an account due to the threshold being reached</h:td>
-              </h:tr>
-              <h:tr>
-                <h:td rowspan="2">FIA_HOTP_EXT.1 (selection-based)</h:td>
-                <h:td>Generation of a HOTP seed key</h:td>
-                <h:td>Entity identifier</h:td>
-              </h:tr>
-              <h:tr>
-                <h:td>Entity HOTP value comparison</h:td>
-                <h:td>Result of comparison - success or failure</h:td>
-              </h:tr>
-              <h:tr>
-                <h:td>FIA_PSK_EXT.1/AuthSvr (selection-based)</h:td>
-                <h:td colspan="2">None</h:td>
-              </h:tr>
-              <h:tr>
-                <h:td>FIA_PSK_EXT.2 (selection-based)</h:td>
-                <h:td colspan="2">None</h:td>
-              </h:tr>
-              <h:tr>
-                <h:td>FIA_PSK_EXT.3 (selection-based)</h:td>
-                <h:td colspan="2">None</h:td>
-              </h:tr>
-              <h:tr>
-                <h:td rowspan="2">FIA_TOTP_EXT.1 (selection-based)</h:td>
-                <h:td>Generation of a TOTP seed key</h:td>
-                <h:td>Entity identifier</h:td>
-              </h:tr>
-              <h:tr>
-                <h:td>Entity TOTP value comparison</h:td>
-                <h:td>Result of comparison - success or failure</h:td>
-              </h:tr>
-              <h:tr>
-                <h:td>FIA_X509_EXT.1/AuthSvr</h:td>
-                <h:td>Certificate validation failure</h:td>
-                <h:td>Reason for failure</h:td>
-              </h:tr>
-              <h:tr>
-                <h:td>FIA_UAU.6</h:td>
-                <h:td>All use of the authentication mechanism</h:td>
-                <h:td>Origin of the attempt (e.g., IP address)</h:td>
-              </h:tr>
-              <h:tr>
-                <h:td>FMT_SMF.1/AuthSvr</h:td>
-                <h:td>All management actions</h:td>
-                <h:td>Identifier of initiator</h:td>
-              </h:tr>
-              <h:tr>
-                <h:td>FTA_TSE.1</h:td>
-                <h:td>Denial of session establishment due to the session establishment mechanism</h:td>
-                <h:td>Reason for denial, origin of establishment attempt</h:td>
-              </h:tr>
-              <h:tr>
-                <h:td rowspan="3">FTP_ITC.1/NAS</h:td>
-                <h:td>Initiation of the trusted channel</h:td>
-                <h:td>Identification of the initiator</h:td>
-              </h:tr>
-              <h:tr>
-                <h:td>Termination of the trusted channel</h:td>
-                <h:td>Identification of the initiator</h:td>
-              </h:tr>
-              <h:tr>
-                <h:td>Failure of the trusted channel functions</h:td>
-                <h:td>Target of failed trusted channels establishment attempt</h:td>
-              </h:tr>
-            </h:table>
-              <ctr ctr-type="Table" id="auditAuthSvr">: Auditable Events</ctr> -->
             </title>
 	    <note role="application">
 	      <h:p>
@@ -737,10 +524,10 @@
 </f-element>
           <f-element>
             <title>
-              The TSF shall record within each audit record at least the following information: <h:ol type="a">
-                <h:li>Date and time of the event, type of event, subject identity, and the outcome (success or failure) of the event; and</h:li>
+              The TSF shall record within the audit data at least the following information: <h:ol type="a">
+                <h:li>Date and time of the event, type of event, subject identity (if applicable), and the outcome (success or failure) of the event;</h:li>
                 <h:li>For each audit event type, based on the auditable event definitions of the functional components included in the 
-                  PP<h:b>-Module</h:b>/ST, [<h:i>information specified in column three of the Auditable Events table (<xref to="auditAuthSvr"/>)</h:i>].</h:li>
+                  PP, PP-Module, functional package or ST, [<h:i>information specified in column three of the Auditable Events table in which the event was defined</h:i>].</h:li>
               </h:ol>
             </title>
           
@@ -886,7 +673,7 @@
           </f-element>
           <f-element>
             <title>The TSF shall provide a capability to verify the evidence of receipt of information to 
-              [<h:i>originator</h:i>] given [<h:i>establishment of a mutually authenticated channel with a trusted relying party</h:i>].</title>
+              <h:i>originator</h:i> given [<h:i>establishment of a mutually authenticated channel with a trusted relying party</h:i>].</title>
             <aactivity>
               <TSS>
                 The evaluator shall ensure that the ST includes a description of each messaging protocol and the specific messages provided to a relying party in response to authentication requests, 
@@ -1001,9 +788,20 @@
                 <selectable>EAP-TTLS as specified in RFC 5881</selectable></selectables> as updated by RFC 8996 with <selectables>
                 <selectable>TLS</selectable>
                 <selectable>DTLS</selectable></selectables> implemented using mutual authentication in accordance with <selectables>
-                <selectable>FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</selectable>
-                <selectable>FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</selectable></selectables>.
+                <selectable>FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2 <h:b>as defined in the <xref to="pkgTLS"/></h:b></selectable>
+                <selectable>FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2 <h:b>as defined in the <xref to="pkgTLS"/></h:b></selectable></selectables>.
             </title>
+            <ext-comp-def-title>
+              <title>
+                The TSF shall implement <selectables>
+                  <selectable>EAP-TLS as specified in RFC 5216</selectable>
+                  <selectable>EAP-TTLS as specified in RFC 5881</selectable></selectables> as updated by RFC 8996 with <selectables>
+                  <selectable>TLS</selectable>
+                  <selectable>DTLS</selectable></selectables> implemented using mutual authentication in accordance with <selectables>
+                  <selectable>FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</selectable>
+                  <selectable>FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</selectable></selectables>.
+              </title>
+            </ext-comp-def-title>
           </f-element>
           <f-element>
             <title>
@@ -1052,6 +850,7 @@
               according to the TLS or DTLS support indicated in the second selection, with
               the expectation that the corresponding SFRs from the Base-PP are claimed.
               <h:p/>
+              FCS_TLSS_EXT.1, FCS_TLSS_EXT.2, FCS_DTLSS_EXT.1, and FCS_DTLSS_EXT.2 are defined in the <xref to="pkgTLS"/>.
               The selection in FCS_EAPTLS_EXT.1.2 matches the first selection in FCS_EAPTLS_EXT.1.1.
               <h:p/>
               The selections made in FCS_EAPTLS_EXT.1.3 may trigger the inclusion of selection-based SFRs, as follows: 
@@ -1087,7 +886,7 @@
               <Tests>
                 The evaluator shall perform the following tests:
                 <testlist>
-                  <test>TLS/DTLS testing is performed as part of FCS_TLSS_EXT.1 and .2 or FCS_DTLSS_EXT.1 and .2. 
+                  <test>TLS/DTLS testing is performed as part of FCS_TLSS_EXT.1 and .2 or FCS_DTLSS_EXT.1 and .2 in the <xref to="pkgTLS"/>. 
                     When TLS/DTLS cannot be invoked directly using available TOE interfaces, the test procedures are modified in the following manner:
                     <h:ul>
                     <h:li>When required to send a client handshake to the TOE, the evaluator shall establish a connection with the test relying party and send the specified 
@@ -1387,6 +1186,9 @@
           from its original definition to address issues specific to the handling of claimant certificates.</consistency-rationale>
           <f-element>
             <title>
+              <comment>It's not clear how this SFR should be approached with regards to the move to the X.509 FP. There are three broad types of refinements made to this SFR 
+              in this PP-Module that are not reproduced in the X.509 FP: some are arguably inconsequential with regards to the functionality of the SFR (e.g., minor rewords or clarifications), some are refinemenets and selections 
+              present that have been obsoleted by selections/assignments present in the X.509 FP, and a few are technology-specific refinements that do not appear to be present in the X.509 FP. For the moment, this SFR has been left as-is.</comment>
               The TSF shall validate certificates in accordance with the following rules: 
               <h:ul>
                 <h:li>RFC 5280 <h:b>version 3</h:b> certificate validation and certification path validation <h:b>supporting <selectables>
@@ -1708,9 +1510,9 @@
 			      </h:p><h:p>
 			      If "a RadSec" is selected, the selection-based SFR FCS_RADSEC_EXT.1 must be claimed.
 			      </h:p><h:p>
-			      If “a mutually authenticated TLS” is selected, the Base-PP SFRs FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2 must be claimed.
+			      If “a mutually authenticated TLS” is selected, the <xref to="pkgTLS"/> SFRs FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2 must be claimed.
 			      </h:p><h:p>
-			      If “a mutually authenticated DTLS” is selected, the Base-PP SFRs FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2 must be claimed.
+			      If “a mutually authenticated DTLS” is selected, the <xref to="pkgTLS"/> SFRs FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2 must be claimed.
 			    </h:p></note>
 				</f-element>
 			    <f-element>
@@ -1798,7 +1600,7 @@
           </f-element>
           <f-element>
             <title>
-              The TSF shall perform relying party authentication using X.509v3 certificates in accordance with FIA_X509_EXT.1<h:b>/Rev</h:b> and 
+              The TSF shall perform relying party authentication using X.509v3 certificates in accordance with FIA_X509_EXT.1<h:b> as defined in the <xref to="pkgTLS"/></h:b> and 
               <selectables>
                 <selectable id="radsec-uses-psk">pre-shared keys</selectable>
                 <selectable>no other methods</selectable></selectables>.
@@ -1819,8 +1621,8 @@
             <title>
               The TSF shall implement RadSec using 
               <selectables>
-                <selectable>TLS in accordance with FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2 <h:b>from the Base-PP</h:b></selectable>
-                <selectable>DTLS in accordance with FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2 <h:b>from the Base-PP</h:b></selectable></selectables> with mutual authentication.
+                <selectable>TLS in accordance with FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2 <h:b>from the <xref to="pkgTLS"/></h:b></selectable>
+                <selectable>DTLS in accordance with FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2 <h:b>from the <xref to="pkgTLS"/></h:b></selectable></selectables> with mutual authentication.
             </title>
             <ext-comp-def-title>
               <title>
@@ -1835,11 +1637,11 @@
               This SFR is claimed if "a RadSec" is selected in FTP_ITC.1.1/NAS.
               </h:p>
               <h:p>
-                If "RFC 6614" is claimed in the selection for FCS_RADSEC_EXT.1.1, "TLS in accordance with FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2 from the Base-PP" is claimed
+                If "RFC 6614" is claimed in the selection for FCS_RADSEC_EXT.1.1, "TLS in accordance with FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2 from the <xref to="pkgTLS"/>" is claimed
                 in FCS_RADSEC_EXT.1.3.
               </h:p>
               <h:p>
-                If "RFC 7360" is claimed in the selection for FCS_RADSEC_EXT.1.1, "DTLS in accordance with FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2 from the Base-PP" is claimed
+                If "RFC 7360" is claimed in the selection for FCS_RADSEC_EXT.1.1, "DTLS in accordance with FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2 from the <xref to="pkgTLS"/>" is claimed
                 in FCS_RADSEC_EXT.1.3. Note that RFC 7360 is not directly updated by RFC 8996, but its references to DTLS 1.2 (RFC 6347) are.
               </h:p>
               <h:p>
@@ -2234,14 +2036,14 @@
           </f-element>
           <f-element id="fia-psk-ext-3e3">
             <title>
-              The TSF shall perform Password-based Key Derivation Functions in accordance with a specified cryptographic algorithm HMAC-<selectables>
+              The TSF shall perform Password-based Key Derivation Functions in accordance with a specified cryptographic algorithm [<h:i>HMAC-<selectables>
                 <selectable>SHA-256</selectable>
                 <selectable>SHA-384</selectable>
-                <selectable>SHA-512</selectable></selectables>, with 
-              <assignable>positive integer of 4096 or more</assignable> iterations, and output cryptographic key sizes 
-              <selectables>
+                <selectable>SHA-512</selectable></selectables></h:i>], with 
+              [<h:i><assignable>positive integer of 4096 or more</assignable></h:i>] iterations, and output cryptographic key sizes 
+              [<h:i><selectables>
                 <selectable>128</selectable>
-                <selectable>256</selectable></selectables> bits that meet the following: [<h:i>NIST SP 800-132</h:i>].
+                <selectable>256</selectable></selectables></h:i>] bits that meet the following: [<h:i>NIST SP 800-132</h:i>].
             </title>
             <ext-comp-def-title>
               <title>
