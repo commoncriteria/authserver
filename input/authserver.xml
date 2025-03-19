@@ -244,18 +244,18 @@
           <rationale>
            Mitigates the threat by utilizing either EAP-TLS or EAP-TTLS with mutual authentication to authenticate itself to a relying party. 
           </rationale>    
+          <addressed-by>FIA_PSK_EXT.1/AuthSvr</addressed-by>
+          <rationale>
+            Mitigates the threat by using a pre-shared key as the mechanism by which it authenticates itself to the relying party.  
+          </rationale>    
           <addressed-by>FTP_ITC.1/NAS</addressed-by>
           <rationale>
             Mitigates the threat by utilizing a cryptographically secure trusted channel with a relying party that allows mutual authentication with the relying party.
           </rationale>      
-          <addressed-by>FCS_RADSEC_EXT.1</addressed-by>
+          <addressed-by>FCS_RADSEC_EXT.1 (selection-based)</addressed-by>
           <rationale>
              Mitigates the threat by utilizing RadSec to establish a trusted channel with the relying party.   
-          </rationale>          
-          <addressed-by>FIA_PSK_EXT.1/AuthSvr</addressed-by>
-          <rationale>
-            Mitigates the threat by using a pre-shared key as the mechanism by which it authenticates itself to the relying party.  
-          </rationale>                   
+          </rationale>                     
         </threat>
 
 
@@ -1600,7 +1600,7 @@
           </f-element>
           <f-element>
             <title>
-              The TSF shall perform relying party authentication using X.509v3 certificates in accordance with FIA_X509_EXT.1<h:b> as defined in the <xref to="pkgTLS"/></h:b> and 
+              The TSF shall perform relying party authentication using X.509v3 certificates in accordance with FIA_X509_EXT.1<h:b> as defined in the <xref to="pkgX509"/></h:b> and 
               <selectables>
                 <selectable id="radsec-uses-psk">pre-shared keys</selectable>
                 <selectable>no other methods</selectable></selectables>.
@@ -2040,10 +2040,10 @@
                 <selectable>SHA-256</selectable>
                 <selectable>SHA-384</selectable>
                 <selectable>SHA-512</selectable></selectables></h:i>], with 
-              [<h:i><assignable>positive integer of 4096 or more</assignable></h:i>] iterations, and output cryptographic key sizes 
-              [<h:i><selectables>
+              <assignable>positive integer of 4096 or more</assignable> iterations, and output cryptographic key sizes 
+              <selectables>
                 <selectable>128</selectable>
-                <selectable>256</selectable></selectables></h:i>] bits that meet the following: [<h:i>NIST SP 800-132</h:i>].
+                <selectable>256</selectable></selectables> bits that meet the following: [<h:i>NIST SP 800-132</h:i>].
             </title>
             <ext-comp-def-title>
               <title>
