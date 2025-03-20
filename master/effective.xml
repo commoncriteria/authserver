@@ -1237,7 +1237,7 @@
             </title>
             <note role="Application">
               <h:p>
-                This SFR is iterated from the Base-PP to define X.509 validation requirements that are specific to claimaint authentication.
+                This SFR is iterated from the Base-PP to define X.509 validation requirements that are specific to claimant authentication.
               </h:p><h:p>
               The ST author claims supported certificate validity checking options for each rule. For name constraints, all supported name types used to match names presented in a certificate to registered users 
               and the associated standard matching method are described.
@@ -1693,9 +1693,7 @@
           <f-element id="fia-hotp-ext-1e2">
             <title>
               The TSF shall generate a HOTP seed key according to FCS_RBG.1 of 
-              <selectables>
-                <selectable>128</selectable>
-                <selectable>256</selectable></selectables> bits.
+              256 bits.
             </title>
           </f-element>
           <f-element id="fia-hotp-ext-1e3">
@@ -1965,10 +1963,7 @@
               <selectables>
                 <selectable>accept externally generated pre-shared keys</selectable>
                 <selectable>
-                  generate 
-                  <selectables>
-                    <selectable>128</selectable>
-                    <selectable>256</selectable></selectables> bit-based pre-shared keys via FCS_RBG.1. 
+                  generate 256 bit-based pre-shared keys via FCS_RBG.1. 
                   </selectable></selectables>.
             </title>
             <note role="application">
@@ -2025,14 +2020,14 @@
           </f-element>
           <f-element id="fia-psk-ext-3e3">
             <title>
+            <comment>It's unclear if CNSA 1.0 algorithm restrictions should be applied to this SFR. CNSA is primarily written from the perspective of TLS, IPsec and other 
+            secure communication protocols, while the use of SHA in this function is for PBKDF. Key size restrictions in accordance with CNSA 1.0 have already been applied to this PP-Module.</comment>
               The TSF shall perform Password-based Key Derivation Functions in accordance with a specified cryptographic algorithm [<h:i>HMAC-<selectables>
                 <selectable>SHA-256</selectable>
                 <selectable>SHA-384</selectable>
                 <selectable>SHA-512</selectable></selectables></h:i>], with 
               <assignable>positive integer of 4096 or more</assignable> iterations, and output cryptographic key sizes 
-              <selectables>
-                <selectable>128</selectable>
-                <selectable>256</selectable></selectables> bits that meet the following: [<h:i>NIST SP 800-132</h:i>].
+              [<h:i>256</h:i>] bits that meet the following: [<h:i>NIST SP 800-132</h:i>].
             </title>
             <ext-comp-def-title>
               <title>
@@ -2169,9 +2164,7 @@
           <f-element id="fia-totp-ext-1e2">
             <title>
               The TSF shall generate a TOTP seed according to FCS_RBG.1 of 
-              <selectables>
-                <selectable>128</selectable>
-                <selectable>256</selectable></selectables> bits.
+              256 bits.
             </title>
           </f-element>
           <f-element id="fia-totp-ext-1e3">
