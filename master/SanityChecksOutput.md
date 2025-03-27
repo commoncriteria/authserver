@@ -127,11 +127,5 @@
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/sec:sel_fia[1]""/f-component[6]""/f-element[9]""/aactivity[1]""/TSS[1]"The evalu"/h:p[9]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/sec:sel_fia[1]""/f-component[6]""/f-element[9]""/aactivity[1]""/Guidance[1]"The evalu"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/sec:sel_fia[1]""/f-component[6]""/f-element[9]""/aactivity[1]""/Tests[1]"The follo"/h:p[1]""
-output/pkgX509.xml:1: parser error : Document is empty
-
-^
-output/pkgX509.xml:1: parser error : Document is empty
-
-^
 * Warning: Since FCS_EAPTLS_EXT.1.3 has an 'id' attribute in a descendant node in the title, you probably need to define an alternative 'ext-comp-def-title'.
                        
