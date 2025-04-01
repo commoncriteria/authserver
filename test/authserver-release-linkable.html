@@ -1260,7 +1260,7 @@ Network Device
       
         
     <h2 id="obj-req-map" class="indexable" data-level="2">5.3 TOE Security Functional Requirements Rationale</h2><p>The following rationale provides justification for each <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, 
-    showing that the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> are suitable to address the specified threats:<br><table><caption><span class="ctr" data-myid="t-obj_map" data-counter-type="ct-Table" id="t-obj_map">Table <span class="counter">3</span></span>: <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> Rationale</caption><tr><th>Threat</th><th>Addressed by</th><th>Rationale</th></tr><tr class="major-row"><td rowspan="4"><a href="#T.FALSE_ENDPOINTS">T.FALSE_&#8203;ENDPOINTS</a><br></td><td><a href="#FCS_EAPTLS_EXT.1">FCS_EAPTLS_EXT.1</a></td><td>
+    showing that the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> are suitable to address the specified threats:<br><table><caption><span class="ctr" data-myid="t-obj_map" data-counter-type="ct-Table" id="t-obj_map">Table <span class="counter">3</span></span>: <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> Rationale</caption><tr><th>Threat</th><th>Addressed by</th><th>Rationale</th></tr><tr class="major-row"><td rowspan="4"><a href="#T.FALSE_ENDPOINTS">T.FALSE_&#8203;ENDPOINTS</a></td><td><a href="#FCS_EAPTLS_EXT.1">FCS_EAPTLS_EXT.1</a></td><td>
            Mitigates the threat by utilizing either <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS or <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TTLS with mutual authentication to authenticate itself to a relying party<a id="period_260" href="#period_260">. </a>
           </td></tr>
 <tr><td><a href="#FIA_PSK_EXT.1/AuthSvr">FIA_PSK_EXT.1/AuthSvr</a></td><td>
@@ -1271,7 +1271,7 @@ Network Device
 <tr><td><a href="#FCS_RADSEC_EXT.1">FCS_RADSEC_EXT.1</a> (selection-based)</td><td>
              Mitigates the threat by utilizing RadSec to establish a trusted channel with the relying party<a id="period_263" href="#period_263">. </a>  
           </td></tr>
-<tr class="major-row"><td rowspan="12"><a href="#T.INVALID_USERS">T.INVALID_&#8203;USERS</a><br></td><td><a href="#FCO_NRO.1">FCO_NRO.1</a></td><td>
+<tr class="major-row"><td rowspan="12"><a href="#T.INVALID_USERS">T.INVALID_&#8203;USERS</a></td><td><a href="#FCO_NRO.1">FCO_NRO.1</a></td><td>
             Mitigates the threat by providing a non-repudiation function to assert the source of origin of its communications with the relying party<a id="period_264" href="#period_264">. </a>          </td></tr>
 <tr><td><a href="#FCO_NRR.1">FCO_NRR.1</a></td><td>
             Mitigates the threat by providing a proof of receipt function to assert to a relying part that communications with it are successful<a id="period_265" href="#period_265">. </a>          </td></tr>
@@ -1297,7 +1297,9 @@ Network Device
             Mitigates the threat by utilizing password-based PSKs as a form of claimant authenticator and implementing mechanisms to determine the validity of a password-based <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> credential if supported<a id="period_274" href="#period_274">. </a>          </td></tr>
 <tr><td><a href="#FIA_TOTP_EXT.1">FIA_TOTP_EXT.1</a> (selection-based)</td><td>
             Mitigates the threat by utilizing <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> as a form of claimant authenticator and implementing mechanisms to determine the validity of a <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> credential if supported<a id="period_275" href="#period_275">. </a>          </td></tr>
-<tr class="major-row"><td rowspan="5">T.UNAUTHORIZED_&#8203;ADMINISTRATOR_&#8203;ACCESS<br></td><td><a href="#FAU_GEN.1/AuthSvr">FAU_GEN.1/AuthSvr</a></td><td>
+<tr class="major-row"><td rowspan="5">T.UNAUTHORIZED_&#8203;ADMINISTRATOR_&#8203;ACCESS
+	    (from NDcPP)
+	</td><td><a href="#FAU_GEN.1/AuthSvr">FAU_GEN.1/AuthSvr</a></td><td>
             Mitigates the threat by implementing an audit mechanism to detect potential misuse of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr><a id="period_276" href="#period_276">. </a>          </td></tr>
 <tr><td><a href="#FCS_CKM.3">FCS_CKM.3</a></td><td>
             Mitigates the threat by implementing a cryptographic key access control mechanism to prevent compromise
@@ -1310,7 +1312,9 @@ Network Device
             account due to an unattended session<a id="period_279" href="#period_279">. </a>          </td></tr>
 <tr><td><a href="#FMT_SMF.1/AuthSvr">FMT_SMF.1/AuthSvr</a></td><td>
             Mitigates the threat by defining management functions as a legitimate mechanism to control the behavior of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr><a id="period_280" href="#period_280">. </a>          </td></tr>
-<tr class="major-row"><td rowspan="5">T.UNDETECTED_&#8203;ACTIVITY<br></td><td><a href="#FAU_GEN.1/AuthSvr">FAU_GEN.1/AuthSvr</a></td><td>
+<tr class="major-row"><td rowspan="5">T.UNDETECTED_&#8203;ACTIVITY
+	    (from NDcPP)
+	</td><td><a href="#FAU_GEN.1/AuthSvr">FAU_GEN.1/AuthSvr</a></td><td>
             Mitigates the threat by implementing an audit mechanism to detect potential misuse of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr><a id="period_281" href="#period_281">. </a>          </td></tr>
 <tr><td><a href="#FCS_CKM.3">FCS_CKM.3</a></td><td>
             Mitigates the threat by implementing a cryptographic key access control mechanism to prevent compromise
