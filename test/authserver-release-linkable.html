@@ -1260,46 +1260,68 @@ Network Device
       
         
     <h2 id="obj-req-map" class="indexable" data-level="2">5.3 TOE Security Functional Requirements Rationale</h2><p>The following rationale provides justification for each <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, 
-    showing that the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> are suitable to address the specified threats:<br><table><caption><span class="ctr" data-myid="t-obj_map" data-counter-type="ct-Table" id="t-obj_map">Table <span class="counter">3</span></span>: <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> Rationale</caption><tr><th>Threat</th><th>Addressed by</th><th>Rationale</th></tr><tr class="major-row"><td rowspan="0"><a href="#T.FALSE_ENDPOINTS">T.FALSE_&#8203;ENDPOINTS</a><br></td><td><a href="#FCS_EAPTLS_EXT.1">FCS_EAPTLS_EXT.1</a></td><td>
+    showing that the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> are suitable to address the specified threats:<br><table><caption><span class="ctr" data-myid="t-obj_map" data-counter-type="ct-Table" id="t-obj_map">Table <span class="counter">3</span></span>: <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> Rationale</caption><tr><th>Threat</th><th>Addressed by</th><th>Rationale</th></tr><tr class="major-row"><td rowspan="4"><a href="#T.FALSE_ENDPOINTS">T.FALSE_&#8203;ENDPOINTS</a><br></td><td><a href="#FCS_EAPTLS_EXT.1">FCS_EAPTLS_EXT.1</a></td><td>
            Mitigates the threat by utilizing either <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS or <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TTLS with mutual authentication to authenticate itself to a relying party<a id="period_260" href="#period_260">. </a>
-          </td><td><a href="#FIA_PSK_EXT.1/AuthSvr">FIA_PSK_EXT.1/AuthSvr</a></td><td>
+          </td></tr>
+<tr><td><a href="#FIA_PSK_EXT.1/AuthSvr">FIA_PSK_EXT.1/AuthSvr</a></td><td>
             Mitigates the threat by using a pre-shared key as the mechanism by which it authenticates itself to the relying party<a id="period_261" href="#period_261">. </a> 
-          </td><td><a href="#FTP_ITC.1/NAS">FTP_ITC.1/NAS</a></td><td>
-            Mitigates the threat by utilizing a cryptographically secure trusted channel with a relying party that allows mutual authentication with the relying party<a id="period_262" href="#period_262">. </a>          </td><td><a href="#FCS_RADSEC_EXT.1">FCS_RADSEC_EXT.1</a> (selection-based)</td><td>
+          </td></tr>
+<tr><td><a href="#FTP_ITC.1/NAS">FTP_ITC.1/NAS</a></td><td>
+            Mitigates the threat by utilizing a cryptographically secure trusted channel with a relying party that allows mutual authentication with the relying party<a id="period_262" href="#period_262">. </a>          </td></tr>
+<tr><td><a href="#FCS_RADSEC_EXT.1">FCS_RADSEC_EXT.1</a> (selection-based)</td><td>
              Mitigates the threat by utilizing RadSec to establish a trusted channel with the relying party<a id="period_263" href="#period_263">. </a>  
           </td></tr>
-<tr class="major-row"><td rowspan="0"><a href="#T.INVALID_USERS">T.INVALID_&#8203;USERS</a><br></td><td><a href="#FCO_NRO.1">FCO_NRO.1</a></td><td>
-            Mitigates the threat by providing a non-repudiation function to assert the source of origin of its communications with the relying party<a id="period_264" href="#period_264">. </a>          </td><td><a href="#FCO_NRR.1">FCO_NRR.1</a></td><td>
-            Mitigates the threat by providing a proof of receipt function to assert to a relying part that communications with it are successful<a id="period_265" href="#period_265">. </a>          </td><td><a href="#FCS_EAPTLS_EXT.1">FCS_EAPTLS_EXT.1</a></td><td>
-            Mitigates the threat by utilizing either <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS or <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TTLS as a mechanism to assert the success or failure of claimant authentication requests to the relying party<a id="period_266" href="#period_266">. </a>          </td><td><a href="#FCS_RADIUS_EXT.1">FCS_RADIUS_EXT.1</a></td><td>
-            Mitigates the threat by implementing <abbr class="dyn-abbr"><a href="#abbr_RADIUS">RADIUS</a></abbr>, DIAMETER, or some other direct identity federation protocol to communicate the success or failure of claimant authentication requests<a id="period_267" href="#period_267">. </a>          </td><td><a href="#FIA_AFL.1/AuthSvr">FIA_AFL.1/AuthSvr</a></td><td>
+<tr class="major-row"><td rowspan="12"><a href="#T.INVALID_USERS">T.INVALID_&#8203;USERS</a><br></td><td><a href="#FCO_NRO.1">FCO_NRO.1</a></td><td>
+            Mitigates the threat by providing a non-repudiation function to assert the source of origin of its communications with the relying party<a id="period_264" href="#period_264">. </a>          </td></tr>
+<tr><td><a href="#FCO_NRR.1">FCO_NRR.1</a></td><td>
+            Mitigates the threat by providing a proof of receipt function to assert to a relying part that communications with it are successful<a id="period_265" href="#period_265">. </a>          </td></tr>
+<tr><td><a href="#FCS_EAPTLS_EXT.1">FCS_EAPTLS_EXT.1</a></td><td>
+            Mitigates the threat by utilizing either <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS or <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TTLS as a mechanism to assert the success or failure of claimant authentication requests to the relying party<a id="period_266" href="#period_266">. </a>          </td></tr>
+<tr><td><a href="#FCS_RADIUS_EXT.1">FCS_RADIUS_EXT.1</a></td><td>
+            Mitigates the threat by implementing <abbr class="dyn-abbr"><a href="#abbr_RADIUS">RADIUS</a></abbr>, DIAMETER, or some other direct identity federation protocol to communicate the success or failure of claimant authentication requests<a id="period_267" href="#period_267">. </a>          </td></tr>
+<tr><td><a href="#FIA_AFL.1/AuthSvr">FIA_AFL.1/AuthSvr</a></td><td>
             Mitigates the threat by implementing a mechanism to prevent claimant authentication attempts if an excessive number of failed attempts have been made<a id="period_268" href="#period_268">. </a>
-          </td><td><a href="#FIA_X509_EXT.1/AuthSvr">FIA_X509_EXT.1/AuthSvr</a></td><td>
-            Mitigates the threat by implementing a mechanism to determine the validity of X.509 certificates that are used as claimant authenticators<a id="period_269" href="#period_269">. </a>          </td><td><a href="#FTA_TSE.1">FTA_TSE.1</a></td><td>
-            Mitigates the threat by implementing a mechanism to assert the failure of a claimant authentication attempt based on attributes of the claimant or of the attempt<a id="period_270" href="#period_270">. </a>          </td><td><a href="#FIA_HOTP_EXT.1">FIA_HOTP_EXT.1</a> (selection-based)</td><td>
+          </td></tr>
+<tr><td><a href="#FIA_X509_EXT.1/AuthSvr">FIA_X509_EXT.1/AuthSvr</a></td><td>
+            Mitigates the threat by implementing a mechanism to determine the validity of X.509 certificates that are used as claimant authenticators<a id="period_269" href="#period_269">. </a>          </td></tr>
+<tr><td><a href="#FTA_TSE.1">FTA_TSE.1</a></td><td>
+            Mitigates the threat by implementing a mechanism to assert the failure of a claimant authentication attempt based on attributes of the claimant or of the attempt<a id="period_270" href="#period_270">. </a>          </td></tr>
+<tr><td><a href="#FIA_HOTP_EXT.1">FIA_HOTP_EXT.1</a> (selection-based)</td><td>
             Mitigates the threat by utilizing <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> as a form of claimant authenticator and implementing mechanisms to determine the validity of a <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> credential if supported<a id="period_271" href="#period_271">. </a>
-          </td><td><a href="#FIA_PSK_EXT.1/AuthSvr">FIA_PSK_EXT.1/AuthSvr</a> (selection-based)</td><td>
-            Mitigates the threat by supporting PSKs in various forms as a form of claimant authenticator (password-based, <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr>, or <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr>)<a id="period_272" href="#period_272">. </a>          </td><td><a href="#FIA_PSK_EXT.2">FIA_PSK_EXT.2</a> (selection-based)</td><td>
-            Mitigates the threat by utilizing randomly generated PSKs as a form of claimant authenticator<a id="period_273" href="#period_273">. </a>          </td><td><a href="#FIA_PSK_EXT.3">FIA_PSK_EXT.3</a> (selection-based)</td><td>
-            Mitigates the threat by utilizing password-based PSKs as a form of claimant authenticator and implementing mechanisms to determine the validity of a password-based <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> credential if supported<a id="period_274" href="#period_274">. </a>          </td><td><a href="#FIA_TOTP_EXT.1">FIA_TOTP_EXT.1</a> (selection-based)</td><td>
+          </td></tr>
+<tr><td><a href="#FIA_PSK_EXT.1/AuthSvr">FIA_PSK_EXT.1/AuthSvr</a> (selection-based)</td><td>
+            Mitigates the threat by supporting PSKs in various forms as a form of claimant authenticator (password-based, <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr>, or <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr>)<a id="period_272" href="#period_272">. </a>          </td></tr>
+<tr><td><a href="#FIA_PSK_EXT.2">FIA_PSK_EXT.2</a> (selection-based)</td><td>
+            Mitigates the threat by utilizing randomly generated PSKs as a form of claimant authenticator<a id="period_273" href="#period_273">. </a>          </td></tr>
+<tr><td><a href="#FIA_PSK_EXT.3">FIA_PSK_EXT.3</a> (selection-based)</td><td>
+            Mitigates the threat by utilizing password-based PSKs as a form of claimant authenticator and implementing mechanisms to determine the validity of a password-based <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> credential if supported<a id="period_274" href="#period_274">. </a>          </td></tr>
+<tr><td><a href="#FIA_TOTP_EXT.1">FIA_TOTP_EXT.1</a> (selection-based)</td><td>
             Mitigates the threat by utilizing <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> as a form of claimant authenticator and implementing mechanisms to determine the validity of a <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> credential if supported<a id="period_275" href="#period_275">. </a>          </td></tr>
-<tr class="major-row"><td rowspan="0">T.UNAUTHORIZED_&#8203;ADMINISTRATOR_&#8203;ACCESS<br></td><td><a href="#FAU_GEN.1/AuthSvr">FAU_GEN.1/AuthSvr</a></td><td>
-            Mitigates the threat by implementing an audit mechanism to detect potential misuse of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr><a id="period_276" href="#period_276">. </a>          </td><td><a href="#FCS_CKM.3">FCS_CKM.3</a></td><td>
+<tr class="major-row"><td rowspan="5">T.UNAUTHORIZED_&#8203;ADMINISTRATOR_&#8203;ACCESS<br></td><td><a href="#FAU_GEN.1/AuthSvr">FAU_GEN.1/AuthSvr</a></td><td>
+            Mitigates the threat by implementing an audit mechanism to detect potential misuse of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr><a id="period_276" href="#period_276">. </a>          </td></tr>
+<tr><td><a href="#FCS_CKM.3">FCS_CKM.3</a></td><td>
             Mitigates the threat by implementing a cryptographic key access control mechanism to prevent compromise
-            of the data in transit confidentiality mechanisms<a id="period_277" href="#period_277">. </a>          </td><td><a href="#FCS_STG_EXT.1">FCS_STG_EXT.1</a></td><td>
+            of the data in transit confidentiality mechanisms<a id="period_277" href="#period_277">. </a>          </td></tr>
+<tr><td><a href="#FCS_STG_EXT.1">FCS_STG_EXT.1</a></td><td>
             Mitigates the threat by implementing a secure cryptographic key storage mechanism to prevent compromise
-            of the data in transit confidentiality mechanisms<a id="period_278" href="#period_278">. </a>          </td><td><a href="#FIA_UAU.6">FIA_UAU.6</a></td><td>
+            of the data in transit confidentiality mechanisms<a id="period_278" href="#period_278">. </a>          </td></tr>
+<tr><td><a href="#FIA_UAU.6">FIA_UAU.6</a></td><td>
             Mitigates the threat by implementing a re-authentication mechanism to prevent compromise of an administrator
-            account due to an unattended session<a id="period_279" href="#period_279">. </a>          </td><td><a href="#FMT_SMF.1/AuthSvr">FMT_SMF.1/AuthSvr</a></td><td>
+            account due to an unattended session<a id="period_279" href="#period_279">. </a>          </td></tr>
+<tr><td><a href="#FMT_SMF.1/AuthSvr">FMT_SMF.1/AuthSvr</a></td><td>
             Mitigates the threat by defining management functions as a legitimate mechanism to control the behavior of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr><a id="period_280" href="#period_280">. </a>          </td></tr>
-<tr class="major-row"><td rowspan="0">T.UNDETECTED_&#8203;ACTIVITY<br></td><td><a href="#FAU_GEN.1/AuthSvr">FAU_GEN.1/AuthSvr</a></td><td>
-            Mitigates the threat by implementing an audit mechanism to detect potential misuse of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr><a id="period_281" href="#period_281">. </a>          </td><td><a href="#FCS_CKM.3">FCS_CKM.3</a></td><td>
+<tr class="major-row"><td rowspan="5">T.UNDETECTED_&#8203;ACTIVITY<br></td><td><a href="#FAU_GEN.1/AuthSvr">FAU_GEN.1/AuthSvr</a></td><td>
+            Mitigates the threat by implementing an audit mechanism to detect potential misuse of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr><a id="period_281" href="#period_281">. </a>          </td></tr>
+<tr><td><a href="#FCS_CKM.3">FCS_CKM.3</a></td><td>
             Mitigates the threat by implementing a cryptographic key access control mechanism to prevent compromise
-            of the data in transit confidentiality mechanisms<a id="period_282" href="#period_282">. </a>          </td><td><a href="#FCS_STG_EXT.1">FCS_STG_EXT.1</a></td><td>
+            of the data in transit confidentiality mechanisms<a id="period_282" href="#period_282">. </a>          </td></tr>
+<tr><td><a href="#FCS_STG_EXT.1">FCS_STG_EXT.1</a></td><td>
             Mitigates the threat by implementing a secure cryptographic key storage mechanism to prevent compromise
-            of the data in transit confidentiality mechanisms<a id="period_283" href="#period_283">. </a>          </td><td><a href="#FIA_UAU.6">FIA_UAU.6</a></td><td>
+            of the data in transit confidentiality mechanisms<a id="period_283" href="#period_283">. </a>          </td></tr>
+<tr><td><a href="#FIA_UAU.6">FIA_UAU.6</a></td><td>
             Mitigates the threat by implementing a re-authentication mechanism to prevent compromise of an administrator
-            account due to an unattended session<a id="period_284" href="#period_284">. </a>          </td><td><a href="#FMT_SMF.1/AuthSvr">FMT_SMF.1/AuthSvr</a></td><td>
+            account due to an unattended session<a id="period_284" href="#period_284">. </a>          </td></tr>
+<tr><td><a href="#FMT_SMF.1/AuthSvr">FMT_SMF.1/AuthSvr</a></td><td>
             Mitigates the threat by defining management functions as a legitimate mechanism to control the behavior of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr><a id="period_285" href="#period_285">. </a>          </td></tr>
 </table></p><h2 id="mod-sars" class="indexable" data-level="2">5.4 TOE Security Assurance Requirements</h2>
 			This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any Security Assurance requirements<a id="period_286" href="#period_286">. </a>The <abbr class="dyn-abbr"><a href="#abbr_SAR">SARs</a></abbr> from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> must be satisfied<a id="period_287" href="#period_287">. </a>	      <h1 id="mod-conrat" class="indexable" data-level="1">6 Consistency Rationale</h1><h2 id="conrat-ND" class="indexable" data-level="2">6.1 Collaborative 
