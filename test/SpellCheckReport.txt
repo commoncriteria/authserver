@@ -23,6 +23,7 @@ output/authserver-release-linkable.html: UPN
 output/authserver-release-linkable.html: XCU
 output/authserver-release-linkable.html: anyExtendedKeyUsage
 output/authserver-release-linkable.html: anyPolicy
+output/authserver-release-linkable.html: aplies
 output/authserver-release-linkable.html: denylist
 output/authserver-release-linkable.html: denylisted
 output/authserver-release-linkable.html: dnsName
@@ -56,6 +57,7 @@ output/authserver-release.html: UPN
 output/authserver-release.html: XCU
 output/authserver-release.html: anyExtendedKeyUsage
 output/authserver-release.html: anyPolicy
+output/authserver-release.html: aplies
 output/authserver-release.html: denylist
 output/authserver-release.html: dnsName
 output/authserver-release.html: exception’
@@ -121,6 +123,7 @@ output/authserver.html: XCU
 output/authserver.html: anyExtendedKeyUsage
 output/authserver.html: anyPolicy
 output/authserver.html: anyPolicy’
+output/authserver.html: aplies
 output/authserver.html: denylist
 output/authserver.html: denylisted
 output/authserver.html: dnsName

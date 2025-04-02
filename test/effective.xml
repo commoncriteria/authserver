@@ -308,7 +308,7 @@
 
         <threat name="T.UNAUTHORIZED_ADMINISTRATOR_ACCESS">
           <from base="ND"/>
-		  <description>This threat from the Network Device cPP is addressed in this PP-Module.</description>
+		  <description>This threat from the Network Device cPP also aplies to the functionality defined in this PP-Module.</description>
           <addressed-by>FAU_GEN.1/AuthSvr</addressed-by>
           <rationale>
             Mitigates the threat by implementing an audit mechanism to detect potential misuse of the TOE.
