@@ -312,6 +312,10 @@
             <dd>
                 <span class="description">A malicious user may supply incorrect or insufficient credential data or an otherwise invalid authentication request that is approved or ignored by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> such that protected resources are subject to unauthenticated access. </span>
             </dd>
+            <dt class="threat defined" id="T.UNAUTHORIZED_ADMINISTRATOR_ACCESS">T.UNAUTHORIZED_ADMINISTRATOR_ACCESS</dt>
+            <dd>
+                <span class="description">This threat from the Network Device <abbr class="dyn-abbr"><a href="#abbr_cPP">cPP</a></abbr> is addressed in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</span>
+            </dd>
         </dl>
          
         <h2 class="indexable" data-level="2" id="Assumptions">3.2 Assumptions</h2>
@@ -1161,7 +1165,7 @@
                     <td><a href="#FIA_TOTP_EXT.1">FIA_TOTP_EXT.1</a> (selection-based)</td><td> Mitigates the threat by utilizing <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> as a form of claimant authenticator and implementing mechanisms to determine the validity of a <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> credential if supported. </td>
                 </tr>
                 <tr class="major-row">
-                    <td rowspan="5">T.UNAUTHORIZED_​ADMINISTRATOR_​ACCESS (from NDcPP) </td><td><a href="#FAU_GEN.1/AuthSvr">FAU_GEN.1/AuthSvr</a></td><td> Mitigates the threat by implementing an audit mechanism to detect potential misuse of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. </td>
+                    <td rowspan="5"><a href="#T.UNAUTHORIZED_ADMINISTRATOR_ACCESS">T.UNAUTHORIZED_​ADMINISTRATOR_​ACCESS</a> (from NDcPP) </td><td><a href="#FAU_GEN.1/AuthSvr">FAU_GEN.1/AuthSvr</a></td><td> Mitigates the threat by implementing an audit mechanism to detect potential misuse of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. </td>
                 </tr>
                 <tr>
                     <td><a href="#FCS_CKM.3">FCS_CKM.3</a></td><td> Mitigates the threat by implementing a cryptographic key access control mechanism to prevent compromise of the data in transit confidentiality mechanisms. </td>
@@ -1210,7 +1214,10 @@
                 <td><a href="#T.FALSE_ENDPOINTS">T.FALSE_ENDPOINTS</a></td><td>This threat is similar to the T.WEAK_AUTHENTICATION_ENDPOINTS threat in the NDcPP but it applies specifically to the NAS, which is an environmental component that is defined specifically in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td>
             </tr>
             <tr>
-                <td><a href="#T.INVALID_USERS">T.INVALID_USERS</a></td><td>This threat is similar to the T.UNAUTHORIZED_ADMINISTRATOR_ACCESS threat in the NDcPP but it applies to user authentication brokered by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> rather than to administrator authentication to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> itself. It is also similar to the T.UNTRUSTED_COMMUNICATION_CHANNELS threat in the NDcPP except that it applies specifically to the <abbr class="dyn-abbr"><a href="#abbr_RADIUS">RADIUS</a></abbr> communications and the protocols used to secure those, which is an interface that is defined specifically in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td>
+                <td><a href="#T.INVALID_USERS">T.INVALID_USERS</a></td><td>This threat is similar to the <a href="#T.UNAUTHORIZED_ADMINISTRATOR_ACCESS">T.UNAUTHORIZED_ADMINISTRATOR_ACCESS</a> threat in the NDcPP but it applies to user authentication brokered by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> rather than to administrator authentication to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> itself. It is also similar to the T.UNTRUSTED_COMMUNICATION_CHANNELS threat in the NDcPP except that it applies specifically to the <abbr class="dyn-abbr"><a href="#abbr_RADIUS">RADIUS</a></abbr> communications and the protocols used to secure those, which is an interface that is defined specifically in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td>
+            </tr>
+            <tr>
+                <td><a href="#T.UNAUTHORIZED_ADMINISTRATOR_ACCESS">T.UNAUTHORIZED_ADMINISTRATOR_ACCESS</a></td><td></td>
             </tr>
             <tr>
                 <td><a href="#A.RP_FEDERATION">A.RP_FEDERATION</a></td><td>The NDcPP does not define any assumptions for the intended network architecture that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is deployed into. Therefore, an assumption that the network can be set up in such a way that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will have direct connectivity with one or more relying parties does not violate any assumptions of the NDcPP.</td>
