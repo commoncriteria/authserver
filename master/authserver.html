@@ -835,7 +835,13 @@ The following sections list Common Criteria and technology terms used in this do
       The following threats that are defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> extend the threats that are defined by the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.
       <dl><dt class="threat defined" id="T.FALSE_ENDPOINTS">T.FALSE_ENDPOINTS</dt><dd><span class="description">A malicious actor may falsely impersonate the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> or a federated relying party in order to cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to operate in an insecure manner or 
             to extract security-relevant, or sensitive user data from the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> or its Operational Environment.</span></dd><dt class="threat defined" id="T.INVALID_USERS">T.INVALID_USERS</dt><dd><span class="description">A malicious user may supply incorrect or insufficient credential data or an otherwise invalid authentication request that is approved or ignored by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> such that protected resources are subject to unauthenticated access.
-          </span></dd></dl>
+          </span></dd><dt class="threat defined" id="T.UNAUTHORIZED_ADMINISTRATOR_ACCESS">T.UNAUTHORIZED_ADMINISTRATOR_ACCESS
+	    (from NDcPP)
+	</dt><dd><span class="description">This threat from the Network Device <abbr class="dyn-abbr"><a href="#abbr_cPP">cPP</a></abbr> also applies to the functionality defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</span></dd><dt class="threat defined" id="T.UNDETECTED_ACTIVITY">T.UNDETECTED_ACTIVITY
+	    (from NDcPP)
+	</dt><dd>
+						This threat from the above Base <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> also applies to the functionality defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
+					</dd></dl>
     
     <h2 class="indexable" data-level="2" id="Assumptions">3.2 Assumptions</h2>
 These assumptions are made on the Operational Environment (<abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>) in order to be able to ensure that the
@@ -1839,7 +1845,7 @@ Network Device
 <tr><td><a href="#FIA_TOTP_EXT.1">FIA_TOTP_EXT.1</a> (selection-based)</td><td>
             Mitigates the threat by utilizing <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> as a form of claimant authenticator and implementing mechanisms to determine the validity of a <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> credential if supported.
           </td></tr>
-<tr class="major-row"><td rowspan="5">T.UNAUTHORIZED_​ADMINISTRATOR_​ACCESS
+<tr class="major-row"><td rowspan="5"><a href="#T.UNAUTHORIZED_ADMINISTRATOR_ACCESS">T.UNAUTHORIZED_​ADMINISTRATOR_​ACCESS</a>
 	    (from NDcPP)
 	</td><td><a href="#FAU_GEN.1/AuthSvr">FAU_GEN.1/AuthSvr</a></td><td>
             Mitigates the threat by implementing an audit mechanism to detect potential misuse of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
@@ -1859,7 +1865,7 @@ Network Device
 <tr><td><a href="#FMT_SMF.1/AuthSvr">FMT_SMF.1/AuthSvr</a></td><td>
             Mitigates the threat by defining management functions as a legitimate mechanism to control the behavior of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.
           </td></tr>
-<tr class="major-row"><td rowspan="5">T.UNDETECTED_​ACTIVITY
+<tr class="major-row"><td rowspan="5"><a href="#T.UNDETECTED_ACTIVITY">T.UNDETECTED_​ACTIVITY</a>
 	    (from NDcPP)
 	</td><td><a href="#FAU_GEN.1/AuthSvr">FAU_GEN.1/AuthSvr</a></td><td>
             Mitigates the threat by implementing an audit mechanism to detect potential misuse of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
@@ -1890,9 +1896,9 @@ Network Device
 	Consistency of Security Problem Definition
       </h3><table><caption><span class="ctr" data-myid="t-con-sec-prob-def" data-counter-type="ct-Table" id="t-con-sec-prob-def">Table <span class="counter">4</span></span>: Consistency of Security Problem Definition (NDcPP base)
 		</caption><tr><th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> Threat, Assumption, OSP</th><th>Consistency Rationale</th></tr><tr><td><a href="#T.FALSE_ENDPOINTS">T.FALSE_ENDPOINTS</a></td><td>This threat is similar to the T.WEAK_AUTHENTICATION_ENDPOINTS threat in the NDcPP but it applies specifically to the NAS, 
-            which is an environmental component that is defined specifically in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td></tr><tr><td><a href="#T.INVALID_USERS">T.INVALID_USERS</a></td><td>This threat is similar to the T.UNAUTHORIZED_ADMINISTRATOR_ACCESS threat in the NDcPP but it applies to user authentication brokered by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> rather than to 
+            which is an environmental component that is defined specifically in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td></tr><tr><td><a href="#T.INVALID_USERS">T.INVALID_USERS</a></td><td>This threat is similar to the <a href="#T.UNAUTHORIZED_ADMINISTRATOR_ACCESS">T.UNAUTHORIZED_ADMINISTRATOR_ACCESS</a> threat in the NDcPP but it applies to user authentication brokered by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> rather than to 
             administrator authentication to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> itself. It is also similar to the T.UNTRUSTED_COMMUNICATION_CHANNELS threat in the NDcPP except that it applies specifically to the 
-            <abbr class="dyn-abbr"><a href="#abbr_RADIUS">RADIUS</a></abbr> communications and the protocols used to secure those, which is an interface that is defined specifically in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td></tr><tr><td><a href="#A.RP_FEDERATION">A.RP_FEDERATION</a></td><td>The NDcPP does not define any assumptions for the intended network architecture that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is deployed into. 
+            <abbr class="dyn-abbr"><a href="#abbr_RADIUS">RADIUS</a></abbr> communications and the protocols used to secure those, which is an interface that is defined specifically in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td></tr><tr><td><a href="#T.UNAUTHORIZED_ADMINISTRATOR_ACCESS">T.UNAUTHORIZED_ADMINISTRATOR_ACCESS</a></td><td></td></tr><tr><td><a href="#A.RP_FEDERATION">A.RP_FEDERATION</a></td><td>The NDcPP does not define any assumptions for the intended network architecture that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is deployed into. 
             Therefore, an assumption that the network can be set up in such a way that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will have direct connectivity with one or more relying parties does not violate any assumptions of the NDcPP.</td></tr><tr><td><a href="#P.AUTH_POLICY">P.AUTH_POLICY</a></td><td>
             This OSP relates to behavior that is not part of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and so the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> is not contradicted by guidance on its implementation.
           </td></tr></table><h3 id="conobj-ND" class="indexable" data-level="3">6.1.3 
