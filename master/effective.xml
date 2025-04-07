@@ -1051,7 +1051,7 @@
               <h:li>Configuration of cryptographic key storage</h:li>
             </h:ul></management>
           <audit>There are no auditable events foreseen.</audit>
-          <dependencies>None</dependencies>
+          <dependencies>FCS_CKM.3 Cryptographic Key Access</dependencies>
 
           <f-element>
             <title>
