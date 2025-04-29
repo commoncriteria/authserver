@@ -317,7 +317,7 @@
             </dd>
             <dt class="threat defined" id="T.UNAUTHORIZED_ADMINISTRATOR_ACCESS">T.UNAUTHORIZED_ADMINISTRATOR_ACCESS (from NDcPP) </dt>
             <dd>
-                <span class="description">This threat from the Network Device <abbr class="dyn-abbr"><a href="#abbr_cPP">cPP</a></abbr> also applies to the functionality defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</span>
+                 This threat from the above Base <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> also applies to the functionality defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. 
             </dd>
             <dt class="threat defined" id="T.UNDETECTED_ACTIVITY">T.UNDETECTED_ACTIVITY (from NDcPP) </dt>
             <dd>
@@ -398,16 +398,16 @@
          The <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> listed in this section are defined in the NDcPP and relevant to the secure operation of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. 
         <h4 id="@id" class="indexable" data-level="4">5.1.1.1 Identification and Authentication (FIA)</h4>
         <div class="comp" id="@id">
-            <h4>FIA_X509_EXT.1/Rev: X.509 Certificate Validation</h4>
-            <span class="description">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is selection-based in the NDcPP. When the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> conforms to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> it is mandatory because of the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>'s certificate-based authentication of the channel between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and a federated relying party. The <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is unchanged from its definition in the NDcPP.</span>
+            <h4>FIA_X509_EXT.1: X.509 Certificate Validation</h4>
+            <span class="description">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is selection-based in the <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</a>. When the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> conforms to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> it is mandatory because of the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>'s certificate-based authentication of the channel between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and a federated relying party. The <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is unchanged from its definition in the NDcPP.</span>
         </div>
         <div class="comp" id="@id">
             <h4>FIA_X509_EXT.2: X.509 Certificate Authentication</h4>
-            <span class="description">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is selection-based in the NDcPP. When the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> conforms to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> it is mandatory because of the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>'s requirement for certificate-based authentication of the channel between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and a federated relying party using <abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr> with certificate-based authentication, mutually authenticated <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr>, or RADsec, which in turn uses <abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr> or mutually authenticated <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr>. The <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is unchanged from its definition in the NDcPP.</span>
+            <span class="description">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is selection-based in the <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</a>. When the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> conforms to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> it is mandatory because of the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>'s requirement for certificate-based authentication of the channel between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and a federated relying party using <abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr> with certificate-based authentication, mutually authenticated <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr>, or RADsec, which in turn uses <abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr> or mutually authenticated <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr>. The <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is unchanged from its definition in the NDcPP.</span>
         </div>
         <div class="comp" id="@id">
             <h4>FIA_X509_EXT.3: X.509 Certificate Requests</h4>
-            <span class="description">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is selection-based in the NDcPP. When the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> conforms to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> it is mandatory because of the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>'s requirement for implementation of mutually-authenticated <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr>.</span>
+            <span class="description">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is selection-based in the <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</a>. When the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> conforms to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> it is mandatory because of the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>'s requirement for implementation of mutually-authenticated <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr>.</span>
         </div>
         <h2 id="man-sfrs" class="indexable" data-level="2">5.2 TOE Security Functional Requirements</h2>
          The following section describes the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> that must be satisfied by any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that claims conformance to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. These <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> must be claimed regardless of which <abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> is used to define the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. 
@@ -564,7 +564,7 @@
                     <ol type="a">
                         <li>Start-up and shutdown of the audit functions;</li>
                         <li>
-                            All auditable events for the <i>not specified</i> level of audit; and
+                            All auditable events for the [<i>not specified</i>] level of audit; and
                         </li>
                         <li>
                             [<i>Auditable events listed in the Auditable Events for Mandatory <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> table (<a href="#at-mandatory" class="at-mandatory-ref">Table <span class="counter">2</span></a>)</i>
@@ -637,7 +637,7 @@
                     <a href="#FCO_NRO.1.3" class="abbr">FCO_NRO.1.3</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide a capability to verify the evidence of origin of information to [<i>recipient</i>] given [<i>an authenticated channel is established with a trusted relying party]</i>].
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide a capability to verify the evidence of origin of information to [<i>recipient</i>] given [<i>an authenticated channel is established with a trusted relying party</i>].
                 </div>
             </div>
         </div>
@@ -648,7 +648,7 @@
                     <a href="#FCO_NRR.1.1" class="abbr">FCO_NRR.1.1</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to generate evidence of receipt for received [<i>authentication requests, [<b>selection</b>: <span class="selectable-content" id="_s_9">authentication responses and queries</span>, <span class="selectable-content" id="_s_10">none</span>]</i>] at the request of the <i>originator</i>. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to generate evidence of receipt for received [<i>authentication requests, [<b>selection</b>: <span class="selectable-content" id="_s_9">authentication responses and queries</span>, <span class="selectable-content" id="_s_10">none</span>]</i>] at the request of the [<i>originator</i>]. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> The intent of this requirement is for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to be able to return a valid response to the relying party upon receipt of an Access-Request. If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports pass-through functionality, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims &lsquo;authentication responses and queries&rsquo; in the selection for authentication in communications with external authentication servers. </span>
                     </div>
@@ -677,7 +677,7 @@
                     <a href="#FCO_NRR.1.3" class="abbr">FCO_NRR.1.3</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide a capability to verify the evidence of receipt of information to <i>originator</i> given [<i>establishment of a mutually authenticated channel with a trusted relying party</i>].
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide a capability to verify the evidence of receipt of information to [<i>originator</i>] given [<i>establishment of a mutually authenticated channel with a trusted relying party</i>].
                 </div>
             </div>
         </div>
@@ -814,7 +814,7 @@
                     <a href="#FIA_AFL.1.1/AuthSvr" class="abbr">FIA_AFL.1.1/AuthSvr</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall detect when <i>an administrator configurable positive integer <b>of successive</b></i> unsuccessful authentication attempts occur related to [<i>claimants attempting to authenticate</i>]. 
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall detect when [<i>an administrator configurable positive integer <b>of successive</b></i>] unsuccessful authentication attempts occur related to [<i>claimants attempting to authenticate</i>]. 
                 </div>
             </div>
             <div class="element">
@@ -822,7 +822,16 @@
                     <a href="#FIA_AFL.1.2/AuthSvr" class="abbr">FIA_AFL.1.2/AuthSvr</a>
                 </div>
                 <div class="reqdesc">
-                    When the defined number of unsuccessful authentication attempts has been <i>met</i>, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<i>[<b>selection</b><b>, choose one of</b>: <span class="selectable-content" id="_s_51">prevent the offending remote entity from successfully authenticating until [<b>assignment</b>: <span class="assignable-content">action</span>] is taken by a local Administrator</span>, <span class="selectable-content" id="_s_52">prevent the offending claimant from successfully authenticating until an administrator-defined time period has elapsed</span>]</i>]. 
+                    When the defined number of unsuccessful authentication attempts has been [<i>met</i>], the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <i>[<b>selection</b><b>, choose one of</b>: 
+                        <ul>
+                            <li style="">
+                                <span class="selectable-content" id="_s_51">prevent the offending remote entity from successfully authenticating until [<b>assignment</b>: <span class="assignable-content">action</span>] is taken by a local Administrator</span>
+                            </li>
+                            <li style="">
+                                <span class="selectable-content" id="_s_52">prevent the offending claimant from successfully authenticating until an administrator-defined time period has elapsed</span>
+                            </li>
+                        </ul>
+                        ]</i>. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> This requirement applies to claimant authentication attempts in support of an authentication service provided for a federated relying party. This requirement does not apply to login to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> by privileged users for administrative accesses; these cases are addressed by the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> iteration of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>. Responses to authentication queries to aid the claimant in providing acceptable authenticators is not considered a preventative action and are allowed prior to reaching the lockout threshold. The &ldquo;action&rdquo; taken by a local administrator is implementation specific and is defined in the operational guidance (for example, lockout reset or password reset). The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author chooses one of the selections for handling of authentication failures depending on how the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> has implemented this handler. </span>
                     </div>
@@ -1100,7 +1109,7 @@
                     <a href="#FTP_ITC.1.2/NAS" class="abbr">FTP_ITC.1.2/NAS</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit <i>the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> <b>or the relying party</b></i> to initiate communication via the trusted channel. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit [<i>the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> <b>or the relying party</b></i>] to initiate communication via the trusted channel. 
                 </div>
             </div>
             <div class="element">
@@ -1124,16 +1133,25 @@
                     <th>Threat</th><th>Addressed by</th><th>Rationale</th>
                 </tr>
                 <tr class="major-row">
-                    <td rowspan="4"><a href="#T.FALSE_ENDPOINTS">T.FALSE_​ENDPOINTS</a></td><td><a href="#FCS_EAPTLS_EXT.1">FCS_EAPTLS_EXT.1</a></td><td> Mitigates the threat by utilizing either <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS or <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TTLS with mutual authentication to authenticate itself to a relying party. </td>
+                    <td rowspan="7"><a href="#T.FALSE_ENDPOINTS">T.FALSE_​ENDPOINTS</a></td><td>FIA_X509_EXT.1 (modified from <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</a>)</td><td>Mitigates the threat by authenticating relying parties via X.509 certificates.</td>
                 </tr>
                 <tr>
-                    <td><a href="#FIA_PSK_EXT.1/AuthSvr">FIA_PSK_EXT.1/AuthSvr</a></td><td> Mitigates the threat by using a pre-shared key as the mechanism by which it authenticates itself to the relying party. </td>
+                    <td>FIA_X509_EXT.2 (modified from <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</a>)</td><td>Mitigates the threat by authenticating relying parties via X.509 certificates.</td>
+                </tr>
+                <tr>
+                    <td>FIA_X509_EXT.3 (modified from <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</a>)</td><td>Mitigates the threat by implementing a method for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to obtain its own certificate for mutually-authenticated <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr>.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FCS_EAPTLS_EXT.1">FCS_EAPTLS_EXT.1</a></td><td> Mitigates the threat by utilizing either <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS or <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TTLS with mutual authentication to authenticate itself to a relying party. </td>
                 </tr>
                 <tr>
                     <td><a href="#FTP_ITC.1/NAS">FTP_ITC.1/NAS</a></td><td> Mitigates the threat by utilizing a cryptographically secure trusted channel with a relying party that allows mutual authentication with the relying party. </td>
                 </tr>
                 <tr>
                     <td><a href="#FCS_RADSEC_EXT.1">FCS_RADSEC_EXT.1</a> (selection-based)</td><td> Mitigates the threat by utilizing RadSec to establish a trusted channel with the relying party. </td>
+                </tr>
+                <tr>
+                    <td><a href="#FIA_PSK_EXT.1/AuthSvr">FIA_PSK_EXT.1/AuthSvr</a> (selection-based)</td><td> Mitigates the threat by using a pre-shared key as the mechanism by which it authenticates itself to the relying party. </td>
                 </tr>
                 <tr class="major-row">
                     <td rowspan="12"><a href="#T.INVALID_USERS">T.INVALID_​USERS</a></td><td><a href="#FCO_NRO.1">FCO_NRO.1</a></td><td> Mitigates the threat by providing a non-repudiation function to assert the source of origin of its communications with the relying party. </td>
@@ -1224,9 +1242,6 @@
                 <td><a href="#T.INVALID_USERS">T.INVALID_USERS</a></td><td>This threat is similar to the <a href="#T.UNAUTHORIZED_ADMINISTRATOR_ACCESS">T.UNAUTHORIZED_ADMINISTRATOR_ACCESS</a> threat in the NDcPP but it applies to user authentication brokered by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> rather than to administrator authentication to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> itself. It is also similar to the T.UNTRUSTED_COMMUNICATION_CHANNELS threat in the NDcPP except that it applies specifically to the <abbr class="dyn-abbr"><a href="#abbr_RADIUS">RADIUS</a></abbr> communications and the protocols used to secure those, which is an interface that is defined specifically in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td>
             </tr>
             <tr>
-                <td><a href="#T.UNAUTHORIZED_ADMINISTRATOR_ACCESS">T.UNAUTHORIZED_ADMINISTRATOR_ACCESS</a></td><td></td>
-            </tr>
-            <tr>
                 <td><a href="#A.RP_FEDERATION">A.RP_FEDERATION</a></td><td>The NDcPP does not define any assumptions for the intended network architecture that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is deployed into. Therefore, an assumption that the network can be set up in such a way that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will have direct connectivity with one or more relying parties does not violate any assumptions of the NDcPP.</td>
             </tr>
             <tr>
@@ -1263,13 +1278,13 @@
                 <th colspan="2"> Modified <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th>
             </tr>
             <tr>
-                <td>FIA_X509_EXT.1/Rev</td><td><span style="" class="comment " id="Comment-1-">There is currently no way to accurately model the status of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> (as well as FIA_X509_EXT.2 and FIA_X509_EXT.3). Since the X.509 package will be replacing the definitions in the NDcPP, these are technically not going to be defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>, but we do not have an authoritative way to denote this in the XML schema. Additionally, it may be such that we need to list FIA_XCU_EXT.1 in this section and define certain selections as required instead of directly listing the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>, since the X.509 package uses that <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> as its 'entry point'. For now, these have only been moved to the updated modified <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> schema and no substantive changes have been applied.</span> This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> modifies the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>'s definition of the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> by making it mandatory rather than selection-based.</td>
+                <td>FIA_X509_EXT.1</td><td><span style="" class="comment " id="Comment-1-">There is currently no way to accurately model the status of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> (as well as FIA_X509_EXT.2 and FIA_X509_EXT.3). Since the X.509 package will be replacing the definitions in the NDcPP, these are technically not going to be defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>, but we do not have an authoritative way to denote this in the XML schema. Additionally, it may be such that we need to list FIA_XCU_EXT.1 in this section and define certain selections as required instead of directly listing the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>, since the X.509 package uses that <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> as its 'entry point'. For now, these have only been moved to the updated modified <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> schema and no substantive changes have been applied.</span> This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> modifies the Functional Package's definition of the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> by making it mandatory rather than selection-based.</td>
             </tr>
             <tr>
-                <td>FIA_X509_EXT.2</td><td>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> modifies the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>'s definition of the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> by making it mandatory rather than selection-based.</td>
+                <td>FIA_X509_EXT.2</td><td>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> modifies the Functional Package's definition of the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> by making it mandatory rather than selection-based.</td>
             </tr>
             <tr>
-                <td>FIA_X509_EXT.3</td><td>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> modifies the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>'s definition of the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> by making it mandatory rather than selection-based.</td>
+                <td>FIA_X509_EXT.3</td><td>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> modifies the Functional Package's definition of the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> by making it mandatory rather than selection-based.</td>
             </tr>
             <tr>
                 <th colspan="2"> Additional <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th>
@@ -2111,7 +2126,15 @@
                                     <p></p>
                                      [<span class="no-link">FIA_PSK_EXT.1</span> Pre-Shared Key Composition, or
                                     <p></p>
-                                     FIA_X509_EXT.1 X.509 Certificate Validation] </td>
+                                     FIA_X509_EXT.1 X.509 Certificate Validation]
+                                    <p></p>
+                                     [<span class="no-link">FCS_TLSS_EXT.1</span> <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> Server Protocol Without Mutual Authentication, or
+                                    <p></p>
+                                     <span class="no-link">FCS_DTLSS_EXT.1</span> <abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr> Server Protocol Without Mutual Authentication]
+                                    <p></p>
+                                     [<span class="no-link">FCS_TLSS_EXT.2</span> <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> Server Support for Mutual Authentication, or
+                                    <p></p>
+                                     <span class="no-link">FCS_DTLSS_EXT.2</span> <abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr> Server Support for Mutual Authentication] </td>
                             </tr>
                         </table>
                         <h4 id="ext-comp-FCS_RADSEC_EXT.1.1">FCS_RADSEC_EXT.1.1</h4>
