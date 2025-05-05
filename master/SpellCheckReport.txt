@@ -13,7 +13,6 @@ output/authserver-release-linkable.html: NTP
 output/authserver-release-linkable.html: OTP
 output/authserver-release-linkable.html: PBKDF2
 output/authserver-release-linkable.html: PSKs
-output/authserver-release-linkable.html: RADsec
 output/authserver-release-linkable.html: RP1
 output/authserver-release-linkable.html: RP2
 output/authserver-release-linkable.html: RadSec
@@ -31,7 +30,6 @@ output/authserver-release-linkable.html: inhibitAny
 output/authserver-release-linkable.html: inhibitAnyPolicy
 output/authserver-release-linkable.html: inhibitPolicyMapping
 output/authserver-release-linkable.html: ipsec
-output/authserver-release-linkable.html: refinemenets
 output/authserver-release-linkable.html: rfc822Name
 output/authserver-release-linkable.html: san
 output/authserver-release-linkable.html: subjectAlternateName
@@ -48,7 +46,6 @@ output/authserver-release.html: DTLSS
 output/authserver-release.html: NTP
 output/authserver-release.html: OTP
 output/authserver-release.html: PSKs
-output/authserver-release.html: RADsec
 output/authserver-release.html: RadSec
 output/authserver-release.html: SKP
 output/authserver-release.html: TTLS
@@ -64,7 +61,6 @@ output/authserver-release.html: inhibitPolicyMapping
 output/authserver-release.html: ipsec
 output/authserver-release.html: password’
 output/authserver-release.html: queries’
-output/authserver-release.html: refinemenets
 output/authserver-release.html: requests’
 output/authserver-release.html: rfc822Name
 output/authserver-release.html: san
@@ -110,7 +106,6 @@ output/authserver.html: NTP
 output/authserver.html: OTP
 output/authserver.html: PBKDF2
 output/authserver.html: PSKs
-output/authserver.html: RADsec
 output/authserver.html: RP1
 output/authserver.html: RP2
 output/authserver.html: RadSec
@@ -133,7 +128,6 @@ output/authserver.html: inhibitPolicyMapping
 output/authserver.html: ipsec
 output/authserver.html: password’
 output/authserver.html: queries’
-output/authserver.html: refinemenets
 output/authserver.html: requests’
 output/authserver.html: rfc822Name
 output/authserver.html: san
