@@ -629,7 +629,7 @@ function showTarget(id){
 	            img[src="images/collapsed.png"] { display:none;}
 
           }
-    </style></head><body onLoad="init()"><div id="commmentbox-"><a href="#Comment-1-">Comment: Comment-1-</a><br/><a href="#Comment-2-">Comment: Comment-2-</a><br/><a href="#Comment-3-">Comment: Comment-3-</a><br/></div><h1 class="title" style="page-break-before:auto;">PP-Module for Authentication Servers</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
+    </style></head><body onLoad="init()"><div id="commmentbox-"><a href="#Comment-1-">Comment: Comment-1-</a><br/><a href="#Comment-2-">Comment: Comment-2-</a><br/><a href="#Comment-3-">Comment: Comment-3-</a><br/><a href="#Comment-4-">Comment: Comment-4-</a><br/></div><h1 class="title" style="page-break-before:auto;">PP-Module for Authentication Servers</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
       Version: 2.0<br/>2025-03-24<br/><b>National Information Assurance Partnership</b><br/></div><h2 style="page-break-before:always;">Revision History</h2><table><tr class="header"><th>Version</th><th>Date</th><th>Comment</th></tr><tr><td>1.0</td><td>2023-01-25</td><td>Initial Release</td></tr>
 <tr><td>2.0</td><td>2025-03-24</td><td>Incorporate NIAP Technical Decisions, Update to <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022</td></tr>
 </table><h2>Contents</h2><div class="toc" id="toc"><a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#Compliant_Targets_of_Evaluation" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOE_Boundary" style="text-indent:10px">1.4<span>TOE Boundary</span></a><a href="#Use_Cases" style="text-indent:10px">1.5<span>Use Cases</span></a><a href="#Conformance_Claims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Problem_Definition" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#Threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#Assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Organizational_Security_Policies" style="text-indent:10px">3.3<span>Organizational Security Policies</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#Security_Objectives_for_the_Operational_Environment" style="text-indent:10px">4.1<span>Security Objectives for the Operational Environment</span></a><a href="#" style="text-indent:10px">4.2<span>Security Objectives Rationale</span></a><a href="#Security_Requirements" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#secreq-ND" style="text-indent:10px">5.1<span>Collaborative 
@@ -669,8 +669,7 @@ function showTarget(id){
       The scope of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is to describe the security functionality of an authentication server in terms of [<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>] and to define functional and assurance requirements for such products. This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is intended for use with the following <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>:
 
       <ul>
-        <li>collaborative Protection Profile for
-          Network Devices, Version 3.0e (NDcPP)</li>
+        <li>Network Device collaborative Protection Profile Version 4.0<span style="" class="comment " id="Comment-1-">Please update the reference in the bio.</span></li>
       </ul>
       This <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> is valid because an authentication server can be deployed as a dedicated network appliance. 
       The use case of deploying the authentication server as an application on a general-purpose computer is outside the scope of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. 
@@ -818,8 +817,9 @@ The following sections list Common Criteria and technology terms used in this do
 			</dd><dt>PP Claim</dt><p></p><dd>
 					This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not claim conformance to 
 					any Protection Profile.
-				</dd><p></p><dd>There are no <abbr class="dyn-abbr"><a href="#abbr_PP">PPs</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Modules that are allowed in a <abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> 
-					with this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</dd><dt>Package Claim</dt><p></p><dd><ul><li>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is 
+				</dd><p></p><dd>The following <abbr class="dyn-abbr"><a href="#abbr_PP">PPs</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Modules are allowed to be specified in a 
+					<abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> with this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>:
+					<ul><li>Network Device collaborative Protection Profile Version 4.0</li></ul></dd><dt>Package Claim</dt><p></p><dd><ul><li>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is 
 					    Functional Package for <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>, version 2.0 conformant.</li><li>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is 
 					    Functional Package for X.509, version 1.0 conformant.</li><li>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not conform to any 
 						assurance packages.</li></ul></dd><p></p><dd>
@@ -1220,7 +1220,7 @@ Network Device
         <div class="comp" id="FIA_X509_EXT.1/AuthSvr"><h4>FIA_X509_EXT.1/AuthSvr X.509 Certificate Validation (Claimant)</h4>
           
           <div class="element"><div class="reqid" id="FIA_X509_EXT.1.1/AuthSvr"><a href="#FIA_X509_EXT.1.1/AuthSvr" class="abbr">FIA_X509_EXT.1.1/AuthSvr</a></div><div class="reqdesc">
-              <span style="" class="comment " id="Comment-2-">It's not clear how this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> should be approached with regards to the move to the X.509 FP. There are three broad types of refinements made to this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> 
+              <span style="" class="comment " id="Comment-3-">It's not clear how this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> should be approached with regards to the move to the X.509 FP. There are three broad types of refinements made to this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> 
               in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> that are not reproduced in the X.509 FP: some are arguably inconsequential with regards to the functionality of the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> (e.g., minor rewords or clarifications), some are refinements and selections 
               present that have been obsoleted by selections/assignments present in the X.509 FP, and a few are technology-specific refinements that do not appear to be present in the X.509 FP. For the moment, this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> has been left as-is.</span>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall validate certificates in accordance with the following rules: 
@@ -1486,7 +1486,7 @@ Network Device
       defined by the
       NDcPP are as follows:
       <table><caption><span class="ctr" data-myid="t-con-reqs" data-counter-type="ct-Table" id="t-con-reqs">Table <span class="counter">6</span></span>: Consistency of Requirements (NDcPP base)
-		</caption><tr><th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> Requirement</th><th>Consistency Rationale</th></tr><tr><th colspan="2"> Modified <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th></tr><tr><td>FIA_X509_EXT.1</td><td><span style="" class="comment " id="Comment-1-">There is currently no way to accurately model the status of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> (as well as FIA_X509_EXT.2 and FIA_X509_EXT.3). 
+		</caption><tr><th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> Requirement</th><th>Consistency Rationale</th></tr><tr><th colspan="2"> Modified <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th></tr><tr><td>FIA_X509_EXT.1</td><td><span style="" class="comment " id="Comment-2-">There is currently no way to accurately model the status of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> (as well as FIA_X509_EXT.2 and FIA_X509_EXT.3). 
           Since the X.509 package will be replacing the definitions in the NDcPP, these are technically not going to be defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>, but we do not have an authoritative 
           way to denote this in the XML schema. Additionally, it may be such that we need to list FIA_XCU_EXT.1 in this section and define certain selections as 
           required instead of directly listing the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>, since the X.509 package uses that <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> as its 'entry point'. For now, these have only been moved to the updated modified <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> schema 
@@ -1762,7 +1762,7 @@ Network Device
      <span class="assignable-content">other supported special characters</span>]</span>, <span class="selectable-content" id="_s_162">no other characters</span>].
             </div></div>
           <div class="element"><div class="reqid" id="FIA_PSK_EXT.3.3"><a href="#FIA_PSK_EXT.3.3" class="abbr">FIA_PSK_EXT.3.3</a></div><div class="reqdesc">
-            <span style="" class="comment " id="Comment-3-">It's unclear if CNSA 1.0 algorithm restrictions should be applied to this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>. CNSA is primarily written from the perspective of <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr> and other 
+            <span style="" class="comment " id="Comment-4-">It's unclear if CNSA 1.0 algorithm restrictions should be applied to this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>. CNSA is primarily written from the perspective of <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr> and other 
             secure communication protocols, while the use of SHA in this function is for <abbr class="dyn-abbr"><a href="#abbr_PBKDF">PBKDF</a></abbr>. Key size restrictions in accordance with CNSA 1.0 have already been applied to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</span>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform Password-based Key Derivation Functions in accordance with a specified cryptographic algorithm [<i>HMAC-[<b>selection</b>: <span class="selectable-content" id="_s_163">SHA-256</span>, <span class="selectable-content" id="_s_164">SHA-384</span>, <span class="selectable-content" id="_s_165">SHA-512</span>]</i>], with 
               [<b>assignment</b>: 
@@ -2300,7 +2300,7 @@ Network Device
             <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CEM2022R1.pdf">
                  Evaluation methodology</a>, CCMB-2022-11-006, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.</li>
           </ul></span></td></tr><tr><td><span id="bibNDcPP">[NDcPP]</span></td><td><span class="description">
-        <a href="https://www.niap-ccevs.org/MMO/PP/CPP_ND_V3.0E.pdf">collaborative Protection Profile for Network Devices</a>, Version 3.0e, 06 December 2023
+        <a href="https://www.niap-ccevs.org/MMO/PP/CPP_ND_V3.0E.pdf">collaborative Protection Profile for Network Devices</a>, Version 4.0, 06 December 2023
       </span></td></tr><tr><td><span id="bibNDSD">[NDcPP SD]</span></td><td><span class="description">
         <a href="https://www.niap-ccevs.org/MMO/PP/CPP_ND_V3.0E-SD.pdf">Supporting Document - Evaluation Activities for Network Device cPP</a>, Version 3.0e, 06 December 2023
       </span></td></tr></table></body></html>

@@ -24,6 +24,8 @@
             <br>
             <a href="#Comment-3-">Comment: Comment-3-</a>
             <br>
+            <a href="#Comment-4-">Comment: Comment-4-</a>
+            <br>
         </div>
         <h1 class="title" style="page-break-before:auto;">PP-Module for Authentication Servers</h1>
         <h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1>
@@ -66,7 +68,9 @@
         <p></p>
          The scope of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is to describe the security functionality of an authentication server in terms of [<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>] and to define functional and assurance requirements for such products. This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is intended for use with the following <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>: 
         <ul>
-            <li>collaborative Protection Profile for Network Devices, Version 3.0e (NDcPP)</li>
+            <li>
+                Network Device collaborative Protection Profile Version 4.0<span style="" class="comment " id="Comment-1-">Please update the reference in the bio.</span>
+            </li>
         </ul>
          This <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> is valid because an authentication server can be deployed as a dedicated network appliance. The use case of deploying the authentication server as an application on a general-purpose computer is outside the scope of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. Authentication server products allow enterprises to provide a centralized and standardized method of evaluating user authentication requests made throughout the enterprise. This enables a centralized definition for user identity and credential data and allows for uniform application of authentication policies that define what credentials and user attributes are necessary to gain access to various systems and applications in the enterprise environment. 
         <p></p>
@@ -279,7 +283,10 @@
             </dd>
             <p></p>
             <dd>
-                There are no <abbr class="dyn-abbr"><a href="#abbr_PP">PPs</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Modules that are allowed in a <abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> with this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
+                The following <abbr class="dyn-abbr"><a href="#abbr_PP">PPs</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Modules are allowed to be specified in a <abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> with this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>: 
+                <ul>
+                    <li>Network Device collaborative Protection Profile Version 4.0</li>
+                </ul>
             </dd>
             <dt>Package Claim</dt>
             <p></p>
@@ -856,7 +863,7 @@
                     <a href="#FIA_X509_EXT.1.1/AuthSvr" class="abbr">FIA_X509_EXT.1.1/AuthSvr</a>
                 </div>
                 <div class="reqdesc">
-                     <span style="" class="comment " id="Comment-2-">It's not clear how this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> should be approached with regards to the move to the X.509 FP. There are three broad types of refinements made to this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> that are not reproduced in the X.509 FP: some are arguably inconsequential with regards to the functionality of the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> (e.g., minor rewords or clarifications), some are refinements and selections present that have been obsoleted by selections/assignments present in the X.509 FP, and a few are technology-specific refinements that do not appear to be present in the X.509 FP. For the moment, this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> has been left as-is.</span> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall validate certificates in accordance with the following rules: 
+                     <span style="" class="comment " id="Comment-3-">It's not clear how this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> should be approached with regards to the move to the X.509 FP. There are three broad types of refinements made to this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> that are not reproduced in the X.509 FP: some are arguably inconsequential with regards to the functionality of the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> (e.g., minor rewords or clarifications), some are refinements and selections present that have been obsoleted by selections/assignments present in the X.509 FP, and a few are technology-specific refinements that do not appear to be present in the X.509 FP. For the moment, this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> has been left as-is.</span> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall validate certificates in accordance with the following rules: 
                     <ul>
                         <li>
                             RFC 5280 <b>version 3</b> certificate validation and certification path validation <b>supporting [<b>selection</b>: <span class="selectable-content" id="_s_56">a minimum path length of [<b>assignment</b>: <span class="assignable-content">value greater than or equal to three</span>]</span>, <span class="selectable-content" id="_s_57">no prior constraints on path length</span>]</b>
@@ -1278,7 +1285,7 @@
                 <th colspan="2"> Modified <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th>
             </tr>
             <tr>
-                <td>FIA_X509_EXT.1</td><td><span style="" class="comment " id="Comment-1-">There is currently no way to accurately model the status of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> (as well as FIA_X509_EXT.2 and FIA_X509_EXT.3). Since the X.509 package will be replacing the definitions in the NDcPP, these are technically not going to be defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>, but we do not have an authoritative way to denote this in the XML schema. Additionally, it may be such that we need to list FIA_XCU_EXT.1 in this section and define certain selections as required instead of directly listing the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>, since the X.509 package uses that <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> as its 'entry point'. For now, these have only been moved to the updated modified <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> schema and no substantive changes have been applied.</span> This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> modifies the Functional Package's definition of the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> by making it mandatory rather than selection-based.</td>
+                <td>FIA_X509_EXT.1</td><td><span style="" class="comment " id="Comment-2-">There is currently no way to accurately model the status of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> (as well as FIA_X509_EXT.2 and FIA_X509_EXT.3). Since the X.509 package will be replacing the definitions in the NDcPP, these are technically not going to be defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>, but we do not have an authoritative way to denote this in the XML schema. Additionally, it may be such that we need to list FIA_XCU_EXT.1 in this section and define certain selections as required instead of directly listing the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>, since the X.509 package uses that <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> as its 'entry point'. For now, these have only been moved to the updated modified <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> schema and no substantive changes have been applied.</span> This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> modifies the Functional Package's definition of the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> by making it mandatory rather than selection-based.</td>
             </tr>
             <tr>
                 <td>FIA_X509_EXT.2</td><td>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> modifies the Functional Package's definition of the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> by making it mandatory rather than selection-based.</td>
@@ -1731,7 +1738,7 @@
                     <a href="#FIA_PSK_EXT.3.3" class="abbr">FIA_PSK_EXT.3.3</a>
                 </div>
                 <div class="reqdesc">
-                     <span style="" class="comment " id="Comment-3-">It's unclear if CNSA 1.0 algorithm restrictions should be applied to this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>. CNSA is primarily written from the perspective of <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr> and other secure communication protocols, while the use of SHA in this function is for <abbr class="dyn-abbr"><a href="#abbr_PBKDF">PBKDF</a></abbr>. Key size restrictions in accordance with CNSA 1.0 have already been applied to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</span> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform Password-based Key Derivation Functions in accordance with a specified cryptographic algorithm [<i>HMAC-[<b>selection</b>: <span class="selectable-content" id="_s_163">SHA-256</span>, <span class="selectable-content" id="_s_164">SHA-384</span>, <span class="selectable-content" id="_s_165">SHA-512</span>]</i>], with [<b>assignment</b>: <span class="assignable-content">positive integer of 4096 or more</span>] iterations, and output cryptographic key sizes [<i>256</i>] bits that meet the following: [<i>NIST SP 800-132</i>]. 
+                     <span style="" class="comment " id="Comment-4-">It's unclear if CNSA 1.0 algorithm restrictions should be applied to this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>. CNSA is primarily written from the perspective of <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr> and other secure communication protocols, while the use of SHA in this function is for <abbr class="dyn-abbr"><a href="#abbr_PBKDF">PBKDF</a></abbr>. Key size restrictions in accordance with CNSA 1.0 have already been applied to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</span> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform Password-based Key Derivation Functions in accordance with a specified cryptographic algorithm [<i>HMAC-[<b>selection</b>: <span class="selectable-content" id="_s_163">SHA-256</span>, <span class="selectable-content" id="_s_164">SHA-384</span>, <span class="selectable-content" id="_s_165">SHA-512</span>]</i>], with [<b>assignment</b>: <span class="assignable-content">positive integer of 4096 or more</span>] iterations, and output cryptographic key sizes [<i>256</i>] bits that meet the following: [<i>NIST SP 800-132</i>]. 
                 </div>
             </div>
             <div class="element">
@@ -2687,7 +2694,7 @@
                     </span></td>
             </tr>
             <tr>
-                <td><span id="bibNDcPP">[NDcPP]</span></td><td><span class="description"> <a href="https://www.niap-ccevs.org/MMO/PP/CPP_ND_V3.0E.pdf">collaborative Protection Profile for Network Devices</a>, Version 3.0e, 06 December 2023 </span></td>
+                <td><span id="bibNDcPP">[NDcPP]</span></td><td><span class="description"> <a href="https://www.niap-ccevs.org/MMO/PP/CPP_ND_V3.0E.pdf">collaborative Protection Profile for Network Devices</a>, Version 4.0, 06 December 2023 </span></td>
             </tr>
             <tr>
                 <td><span id="bibNDSD">[NDcPP SD]</span></td><td><span class="description"> <a href="https://www.niap-ccevs.org/MMO/PP/CPP_ND_V3.0E-SD.pdf">Supporting Document - Evaluation Activities for Network Device cPP</a>, Version 3.0e, 06 December 2023 </span></td>
