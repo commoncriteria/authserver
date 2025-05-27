@@ -74,7 +74,7 @@
       The scope of this PP-Module is to describe the security functionality of an authentication server in terms of [CC] and to define functional and assurance requirements for such products. This PP-Module is intended for use with the following Base-PP:
 
       <h:ul>
-        <h:li>Network Device collaborative Protection Profile Version 4.0<comment>Please update the reference in the bio.</comment></h:li>
+        <h:li>Network Device collaborative Protection Profile Version 4.0<comment>Please update the reference in the bib.</comment></h:li>
       </h:ul>
       This Base-PP is valid because an authentication server can be deployed as a dedicated network appliance. 
       The use case of deploying the authentication server as an application on a general-purpose computer is outside the scope of this PP-Module. 
