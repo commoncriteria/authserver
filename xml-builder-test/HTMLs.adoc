@@ -1,0 +1,8 @@
+* https://commoncriteria.github.io/authserver/xml-builder-test/AppliedTDs-Diff.html[AppliedTDs-Diff.html]
+* https://commoncriteria.github.io/authserver/xml-builder-test/AppliedTDs.html[AppliedTDs.html]
+* https://commoncriteria.github.io/authserver/xml-builder-test/authserver-esr.html[authserver-esr.html]
+* https://commoncriteria.github.io/authserver/xml-builder-test/authserver-release-linkable.html[authserver-release-linkable.html]
+* https://commoncriteria.github.io/authserver/xml-builder-test/authserver-release.html[authserver-release.html]
+* https://commoncriteria.github.io/authserver/xml-builder-test/authserver-sd.html[authserver-sd.html]
+* https://commoncriteria.github.io/authserver/xml-builder-test/authserver.html[authserver.html]
+* https://commoncriteria.github.io/authserver/xml-builder-test/diff-v1.0.html[diff-v1.0.html]
