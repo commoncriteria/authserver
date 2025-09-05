@@ -1,4 +1,3 @@
-output/authserver-esr.html: CESG
 output/authserver-release-linkable.html: 1X
 output/authserver-release-linkable.html: 63B
 output/authserver-release-linkable.html: AIA
