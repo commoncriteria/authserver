@@ -1077,7 +1077,7 @@
             <title>
               Persistent private and secret keys shall be stored within the TSF
               <selectables linebreak="yes">
-                <selectable>encrypted within a hardware protected key</selectable>
+                <selectable>encrypted with a hardware protected key</selectable>
                 <selectable>in a hardware cryptographic module</selectable>
                 <selectable>within an isolated execution environment protected by a hardware key</selectable></selectables>.
             </title>
@@ -1729,14 +1729,10 @@
             <title>
               The TSF shall use
               <selectables>
-                <selectable>SHA-1</selectable>
-                <selectable>SHA-256</selectable>
                 <selectable>SHA-384</selectable>
                 <selectable>SHA-512</selectable></selectables> with key sizes 
               <assignable>key size (in bits) used in HMAC</assignable> and message digest sizes 
               <selectables>
-                <selectable>160</selectable>
-                <selectable>256</selectable>
                 <selectable>384</selectable>
                 <selectable>512</selectable></selectables> to derive a HOTP hash from the HOTP seed and counter.
             </title>
@@ -2045,10 +2041,7 @@
           </f-element>
           <f-element id="fia-psk-ext-3e3">
             <title>
-            <comment>It's unclear if CNSA 1.0 algorithm restrictions should be applied to this SFR. CNSA is primarily written from the perspective of TLS, IPsec and other 
-            secure communication protocols, while the use of SHA in this function is for PBKDF. Key size restrictions in accordance with CNSA 1.0 have already been applied to this PP-Module.</comment>
               The TSF shall perform Password-based Key Derivation Functions in accordance with a specified cryptographic algorithm [<h:i>HMAC-<selectables>
-                <selectable>SHA-256</selectable>
                 <selectable>SHA-384</selectable>
                 <selectable>SHA-512</selectable></selectables></h:i>], with 
               <assignable>positive integer of 4096 or more</assignable> iterations, and output cryptographic key sizes 
@@ -2200,14 +2193,10 @@
             <title>
               The TSF shall use 
               <selectables>
-                <selectable>SHA-1</selectable>
-                <selectable>SHA-256</selectable>
                 <selectable>SHA-384</selectable>
                 <selectable>SHA-512</selectable></selectables> with key sizes 
               <assignable>key size (in bits) used in HMAC</assignable> and message digest sizes 
               <selectables>
-                <selectable>160</selectable>
-                <selectable>256</selectable>
                 <selectable>384</selectable>
                 <selectable>512</selectable></selectables> bits to derive a TOTP hash from the TOTP seed and current time provided by NTP.
             </title>
