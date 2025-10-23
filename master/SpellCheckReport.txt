@@ -4,6 +4,7 @@ output/authserver-release-linkable.html: AIA
 output/authserver-release-linkable.html: C1
 output/authserver-release-linkable.html: C2
 output/authserver-release-linkable.html: CEM
+output/authserver-release-linkable.html: CNSA
 output/authserver-release-linkable.html: CRLDP
 output/authserver-release-linkable.html: DTLSS
 output/authserver-release-linkable.html: NTP
@@ -14,11 +15,13 @@ output/authserver-release-linkable.html: RP1
 output/authserver-release-linkable.html: RP2
 output/authserver-release-linkable.html: RadSec
 output/authserver-release-linkable.html: SKP
+output/authserver-release-linkable.html: SPD
 output/authserver-release-linkable.html: TTLS
 output/authserver-release-linkable.html: UPN
 output/authserver-release-linkable.html: XCU
 output/authserver-release-linkable.html: anyExtendedKeyUsage
 output/authserver-release-linkable.html: anyPolicy
+output/authserver-release-linkable.html: certitifcate
 output/authserver-release-linkable.html: denylist
 output/authserver-release-linkable.html: denylisted
 output/authserver-release-linkable.html: dnsName
@@ -30,12 +33,14 @@ output/authserver-release-linkable.html: ipsec
 output/authserver-release-linkable.html: rfc822Name
 output/authserver-release-linkable.html: san
 output/authserver-release-linkable.html: subjectAlternateName
+output/authserver-release-linkable.html: timeframe
 output/authserver-release-linkable.html: upn
 output/authserver-release.html: 1X
 output/authserver-release.html: 2’
 output/authserver-release.html: 63B
 output/authserver-release.html: AIA
 output/authserver-release.html: CEM
+output/authserver-release.html: CNSA
 output/authserver-release.html: CRLDP
 output/authserver-release.html: DTLSS
 output/authserver-release.html: NTP
@@ -43,11 +48,13 @@ output/authserver-release.html: OTP
 output/authserver-release.html: PSKs
 output/authserver-release.html: RadSec
 output/authserver-release.html: SKP
+output/authserver-release.html: SPD
 output/authserver-release.html: TTLS
 output/authserver-release.html: UPN
 output/authserver-release.html: XCU
 output/authserver-release.html: anyExtendedKeyUsage
 output/authserver-release.html: anyPolicy
+output/authserver-release.html: certitifcate
 output/authserver-release.html: denylist
 output/authserver-release.html: dnsName
 output/authserver-release.html: exception’
@@ -60,6 +67,7 @@ output/authserver-release.html: requests’
 output/authserver-release.html: rfc822Name
 output/authserver-release.html: san
 output/authserver-release.html: subjectAlternateName
+output/authserver-release.html: timeframe
 output/authserver-release.html: upn
 output/authserver-release.html: verifier’s
 output/authserver-release.html: ’
@@ -72,6 +80,7 @@ output/authserver-sd.html: PBKDF2
 output/authserver-sd.html: RP1
 output/authserver-sd.html: RP2
 output/authserver-sd.html: RadSec
+output/authserver-sd.html: SPD
 output/authserver-sd.html: TTLS
 output/authserver-sd.html: anyPolicy
 output/authserver-sd.html: anyPolicy’
@@ -92,6 +101,7 @@ output/authserver.html: AIA
 output/authserver.html: C1
 output/authserver.html: C2
 output/authserver.html: CEM
+output/authserver.html: CNSA
 output/authserver.html: CRLDP
 output/authserver.html: DTLSS
 output/authserver.html: NTP
@@ -102,12 +112,14 @@ output/authserver.html: RP1
 output/authserver.html: RP2
 output/authserver.html: RadSec
 output/authserver.html: SKP
+output/authserver.html: SPD
 output/authserver.html: TTLS
 output/authserver.html: UPN
 output/authserver.html: XCU
 output/authserver.html: anyExtendedKeyUsage
 output/authserver.html: anyPolicy
 output/authserver.html: anyPolicy’
+output/authserver.html: certitifcate
 output/authserver.html: denylist
 output/authserver.html: denylisted
 output/authserver.html: dnsName
@@ -124,6 +136,7 @@ output/authserver.html: requests’
 output/authserver.html: rfc822Name
 output/authserver.html: san
 output/authserver.html: subjectAlternateName
+output/authserver.html: timeframe
 output/authserver.html: upn
 output/authserver.html: verifier’s
 output/authserver.html: ’
