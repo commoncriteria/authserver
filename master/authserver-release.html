@@ -629,7 +629,7 @@ function showTarget(id){
 	            img[src="images/collapsed.png"] { display:none;}
 
           }
-    </style></head><body onLoad="init()"><div id="commmentbox-"><a href="#Comment-1-">Comment: Comment-1-</a><br/><a href="#Comment-2-">Comment: Comment-2-</a><br/><a href="#Comment-3-">Comment: Comment-3-</a><br/></div><h1 class="title" style="page-break-before:auto;">PP-Module for Authentication Servers</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
+    </style></head><body onLoad="init()"><div id="commmentbox-"><a href="#Comment-1-">Comment: Comment-1-</a><br/><a href="#Comment-2-">Comment: Comment-2-</a><br/></div><h1 class="title" style="page-break-before:auto;">PP-Module for Authentication Servers</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
       Version: 2.0<br/>2025-03-24<br/><b>National Information Assurance Partnership</b><br/></div><h2 style="page-break-before:always;">Revision History</h2><table><tr class="header"><th>Version</th><th>Date</th><th>Comment</th></tr><tr><td>1.0</td><td>2023-01-25</td><td>Initial Release</td></tr>
 <tr><td>2.0</td><td>2025-03-24</td><td>Incorporate NIAP Technical Decisions, Update to <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022</td></tr>
 </table><h2>Contents</h2><div class="toc" id="toc"><a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#Compliant_Targets_of_Evaluation" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOE_Boundary" style="text-indent:10px">1.4<span>TOE Boundary</span></a><a href="#Use_Cases" style="text-indent:10px">1.5<span>Use Cases</span></a><a href="#_sec_1" style="text-indent:10px">1.6<span>Package Usage</span></a><a href="#Conformance_Claims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Problem_Definition" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#Threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#Assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Organizational_Security_Policies" style="text-indent:10px">3.3<span>Organizational Security Policies</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#Security_Objectives_for_the_Operational_Environment" style="text-indent:10px">4.1<span>Security Objectives for the Operational Environment</span></a><a href="#" style="text-indent:10px">4.2<span>Security Objectives Rationale</span></a><a href="#Security_Requirements" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#secreq-ND" style="text-indent:10px">5.1<span>Collaborative 
@@ -808,7 +808,7 @@ The following sections list Common Criteria and technology terms used in this do
       This section contains selections and assignments that are required when the listed Functional Packages are claimed by this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. <br/>
       Package Usage guidance defined in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s relevant <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> applies to the usage of the packages for this module, unless explicitly stated otherwise in this section.
       <dt><b>Functional Package for X.509, Version 1.0</b><p></p></dt><dd><b>No CA Claims Permitted</b><p></p><span class="description">
-              The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will not be a certificate authority because the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not provide for the operation of an authentication server as a CA. Thus, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author shall select the option to request a certificate from an external CA in FIA_XCU_EXT.2.1 and shall not select any options elsewhere in the package that involve claiming the ability to be a CA. 
+              The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will not be a certificate authority because neither the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> nor the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> provides for the operation of an authentication server as a CA. Thus, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author shall select the option to request a certificate from an external CA in FIA_XCU_EXT.2.1 and shall not select any options elsewhere in the package that involve claiming the ability to be a CA. 
             </span><p></p></dd><dd><b>Certificate Verification and Assertion Required in FIA_XCU_EXT.1.1</b><p></p><span class="description">
               The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author shall select the options to verify and assert certificate identities in FIA_XCU_EXT.1.1.
             </span><p></p></dd><dd><b>Limitations on Signature Algorithms in FIA_X509_EXT.1.1</b><p></p><span class="description">
@@ -820,80 +820,69 @@ The following sections list Common Criteria and technology terms used in this do
               the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author shall utilize the assignment for other name types within the selection for extendedKeyUsage support to specify the use of the UPN name type.<br/>
               The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author shall utilize the assignment for other extensions within the list of selectable certificate extensions to specify supported policy-related extensions, including certificate policy, policy mapping, policy constraints, and inhibit anyPolicy. <br/><br/>
               In addition, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author shall perform the following tests as appropriate:
-              <span class="testlist-"><ul>
-                <li class="test-"><a id="_t_1" class="defined" href="#_t_1"></a>:
-      
-                    The evaluator shall test the following name constraints: 
-                    <span class="testlist-"><ul>
-                      <li class="test-"><a id="valid-name-types" class="defined" href="#valid-name-types"></a>:
-      For each name type supported, the evaluator shall establish a valid certificate for a registered entity. 
+              <ul>
+                <li>
+                  <i>
+                    Test FIA_X509_EXT.1:AuthSvr:1: The evaluator shall test the following name constraints: 
+                    <ul>
+                      <li><i>Test FIA_X509_EXT.1:AuthSvr:1.1: For each name type supported, the evaluator shall establish a valid certificate for a registered entity. 
                         The evaluator shall ensure the certificate has a valid path length of at least three, consisting of a trusted root, 
                         an issuing CA that is not a trust anchor, and the leaf certificate representing the entity. 
                         The evaluator shall ensure that the leaf certificate includes a single name of the supported name type and no other DN or SAN entries. 
                         The evaluator shall initiate an application requiring authentication of that entity using the certificate and verify the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> successfully authenticates the entity. 
-                      </li>
-                      <li class="test-"><a id="_t_3" class="defined" href="#_t_3"></a>:
-      For each leaf certificate used in <a href="#valid-name-types" class="dynref"></a><a href="#valid-name-types" class="dynref"></a>, the evaluator shall establish a new leaf certificate that includes the same name and name type, 
+                      </i></li>
+                      <li><i>Test FIA_X509_EXT.1:AuthSvr:1.2: For each leaf certificate used in Test FIA_X509_EXT.1:AuthSvr:1, the evaluator shall establish a new leaf certificate that includes the same name and name type, 
                         but which is issued by a different subordinate CA asserting an allowed-list that does not include the name for the name-type. 
                         The evaluator shall ensure the subordinate CA is included in a valid chain to the same trusted root. 
-                        The evaluator shall initiate the same application attempt as in <a href="#valid-name-types" class="dynref"></a><a href="#valid-name-types" class="dynref"></a> for the new certificate and observe that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> indicates the certificate is invalid.
-                      </li>
-                      <li class="test-"><a id="_t_4" class="defined" href="#_t_4"></a>:
-      For each leaf certificate used in <a href="#valid-name-types" class="dynref"></a><a href="#valid-name-types" class="dynref"></a>, 
+                        The evaluator shall initiate the same application attempt as in Test FIA_X509_EXT.1:AuthSvr:1 for the new certificate and observe that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> indicates the certificate is invalid.
+                      </i></li>
+                      <li><i>Test FIA_X509_EXT.1:AuthSvr:1.3: For each leaf certificate used in Test FIA_X509_EXT.1:AuthSvr:1, 
                         the evaluator shall establish a new leaf certificate that includes the same name and name type, 
                         but which is issued by a different subordinate CA asserting a denylist matching the name for the name type. 
                         The evaluator shall ensure the subordinate CA is included in a valid certificate path to the same trusted root. 
-                        The evaluator shall initiate the same application attempt as in <a href="#valid-name-types" class="dynref"></a><a href="#valid-name-types" class="dynref"></a> using the new certificate and observe that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> indicates the certificate is invalid. 
-                      </li>
-                    </ul></span>
+                        The evaluator shall initiate the same application attempt as in Test FIA_X509_EXT.1:AuthSvr:1 using the new certificate and observe that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> indicates the certificate is invalid. 
+                      </i></li>
+                    </ul>
+                    </i>
                   </li>
-                  <li class="test-"><a id="_t_5" class="defined" href="#_t_5"></a>:
-      
-                    [conditional] If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports processing of the policy constraints extension, then for each distinct purpose and within the constraints indicated in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> 
+                  <li>
+                    Test FIA_X509_EXT.1:AuthSvr:2: [conditional] If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports processing of the policy constraints extension, then for each distinct purpose and within the constraints indicated in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> 
                     (claimant authentication and any other supported subject types), the evaluator shall follow the operational guidance as necessary to configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to require the subject’s certificate to assert a specific certificate policy. 
                     The evaluator shall perform the following sub-tests:
-                    <span class="testlist-"><ul>
-                      <li class="test-"><a id="valid-oid" class="defined" href="#valid-oid"></a>:
-      The evaluator shall establish a certificate for the subject asserting the certificate policy OID required, issued by a Certification Authority also specifying the required certificate policy. 
-                        The evaluator shall present the established certificate for authentication and verify that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> successfully validates the certificate. </li>
-                      <li class="test-"><a id="_t_7" class="defined" href="#_t_7"></a>:
-      [conditional] If the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> selects 'Inhibit anyPolicy extension...," the evaluator shall repeat <a href="#valid-oid" class="dynref"></a><a href="#valid-oid" class="dynref"></a> using a certificate asserting the required policy but issued by a Certification Authority only asserting the ‘anyPolicy’ OID (value {2 5 29 32 0}) in its policy constraints extension. The evaluator shall observe that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> successfully validates the certificate.</li>
-                      <li class="test-"><a id="_t_8" class="defined" href="#_t_8"></a>:
-      [conditional] If the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> indicates support for the policy mapping extension, 
-                        the evaluator shall repeat <a href="#valid-oid" class="dynref"></a><a href="#valid-oid" class="dynref"></a> using a certificate asserting a new policy OID that does not match the required policy OID. This certificate  
+                    <ul>
+                      <li><i>Test FIA_X509_EXT.1:AuthSvr:2.1: The evaluator shall establish a certificate for the subject asserting the certificate policy OID required, issued by a Certification Authority also specifying the required certificate policy. 
+                        The evaluator shall present the established certificate for authentication and verify that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> successfully validates the certificate. </i></li>
+                      <li><i>Test FIA_X509_EXT.1:AuthSvr:2.2: [conditional] If the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> selects 'Inhibit anyPolicy extension...," the evaluator shall repeat Test FIA_X509_EXT.1:AuthSvr:2.1 using a certificate asserting the required policy but issued by a Certification Authority only asserting the ‘anyPolicy’ OID (value {2 5 29 32 0}) in its policy constraints extension. The evaluator shall observe that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> successfully validates the certificate.</i></li>
+                      <li><i>Test FIA_X509_EXT.1:AuthSvr:2.3: [conditional] If the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> indicates support for the policy mapping extension, 
+                        the evaluator shall repeat Test FIA_X509_EXT.1:AuthSvr:2.1 using a certificate asserting a new policy OID that does not match the required policy OID. This certificate  
                         is issued by a CA asserting the new policy OID in the policy constraints extension, and the CA certificate is issued by a second CA. This second
                         CA asserts the required OID in its certificate constraints extension and contains a policy mapping extension 
                         including the mapping of the asserted policy to the required policy. 
                         The evaluator shall observe that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> successfully validates the certificate.<p></p> 
-                        Note that installing a root CA trusted by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> with the required policy constraints and policy mapping extensions may be required if the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> limits the path length of certificate chains.</li>
-                      <li class="test-"><a id="_t_9" class="defined" href="#_t_9"></a>:
-      [conditional] If the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> indicates support for both policy mapping and policy constraints extensions and also supports certificate chains of length four or more, 
+                        Note that installing a root CA trusted by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> with the required policy constraints and policy mapping extensions may be required if the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> limits the path length of certificate chains.</i></li>
+                      <li><i>Test FIA_X509_EXT.1:AuthSvr:2.4: [conditional] If the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> indicates support for both policy mapping and policy constraints extensions and also supports certificate chains of length four or more, 
                         the evaluator shall establish a certificate for the subject asserting a new policy OID that does not match the required policy OID. This certificate 
                         is issued by a CA asserting the new policy OID, which in turn is issued by a second CA which includes the policy mapping extension that maps the required policy OID to the new policy OID.  
                         The second CA is in turn issued by a third CA that has the extension policy constraints with the inhibitPolicyMapping field having value 0. 
-                        The evaluator shall present the certificate to the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> for authentication and observe that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> indicates the certificate is invalid.</li>
-                      <li class="test-"><a id="_t_10" class="defined" href="#_t_10"></a>:
-      [conditional] If the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> indicates support for both policy mapping and policy constraints extensions, 
+                        The evaluator shall present the certificate to the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> for authentication and observe that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> indicates the certificate is invalid.</i></li>
+                      <li><i>Test FIA_X509_EXT.1:AuthSvr:2.5: [conditional] If the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> indicates support for both policy mapping and policy constraints extensions, 
                         the evaluator shall select a policy OID not required for authentication in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s current configuration. 
                         The evaluator shall establish a certificate for the subject that does not assert the non-required policy, 
                         which is issued by a CA also asserting the new policy OID, which in turn, is issued by a CA asserting the ‘anyPolicy’ OID and having a critical policy constraints extension 
-                        with the explicitPolicy field with value 0. The evaluator shall present the certificate to the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> for authentication and observe that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> indicates the certificate is invalid.</li>
-                      <li class="test-"><a id="_t_11" class="defined" href="#_t_11"></a>:
-      The evaluator shall establish a certificate for the subject asserting the required policy but issued by a Certification Authority that does not include any certificate policy related extensions. 
-                        The evaluator shall present the certificate for authentication and observe that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> indicates the certificate is invalid.</li>
-                      <li class="test-"><a id="_t_12" class="defined" href="#_t_12"></a>:
-      The evaluator shall establish a certificate for the subject asserting the required certificate policy issued by a Certification Authority that only asserts a single, 
+                        with the explicitPolicy field with value 0. The evaluator shall present the certificate to the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> for authentication and observe that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> indicates the certificate is invalid.</i></li>
+                      <li><i>Test FIA_X509_EXT.1:AuthSvr:2.6: The evaluator shall establish a certificate for the subject asserting the required policy but issued by a Certification Authority that does not include any certificate policy related extensions. 
+                        The evaluator shall present the certificate for authentication and observe that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> indicates the certificate is invalid.</i></li>
+                      <li><i>Test FIA_X509_EXT.1:AuthSvr:2.7: The evaluator shall establish a certificate for the subject asserting the required certificate policy issued by a Certification Authority that only asserts a single, 
                         non-matching policy OID in its policy related extensions (i.e., the CA certificate does not include the matching OID, ‘anyPolicy’ assertions or assert an OID that is mapped to the required OID 
                         via policy matching extensions by previous Certification Authorities in the certificate chain, if supported). 
-                        The evaluator shall present the certificate to the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> for authentication and observe the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> indicates the certificate is invalid.</li>
-                      <li class="test-"><a id="_t_13" class="defined" href="#_t_13"></a>:
-      [conditional] If the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> indicates the inhibitAnyPolicy extension is supported, the evaluator shall establish a certificate for the subject asserting the required policy issued by a CA 
+                        The evaluator shall present the certificate to the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> for authentication and observe the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> indicates the certificate is invalid.</i></li>
+                      <li><i>Test FIA_X509_EXT.1:AuthSvr:2.8: [conditional] If the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> indicates the inhibitAnyPolicy extension is supported, the evaluator shall establish a certificate for the subject asserting the required policy issued by a CA 
                         asserting the ‘anyPolicy’ OID, which is in turn issued by a CA with an inhibitAny extension with value 0. 
                         The evaluator shall present the certificate to the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> for authentication and observe the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> indicates the certificate is invalid. <p></p>
-                        Note that installing a root CA trusted by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> with the inhibitAny extension may be required if the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> limits the path length of certificate chains.</li>
-                    </ul></span>
+                        Note that installing a root CA trusted by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> with the inhibitAny extension may be required if the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> limits the path length of certificate chains.</i></li>
+                    </ul>
                   </li>
-              </ul></span>
+              </ul>
             </span><p></p></dd><dd><b><abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr>-based Revocation Required for FIA_X509_EXT.1.3 </b><p></p><span class="description">
               The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must support revocation that only involves <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr>. Accordingly, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author shall select only from options involving <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> in FIA_X509_EXT.1.3 (e.g., the selection to treat all certificates 
               older than a given short timeframe is not an acceptable substitute or alternative for supporting <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr>).
@@ -906,6 +895,10 @@ The following sections list Common Criteria and technology terms used in this do
               the processing of extendedKeyUsage fields in the leaf certificate (as opposed to application of trust store context rules or passing the certification path or other supported context information to an external 
               function) and shall select all values that are relevant to the claimed uses of X.509 in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. In particular, since neither the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> nor the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any functions that require the use of 
               S/MIME, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author shall not select this as an extendedKeyUsage value to be validated.
+            </span><p></p></dd><dt><b>Functional Package for Transport Layer Security (TLS), Version 2.1</b><p></p></dt><dd><b><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr> Client Functionality Required in FCS_TLS_EXT.1.1</b><p></p><span class="description">
+              The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author shall select the option to support client functionality for <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr> in FCS_TLS_EXT.1.1. The selection shall correspond with other protocol selections made in <a href="#FCS_EAPTLS_EXT.1">FCS_EAPTLS_EXT.1</a>.
+            </span><p></p></dd><dd><b>Mutual Authentication Required in FCS_TLSC_EXT.1.1 or FCS_DTLSC_EXT.1.1</b><p></p><span class="description">
+              The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author shall select the option to support mutual authentication for <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr>, according with the protocol support selected in FCS_TLS_EXT.1.1.
             </span><p></p></dd>
     
   <h1 class="indexable" data-level="1" id="Conformance_Claims">2 Conformance Claims</h1>
@@ -1033,7 +1026,7 @@ Network Device
     No additional information
   </td></tr><tr data-sortkey="FCS_STG_EXT.1"><td rowspan="2"><a href="#FCS_STG_EXT.1">FCS_STG_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_STG_EXT.1#"><td></td></tr><tr data-sortkey="FCS_STG_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FIA_AFL.1/AuthSvr"><td rowspan="3"><a href="#FIA_AFL.1/AuthSvr">FIA_AFL.1/AuthSvr</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_AFL.1/AuthSvr#"><td></td></tr><tr data-sortkey="FIA_AFL.1/AuthSvr.3"><td>The reaching of the threshold for the unsuccessful authentication attempts.</td><td>The claimed identity of the entity attempting to authenticate or the IP where the attempts originated.</td></tr><tr data-sortkey="FIA_AFL.1/AuthSvr.4"><td>Disabling an account due to the threshold being reached.</td><td>
     No additional information
-  </td></tr><tr data-sortkey="FIA_UAU.6"><td rowspan="2"><a href="#FIA_UAU.6">FIA_UAU.6</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_UAU.6#"><td></td></tr><tr data-sortkey="FIA_UAU.6.2"><td>All use of the authentication mechanism.</td><td>Origin of the attempt (e.g., IP address).</td></tr><tr data-sortkey="FIA_X509_EXT.1/AuthSvr"><td rowspan="2"><a href="#FIA_X509_EXT.1/AuthSvr">FIA_X509_EXT.1/AuthSvr</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_X509_EXT.1/AuthSvr#"><td></td></tr><tr data-sortkey="FIA_X509_EXT.1/AuthSvr.3"><td>Certificate validation failure.</td><td>Reason for failure.</td></tr><tr data-sortkey="FMT_SMF.1/AuthSvr"><td rowspan="2"><a href="#FMT_SMF.1/AuthSvr">FMT_SMF.1/AuthSvr</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FMT_SMF.1/AuthSvr#"><td></td></tr><tr data-sortkey="FMT_SMF.1/AuthSvr.2"><td>All management actions.</td><td>Identifier of initiator.</td></tr><tr data-sortkey="FTA_TSE.1"><td rowspan="2"><a href="#FTA_TSE.1">FTA_TSE.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FTA_TSE.1#"><td></td></tr><tr data-sortkey="FTA_TSE.1.2"><td>Denial of session establishment due to the session establishment mechanism.</td><td>Reason for denial, origin of establishment attempt.</td></tr><tr data-sortkey="FTP_ITC.1/NAS"><td rowspan="4"><a href="#FTP_ITC.1/NAS">FTP_ITC.1/NAS</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FTP_ITC.1/NAS#"><td></td></tr><tr data-sortkey="FTP_ITC.1/NAS.4"><td>Initiation of the trusted channel.</td><td>Identification of the initiator.</td></tr><tr data-sortkey="FTP_ITC.1/NAS.5"><td>Termination of the trusted channel.</td><td>Identification of the initiator.</td></tr><tr data-sortkey="FTP_ITC.1/NAS.6"><td>Failure of the trusted channel functions.</td><td>Target of failed trusted channels establishment attempt.</td></tr></table>
+  </td></tr><tr data-sortkey="FIA_UAU.6"><td rowspan="2"><a href="#FIA_UAU.6">FIA_UAU.6</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_UAU.6#"><td></td></tr><tr data-sortkey="FIA_UAU.6.2"><td>All use of the authentication mechanism.</td><td>Origin of the attempt (e.g., IP address).</td></tr><tr data-sortkey="FMT_SMF.1/AuthSvr"><td rowspan="2"><a href="#FMT_SMF.1/AuthSvr">FMT_SMF.1/AuthSvr</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FMT_SMF.1/AuthSvr#"><td></td></tr><tr data-sortkey="FMT_SMF.1/AuthSvr.2"><td>All management actions.</td><td>Identifier of initiator.</td></tr><tr data-sortkey="FTA_TSE.1"><td rowspan="2"><a href="#FTA_TSE.1">FTA_TSE.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FTA_TSE.1#"><td></td></tr><tr data-sortkey="FTA_TSE.1.2"><td>Denial of session establishment due to the session establishment mechanism.</td><td>Reason for denial, origin of establishment attempt.</td></tr><tr data-sortkey="FTP_ITC.1/NAS"><td rowspan="4"><a href="#FTP_ITC.1/NAS">FTP_ITC.1/NAS</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FTP_ITC.1/NAS#"><td></td></tr><tr data-sortkey="FTP_ITC.1/NAS.4"><td>Initiation of the trusted channel.</td><td>Identification of the initiator.</td></tr><tr data-sortkey="FTP_ITC.1/NAS.5"><td>Termination of the trusted channel.</td><td>Identification of the initiator.</td></tr><tr data-sortkey="FTP_ITC.1/NAS.6"><td>Failure of the trusted channel functions.</td><td>Target of failed trusted channels establishment attempt.</td></tr></table>
       
       
       <h3 id="man_fau" class="indexable" data-level="3">5.2.2 Security Audit (FAU)</h3>
@@ -1183,9 +1176,9 @@ Network Device
           <div class="element"><div class="reqid" id="FCS_EAPTLS_EXT.1.1"><a href="#FCS_EAPTLS_EXT.1.1" class="abbr">FCS_EAPTLS_EXT.1.1</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement [<b>selection</b>: <span class="selectable-content" id="_s_11"><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS as specified in RFC 5216</span>, <span class="selectable-content" id="_s_12"><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TTLS as specified in RFC 5881</span>] as updated by RFC 8996 with [<b>selection</b>: <span class="selectable-content" id="_s_13"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr></span>, <span class="selectable-content" id="_s_14"><abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr></span>] implemented using mutual authentication in accordance with [<b>selection</b>: <span class="selectable-content" id="_s_15">FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2 <b>as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
         version 
-        2.0</a></b></span>, <span class="selectable-content" id="_s_16">FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2 <b>as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
+        2.1</a></b></span>, <span class="selectable-content" id="_s_16">FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2 <b>as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
         version 
-        2.0</a></b></span>].
+        2.1</a></b></span>].
             </div></div>
           <div class="element"><div class="reqid" id="FCS_EAPTLS_EXT.1.2"><a href="#FCS_EAPTLS_EXT.1.2" class="abbr">FCS_EAPTLS_EXT.1.2</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate random values used in the [<b>selection</b>: <span class="selectable-content" id="_s_23"><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS</span>, <span class="selectable-content" id="_s_24"><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TTLS</span>] exchange using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> specified in FCS_RBG.1.
@@ -1194,7 +1187,9 @@ Network Device
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support claimant authentication using certificates and [<b>selection</b>: <span class="selectable-content" id="eaptls-uses-psk">static <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr></span>, <span class="selectable-content" id="eaptls-uses-hotp"><abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr></span>, <span class="selectable-content" id="eaptls-uses-totp"><abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr></span>, <span class="selectable-content" id="_s_28">other authentication-verification methods via pass-through</span>, <span class="selectable-content" id="_s_29">no other methods</span>].
             </div></div>
           <div class="element"><div class="reqid" id="FCS_EAPTLS_EXT.1.4"><a href="#FCS_EAPTLS_EXT.1.4" class="abbr">FCS_EAPTLS_EXT.1.4</a></div><div class="reqdesc">
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall not forward an <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-Success response to the relying party if the client certificate is not valid according to FIA_X509_EXT.1<b>/AuthSvr</b>, 
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall not forward an <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-Success response to the relying party if the client certificate is not valid according to FIA_X509_EXT.1<b>as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a></b>, 
               if the [<b>selection</b>: <span class="selectable-content" id="_s_30"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr></span>, <span class="selectable-content" id="_s_31"><abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr></span>] session is not established, or if any of [<b>selection</b>: <span class="selectable-content" id="_s_32"><abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr></span>, <span class="selectable-content" id="_s_33"><abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> value</span>, <span class="selectable-content" id="_s_34"><abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> value</span>, <span class="selectable-content" id="_s_35">no other authenticator</span>] required by the authentication policy are not provided or if any of the required authenticators presented in the authentication request is not valid.
             <div class="appnote"><span class="note-header">Application
       Note:
@@ -1205,7 +1200,7 @@ Network Device
               <p></p>
               FCS_TLSS_EXT.1, FCS_TLSS_EXT.2, FCS_DTLSS_EXT.1, and FCS_DTLSS_EXT.2 are defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
         version 
-        2.0</a>.
+        2.1</a>.
               The selection in <a href="#FCS_EAPTLS_EXT.1.2">FCS_EAPTLS_EXT.1.2</a> matches the first selection in <a href="#FCS_EAPTLS_EXT.1.1">FCS_EAPTLS_EXT.1.1</a>.
               <p></p>
               The selections made in <a href="#FCS_EAPTLS_EXT.1.3">FCS_EAPTLS_EXT.1.3</a> may trigger the inclusion of selection-based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>, as follows: 
@@ -1322,70 +1317,6 @@ Network Device
             </div></div>
           
         </div>
-      
-        <div class="comp" id="FIA_X509_EXT.1/AuthSvr"><h4>FIA_X509_EXT.1/AuthSvr X.509 Certificate Validation (Claimant)</h4>
-          
-          <div class="element"><div class="reqid" id="FIA_X509_EXT.1.1/AuthSvr"><a href="#FIA_X509_EXT.1.1/AuthSvr" class="abbr">FIA_X509_EXT.1.1/AuthSvr</a></div><div class="reqdesc">
-              <span style="" class="comment " id="Comment-3-">It's not clear how this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> should be approached with regards to the move to the X.509 FP. There are three broad types of refinements made to this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> 
-              in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> that are not reproduced in the X.509 FP: some are arguably inconsequential with regards to the functionality of the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> (e.g., minor rewords or clarifications), some are refinements and selections 
-              present that have been obsoleted by selections/assignments present in the X.509 FP, and a few are technology-specific refinements that do not appear to be present in the X.509 FP. For the moment, this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> has been left as-is.</span>
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall validate certificates in accordance with the following rules: 
-              <ul>
-                <li>RFC 5280 <b>version 3</b> certificate validation and certification path validation <b>supporting [<b>selection</b>: <span class="selectable-content" id="_s_56">a minimum path length of [<b>assignment</b>: 
-     <span class="assignable-content">value greater than or equal to three</span>]</span>, <span class="selectable-content" id="_s_57">no prior constraints on path length</span>]</b></li>
-                <li>The certification path must terminate with a CA certificate <b>trusted by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> specifically for claimant authentication.</b></li>
-                <li>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall validate a certification path by ensuring that all CA certificates in the certification path contain the basicConstraints extension with the CA flag set to TRUE.</li>
-                <li>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall validate the revocation status of <b>each certificate in the certificate path [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_58">containing an <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> provider in the AIA extension using the Online Certificate Status Protocol (<abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr>) as specified in RFC 6960</span></li><li style=""><span class="selectable-content" id="_s_59">containing a certificate revocation list (<abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr>) distribution point in the 
-                    CRLDP extension or AIA extension using [<b>selection</b>: <span class="selectable-content" id="_s_60">a <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> as specified in RFC 5280 Section 6.3</span>, <span class="selectable-content" id="_s_61">a <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> as specified in RFC 5759 Section 5</span>]</span></li></ul>]</b>.
-                </li>
-                <li>
-                  The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall validate the extendedKeyUsage field <b>is present and contains key usage values</b> according to the following rules: <b>
-                  [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_62">Certificates do not assert anyExtendedKeyUsage (OID 2.5.29.37.0)</span></li><li style=""><span class="selectable-content" id="_s_63">Client certificates associated with authenticated entities presented for [<b>selection</b>: <span class="selectable-content" id="_s_64"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr></span>, <span class="selectable-content" id="_s_65"><abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr></span>] shall have the Client Authentication purpose (id-kp 2 with OID 1.3.6.1.5.5.7.3.2) in the extendedKeyUsage field.</span></li><li style=""><span class="selectable-content" id="_s_66">
-                      [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_67">Server certificates presented for [<b>selection</b>: <span class="selectable-content" id="_s_68"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr></span>, <span class="selectable-content" id="_s_69"><abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr></span>] shall 
-                          have the Server Authentication purpose (id-kp 1 with OID 1.3.6.1.5.5.7.3.1) in the extendedKeyUsage field.</span></li><li style=""><span class="selectable-content" id="_s_70">Certificates presented for <abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr> shall have the ipsec-IKE purpose (id-kp 17 with OID 1.3.6.1.5.5.7.3.17)</span></li><li style=""><span class="selectable-content" id="_s_71"><abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> certificates presented for <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> responses shall have the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> Signing purpose (id-kp 9 with OID 1.3.6.1.5.5.7.3.9) in the extendedKeyUsage field.</span></li></ul>]</span></li></ul>]</b>.
-                </li><b>
-                <li>
-                  The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall validate that each CA certificate in the certification path indicating a path length constraint in the basicConstraints 
-                  extension does not have more than the specified number of subordinate CA certificates in the certification path from the end-entity certificate 
-                  to the CA certificate indicating the constraint, not counting the CA certificate itself or any self-issued certificates in the certification path.
-                </li>
-                <li>
-                  The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall process name constraints of type Directory Name and [<b>selection</b>: <span class="selectable-content" id="_s_72">rfc822Name</span>, <span class="selectable-content" id="_s_73">dnsName</span>, <span class="selectable-content" id="_s_74">UPN Name (Other Name = id-ms-san-sc-logon-upn)</span>, <span class="selectable-content" id="_s_75">[<b>assignment</b>: 
-     <span class="assignable-content">other name type</span>]</span>, <span class="selectable-content" id="_s_76">no other name type</span>] 
-                  by verifying that each name of a supported name type present in the end-entity certificate subject field or subjectAlternateName extension, 
-                  is allowed in each CA certificate in the certification path, is not disallowed by any of the CA certificates in the certification path, 
-                  and that each name type included in the end-entity certificate and constrained by a CA certificate in the certification path is processed.
-                </li>
-                <li>
-                  The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall process the following certificate extensions: [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_77">Certificate Policy extension in accordance with RFC 5280 and [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_78">Policy mapping extension in accordance with RFC 5280</span></li><li style=""><span class="selectable-content" id="_s_79">Policy constraints extension in accordance with RFC 5280</span></li><li style=""><span class="selectable-content" id="_s_80">Inhibit anyPolicy extension in accordance with RFC 5280</span></li><li style=""><span class="selectable-content" id="_s_81">No other policy related extension</span></li></ul>] in support of claimant authentication and [<b>assignment</b>: 
-     <span class="assignable-content">
-                        other intended purposes and limitations of policy related extension processing</span>]</span></li><li style=""><span class="selectable-content" id="_s_82">[<b>assignment</b>: 
-     <span class="assignable-content">other standard extensions</span>]</span></li><li style=""><span class="selectable-content" id="_s_83">no other extensions</span></li></ul>].
-                </li></b>
-              </ul>
-            <div class="appnote"><span class="note-header">Application
-      Note:
-    </span><span class="note">
-              <p>
-                This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is iterated from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> to define X.509 validation requirements that are specific to claimant authentication.
-              </p><p>
-              The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims supported certificate validity checking options for each rule. For name constraints, all supported name types used to match names presented in a certificate to registered users 
-              and the associated standard matching method are described.
-              </p><p>
-              The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author claims supported certificate policies. ‘Policy Constraints…’ is claimed if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s authentication policy depends on the certificate policies for claimant certificates. 
-              Other policy related extensions within the selection are claimed if supported. 
-              The extension inhibitPolicyMapping is not claimed if the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> does not support certificate chains of length four or more. 
-              The policy related extensions, if supported, are primarily used in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for claimant authentication, but are allowed for other certificate authentications. 
-              The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author specifies the intended use and any limits of support for these extensions or specifies ‘no other policy related extension’ in the assignment of this selection.
-              </p><p>
-              The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author specifies any additional supported X.509 extensions, and the associated extension processing rules used to determine claimant identity attributes or conditions that can be used in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s authentication policy. 
-              </p>
-            </span></div></div></div>
-          <div class="element"><div class="reqid" id="FIA_X509_EXT.1.2/AuthSvr"><a href="#FIA_X509_EXT.1.2/AuthSvr" class="abbr">FIA_X509_EXT.1.2/AuthSvr</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall only treat a certificate as a CA certificate if the basicConstraints extension is present and the CA flag is set to TRUE.</div></div>
-          
-        </div>
-          
-    
   
       
       
@@ -1398,7 +1329,7 @@ Network Device
 			    <li>Ability to manage trust store data</li>
 			    <li>Ability to configure administrator authentication credential</li>
 			    <li>Ability to configure trusted channel to relying party</li>
-			    <li>[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_84">Ability to configure <abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr> functionality</span></li><li style=""><span class="selectable-content" id="_s_85">Ability to configure <abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr> functionality</span></li><li style=""><span class="selectable-content" id="_s_86">Ability to configure <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> functionality</span></li><li style=""><span class="selectable-content" id="_s_87">Ability to manage claimant authentication policy</span></li><li style=""><span class="selectable-content" id="_s_88">Ability to manage supported authentication-verification methods</span></li><li style=""><span class="selectable-content" id="_s_89">Ability to manage supported authentication-verification methods supported via pass-through functionality </span></li><li style=""><span class="selectable-content" id="_s_90">Ability to configure <abbr class="dyn-abbr"><a href="#abbr_RADIUS">RADIUS</a></abbr> shared secret</span></li><li style=""><span class="selectable-content" id="_s_91">Ability to define authorized relying parties</span></li><li style=""><span class="selectable-content" id="_s_92">Ability to configure cryptographic key storage</span></li><li style=""><span class="selectable-content" id="_s_93">Ability to configure lockout policy for failed claimant authentication</span></li><li style=""><span class="selectable-content" id="_s_94">Ability to unlock a claimant account</span></li><li style=""><span class="selectable-content" id="_s_95">Ability to configure certificate validation checking mechanisms</span></li><li style=""><span class="selectable-content" id="_s_96">Ability to define conditions in which claimant authentication attempts are rejected</span></li><li style=""><span class="selectable-content" id="_s_97">Ability to associate pre-shared keys with claimants or external entities</span></li><li style=""><span class="selectable-content" id="_s_98">Ability to configure restrictions on the composition of pre-shared keys</span></li><li style=""><span class="selectable-content" id="_s_99">Ability to configure restrictions on the validation of pre-shared keys</span></li><li style=""><span class="selectable-content" id="_s_100">Ability to generate pre-shared keys</span></li><li style=""><span class="selectable-content" id="_s_101">Ability to accept pre-shared keys</span></li><li style=""><span class="selectable-content" id="_s_102">Ability to manage <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> verification function</span></li><li style=""><span class="selectable-content" id="_s_103">Ability to manage <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> verification function</span></li><li style=""><span class="selectable-content" id="_s_104">No other functions</span></li></ul>]</li>
+			    <li>[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_56">Ability to configure <abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr> functionality</span></li><li style=""><span class="selectable-content" id="_s_57">Ability to configure <abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr> functionality</span></li><li style=""><span class="selectable-content" id="_s_58">Ability to configure <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> functionality</span></li><li style=""><span class="selectable-content" id="_s_59">Ability to manage claimant authentication policy</span></li><li style=""><span class="selectable-content" id="_s_60">Ability to manage supported authentication-verification methods</span></li><li style=""><span class="selectable-content" id="_s_61">Ability to manage supported authentication-verification methods supported via pass-through functionality </span></li><li style=""><span class="selectable-content" id="_s_62">Ability to configure <abbr class="dyn-abbr"><a href="#abbr_RADIUS">RADIUS</a></abbr> shared secret</span></li><li style=""><span class="selectable-content" id="_s_63">Ability to define authorized relying parties</span></li><li style=""><span class="selectable-content" id="_s_64">Ability to configure cryptographic key storage</span></li><li style=""><span class="selectable-content" id="_s_65">Ability to configure lockout policy for failed claimant authentication</span></li><li style=""><span class="selectable-content" id="_s_66">Ability to unlock a claimant account</span></li><li style=""><span class="selectable-content" id="_s_67">Ability to configure certificate validation checking mechanisms</span></li><li style=""><span class="selectable-content" id="_s_68">Ability to define conditions in which claimant authentication attempts are rejected</span></li><li style=""><span class="selectable-content" id="_s_69">Ability to associate pre-shared keys with claimants or external entities</span></li><li style=""><span class="selectable-content" id="_s_70">Ability to configure restrictions on the composition of pre-shared keys</span></li><li style=""><span class="selectable-content" id="_s_71">Ability to configure restrictions on the validation of pre-shared keys</span></li><li style=""><span class="selectable-content" id="_s_72">Ability to generate pre-shared keys</span></li><li style=""><span class="selectable-content" id="_s_73">Ability to accept pre-shared keys</span></li><li style=""><span class="selectable-content" id="_s_74">Ability to manage <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> verification function</span></li><li style=""><span class="selectable-content" id="_s_75">Ability to manage <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> verification function</span></li><li style=""><span class="selectable-content" id="_s_76">No other functions</span></li></ul>]</li>
 			  </ul></i>].
 			<div class="appnote"><span class="note-header">Application
       Note:
@@ -1415,8 +1346,8 @@ Network Device
         <div class="comp" id="FTA_TSE.1"><h4>FTA_TSE.1 TOE Session Establishment</h4>
           
           <div class="element"><div class="reqid" id="FTA_TSE.1.1"><a href="#FTA_TSE.1.1" class="abbr">FTA_TSE.1.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to deny <b>claimant</b> session establishment based on [<i>invalid certificate, 
-              [<b>selection</b>: <span class="selectable-content" id="_s_105">[<b>assignment</b>: 
-     <span class="assignable-content">other identity attributes</span>]</span>, <span class="selectable-content" id="_s_106">no other attributes</span>]</i>].<div class="appnote"><span class="note-header">Application
+              [<b>selection</b>: <span class="selectable-content" id="_s_77">[<b>assignment</b>: 
+     <span class="assignable-content">other identity attributes</span>]</span>, <span class="selectable-content" id="_s_78">no other attributes</span>]</i>].<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
               The intent of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is to describe any circumstances that would cause a claimant’s authentication request to be rejected. 
@@ -1431,7 +1362,7 @@ Network Device
 		  <div class="comp" id="FTP_ITC.1/NAS"><h4>FTP_ITC.1/NAS Inter-TSF Trusted Channel (Relying Party Communications)</h4>
 		  
 			  <div class="element"><div class="reqid" id="FTP_ITC.1.1/NAS"><a href="#FTP_ITC.1.1/NAS" class="abbr">FTP_ITC.1.1/NAS</a></div><div class="reqdesc">
-			    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide <b>[<b>selection</b>: <span class="selectable-content" id="_s_107">an <abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr></span>, <span class="selectable-content" id="uses-radsec">a RadSec</span>, <span class="selectable-content" id="_s_109">a mutually authenticated <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr></span>, <span class="selectable-content" id="_s_110">a mutually authenticated <abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr></span>]</b>
+			    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide <b>[<b>selection</b>: <span class="selectable-content" id="_s_79">an <abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr></span>, <span class="selectable-content" id="uses-radsec">a RadSec</span>, <span class="selectable-content" id="_s_81">a mutually authenticated <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr></span>, <span class="selectable-content" id="_s_82">a mutually authenticated <abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr></span>]</b>
 			    communication channel between itself and <b>a relying party</b> that is logically distinct from other communication channels and provides assured 
 			    identification of its end points and protection of the channel data from modification or disclosure.
 				  <div class="appnote"><span class="note-header">Application
@@ -1444,11 +1375,11 @@ Network Device
 			      </p><p>
 			      If “a mutually authenticated <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>” is selected, the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
         version 
-        2.0</a> <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2 must be claimed.
+        2.1</a> <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2 must be claimed.
 			      </p><p>
 			      If “a mutually authenticated <abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr>” is selected, the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
         version 
-        2.0</a> <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2 must be claimed.
+        2.1</a> <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2 must be claimed.
 			    </p></span></div></div></div>
 			    <div class="element"><div class="reqid" id="FTP_ITC.1.2/NAS"><a href="#FTP_ITC.1.2/NAS" class="abbr">FTP_ITC.1.2/NAS</a></div><div class="reqdesc">
 		  The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit [<i>the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> <b>or the relying party</b></i>] to initiate communication via the trusted channel.
@@ -1482,7 +1413,7 @@ Network Device
 <tr><td><a href="#FIA_PSK_EXT.1/AuthSvr">FIA_PSK_EXT.1/AuthSvr</a> (selection-based)</td><td>
             Mitigates the threat by using a pre-shared key as the mechanism by which it authenticates itself to the relying party.  
           </td></tr>
-<tr class="major-row"><td rowspan="12"><a href="#T.INVALID_USERS">T.INVALID_​USERS</a></td><td><a href="#FCO_NRO.1">FCO_NRO.1</a></td><td>
+<tr class="major-row"><td rowspan="11"><a href="#T.INVALID_USERS">T.INVALID_​USERS</a></td><td><a href="#FCO_NRO.1">FCO_NRO.1</a></td><td>
             Mitigates the threat by providing a non-repudiation function to assert the source of origin of its communications with the relying party.
           </td></tr>
 <tr><td><a href="#FCO_NRR.1">FCO_NRR.1</a></td><td>
@@ -1496,9 +1427,6 @@ Network Device
           </td></tr>
 <tr><td><a href="#FIA_AFL.1/AuthSvr">FIA_AFL.1/AuthSvr</a></td><td>
             Mitigates the threat by implementing a mechanism to prevent claimant authentication attempts if an excessive number of failed attempts have been made. 
-          </td></tr>
-<tr><td><a href="#FIA_X509_EXT.1/AuthSvr">FIA_X509_EXT.1/AuthSvr</a></td><td>
-            Mitigates the threat by implementing a mechanism to determine the validity of X.509 certificates that are used as claimant authenticators.
           </td></tr>
 <tr><td><a href="#FTA_TSE.1">FTA_TSE.1</a></td><td>
             Mitigates the threat by implementing a mechanism to assert the failure of a claimant authentication attempt based on attributes of the claimant or of the attempt.
@@ -1601,9 +1529,7 @@ Network Device
 	      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not add any requirements when the
 	      NDcPP is the base.
 	    </td></tr><tr><th colspan="2"> Mandatory <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FAU_GEN.1/AuthSvr">FAU_GEN.1/AuthSvr</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> iterates the FAU_GEN.1 <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> to define auditable events for the functionality that is specific to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td></tr><tr><td><a href="#FCO_NRO.1">FCO_NRO.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to the implementation of the supported authentication protocol, which is beyond the original scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#FCO_NRR.1">FCO_NRR.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to the implementation of the supported authentication protocol, which is beyond the original scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#FCS_CKM.3">FCS_CKM.3</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requires confidentiality of cryptographic key data in FPT_SKP_EXT.1. This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines more specific detail on how that function should be enforced.</td></tr><tr><td><a href="#FCS_EAPTLS_EXT.1">FCS_EAPTLS_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to the implementation of <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS; the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> defines implementation requirements for (D)<abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>, but <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS is beyond the original scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. </td></tr><tr><td><a href="#FCS_RADIUS_EXT.1">FCS_RADIUS_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to the implementation of authentication protocols, which is beyond the original scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#FCS_STG_EXT.1">FCS_STG_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is consistent with the FPT_SKP_EXT.1 requirement of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> but requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to implement a specific method of protecting key data rather than a general statement
-          that such data is not stored in plaintext.</td></tr><tr><td><a href="#FIA_AFL.1/AuthSvr">FIA_AFL.1/AuthSvr</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines functional behavior enforced on external users being authenticated by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, which is functionality that is not covered by the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#FIA_UAU.6">FIA_UAU.6</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines support for re-authentication of administrators, which expands on the authentication functionality defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#FIA_X509_EXT.1/AuthSvr">FIA_X509_EXT.1/AuthSvr</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> defines X.509 validation requirements for external entities presenting certificates to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>
-          defines a separate iteration of this function to define the certificate validation behavior that is enforced against claimants requesting to be authenticated by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. It is substantially refined
-          from its original definition to address issues specific to the handling of claimant certificates.</td></tr><tr><td><a href="#FMT_SMF.1/AuthSvr">FMT_SMF.1/AuthSvr</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines additional management functionality that is specific to the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>’s product type and would therefore not be expected to be present in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#FTA_TSE.1">FTA_TSE.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> relates to the handling of claimants being authenticated by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, which is functionality that is beyond the original scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#FTP_ITC.1/NAS">FTP_ITC.1/NAS</a></td><td>
+          that such data is not stored in plaintext.</td></tr><tr><td><a href="#FIA_AFL.1/AuthSvr">FIA_AFL.1/AuthSvr</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines functional behavior enforced on external users being authenticated by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, which is functionality that is not covered by the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#FIA_UAU.6">FIA_UAU.6</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines support for re-authentication of administrators, which expands on the authentication functionality defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#FMT_SMF.1/AuthSvr">FMT_SMF.1/AuthSvr</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines additional management functionality that is specific to the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>’s product type and would therefore not be expected to be present in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#FTA_TSE.1">FTA_TSE.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> relates to the handling of claimants being authenticated by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, which is functionality that is beyond the original scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#FTP_ITC.1/NAS">FTP_ITC.1/NAS</a></td><td>
 			  This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> iterates the FTP_ITC.1 <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> to define trusted communication channels for the functionality that is specific to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
 			  </td></tr></tr><tr><th colspan="2"> Optional <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td colspan="2" style="text-align:center">
 	      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any Optional requirements.
@@ -1642,13 +1568,13 @@ Network Device
           
           <div class="element"><div class="reqid" id="FCS_RADSEC_EXT.1.1"><a href="#FCS_RADSEC_EXT.1.1" class="abbr">FCS_RADSEC_EXT.1.1</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement RadSec as specified in 
-              [<b>selection</b>: <span class="selectable-content" id="_s_111">RFC 6614</span>, <span class="selectable-content" id="_s_112">RFC 7360</span>] as updated by RFC 8996 to communicate securely with a relying party.
+              [<b>selection</b>: <span class="selectable-content" id="_s_83">RFC 6614</span>, <span class="selectable-content" id="_s_84">RFC 7360</span>] as updated by RFC 8996 to communicate securely with a relying party.
             </div></div>
           <div class="element"><div class="reqid" id="FCS_RADSEC_EXT.1.2"><a href="#FCS_RADSEC_EXT.1.2" class="abbr">FCS_RADSEC_EXT.1.2</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform relying party authentication using X.509v3 certificates in accordance with FIA_X509_EXT.1<b> as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
         version 
         1.0</a></b> and 
-              [<b>selection</b>: <span class="selectable-content" id="radsec-uses-psk">pre-shared keys</span>, <span class="selectable-content" id="_s_114">no other methods</span>].
+              [<b>selection</b>: <span class="selectable-content" id="radsec-uses-psk">pre-shared keys</span>, <span class="selectable-content" id="_s_86">no other methods</span>].
             <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -1656,11 +1582,11 @@ Network Device
             </span></div></div></div>
           <div class="element"><div class="reqid" id="FCS_RADSEC_EXT.1.3"><a href="#FCS_RADSEC_EXT.1.3" class="abbr">FCS_RADSEC_EXT.1.3</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement RadSec using 
-              [<b>selection</b>: <span class="selectable-content" id="_s_117"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> in accordance with FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2 <b>from the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
+              [<b>selection</b>: <span class="selectable-content" id="_s_89"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> in accordance with FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2 <b>from the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
         version 
-        2.0</a></b></span>, <span class="selectable-content" id="_s_118"><abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr> in accordance with FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2 <b>from the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
+        2.1</a></b></span>, <span class="selectable-content" id="_s_90"><abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr> in accordance with FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2 <b>from the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
         version 
-        2.0</a></b></span>] with mutual authentication.
+        2.1</a></b></span>] with mutual authentication.
             <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -1670,13 +1596,13 @@ Network Device
               <p>
                 If "RFC 6614" is claimed in the selection for <a href="#FCS_RADSEC_EXT.1.1">FCS_RADSEC_EXT.1.1</a>, "<abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> in accordance with FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2 from the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
         version 
-        2.0</a>" is claimed
+        2.1</a>" is claimed
                 in <a href="#FCS_RADSEC_EXT.1.3">FCS_RADSEC_EXT.1.3</a>.
               </p>
               <p>
                 If "RFC 7360" is claimed in the selection for <a href="#FCS_RADSEC_EXT.1.1">FCS_RADSEC_EXT.1.1</a>, "<abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr> in accordance with FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2 from the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
         version 
-        2.0</a>" is claimed
+        2.1</a>" is claimed
                 in <a href="#FCS_RADSEC_EXT.1.3">FCS_RADSEC_EXT.1.3</a>. Note that RFC 7360 is not directly updated by RFC 8996, but its references to <abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr> 1.2 (RFC 6347) are.
               </p>
               <p>
@@ -1714,31 +1640,31 @@ Network Device
             </div></div>
           <div class="element"><div class="reqid" id="FIA_HOTP_EXT.1.4"><a href="#FIA_HOTP_EXT.1.4" class="abbr">FIA_HOTP_EXT.1.4</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use
-              [<b>selection</b>: <span class="selectable-content" id="_s_121">SHA-384</span>, <span class="selectable-content" id="_s_122">SHA-512</span>] with key sizes 
+              [<b>selection</b>: <span class="selectable-content" id="_s_93">SHA-384</span>, <span class="selectable-content" id="_s_94">SHA-512</span>] with key sizes 
               [<b>assignment</b>: 
      <span class="assignable-content">key size (in bits) used in HMAC</span>] and message digest sizes 
-              [<b>selection</b>: <span class="selectable-content" id="_s_123">384</span>, <span class="selectable-content" id="_s_124">512</span>] to derive a <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> hash from the <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> seed and counter.
+              [<b>selection</b>: <span class="selectable-content" id="_s_95">384</span>, <span class="selectable-content" id="_s_96">512</span>] to derive a <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> hash from the <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> seed and counter.
             </div></div>
           <div class="element"><div class="reqid" id="FIA_HOTP_EXT.1.5"><a href="#FIA_HOTP_EXT.1.5" class="abbr">FIA_HOTP_EXT.1.5</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall truncate the <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> hash per <a href="#FIA_HOTP_EXT.1.4">FIA_HOTP_EXT.1.4</a> to create a <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> of  
-              [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_125">administrator configurable character length of at least 6</span></li><li style=""><span class="selectable-content" id="_s_126">preset character length of
-                  [<b>selection</b>: <span class="selectable-content" id="_s_127">6</span>, <span class="selectable-content" id="_s_128">7</span>, <span class="selectable-content" id="_s_129">8</span>, <span class="selectable-content" id="_s_130">9</span>, <span class="selectable-content" id="_s_131">10</span>]</span></li></ul>].
+              [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_97">administrator configurable character length of at least 6</span></li><li style=""><span class="selectable-content" id="_s_98">preset character length of
+                  [<b>selection</b>: <span class="selectable-content" id="_s_99">6</span>, <span class="selectable-content" id="_s_100">7</span>, <span class="selectable-content" id="_s_101">8</span>, <span class="selectable-content" id="_s_102">9</span>, <span class="selectable-content" id="_s_103">10</span>]</span></li></ul>].
             </div></div>
           <div class="element"><div class="reqid" id="FIA_HOTP_EXT.1.6"><a href="#FIA_HOTP_EXT.1.6" class="abbr">FIA_HOTP_EXT.1.6</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
-              [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_132">throttle invalid requests to 
-                  [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_133">administrator configurable value</span></li><li style=""><span class="selectable-content" id="_s_134">[<b>assignment</b>: 
-     <span class="assignable-content">value less than 10</span>]</span></li></ul>] per minute</span></li><li style=""><span class="selectable-content" id="_s_135">lock the associated account after 
-                  [<b>selection</b>: <span class="selectable-content" id="_s_136">administrator configurable value</span>, <span class="selectable-content" id="_s_137">[<b>assignment</b>: 
+              [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_104">throttle invalid requests to 
+                  [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_105">administrator configurable value</span></li><li style=""><span class="selectable-content" id="_s_106">[<b>assignment</b>: 
+     <span class="assignable-content">value less than 10</span>]</span></li></ul>] per minute</span></li><li style=""><span class="selectable-content" id="_s_107">lock the associated account after 
+                  [<b>selection</b>: <span class="selectable-content" id="_s_108">administrator configurable value</span>, <span class="selectable-content" id="_s_109">[<b>assignment</b>: 
      <span class="assignable-content">value less than 10</span>]</span>] failed attempts until 
-                  [<b>selection</b>: <span class="selectable-content" id="_s_138">an administrator unlocks the account</span>, <span class="selectable-content" id="_s_139">a configurable time period has elapsed</span>]</span></li></ul>].
+                  [<b>selection</b>: <span class="selectable-content" id="_s_110">an administrator unlocks the account</span>, <span class="selectable-content" id="_s_111">a configurable time period has elapsed</span>]</span></li></ul>].
             </div></div>
           <div class="element"><div class="reqid" id="FIA_HOTP_EXT.1.7"><a href="#FIA_HOTP_EXT.1.7" class="abbr">FIA_HOTP_EXT.1.7</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall not verify <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> attempts outside of the counter look-ahead window of 
               [<b>assignment</b>: 
      <span class="assignable-content">a value less than or equal to three</span>] 
-              [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_140">except for resynchronization</span></li><li style=""><span class="selectable-content" id="_s_141">where a look-ahead window of [<b>selection</b>: <span class="selectable-content" id="_s_142">a configurable value</span>, <span class="selectable-content" id="_s_143">[<b>assignment</b>: 
-     <span class="assignable-content">fixed value</span>]</span>] is used to reset the counter but which is not considered a valid <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> value</span></li><li style=""><span class="selectable-content" id="_s_144">with no exception</span></li></ul>].
+              [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_112">except for resynchronization</span></li><li style=""><span class="selectable-content" id="_s_113">where a look-ahead window of [<b>selection</b>: <span class="selectable-content" id="_s_114">a configurable value</span>, <span class="selectable-content" id="_s_115">[<b>assignment</b>: 
+     <span class="assignable-content">fixed value</span>]</span>] is used to reset the counter but which is not considered a valid <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> value</span></li><li style=""><span class="selectable-content" id="_s_116">with no exception</span></li></ul>].
             </div></div>
           <div class="element"><div class="reqid" id="FIA_HOTP_EXT.1.8"><a href="#FIA_HOTP_EXT.1.8" class="abbr">FIA_HOTP_EXT.1.8</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall increment the counter after each successful authentication.
@@ -1775,7 +1701,7 @@ Network Device
           
           
           <div class="element"><div class="reqid" id="FIA_PSK_EXT.1.1/AuthSvr"><a href="#FIA_PSK_EXT.1.1/AuthSvr" class="abbr">FIA_PSK_EXT.1.1/AuthSvr</a></div><div class="reqdesc">
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to use pre-shared keys for [<b>selection</b>: <span class="selectable-content" id="_s_145"><abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr></span>, <span class="selectable-content" id="_s_146">RadSec</span>, <span class="selectable-content" id="_s_147"><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TTLS</span>, <span class="selectable-content" id="_s_148"><abbr class="dyn-abbr"><a href="#abbr_RADIUS">RADIUS</a></abbr></span>, <span class="selectable-content" id="_s_149"><abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr></span>, <span class="selectable-content" id="_s_150"><abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr></span>].
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to use pre-shared keys for [<b>selection</b>: <span class="selectable-content" id="_s_117"><abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr></span>, <span class="selectable-content" id="_s_118">RadSec</span>, <span class="selectable-content" id="_s_119"><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TTLS</span>, <span class="selectable-content" id="_s_120"><abbr class="dyn-abbr"><a href="#abbr_RADIUS">RADIUS</a></abbr></span>, <span class="selectable-content" id="_s_121"><abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr></span>, <span class="selectable-content" id="_s_122"><abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr></span>].
             </div></div>
           <div class="element"><div class="reqid" id="FIA_PSK_EXT.1.2/AuthSvr"><a href="#FIA_PSK_EXT.1.2/AuthSvr" class="abbr">FIA_PSK_EXT.1.2/AuthSvr</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to accept the following as pre-shared keys: 
@@ -1834,7 +1760,7 @@ Network Device
           
           <div class="element"><div class="reqid" id="FIA_PSK_EXT.2.1"><a href="#FIA_PSK_EXT.2.1" class="abbr">FIA_PSK_EXT.2.1</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to 
-              [<b>selection</b>: <span class="selectable-content" id="_s_155">accept externally generated pre-shared keys</span>, <span class="selectable-content" id="_s_156">
+              [<b>selection</b>: <span class="selectable-content" id="_s_127">accept externally generated pre-shared keys</span>, <span class="selectable-content" id="_s_128">
                   generate 256 bit-based pre-shared keys via FCS_RBG.1. 
                   </span>].
             <div class="appnote"><span class="note-header">Application
@@ -1864,19 +1790,19 @@ Network Device
             </div></div>
           <div class="element"><div class="reqid" id="FIA_PSK_EXT.3.2"><a href="#FIA_PSK_EXT.3.2" class="abbr">FIA_PSK_EXT.3.2</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall allow PSKs to be composed of any combination of uppercase characters, 
               lowercase characters, numbers, the following special characters: "!", "@", "#", "$", "%", "^", "&amp;", "*", "(", and ")", and 
-              [<b>selection</b>: <span class="selectable-content" id="_s_157">[<b>assignment</b>: 
-     <span class="assignable-content">other supported special characters</span>]</span>, <span class="selectable-content" id="_s_158">no other characters</span>].
+              [<b>selection</b>: <span class="selectable-content" id="_s_129">[<b>assignment</b>: 
+     <span class="assignable-content">other supported special characters</span>]</span>, <span class="selectable-content" id="_s_130">no other characters</span>].
             </div></div>
           <div class="element"><div class="reqid" id="FIA_PSK_EXT.3.3"><a href="#FIA_PSK_EXT.3.3" class="abbr">FIA_PSK_EXT.3.3</a></div><div class="reqdesc">
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform Password-based Key Derivation Functions in accordance with a specified cryptographic algorithm [<i>HMAC-[<b>selection</b>: <span class="selectable-content" id="_s_159">SHA-384</span>, <span class="selectable-content" id="_s_160">SHA-512</span>]</i>], with 
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform Password-based Key Derivation Functions in accordance with a specified cryptographic algorithm [<i>HMAC-[<b>selection</b>: <span class="selectable-content" id="_s_131">SHA-384</span>, <span class="selectable-content" id="_s_132">SHA-512</span>]</i>], with 
               [<b>assignment</b>: 
      <span class="assignable-content">positive integer of 4096 or more</span>] iterations, and output cryptographic key sizes 
               [<i>256</i>] bits that meet the following: [<i>NIST SP 800-132</i>].
             </div></div>
           <div class="element"><div class="reqid" id="FIA_PSK_EXT.3.4"><a href="#FIA_PSK_EXT.3.4" class="abbr">FIA_PSK_EXT.3.4</a></div><div class="reqdesc">
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall not accept PSKs failing to meet [<b>selection</b>: <span class="selectable-content" id="_s_161">an administrator-defined</span>, <span class="selectable-content" id="_s_162">a fixed</span>]
-              password policy indicating the maximum <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> length consistent with <a href="#FIA_PSK_EXT.3.1">FIA_PSK_EXT.3.1</a> and [<b>selection</b>: <span class="selectable-content" id="_s_163">[<b>assignment</b>: 
-     <span class="assignable-content">password policy indicating minimum length and types of characters required</span>]</span>, <span class="selectable-content" id="_s_164">no additional password constraints</span>].
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall not accept PSKs failing to meet [<b>selection</b>: <span class="selectable-content" id="_s_133">an administrator-defined</span>, <span class="selectable-content" id="_s_134">a fixed</span>]
+              password policy indicating the maximum <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> length consistent with <a href="#FIA_PSK_EXT.3.1">FIA_PSK_EXT.3.1</a> and [<b>selection</b>: <span class="selectable-content" id="_s_135">[<b>assignment</b>: 
+     <span class="assignable-content">password policy indicating minimum length and types of characters required</span>]</span>, <span class="selectable-content" id="_s_136">no additional password constraints</span>].
             </div></div>
           <div class="element"><div class="reqid" id="FIA_PSK_EXT.3.5"><a href="#FIA_PSK_EXT.3.5" class="abbr">FIA_PSK_EXT.3.5</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate all salts using an <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> that meets FCS_RBG.1 and with entropy corresponding 
@@ -1884,12 +1810,12 @@ Network Device
             </div></div>
           <div class="element"><div class="reqid" id="FIA_PSK_EXT.3.6"><a href="#FIA_PSK_EXT.3.6" class="abbr">FIA_PSK_EXT.3.6</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall require the <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> to be entered in accordance with the 
-              [<b>selection</b>: <span class="selectable-content" id="_s_165">user authentication policy</span>, <span class="selectable-content" id="_s_166">protocol authentication requirement</span>].
+              [<b>selection</b>: <span class="selectable-content" id="_s_137">user authentication policy</span>, <span class="selectable-content" id="_s_138">protocol authentication requirement</span>].
             </div></div>
           
             <div class="element"><div class="reqid" id="FIA_PSK_EXT.3.7"><a href="#FIA_PSK_EXT.3.7" class="abbr">FIA_PSK_EXT.3.7</a></div><div class="reqdesc">
                 The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
-                [<b>selection</b>: <span class="selectable-content" id="_s_167">provide a password strength meter</span>, <span class="selectable-content" id="_s_168">check the password against a denylist</span>, <span class="selectable-content" id="_s_169">perform no action to assist the user in choosing a strong password</span>]. 
+                [<b>selection</b>: <span class="selectable-content" id="_s_139">provide a password strength meter</span>, <span class="selectable-content" id="_s_140">check the password against a denylist</span>, <span class="selectable-content" id="_s_141">perform no action to assist the user in choosing a strong password</span>]. 
               <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -1931,38 +1857,38 @@ Network Device
             </div></div>
           <div class="element"><div class="reqid" id="FIA_TOTP_EXT.1.4"><a href="#FIA_TOTP_EXT.1.4" class="abbr">FIA_TOTP_EXT.1.4</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use 
-              [<b>selection</b>: <span class="selectable-content" id="_s_170">SHA-384</span>, <span class="selectable-content" id="_s_171">SHA-512</span>] with key sizes 
+              [<b>selection</b>: <span class="selectable-content" id="_s_142">SHA-384</span>, <span class="selectable-content" id="_s_143">SHA-512</span>] with key sizes 
               [<b>assignment</b>: 
      <span class="assignable-content">key size (in bits) used in HMAC</span>] and message digest sizes 
-              [<b>selection</b>: <span class="selectable-content" id="_s_172">384</span>, <span class="selectable-content" id="_s_173">512</span>] bits to derive a <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> hash from the <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> seed and current time provided by NTP.
+              [<b>selection</b>: <span class="selectable-content" id="_s_144">384</span>, <span class="selectable-content" id="_s_145">512</span>] bits to derive a <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> hash from the <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> seed and current time provided by NTP.
             </div></div>
           <div class="element"><div class="reqid" id="FIA_TOTP_EXT.1.5"><a href="#FIA_TOTP_EXT.1.5" class="abbr">FIA_TOTP_EXT.1.5</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall truncate the <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> hash per <a href="#FIA_TOTP_EXT.1.4">FIA_TOTP_EXT.1.4</a> to create a <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> of  
-              [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_174">administrator configurable character length of at least 6</span></li><li style=""><span class="selectable-content" id="_s_175">preset character length of
-                  [<b>selection</b>: <span class="selectable-content" id="_s_176">6</span>, <span class="selectable-content" id="_s_177">7</span>, <span class="selectable-content" id="_s_178">8</span>, <span class="selectable-content" id="_s_179">9</span>, <span class="selectable-content" id="_s_180">10</span>]</span></li></ul>].
+              [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_146">administrator configurable character length of at least 6</span></li><li style=""><span class="selectable-content" id="_s_147">preset character length of
+                  [<b>selection</b>: <span class="selectable-content" id="_s_148">6</span>, <span class="selectable-content" id="_s_149">7</span>, <span class="selectable-content" id="_s_150">8</span>, <span class="selectable-content" id="_s_151">9</span>, <span class="selectable-content" id="_s_152">10</span>]</span></li></ul>].
             </div></div>
           <div class="element"><div class="reqid" id="FIA_TOTP_EXT.1.6"><a href="#FIA_TOTP_EXT.1.6" class="abbr">FIA_TOTP_EXT.1.6</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
-              [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_181">throttle invalid requests to 
-                  [<b>selection</b>: <span class="selectable-content" id="_s_182">administrator configurable value</span>, <span class="selectable-content" id="_s_183">[<b>assignment</b>: 
-     <span class="assignable-content">value less than 10</span>]</span>] per minute</span></li><li style=""><span class="selectable-content" id="_s_184">lock the associated account after 
-                  [<b>selection</b>: <span class="selectable-content" id="_s_185">administrator configurable value</span>, <span class="selectable-content" id="_s_186">[<b>assignment</b>: 
+              [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_153">throttle invalid requests to 
+                  [<b>selection</b>: <span class="selectable-content" id="_s_154">administrator configurable value</span>, <span class="selectable-content" id="_s_155">[<b>assignment</b>: 
+     <span class="assignable-content">value less than 10</span>]</span>] per minute</span></li><li style=""><span class="selectable-content" id="_s_156">lock the associated account after 
+                  [<b>selection</b>: <span class="selectable-content" id="_s_157">administrator configurable value</span>, <span class="selectable-content" id="_s_158">[<b>assignment</b>: 
      <span class="assignable-content">value less than 10</span>]</span>] failed attempts until 
-                  [<b>selection</b>: <span class="selectable-content" id="_s_187">an administrator unlocks the account</span>, <span class="selectable-content" id="_s_188">a configurable time period has elapsed</span>]</span></li></ul>].
+                  [<b>selection</b>: <span class="selectable-content" id="_s_159">an administrator unlocks the account</span>, <span class="selectable-content" id="_s_160">a configurable time period has elapsed</span>]</span></li></ul>].
             </div></div>
           <div class="element"><div class="reqid" id="FIA_TOTP_EXT.1.7"><a href="#FIA_TOTP_EXT.1.7" class="abbr">FIA_TOTP_EXT.1.7</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall set a time-step size of 
-              [<b>selection</b><b>, choose one of</b>: <span class="selectable-content" id="_s_189">a configurable number of</span>, <span class="selectable-content" id="_s_190">[<b>assignment</b>: 
+              [<b>selection</b><b>, choose one of</b>: <span class="selectable-content" id="_s_161">a configurable number of</span>, <span class="selectable-content" id="_s_162">[<b>assignment</b>: 
      <span class="assignable-content">a value less than or equal to 30</span>]</span>] seconds.
             </div></div>
           <div class="element"><div class="reqid" id="FIA_TOTP_EXT.1.8"><a href="#FIA_TOTP_EXT.1.8" class="abbr">FIA_TOTP_EXT.1.8</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall not validate a <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> value calculated using a time drift of more than 
-              [<b>selection</b><b>, choose one of</b>: <span class="selectable-content" id="_s_191">a configurable value</span>, <span class="selectable-content" id="_s_192">[<b>assignment</b>: 
+              [<b>selection</b><b>, choose one of</b>: <span class="selectable-content" id="_s_163">a configurable value</span>, <span class="selectable-content" id="_s_164">[<b>assignment</b>: 
      <span class="assignable-content">a value less than or equal to 3</span>]</span>] time-steps.            
             </div></div>
           <div class="element"><div class="reqid" id="FIA_TOTP_EXT.1.9"><a href="#FIA_TOTP_EXT.1.9" class="abbr">FIA_TOTP_EXT.1.9</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
-              [<b>selection</b><b>, choose one of</b>: <span class="selectable-content" id="_s_193">allow resynchronization by recording time drift within the limit of <a href="#FIA_TOTP_EXT.1.8">FIA_TOTP_EXT.1.8</a></span>, <span class="selectable-content" id="_s_194">not permit resynchronization</span>].           
+              [<b>selection</b><b>, choose one of</b>: <span class="selectable-content" id="_s_165">allow resynchronization by recording time drift within the limit of <a href="#FIA_TOTP_EXT.1.8">FIA_TOTP_EXT.1.8</a></span>, <span class="selectable-content" id="_s_166">not permit resynchronization</span>].           
             <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -2063,13 +1989,13 @@ Network Device
             
 	  </td></tr></table><h4 id="ext-comp-FCS_RADSEC_EXT.1.1">FCS_RADSEC_EXT.1.1</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement RadSec as specified in 
-              [<b>selection</b>: <span class="selectable-content" id="_s_111">RFC 6614</span>, <span class="selectable-content" id="_s_112">RFC 7360</span>] as updated by RFC 8996 to communicate securely with a relying party.
+              [<b>selection</b>: <span class="selectable-content" id="_s_83">RFC 6614</span>, <span class="selectable-content" id="_s_84">RFC 7360</span>] as updated by RFC 8996 to communicate securely with a relying party.
             <h4 id="ext-comp-FCS_RADSEC_EXT.1.2">FCS_RADSEC_EXT.1.2</h4>
                 The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform relying party authentication using X.509v3 certificates in accordance with FIA_X509_EXT.1 and 
-                [<b>selection</b>: <span class="selectable-content" id="radsec-uses-psk">pre-shared keys</span>, <span class="selectable-content" id="_s_116">no other methods</span>].
+                [<b>selection</b>: <span class="selectable-content" id="radsec-uses-psk">pre-shared keys</span>, <span class="selectable-content" id="_s_88">no other methods</span>].
               <h4 id="ext-comp-FCS_RADSEC_EXT.1.3">FCS_RADSEC_EXT.1.3</h4>
                 The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement RadSec using 
-                [<b>selection</b>: <span class="selectable-content" id="_s_119"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> in accordance with FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</span>, <span class="selectable-content" id="_s_120"><abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr> in accordance with FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</span>] with mutual authentication.  
+                [<b>selection</b>: <span class="selectable-content" id="_s_91"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> in accordance with FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</span>, <span class="selectable-content" id="_s_92"><abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr> in accordance with FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</span>] with mutual authentication.  
               </div></div></span><span data-sortkey="Identification and Authentication (FIA)"><h3 id="ext-comp-FIA" class="indexable" data-level="3">C.2.2 Identification and Authentication (FIA)</h3>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines the following extended components as part of the
 	 FIA class originally defined by <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> Part 2:
 	<h3 id="ext-comp-FIA_HOTP_EXT" class="indexable" data-level="4">C.2.2.1 FIA_HOTP_EXT HMAC-Based One-Time Password Pre-Shared Keys</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family define requirements for the use of HMAC-based One-Time Password authentication, including generation methods and usage restrictions.</div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FIA_HOTP_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FIA_HOTP_EXT.1">FIA_HOTP_EXT.1</a>,
@@ -2092,28 +2018,28 @@ Network Device
             <h4 id="ext-comp-FIA_HOTP_EXT.1.3">FIA_HOTP_EXT.1.3</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate a new <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> seed key for each claimant to be authenticated.
             <h4 id="ext-comp-FIA_HOTP_EXT.1.4">FIA_HOTP_EXT.1.4</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use
-              [<b>selection</b>: <span class="selectable-content" id="_s_121">SHA-384</span>, <span class="selectable-content" id="_s_122">SHA-512</span>] with key sizes 
+              [<b>selection</b>: <span class="selectable-content" id="_s_93">SHA-384</span>, <span class="selectable-content" id="_s_94">SHA-512</span>] with key sizes 
               [<b>assignment</b>: 
      <span class="assignable-content">key size (in bits) used in HMAC</span>] and message digest sizes 
-              [<b>selection</b>: <span class="selectable-content" id="_s_123">384</span>, <span class="selectable-content" id="_s_124">512</span>] to derive a <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> hash from the <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> seed and counter.
+              [<b>selection</b>: <span class="selectable-content" id="_s_95">384</span>, <span class="selectable-content" id="_s_96">512</span>] to derive a <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> hash from the <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> seed and counter.
             <h4 id="ext-comp-FIA_HOTP_EXT.1.5">FIA_HOTP_EXT.1.5</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall truncate the <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> hash per <a href="#FIA_HOTP_EXT.1.4">FIA_HOTP_EXT.1.4</a> to create a <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> of  
-              [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_125">administrator configurable character length of at least 6</span></li><li style=""><span class="selectable-content" id="_s_126">preset character length of
-                  [<b>selection</b>: <span class="selectable-content" id="_s_127">6</span>, <span class="selectable-content" id="_s_128">7</span>, <span class="selectable-content" id="_s_129">8</span>, <span class="selectable-content" id="_s_130">9</span>, <span class="selectable-content" id="_s_131">10</span>]</span></li></ul>].
+              [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_97">administrator configurable character length of at least 6</span></li><li style=""><span class="selectable-content" id="_s_98">preset character length of
+                  [<b>selection</b>: <span class="selectable-content" id="_s_99">6</span>, <span class="selectable-content" id="_s_100">7</span>, <span class="selectable-content" id="_s_101">8</span>, <span class="selectable-content" id="_s_102">9</span>, <span class="selectable-content" id="_s_103">10</span>]</span></li></ul>].
             <h4 id="ext-comp-FIA_HOTP_EXT.1.6">FIA_HOTP_EXT.1.6</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
-              [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_132">throttle invalid requests to 
-                  [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_133">administrator configurable value</span></li><li style=""><span class="selectable-content" id="_s_134">[<b>assignment</b>: 
-     <span class="assignable-content">value less than 10</span>]</span></li></ul>] per minute</span></li><li style=""><span class="selectable-content" id="_s_135">lock the associated account after 
-                  [<b>selection</b>: <span class="selectable-content" id="_s_136">administrator configurable value</span>, <span class="selectable-content" id="_s_137">[<b>assignment</b>: 
+              [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_104">throttle invalid requests to 
+                  [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_105">administrator configurable value</span></li><li style=""><span class="selectable-content" id="_s_106">[<b>assignment</b>: 
+     <span class="assignable-content">value less than 10</span>]</span></li></ul>] per minute</span></li><li style=""><span class="selectable-content" id="_s_107">lock the associated account after 
+                  [<b>selection</b>: <span class="selectable-content" id="_s_108">administrator configurable value</span>, <span class="selectable-content" id="_s_109">[<b>assignment</b>: 
      <span class="assignable-content">value less than 10</span>]</span>] failed attempts until 
-                  [<b>selection</b>: <span class="selectable-content" id="_s_138">an administrator unlocks the account</span>, <span class="selectable-content" id="_s_139">a configurable time period has elapsed</span>]</span></li></ul>].
+                  [<b>selection</b>: <span class="selectable-content" id="_s_110">an administrator unlocks the account</span>, <span class="selectable-content" id="_s_111">a configurable time period has elapsed</span>]</span></li></ul>].
             <h4 id="ext-comp-FIA_HOTP_EXT.1.7">FIA_HOTP_EXT.1.7</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall not verify <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> attempts outside of the counter look-ahead window of 
               [<b>assignment</b>: 
      <span class="assignable-content">a value less than or equal to three</span>] 
-              [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_140">except for resynchronization</span></li><li style=""><span class="selectable-content" id="_s_141">where a look-ahead window of [<b>selection</b>: <span class="selectable-content" id="_s_142">a configurable value</span>, <span class="selectable-content" id="_s_143">[<b>assignment</b>: 
-     <span class="assignable-content">fixed value</span>]</span>] is used to reset the counter but which is not considered a valid <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> value</span></li><li style=""><span class="selectable-content" id="_s_144">with no exception</span></li></ul>].
+              [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_112">except for resynchronization</span></li><li style=""><span class="selectable-content" id="_s_113">where a look-ahead window of [<b>selection</b>: <span class="selectable-content" id="_s_114">a configurable value</span>, <span class="selectable-content" id="_s_115">[<b>assignment</b>: 
+     <span class="assignable-content">fixed value</span>]</span>] is used to reset the counter but which is not considered a valid <abbr class="dyn-abbr"><a href="#abbr_HOTP">HOTP</a></abbr> value</span></li><li style=""><span class="selectable-content" id="_s_116">with no exception</span></li></ul>].
             <h4 id="ext-comp-FIA_HOTP_EXT.1.8">FIA_HOTP_EXT.1.8</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall increment the counter after each successful authentication.
             </div></div><h3 id="ext-comp-FIA_PSK_EXT" class="indexable" data-level="4">C.2.2.2 FIA_PSK_EXT Pre-Shared Keys</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family describe the requirements for pre-shared keys used for authentication.</div><h4>Component Leveling</h4><svg style="max-height: 70px;"><text x="4" fill="black" font-size="15" y="44">FIA_PSK_EXT</text><rect x="2" y="31" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="37" x2="231" y2="17" stroke="black"></line><text x="234" fill="black" font-size="15" y="44">2</text><rect x="232" y="31" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="37" x2="231" y2="37" stroke="black"></line><text x="234" fill="black" font-size="15" y="64">3</text><rect x="232" y="51" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="37" x2="231" y2="57" stroke="black"></line></svg><p>FIA_PSK_EXT.1,
@@ -2140,7 +2066,7 @@ Network Device
             </ul></p><h4>Audit: FIA_PSK_EXT.2</h4><p>There are no auditable events foreseen.
           </p><h4>FIA_PSK_EXT.2 Generated Pre-Shared Keys</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><span class="no-link">FIA_PSK_EXT.1</span> Pre-Shared Key Usage</td></tr></table><h4 id="ext-comp-FIA_PSK_EXT.2.1">FIA_PSK_EXT.2.1</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to 
-              [<b>selection</b>: <span class="selectable-content" id="_s_155">accept externally generated pre-shared keys</span>, <span class="selectable-content" id="_s_156">
+              [<b>selection</b>: <span class="selectable-content" id="_s_127">accept externally generated pre-shared keys</span>, <span class="selectable-content" id="_s_128">
                   generate 256 bit-based pre-shared keys via FCS_RBG.1. 
                   </span>].
             </div><h4>Management: FIA_PSK_EXT.3</h4><p>The following actions could be considered for the management functions in FMT:
@@ -2154,8 +2080,8 @@ Network Device
      <span class="assignable-content">positive integer of 64 or more</span>] characters. 
             <h4 id="ext-comp-FIA_PSK_EXT.3.2">FIA_PSK_EXT.3.2</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall allow PSKs to be composed of any combination of uppercase characters, 
               lowercase characters, numbers, the following special characters: "!", "@", "#", "$", "%", "^", "&amp;", "*", "(", and ")", and 
-              [<b>selection</b>: <span class="selectable-content" id="_s_157">[<b>assignment</b>: 
-     <span class="assignable-content">other supported special characters</span>]</span>, <span class="selectable-content" id="_s_158">no other characters</span>].
+              [<b>selection</b>: <span class="selectable-content" id="_s_129">[<b>assignment</b>: 
+     <span class="assignable-content">other supported special characters</span>]</span>, <span class="selectable-content" id="_s_130">no other characters</span>].
             <h4 id="ext-comp-FIA_PSK_EXT.3.3">FIA_PSK_EXT.3.3</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform Password-based Key Derivation Functions in accordance with a specified cryptographic algorithm [<b>assignment</b>: 
      <span class="assignable-content">key derivation algorithm</span>], with 
@@ -2165,18 +2091,18 @@ Network Device
      <span class="assignable-content">number of bits</span>] bits that meet the following: [<b>assignment</b>: 
      <span class="assignable-content">applicable standard</span>].
             <h4 id="ext-comp-FIA_PSK_EXT.3.4">FIA_PSK_EXT.3.4</h4>
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall not accept PSKs failing to meet [<b>selection</b>: <span class="selectable-content" id="_s_161">an administrator-defined</span>, <span class="selectable-content" id="_s_162">a fixed</span>]
-              password policy indicating the maximum <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> length consistent with <a href="#FIA_PSK_EXT.3.1">FIA_PSK_EXT.3.1</a> and [<b>selection</b>: <span class="selectable-content" id="_s_163">[<b>assignment</b>: 
-     <span class="assignable-content">password policy indicating minimum length and types of characters required</span>]</span>, <span class="selectable-content" id="_s_164">no additional password constraints</span>].
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall not accept PSKs failing to meet [<b>selection</b>: <span class="selectable-content" id="_s_133">an administrator-defined</span>, <span class="selectable-content" id="_s_134">a fixed</span>]
+              password policy indicating the maximum <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> length consistent with <a href="#FIA_PSK_EXT.3.1">FIA_PSK_EXT.3.1</a> and [<b>selection</b>: <span class="selectable-content" id="_s_135">[<b>assignment</b>: 
+     <span class="assignable-content">password policy indicating minimum length and types of characters required</span>]</span>, <span class="selectable-content" id="_s_136">no additional password constraints</span>].
             <h4 id="ext-comp-FIA_PSK_EXT.3.5">FIA_PSK_EXT.3.5</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate all salts using an <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> that meets FCS_RBG.1 and with entropy corresponding 
               to the key size selected for <abbr class="dyn-abbr"><a href="#abbr_PBKDF">PBKDF</a></abbr> in <a href="#FIA_PSK_EXT.3.3">FIA_PSK_EXT.3.3</a>.
             <h4 id="ext-comp-FIA_PSK_EXT.3.6">FIA_PSK_EXT.3.6</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall require the <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> to be entered in accordance with the 
-              [<b>selection</b>: <span class="selectable-content" id="_s_165">user authentication policy</span>, <span class="selectable-content" id="_s_166">protocol authentication requirement</span>].
+              [<b>selection</b>: <span class="selectable-content" id="_s_137">user authentication policy</span>, <span class="selectable-content" id="_s_138">protocol authentication requirement</span>].
             <h4 id="ext-comp-FIA_PSK_EXT.3.7">FIA_PSK_EXT.3.7</h4>
                 The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
-                [<b>selection</b>: <span class="selectable-content" id="_s_167">provide a password strength meter</span>, <span class="selectable-content" id="_s_168">check the password against a denylist</span>, <span class="selectable-content" id="_s_169">perform no action to assist the user in choosing a strong password</span>]. 
+                [<b>selection</b>: <span class="selectable-content" id="_s_139">provide a password strength meter</span>, <span class="selectable-content" id="_s_140">check the password against a denylist</span>, <span class="selectable-content" id="_s_141">perform no action to assist the user in choosing a strong password</span>]. 
               </div></div><h3 id="ext-comp-FIA_TOTP_EXT" class="indexable" data-level="4">C.2.2.3 FIA_TOTP_EXT Time-Based One-Time Password Pre-Shared Keys</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family define requirements for the use of Time-Based One-Time password authentication, including generation methods and usage restrictions.</div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FIA_TOTP_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FIA_TOTP_EXT.1">FIA_TOTP_EXT.1</a>,
              Time-Based One-Time Password Pre-Shared Keys,
               defines the implementation of <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr>.</p><h4>Management: FIA_TOTP_EXT.1</h4><p>The following actions could be considered for the management functions in FMT:
@@ -2198,33 +2124,33 @@ Network Device
             <h4 id="ext-comp-FIA_TOTP_EXT.1.3">FIA_TOTP_EXT.1.3</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate a new <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> seed for each claimant.
             <h4 id="ext-comp-FIA_TOTP_EXT.1.4">FIA_TOTP_EXT.1.4</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use 
-              [<b>selection</b>: <span class="selectable-content" id="_s_170">SHA-384</span>, <span class="selectable-content" id="_s_171">SHA-512</span>] with key sizes 
+              [<b>selection</b>: <span class="selectable-content" id="_s_142">SHA-384</span>, <span class="selectable-content" id="_s_143">SHA-512</span>] with key sizes 
               [<b>assignment</b>: 
      <span class="assignable-content">key size (in bits) used in HMAC</span>] and message digest sizes 
-              [<b>selection</b>: <span class="selectable-content" id="_s_172">384</span>, <span class="selectable-content" id="_s_173">512</span>] bits to derive a <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> hash from the <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> seed and current time provided by NTP.
+              [<b>selection</b>: <span class="selectable-content" id="_s_144">384</span>, <span class="selectable-content" id="_s_145">512</span>] bits to derive a <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> hash from the <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> seed and current time provided by NTP.
             <h4 id="ext-comp-FIA_TOTP_EXT.1.5">FIA_TOTP_EXT.1.5</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall truncate the <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> hash per <a href="#FIA_TOTP_EXT.1.4">FIA_TOTP_EXT.1.4</a> to create a <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> of  
-              [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_174">administrator configurable character length of at least 6</span></li><li style=""><span class="selectable-content" id="_s_175">preset character length of
-                  [<b>selection</b>: <span class="selectable-content" id="_s_176">6</span>, <span class="selectable-content" id="_s_177">7</span>, <span class="selectable-content" id="_s_178">8</span>, <span class="selectable-content" id="_s_179">9</span>, <span class="selectable-content" id="_s_180">10</span>]</span></li></ul>].
+              [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_146">administrator configurable character length of at least 6</span></li><li style=""><span class="selectable-content" id="_s_147">preset character length of
+                  [<b>selection</b>: <span class="selectable-content" id="_s_148">6</span>, <span class="selectable-content" id="_s_149">7</span>, <span class="selectable-content" id="_s_150">8</span>, <span class="selectable-content" id="_s_151">9</span>, <span class="selectable-content" id="_s_152">10</span>]</span></li></ul>].
             <h4 id="ext-comp-FIA_TOTP_EXT.1.6">FIA_TOTP_EXT.1.6</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
-              [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_181">throttle invalid requests to 
-                  [<b>selection</b>: <span class="selectable-content" id="_s_182">administrator configurable value</span>, <span class="selectable-content" id="_s_183">[<b>assignment</b>: 
-     <span class="assignable-content">value less than 10</span>]</span>] per minute</span></li><li style=""><span class="selectable-content" id="_s_184">lock the associated account after 
-                  [<b>selection</b>: <span class="selectable-content" id="_s_185">administrator configurable value</span>, <span class="selectable-content" id="_s_186">[<b>assignment</b>: 
+              [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_153">throttle invalid requests to 
+                  [<b>selection</b>: <span class="selectable-content" id="_s_154">administrator configurable value</span>, <span class="selectable-content" id="_s_155">[<b>assignment</b>: 
+     <span class="assignable-content">value less than 10</span>]</span>] per minute</span></li><li style=""><span class="selectable-content" id="_s_156">lock the associated account after 
+                  [<b>selection</b>: <span class="selectable-content" id="_s_157">administrator configurable value</span>, <span class="selectable-content" id="_s_158">[<b>assignment</b>: 
      <span class="assignable-content">value less than 10</span>]</span>] failed attempts until 
-                  [<b>selection</b>: <span class="selectable-content" id="_s_187">an administrator unlocks the account</span>, <span class="selectable-content" id="_s_188">a configurable time period has elapsed</span>]</span></li></ul>].
+                  [<b>selection</b>: <span class="selectable-content" id="_s_159">an administrator unlocks the account</span>, <span class="selectable-content" id="_s_160">a configurable time period has elapsed</span>]</span></li></ul>].
             <h4 id="ext-comp-FIA_TOTP_EXT.1.7">FIA_TOTP_EXT.1.7</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall set a time-step size of 
-              [<b>selection</b><b>, choose one of</b>: <span class="selectable-content" id="_s_189">a configurable number of</span>, <span class="selectable-content" id="_s_190">[<b>assignment</b>: 
+              [<b>selection</b><b>, choose one of</b>: <span class="selectable-content" id="_s_161">a configurable number of</span>, <span class="selectable-content" id="_s_162">[<b>assignment</b>: 
      <span class="assignable-content">a value less than or equal to 30</span>]</span>] seconds.
             <h4 id="ext-comp-FIA_TOTP_EXT.1.8">FIA_TOTP_EXT.1.8</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall not validate a <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> value calculated using a time drift of more than 
-              [<b>selection</b><b>, choose one of</b>: <span class="selectable-content" id="_s_191">a configurable value</span>, <span class="selectable-content" id="_s_192">[<b>assignment</b>: 
+              [<b>selection</b><b>, choose one of</b>: <span class="selectable-content" id="_s_163">a configurable value</span>, <span class="selectable-content" id="_s_164">[<b>assignment</b>: 
      <span class="assignable-content">a value less than or equal to 3</span>]</span>] time-steps.            
             <h4 id="ext-comp-FIA_TOTP_EXT.1.9">FIA_TOTP_EXT.1.9</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
-              [<b>selection</b><b>, choose one of</b>: <span class="selectable-content" id="_s_193">allow resynchronization by recording time drift within the limit of <a href="#FIA_TOTP_EXT.1.8">FIA_TOTP_EXT.1.8</a></span>, <span class="selectable-content" id="_s_194">not permit resynchronization</span>].           
+              [<b>selection</b><b>, choose one of</b>: <span class="selectable-content" id="_s_165">allow resynchronization by recording time drift within the limit of <a href="#FIA_TOTP_EXT.1.8">FIA_TOTP_EXT.1.8</a></span>, <span class="selectable-content" id="_s_166">not permit resynchronization</span>].           
             </div></div></span></span><h1 id="satisfiedreqs" class="indexable" data-level="A">Appendix D -  Implicitly Satisfied Requirements</h1><p>This appendix lists requirements that should be considered satisfied by products
 			successfully evaluated against this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. These requirements are not featured
 			explicitly as <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> and should not be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. They are not included as 
@@ -2296,8 +2222,10 @@ Network Device
         <td>Feature Dependent</td>
       </tr>
       <tr>
-        <td><a href="#FIA_X509_EXT.1/AuthSvr">FIA_X509_EXT.1/AuthSvr</a></td>
-        <td>X.509 Certificate Validation (Claimant)</td>
+        <td>FIA_X509_EXT.1 (as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>)</td>
+        <td>X.509 Certificate Validation</td>
         <td>Feature Dependent</td>
       </tr>
       <tr>

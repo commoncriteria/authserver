@@ -1,8 +1,4 @@
 * Warning: This document still has at least one comment.
-* Error: Detected multiple elements with an id of 'valid-name-types'.
-* Error: Detected multiple elements with an id of 'valid-oid'.
-* Error: Detected multiple elements with an id of 'valid-name-types'.
-* Error: Detected multiple elements with an id of 'valid-oid'.
 * Error: Detected multiple elements with an id of 'radsec-uses-psk'.
 * Error: Detected multiple elements with an id of 'radsec-uses-psk'.
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
@@ -19,6 +15,10 @@
 	  /Module[1]""/sec:Introduction[1]""/section[1]"This sect"/package-usage-list[1]""/package-usage[1]""/usage[6]""/config[1]""/ref-id[1]"dummy-ref"
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
 	  /Module[1]""/sec:Introduction[1]""/section[1]"This sect"/package-usage-list[1]""/package-usage[1]""/usage[7]""/config[1]""/ref-id[1]"dummy-ref"
+* Error: Detected dangling ref-id to 'dummy-ref-id'.
+	  /Module[1]""/sec:Introduction[1]""/section[1]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[1]""/config[1]""/ref-id[1]"dummy-ref"
+* Error: Detected dangling ref-id to 'dummy-ref-id'.
+	  /Module[1]""/sec:Introduction[1]""/section[1]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[2]""/config[1]""/ref-id[1]"dummy-ref"
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/sec:Overview[1]"An authen"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/sec:Overview[1]"An authen"/h:p[2]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/sec:Overview[1]"An authen"/h:p[3]""
@@ -31,8 +31,8 @@
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/sec:TOE_Boundary[1]"This docu"/h:p[2]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/sec:TOE_Boundary[1]"This docu"/h:p[3]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/sec:TOE_Boundary[1]"This docu"/h:p[4]""
-* Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/section[1]"This sect"/package-usage-list[1]""/package-usage[1]""/usage[4]""/description[1]"The ST au"/testlist[1]""/test[2]"[conditio"/testlist[1]""/test[3]"[conditio"/h:p[1]""
-* Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/section[1]"This sect"/package-usage-list[1]""/package-usage[1]""/usage[4]""/description[1]"The ST au"/testlist[1]""/test[2]"[conditio"/testlist[1]""/test[8]"[conditio"/h:p[1]""
+* Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/section[1]"This sect"/package-usage-list[1]""/package-usage[1]""/usage[4]""/description[1]"The ST au"/h:ul[1]""/h:li[2]"Test FIA_"/h:ul[1]""/h:li[3]""/h:i[1]"Test FIA_"/h:p[1]""
+* Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/section[1]"This sect"/package-usage-list[1]""/package-usage[1]""/usage[4]""/description[1]"The ST au"/h:ul[1]""/h:li[2]"Test FIA_"/h:ul[1]""/h:li[8]""/h:i[1]"Test FIA_"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/sec:man_fco[1]""/f-component[1]""/f-element[3]""/aactivity[1]""/TSS[1]"The evalu"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/sec:man_fco[1]""/f-component[1]""/f-element[3]""/aactivity[1]""/TSS[1]"The evalu"/h:p[2]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/sec:man_fco[1]""/f-component[1]""/f-element[3]""/aactivity[1]""/TSS[1]"The evalu"/h:p[3]""
@@ -68,10 +68,6 @@
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/sec:man_fia[1]""/f-component[1]""/f-element[2]""/aactivity[1]""/Tests[1]"The evalu"/testlist[1]""/test[2]"If the ad"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/sec:man_fia[1]""/f-component[2]""/f-element[1]""/aactivity[1]""/TSS[1]"There are"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/sec:man_fia[1]""/f-component[2]""/f-element[1]""/aactivity[1]""/Guidance[1]"The evalu"/h:p[1]""
-* Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/sec:man_fia[1]""/f-component[3]""/f-element[2]""/aactivity[1]""/Guidance[1]"The evalu"/h:p[1]""
-* Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/sec:man_fia[1]""/f-component[3]""/f-element[2]""/aactivity[1]""/Tests[1]"The evalu"/testlist[1]""/test[1]"The evalu"/h:p[1]""
-* Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/sec:man_fia[1]""/f-component[3]""/f-element[2]""/aactivity[1]""/Tests[1]"The evalu"/testlist[1]""/test[8]"[conditio"/testlist[1]""/test[3]"[conditio"/h:p[1]""
-* Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/sec:man_fia[1]""/f-component[3]""/f-element[2]""/aactivity[1]""/Tests[1]"The evalu"/testlist[1]""/test[8]"[conditio"/testlist[1]""/test[8]"[conditio"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/sec:man_fmt[1]""/f-component[1]""/f-element[1]""/aactivity[1]""/TSS[1]"The evalu"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/sec:man_fmt[1]""/f-component[1]""/f-element[1]""/aactivity[1]""/Guidance[1]"For each "/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/sec:man_fta[1]""/f-component[1]""/f-element[1]""/aactivity[1]""/TSS[1]"The evalu"/h:p[1]""
