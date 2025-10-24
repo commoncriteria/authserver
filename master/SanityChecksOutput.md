@@ -1,4 +1,8 @@
 * Warning: This document still has at least one comment.
+* Error: Detected multiple elements with an id of 'valid-name-types'.
+* Error: Detected multiple elements with an id of 'valid-oid'.
+* Error: Detected multiple elements with an id of 'valid-name-types'.
+* Error: Detected multiple elements with an id of 'valid-oid'.
 * Error: Detected multiple elements with an id of 'radsec-uses-psk'.
 * Error: Detected multiple elements with an id of 'radsec-uses-psk'.
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
@@ -27,6 +31,8 @@
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/sec:TOE_Boundary[1]"This docu"/h:p[2]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/sec:TOE_Boundary[1]"This docu"/h:p[3]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/sec:TOE_Boundary[1]"This docu"/h:p[4]""
+* Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/section[1]"This sect"/package-usage-list[1]""/package-usage[1]""/usage[4]""/description[1]"The ST au"/testlist[1]""/test[2]"[conditio"/testlist[1]""/test[3]"[conditio"/h:p[1]""
+* Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/section[1]"This sect"/package-usage-list[1]""/package-usage[1]""/usage[4]""/description[1]"The ST au"/testlist[1]""/test[2]"[conditio"/testlist[1]""/test[8]"[conditio"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/sec:man_fco[1]""/f-component[1]""/f-element[3]""/aactivity[1]""/TSS[1]"The evalu"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/sec:man_fco[1]""/f-component[1]""/f-element[3]""/aactivity[1]""/TSS[1]"The evalu"/h:p[2]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/sec:man_fco[1]""/f-component[1]""/f-element[3]""/aactivity[1]""/TSS[1]"The evalu"/h:p[3]""

@@ -54,11 +54,15 @@ output/authserver-release.html: UPN
 output/authserver-release.html: XCU
 output/authserver-release.html: anyExtendedKeyUsage
 output/authserver-release.html: anyPolicy
+output/authserver-release.html: anyPolicy’
 output/authserver-release.html: certitifcate
 output/authserver-release.html: denylist
 output/authserver-release.html: dnsName
 output/authserver-release.html: exception’
+output/authserver-release.html: explicitPolicy
 output/authserver-release.html: extension’
+output/authserver-release.html: inhibitAny
+output/authserver-release.html: inhibitAnyPolicy
 output/authserver-release.html: inhibitPolicyMapping
 output/authserver-release.html: ipsec
 output/authserver-release.html: password’
