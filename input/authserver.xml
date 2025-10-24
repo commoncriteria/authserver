@@ -249,7 +249,69 @@
               The ST author shall select the option to process the basicConstraints and extendedKeyUsage extensions in FIA_X509_EXT.1.2. If the TOE supports utilization of certitifcate names of types other than a Directory Name, the ST author shall select the 
               option to process the subjectAlternateName extension and the relevant options within the subjectAlternateName extension that correspond to the supported identifier types. If the TOE supports the use of UPN names, 
               the ST author shall utilize the assignment for other name types within the selection for extendedKeyUsage support to specify the use of the UPN name type.<h:br/>
-              The ST author shall utilize the assignment for other extensions within the list of selectable certificate extensions to specify supported policy-related extensions, including certificate policy, policy mapping, policy constraints, and inhibit anyPolicy.
+              The ST author shall utilize the assignment for other extensions within the list of selectable certificate extensions to specify supported policy-related extensions, including certificate policy, policy mapping, policy constraints, and inhibit anyPolicy. <h:br/><h:br/>
+              In addition, the ST author shall perform the following tests as appropriate:
+              <testlist>
+                <test>
+                    The evaluator shall test the following name constraints: 
+                    <testlist>
+                      <test id="valid-name-types">For each name type supported, the evaluator shall establish a valid certificate for a registered entity. 
+                        The evaluator shall ensure the certificate has a valid path length of at least three, consisting of a trusted root, 
+                        an issuing CA that is not a trust anchor, and the leaf certificate representing the entity. 
+                        The evaluator shall ensure that the leaf certificate includes a single name of the supported name type and no other DN or SAN entries. 
+                        The evaluator shall initiate an application requiring authentication of that entity using the certificate and verify the TSF successfully authenticates the entity. 
+                      </test>
+                      <test>For each leaf certificate used in <xref to="valid-name-types"/>, the evaluator shall establish a new leaf certificate that includes the same name and name type, 
+                        but which is issued by a different subordinate CA asserting an allowed-list that does not include the name for the name-type. 
+                        The evaluator shall ensure the subordinate CA is included in a valid chain to the same trusted root. 
+                        The evaluator shall initiate the same application attempt as in <xref to="valid-name-types"/> for the new certificate and observe that the TSF indicates the certificate is invalid.
+                      </test>
+                      <test>For each leaf certificate used in <xref to="valid-name-types"/>, 
+                        the evaluator shall establish a new leaf certificate that includes the same name and name type, 
+                        but which is issued by a different subordinate CA asserting a denylist matching the name for the name type. 
+                        The evaluator shall ensure the subordinate CA is included in a valid certificate path to the same trusted root. 
+                        The evaluator shall initiate the same application attempt as in <xref to="valid-name-types"/> using the new certificate and observe that the TSF indicates the certificate is invalid. 
+                      </test>
+                    </testlist>
+                  </test>
+                  <test>
+                    [conditional] If the TOE supports processing of the policy constraints extension, then for each distinct purpose and within the constraints indicated in the ST 
+                    (claimant authentication and any other supported subject types), the evaluator shall follow the operational guidance as necessary to configure the TOE to require the subject’s certificate to assert a specific certificate policy. 
+                    The evaluator shall perform the following sub-tests:
+                    <testlist>
+                      <test id="valid-oid">The evaluator shall establish a certificate for the subject asserting the certificate policy OID required, issued by a Certification Authority also specifying the required certificate policy. 
+                        The evaluator shall present the established certificate for authentication and verify that the TSF successfully validates the certificate. </test>
+                      <test>[conditional] If the ST selects 'Inhibit anyPolicy extension...," the evaluator shall repeat <xref to="valid-oid"/> using a certificate asserting the required policy but issued by a Certification Authority only asserting the ‘anyPolicy’ OID (value {2 5 29 32 0}) in its policy constraints extension. The evaluator shall observe that the TSF successfully validates the certificate.</test>
+                      <test>[conditional] If the ST indicates support for the policy mapping extension, 
+                        the evaluator shall repeat <xref to="valid-oid"/> using a certificate asserting a new policy OID that does not match the required policy OID. This certificate  
+                        is issued by a CA asserting the new policy OID in the policy constraints extension, and the CA certificate is issued by a second CA. This second
+                        CA asserts the required OID in its certificate constraints extension and contains a policy mapping extension 
+                        including the mapping of the asserted policy to the required policy. 
+                        The evaluator shall observe that the TSF successfully validates the certificate.<h:p/> 
+                        Note that installing a root CA trusted by the TOE with the required policy constraints and policy mapping extensions may be required if the TSF limits the path length of certificate chains.</test>
+                      <test>[conditional] If the ST indicates support for both policy mapping and policy constraints extensions and also supports certificate chains of length four or more, 
+                        the evaluator shall establish a certificate for the subject asserting a new policy OID that does not match the required policy OID. This certificate 
+                        is issued by a CA asserting the new policy OID, which in turn is issued by a second CA which includes the policy mapping extension that maps the required policy OID to the new policy OID.  
+                        The second CA is in turn issued by a third CA that has the extension policy constraints with the inhibitPolicyMapping field having value 0. 
+                        The evaluator shall present the certificate to the TSF for authentication and observe that the TSF indicates the certificate is invalid.</test>
+                      <test>[conditional] If the ST indicates support for both policy mapping and policy constraints extensions, 
+                        the evaluator shall select a policy OID not required for authentication in the TOE’s current configuration. 
+                        The evaluator shall establish a certificate for the subject that does not assert the non-required policy, 
+                        which is issued by a CA also asserting the new policy OID, which in turn, is issued by a CA asserting the ‘anyPolicy’ OID and having a critical policy constraints extension 
+                        with the explicitPolicy field with value 0. The evaluator shall present the certificate to the TSF for authentication and observe that the TSF indicates the certificate is invalid.</test>
+                      <test>The evaluator shall establish a certificate for the subject asserting the required policy but issued by a Certification Authority that does not include any certificate policy related extensions. 
+                        The evaluator shall present the certificate for authentication and observe that the TSF indicates the certificate is invalid.</test>
+                      <test>The evaluator shall establish a certificate for the subject asserting the required certificate policy issued by a Certification Authority that only asserts a single, 
+                        non-matching policy OID in its policy related extensions (i.e., the CA certificate does not include the matching OID, ‘anyPolicy’ assertions or assert an OID that is mapped to the required OID 
+                        via policy matching extensions by previous Certification Authorities in the certificate chain, if supported). 
+                        The evaluator shall present the certificate to the TSF for authentication and observe the TSF indicates the certificate is invalid.</test>
+                      <test>[conditional] If the ST indicates the inhibitAnyPolicy extension is supported, the evaluator shall establish a certificate for the subject asserting the required policy issued by a CA 
+                        asserting the ‘anyPolicy’ OID, which is in turn issued by a CA with an inhibitAny extension with value 0. 
+                        The evaluator shall present the certificate to the TSF for authentication and observe the TSF indicates the certificate is invalid. <h:p/>
+                        Note that installing a root CA trusted by the TOE with the inhibitAny extension may be required if the TSF limits the path length of certificate chains.</test>
+                    </testlist>
+                  </test>
+              </testlist>
             </description>
             <config>
               <ref-id>dummy-ref-id</ref-id>
