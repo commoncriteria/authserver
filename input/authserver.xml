@@ -276,7 +276,7 @@
                     </h:ul>
                     </h:i>
                   </h:li>
-                  <h:li>
+                  <h:li><h:i>
                     Test FIA_X509_EXT.1:AuthSvr:2: [conditional] If the TOE supports processing of the policy constraints extension, then for each distinct purpose and within the constraints indicated in the ST 
                     (claimant authentication and any other supported subject types), the evaluator shall follow the operational guidance as necessary to configure the TOE to require the subject’s certificate to assert a specific certificate policy. 
                     The evaluator shall perform the following sub-tests:
@@ -312,7 +312,7 @@
                         The evaluator shall present the certificate to the TSF for authentication and observe the TSF indicates the certificate is invalid. <h:p/>
                         Note that installing a root CA trusted by the TOE with the inhibitAny extension may be required if the TSF limits the path length of certificate chains.</h:i></h:li>
                     </h:ul>
-                  </h:li>
+                  </h:i></h:li>
               </h:ul>
             </description>
             <config>
