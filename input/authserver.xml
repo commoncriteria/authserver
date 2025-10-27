@@ -1010,7 +1010,7 @@
             <note role="application">The ST author should indicate support for EAP-TLS or EAP-TTLS in FCS_EAPTLS_EXT.1.1. 
               In the third selection, ‘FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2’ or 'FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2’ is selected 
               according to the TLS or DTLS support indicated in the second selection, with
-              the expectation that the corresponding SFRs from the Base-PP are claimed.
+              the expectation that the corresponding SFRs from the <xref to="tls"/> are claimed.
               <h:p/>
               FCS_TLSS_EXT.1, FCS_TLSS_EXT.2, FCS_DTLSS_EXT.1, and FCS_DTLSS_EXT.2 are defined in the <xref to="tls"/>.
               The selection in FCS_EAPTLS_EXT.1.2 matches the first selection in FCS_EAPTLS_EXT.1.1.
