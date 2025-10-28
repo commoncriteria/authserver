@@ -349,6 +349,14 @@
               <ref-id>dummy-ref-id</ref-id>
             </config>
           </usage>
+          <usage id="usage-x509-usage" title="Required Function Claims in FIA_X509_EXT.2.1">
+            <description>
+              The ST author shall ensure that the selections and assignments within FIA_X509_EXT.2.1 reflect the usage of X.509 for EAP-TLS. Other selections and assignments may be made as appropriate for other TOE functionality.
+            </description>
+            <config>
+              <ref-id>dummy-ref-id</ref-id>
+            </config>
+          </usage>
         </package-usage>
         <package-usage ref="tls">
           <usage id="usage-tls-clientreq" title="TLS or DTLS Client Functionality Required in FCS_TLS_EXT.1.1">
@@ -397,11 +405,11 @@
             to extract security-relevant, or sensitive user data from the TOE or its Operational Environment.</description>
           <consistency-rationale>This threat is similar to the T.WEAK_AUTHENTICATION_ENDPOINTS threat in the NDcPP but it applies specifically to the NAS, 
             which is an environmental component that is defined specifically in this PP-Module.</consistency-rationale>
-            <addressed-by>FIA_X509_EXT.1 (modified from <xref to="X509"/>)</addressed-by>                    
+            <addressed-by>FIA_X509_EXT.1 (from <xref to="X509"/>)</addressed-by>                    
             <rationale>Mitigates the threat by authenticating relying parties via X.509 certificates.</rationale>
-            <addressed-by>FIA_X509_EXT.2 (modified from <xref to="X509"/>)</addressed-by>                    
+            <addressed-by>FIA_X509_EXT.2 (from <xref to="X509"/>)</addressed-by>                    
             <rationale>Mitigates the threat by authenticating relying parties via X.509 certificates.</rationale>
-            <addressed-by>FIA_X509_EXT.3 (modified from <xref to="X509"/>)</addressed-by>                    
+            <addressed-by>FIA_X509_EXT.3 (from <xref to="X509"/>)</addressed-by>                    
             <rationale>Mitigates the threat by implementing a method for the TOE to obtain its own certificate for mutually-authenticated TLS or DTLS.</rationale>
           <addressed-by>FCS_EAPTLS_EXT.1</addressed-by>
           <rationale>
@@ -595,41 +603,7 @@
       <url>https://www.niap-ccevs.org/protectionprofiles/482</url>
   	  <cPP/>
 
-	<modified-sfrs>
-        <!-- per open comment, it's unclear whether we need to treat any other NDcPP SFRs as 'modified' (most notably FIA_X509_EXT.1/Rev and FTP_ITC.1, or are those completely separate from what is needed for auth server) -->
-
-        <section title="Identification and Authentication (FIA)" id="nd-mod-fia">
-          
-          <base-sfr-spec cc-id="fia_x509_ext.1"  title="X.509 Certificate Validation" id="nd-mod-fia-x509-ext-1"> 
-          <consistency-rationale><comment>There is currently no way to accurately model the status of this SFR (as well as FIA_X509_EXT.2 and FIA_X509_EXT.3). 
-          Since the X.509 package will be replacing the definitions in the NDcPP, these are technically not going to be defined in the Base-PP, but we do not have an authoritative 
-          way to denote this in the XML schema. Additionally, it may be such that we need to list FIA_XCU_EXT.1 in this section and define certain selections as 
-          required instead of directly listing the SFRs, since the X.509 package uses that SFR as its 'entry point'. For now, these have only been moved to the updated modified SFR schema 
-          and no substantive changes have been applied.</comment>
-          This PP-Module modifies the Functional Package's definition of the SFR by making it mandatory rather than selection-based.</consistency-rationale>
-          <description>This SFR is selection-based in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</h:a>. When the TOE conforms to this PP-Module it is mandatory 
-                because of the PP-Module's certificate-based authentication of the channel between the TOE and a federated relying party. The SFR is unchanged from its definition in the NDcPP.</description>
-          <set-status status="mandatory"/>
-          <no-change/>
-          </base-sfr-spec>
-          <base-sfr-spec cc-id="fia_x509_ext.2" title="X.509 Certificate Authentication" id="nd-mod-fia-x509-ext-2">
-          <consistency-rationale>This PP-Module modifies the Functional Package's definition of the SFR by making it mandatory rather than selection-based.</consistency-rationale>
-          <description>This SFR is selection-based in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</h:a>. When the TOE conforms to this PP-Module it is mandatory because of the PP-Module's requirement for 
-                certificate-based authentication of the channel between the TOE and a federated relying party using IPsec with certificate-based authentication, 
-                mutually authenticated TLS or DTLS, or RadSec, which in turn uses IPsec or mutually authenticated TLS or DTLS. The SFR is unchanged from its definition in the NDcPP.</description>
-          <no-change/>
-          <set-status status="mandatory"/>
-          </base-sfr-spec>
-          <base-sfr-spec cc-id="fia_x509_ext.3" title="X.509 Certificate Requests" id="nd-mod-fia-x509-ext-3">
-          <consistency-rationale>This PP-Module modifies the Functional Package's definition of the SFR by making it mandatory rather than selection-based.</consistency-rationale>
-          <description>This SFR is selection-based in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</h:a>. When the TOE conforms to this PP-Module it is mandatory because of the PP-Module's requirement for implementation of mutually-authenticated TLS or DTLS.</description>
-          <no-change/>
-          <set-status status="mandatory"/>
-          </base-sfr-spec>
-        </section>
-        
-
-      </modified-sfrs>
+	    <modified-sfrs/>
       <additional-sfrs/>
       <con-toe> 
         When this PP-Module is used to extend the NDcPP, the TOE type for the overall TOE is still a network device.
