@@ -6,6 +6,7 @@ output/authserver-release-linkable.html: CEM
 output/authserver-release-linkable.html: CNSA
 output/authserver-release-linkable.html: DTLSC
 output/authserver-release-linkable.html: DTLSS
+output/authserver-release-linkable.html: NDcPP
 output/authserver-release-linkable.html: NTP
 output/authserver-release-linkable.html: OTP
 output/authserver-release-linkable.html: PBKDF2
@@ -35,6 +36,7 @@ output/authserver-release.html: CEM
 output/authserver-release.html: CNSA
 output/authserver-release.html: DTLSC
 output/authserver-release.html: DTLSS
+output/authserver-release.html: NDcPP
 output/authserver-release.html: NTP
 output/authserver-release.html: OTP
 output/authserver-release.html: PSKs
@@ -65,6 +67,7 @@ output/authserver-sd.html: C1
 output/authserver-sd.html: C2
 output/authserver-sd.html: CEM
 output/authserver-sd.html: DTLSS
+output/authserver-sd.html: NDcPP
 output/authserver-sd.html: PBKDF2
 output/authserver-sd.html: RP1
 output/authserver-sd.html: RP2
@@ -86,6 +89,7 @@ output/authserver.html: CEM
 output/authserver.html: CNSA
 output/authserver.html: DTLSC
 output/authserver.html: DTLSS
+output/authserver.html: NDcPP
 output/authserver.html: NTP
 output/authserver.html: OTP
 output/authserver.html: PBKDF2
