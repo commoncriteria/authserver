@@ -20,7 +20,6 @@ output/authserver-release-linkable.html: TTLS
 output/authserver-release-linkable.html: UPN
 output/authserver-release-linkable.html: XCU
 output/authserver-release-linkable.html: anyPolicy
-output/authserver-release-linkable.html: certitifcate
 output/authserver-release-linkable.html: denylist
 output/authserver-release-linkable.html: denylisted
 output/authserver-release-linkable.html: explicitPolicy
@@ -48,7 +47,6 @@ output/authserver-release.html: UPN
 output/authserver-release.html: XCU
 output/authserver-release.html: anyPolicy
 output/authserver-release.html: anyPolicy’
-output/authserver-release.html: certitifcate
 output/authserver-release.html: denylist
 output/authserver-release.html: exception’
 output/authserver-release.html: explicitPolicy
@@ -104,7 +102,6 @@ output/authserver.html: UPN
 output/authserver.html: XCU
 output/authserver.html: anyPolicy
 output/authserver.html: anyPolicy’
-output/authserver.html: certitifcate
 output/authserver.html: denylist
 output/authserver.html: denylisted
 output/authserver.html: exception’
