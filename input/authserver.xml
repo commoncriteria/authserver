@@ -246,7 +246,9 @@
           </usage>
           <usage id="usage-x509-extensions" title="Required Extension Processing in FIA_X509_EXT.1.2">
             <description>
-              The ST author shall select the option to process the basicConstraints and extendedKeyUsage extensions in FIA_X509_EXT.1.2. If the TOE supports utilization of certitifcate names of types other than a Directory Name, the ST author shall select the 
+              The ST author shall select the option to process the basicConstraints and
+              extendedKeyUsage extensions in FIA_X509_EXT.1.2. If the TOE supports the use of
+              certificate names of types other than a Directory Name, the ST author shall select the 
               option to process the subjectAlternateName extension and the relevant options within the subjectAlternateName extension that correspond to the supported identifier types. If the TOE supports the use of UPN names, 
               the ST author shall utilize the assignment for other name types within the selection for extendedKeyUsage support to specify the use of the UPN name type.<h:br/>
               The ST author shall utilize the assignment for other extensions within the list of selectable certificate extensions to specify supported policy-related extensions, including certificate policy, policy mapping, policy constraints, and inhibit anyPolicy. <h:br/><h:br/>
