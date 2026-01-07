@@ -1,4 +1,3 @@
-* Warning: This document still has at least one comment.
 * Error: Detected multiple elements with an id of 'radsec-uses-psk'.
 * Error: Detected multiple elements with an id of 'radsec-uses-psk'.
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
