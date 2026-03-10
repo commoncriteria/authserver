@@ -1,0 +1,4 @@
+* https://commoncriteria.github.io/authserver/release-2.0/authserver-sd.html.pdf[authserver-sd.html.pdf]
+* https://commoncriteria.github.io/authserver/release-2.0/authserver-release.html.pdf[authserver-release.html.pdf]
+* https://commoncriteria.github.io/authserver/release-2.0/authserver.html.pdf[authserver.html.pdf]
+* https://commoncriteria.github.io/authserver/release-2.0/authserver-release-linkable.html.pdf[authserver-release-linkable.html.pdf]
