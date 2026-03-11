@@ -1,0 +1,5 @@
+* https://commoncriteria.github.io/authserver/xml-builder-review/authserver-release-linkable.html[authserver-release-linkable.html]
+* https://commoncriteria.github.io/authserver/xml-builder-review/authserver-release.html[authserver-release.html]
+* https://commoncriteria.github.io/authserver/xml-builder-review/authserver-sd.html[authserver-sd.html]
+* https://commoncriteria.github.io/authserver/xml-builder-review/authserver.html[authserver.html]
+* https://commoncriteria.github.io/authserver/xml-builder-review/diff-v1.0.html[diff-v1.0.html]
