@@ -1346,6 +1346,7 @@
         </f-component>
       </section>
     </man-sfrs>
+    <mod-sars/>
     <opt-sfrs/>
     <sel-sfrs>
       <section id="sec-sel-audit-table" title="Auditable Events for Selection-Based SFRs">
@@ -2126,7 +2127,6 @@
     </sel-sfrs>
     <obj-sfrs/>
     <impl-dep-sfrs/>
-    <mod-sars/>
   </sec:Security_Requirements>
   <appendix title="Implicitly Satisfied Requirements" id="satisfiedreqs">This PP-Module has no implicitly satisfied requirements. All SFR dependencies are explicitly met either through SFRs defined by the PP-Module or inherited from the Base-PP.</appendix>
   <appendix title="Entropy Documentation and Assessment" id="EAR">The TOE does not require any additional supplementary information to describe its entropy sources beyond the requirements outlined in the Base-PP.</appendix>
