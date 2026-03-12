@@ -420,7 +420,6 @@
         </threat>
         <threat name="T.UNAUTHORIZED_ADMINISTRATOR_ACCESS">
           <from base="ND"/>
-          <description></description>
           <!-- New mapping to build updated threat mapping table. -->
           <addressed-by>FAU_GEN.1/AuthSvr</addressed-by>
           <rationale>Mitigates the threat by implementing an audit mechanism to detect potential misuse of the TOE.</rationale>
@@ -438,7 +437,6 @@
         </threat>
         <threat name="T.UNDETECTED_ACTIVITY">
           <from base="ND"/>
-          <description></description>
           <!-- New mapping to build updated threat mapping table. -->
           <addressed-by>FAU_GEN.1/AuthSvr</addressed-by>
           <rationale>Mitigates the threat by implementing an audit mechanism to detect potential misuse of the TOE.</rationale>
@@ -524,6 +522,9 @@
     </base-pp>
     <!-- 5.2 TOE Security Functional Requirements -->
     <man-sfrs>
+      <section id="sec-audit-table" title="Auditable Events for Mandatory SFRs">
+        <audit-table id="at-mandatory" table="mandatory"/>
+      </section>
       <!-- 5.2.1 Security Audit (FAU) -->
       <section title="Security Audit (FAU)" id="man_fau">
         <!-- FAU_GEN.1/AuthSvr Audit Data Generation (Authentication Server) -->
@@ -1347,6 +1348,9 @@
     </man-sfrs>
     <opt-sfrs/>
     <sel-sfrs>
+      <section id="sec-sel-audit-table" title="Auditable Events for Selection-Based SFRs">
+        <audit-table id="at-sel-based" table="sel-based"/>
+      </section>
       <!-- 5.2.8 Cryptographic Support (FCS) -->
       <section title="Cryptographic Support (FCS)" id="sel_fcs">
         <ext-comp-def title="RadSec" fam-id="FCS_RADSEC_EXT">
@@ -2122,6 +2126,7 @@
     </sel-sfrs>
     <obj-sfrs/>
     <impl-dep-sfrs/>
+    <mod-sars/>
   </sec:Security_Requirements>
   <appendix title="Implicitly Satisfied Requirements" id="satisfiedreqs">This PP-Module has no implicitly satisfied requirements. All SFR dependencies are explicitly met either through SFRs defined by the PP-Module or inherited from the Base-PP.</appendix>
   <appendix title="Entropy Documentation and Assessment" id="EAR">The TOE does not require any additional supplementary information to describe its entropy sources beyond the requirements outlined in the Base-PP.</appendix>
