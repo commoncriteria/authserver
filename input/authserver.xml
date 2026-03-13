@@ -1344,6 +1344,7 @@
         </f-component>
       </section>
     </man-sfrs>
+    <mod-sars/>
     <opt-sfrs/>
     <sel-sfrs>
       <section id="sec-sel-audit-table" title="Auditable Events for Selection-Based SFRs">
