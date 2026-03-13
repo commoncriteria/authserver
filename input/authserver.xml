@@ -139,8 +139,7 @@
         <figure entity="images/figure2.png" title="Generic Authentication Server User Case" id="UseCase"/>
       </sec:TOE_Boundary>
     </sec:Compliant_Targets_of_Evaluation>
-    <sec:TOE_Usage>
-      This PP-Module defines the potential use cases below for the authentication server TOE. Use Case 1 defines the physical embodiment of the TOE, while Use Cases 2-4 define its role in a network infrastructure.
+    <sec:Use_Cases>
       <usecases>
         <usecase title="Dedicated Appliance" id="usecase-dedicated">
           <description>The authentication server is integrated on a standalone network appliance. In this use case, conformance to the NDcPP and this PP-Module is sufficient to ensure security. 
@@ -171,7 +170,7 @@
             this deployment does not exempt the TOE from being able to implement all the functionality that this PP-Module requires.</description>
         </usecase>
       </usecases>
-    </sec:TOE_Usage>
+    </sec:Use_Cases>
     <section title="Package Usage">
       This section contains selections and assignments that are required when the listed Functional Packages are claimed by this PP-Module.
       <h:br/>
