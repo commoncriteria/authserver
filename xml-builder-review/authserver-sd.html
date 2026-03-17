@@ -439,10 +439,17 @@ The following sections list Common Criteria and technology terms used in this do
                 <span class="testlist-"><ul>
                   <li class="test-"><a id="_t_2" class="defined" href="#_t_2">Test FCO_NRO.1:1</a>:
       
-                    <ul></ul>
+                    <ul>
+                      <li><b>Step 1: </b>The evaluator shall establish a connection with the TSF from two trusted relying parties RP1 and RP2 and verify that each of RP1 and RP2 are able to authenticate the TOE.</li>
+                      <li><b>Step 2: </b>The evaluator shall initiate an authentication request for a claimant C1 via RP1, providing valid authentication data, and verify that RP1 receives an authentication assertion via the authenticated channel indicating C1 is authenticated.</li>
+                      <li><b>Step 3: </b>The evaluator shall initiate an authentication request for a claimant C2 via RP2, providing invalid authentication data and confirm that the TOE does not provide an authentication assertion indicating C2 is authenticated via the authenticated channel.</li>
+                      <li><b>Step 4: </b>The evaluator shall reinitialize the EAP session for C1 on RP1, but send correct authentication data associated with claimant C2 via RP1 without resetting the EAP session and observe that the TOE does not indicate a successful authentication.</li>
+                    </ul>
                   </li>
                   <li class="test-"><a id="_t_3" class="defined" href="#_t_3">Test FCO_NRO.1:2</a>:
-      [conditional on support for pass-through] The intent of this test is to demonstrate the TSF is able to authenticate to external entities for registered users over a pass-through method, and ignores requests for non-registered users. <ul></ul></li>
+      [conditional on support for pass-through] The intent of this test is to demonstrate the TSF is able to authenticate to external entities for registered users over a pass-through method, and ignores requests for non-registered users. <ul><li><b>Step 1: </b>The evaluator shall follow operational guidance to configure the TOE to connect to an external authentication server using pass-through functionality, 
+                        and initiate a request from a trusted relying party that results in the TSF exercising pass-through functionality to authenticate a registered claimant.</li><li><b>Step 2: </b>The evaluator shall observe that the TSF authenticates to the external authentication server prior to sending any authentication requests.</li><li><b>Step 3: </b>The evaluator shall then follow operational guidance to de-register the claimant at the TOE, and ensure the claimant is still registered at the external authentication server. 
+                        The evaluator shall repeat initiation of the authentication request for the claimant, and observe that the TSF associates the identifier of the request by dropping the request without forwarding.</li></ul></li>
                 </ul></span>
               </div></div></span></div><div class="comp" id="FCO-NRR-1"><h4>FCO_NRR.1 Selective Proof of Receipt</h4><span class="activity_pane_body"><div class="component-activity-header">FCO_NRR.1</div>
               
