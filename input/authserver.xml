@@ -774,9 +774,9 @@
           </f-element>
           <audit-event table="mandatory">
             <audit-event-descr>
-              <selectables onlyone="yes">
+              <selectables>
                 <selectable>Attempt to export plaintext key or CSP via defined interface.</selectable>
-                <selectable>none</selectable>
+                <selectable>None</selectable>
               </selectables>
             </audit-event-descr>
             <audit-event-info>If attempt is detected, record process identifier, authorized user's identifier (if any).</audit-event-info>
