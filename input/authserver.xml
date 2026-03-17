@@ -473,6 +473,7 @@
       <OSPs>
         <OSP name="P.AUTH_POLICY">
           <description>The organization defines, for each protected resource, an authentication policy that specifies the authenticators that must be provided to access a given resource.</description>
+          <consistency-rationale>This OSP relates to behavior that is not part of the Base-PP and so the Base-PP is not contradicted by guidance on its implementation.</consistency-rationale>
           <objective-refer ref="OE.REQUIRE_AUTH">
             <rationale>Definition of an authentication policy, which can be enforced through deployment of a conformant TOE, can be used to ensure that organizational
               assets are protected by enforcing appropriate requirements for authentication.</rationale>
