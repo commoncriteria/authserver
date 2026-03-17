@@ -2141,10 +2141,8 @@
     <obj-sfrs/>
     <impl-dep-sfrs/>
   </sec:Security_Requirements>
-  <appendix title="Validation Guidelines" id="validation_guidelines"/>
   <appendix title="Implicitly Satisfied Requirements" id="satisfiedreqs">This PP-Module has no implicitly satisfied requirements. All SFR dependencies are explicitly met either through SFRs defined by the PP-Module or inherited from the Base-PP.</appendix>
   <appendix title="Entropy Documentation and Assessment" id="EAR">The TOE does not require any additional supplementary information to describe its entropy sources beyond the requirements outlined in the Base-PP.</appendix>
-  <appendix title="Initialization Vector Requirements for NIST-Approved Cipher Modes" id="vector"/>
   <appendix title="Allocation of Requirements in Distributed TOEs" id="allocation">
     For a distributed TOE, the SFRs in this PP-Module need to be met by the
     TOE as a whole, but not all SFRs will necessarily be implemented by all components. The
