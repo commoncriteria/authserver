@@ -624,7 +624,7 @@
         </audit-table>
       </section>
       
-      <sec:man_fau title="Security Audit (FAU)">
+      <sec:man_fau title="Class FAU: Security Audit">
         <f-component cc-id="fau_gen.1" name="Audit Data Generation (Authentication Server)" iteration="AuthSvr">
           <consistency-rationale>This SFR iterates the FAU_GEN.1 SFR defined in the Base-PP to define auditable events for the functionality that is specific to this PP-Module.</consistency-rationale>
 <f-element>
@@ -696,7 +696,7 @@
         </f-component>
       </sec:man_fau>
      
-      <sec:man_fco title="Communications (FCO)">
+      <sec:man_fco title="Class FCO: Communications">
      
         <f-component name="Selective Proof of Origin" cc-id="fco_nro.1">
           <consistency-rationale>This SFR applies to the implementation of the supported authentication protocol, which is beyond the original scope of the Base-PP.</consistency-rationale>
@@ -841,7 +841,7 @@
      
      </sec:man_fco>
      
-      <sec:man_fcs title="Cryptographic Support (FCS)">
+      <sec:man_fcs title="Class FCS: Cryptographic Support">
         
         
         <f-component name="Cryptographic Key Access" cc-id="fcs_ckm.3">
@@ -1223,7 +1223,7 @@
       </sec:man_fcs>
       
       
-      <sec:man_fia title="Identification and Authentication (FIA)">
+      <sec:man_fia title="Class FIA: Identification and Authentication">
         
         <f-component name="Authentication Failure Handling (Claimant)" cc-id="fia_afl.1" iteration="AuthSvr">
           
@@ -1320,7 +1320,7 @@
   
       </sec:man_fia>
       
-      <sec:man_fmt title="Security Management (FMT)">
+      <sec:man_fmt title="Class FMT: Security Management">
         <f-component name="Specification of Management Functions (Authentication Server)" id="fel-managementfun-as" cc-id="fmt_smf.1" iteration="AuthSvr">
 			<consistency-rationale>This SFR defines additional management functionality that is specific to the PP-Module’s product type and would therefore not be expected to be present in the Base-PP.</consistency-rationale>
 			<f-element>
@@ -1383,7 +1383,7 @@
         </sec:man_fmt>
       
       
-      <sec:man_fta title="TOE Access (FTA)">
+      <sec:man_fta title="Class FTA: TOE Access">
         
         <f-component name="TOE Session Establishment" cc-id="fta_tse.1">
           <consistency-rationale>This SFR relates to the handling of claimants being authenticated by the TOE, which is functionality that is beyond the original scope of the Base-PP.</consistency-rationale>
@@ -1419,7 +1419,7 @@
         </f-component>
       </sec:man_fta>
       
-	  <sec:man_ftp title="Trusted Path/Channels (FTP)">
+      <sec:man_ftp title="Class FTP: Trusted Path/Channels">
 		  <f-component cc-id="ftp_itc.1" name="Inter-TSF Trusted Channel (Relying Party Communications)" iteration="NAS">
 		  <consistency-rationale>
 			  This SFR iterates the FTP_ITC.1 SFR defined in the Base-PP to define trusted communication channels for the functionality that is specific to this PP-Module.
@@ -1494,7 +1494,7 @@
         </audit-table>
       </section>
       
-      <sec:sel_fcs title="Cryptographic Support (FCS)">
+      <sec:sel_fcs title="Class FCS: Cryptographic Support">
         
         <ext-comp-def title="RadSec" fam-id="FCS_RADSEC_EXT">
           <fam-behavior>Components in this family define requirements for the TSF to use RadSec to secure RADIUS data in transit.</fam-behavior> 
@@ -1606,7 +1606,7 @@
         
       </sec:sel_fcs> 
       
-      <sec:sel_fia title="Identification and Authentication (FIA)">
+      <sec:sel_fia title="Class FIA: Identification and Authentication">
         
         
         
