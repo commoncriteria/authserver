@@ -1,1 +1,1 @@
-/home/runner/work/authserver/authserver/input/authserver.xml:16:12: error: element "PPTitle" not allowed here; expected element "PPVersion"
+/home/runner/work/authserver/authserver/input/authserver.xml:383:30: error: element "cc-doc-ref" missing required attribute "doctype"
