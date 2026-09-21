@@ -1,1 +1,0 @@
-/home/runner/work/authserver/authserver/input/authserver.xml:383:30: error: element "cc-doc-ref" missing required attribute "doctype"
