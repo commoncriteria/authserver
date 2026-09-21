@@ -33,22 +33,6 @@
     </entry>
   </RevisionHistory>
 
-  <include-pkg id="tls">
-    <git>
-      <url>https://github.com/commoncriteria/tls</url>
-      <branch>master</branch>
-    </git>
-    <url>https://www.niap-ccevs.org/protectionprofiles/465</url>
-  </include-pkg>
-  
-  <include-pkg id="X509">
-    <git>
-      <url>https://github.com/commoncriteria/X509</url>
-      <branch>release-1.0</branch>
-    </git>
-    <url>https://www.niap-ccevs.org/protectionprofiles/511</url>
-  </include-pkg>  
-
   <pp-preferences>
     <audit-events-in-sfrs/>
   </pp-preferences>
@@ -389,11 +373,37 @@
       <cc-pt2-conf>extended</cc-pt2-conf>
       <cc-pt3-conf>conformant</cc-pt3-conf>
       <cc-pp-conf/>
-      <cc-pp-config-with><PP-cc-ref>Network Device collaborative Protection Profile Version 4.0</PP-cc-ref></cc-pp-config-with>
+      <cc-pp-config-with>
+		<PP-cc-ref>
+			<cc-doc-ref id="ndcpp" 
+				name="Network Device collaborative Protection Profile"      
+				version="4.0"                            
+				short="NDcPP"                             
+				product="network device"     
+				plural="network devices">     
+				<url>https://www.niap-ccevs.org/protectionprofiles/524</url>
+			</cc-doc-ref>
+		</PP-cc-ref>
+	  </cc-pp-config-with>
       <cc-pkg-claim>
-        <FP-cc-ref conf="conformant">Functional Package for TLS, version 2.1</FP-cc-ref>
-        <FP-cc-ref conf="conformant">Functional Package for X.509, version 1.0</FP-cc-ref>
-
+		<FP-cc-ref conf="conformant">
+			<cc-doc-ref id="tls">
+				<git>
+				  <url>https://github.com/commoncriteria/tls</url>
+				  <branch>release-2.1</branch>
+				</git>
+				<url>https://www.niap-ccevs.org/protectionprofiles/519</url>
+			</cc-doc-ref>
+		</FP-cc-ref>
+		<FP-cc-ref conf="conformant">
+			<cc-doc-ref id="X509">
+				<git>
+				  <url>https://github.com/commoncriteria/X509</url>
+				  <branch>release-1.0</branch>
+				</git>
+				<url>https://www.niap-ccevs.org/protectionprofiles/511</url>
+			</cc-doc-ref>
+		</FP-cc-ref>  
       </cc-pkg-claim>
     </CClaimsInfo>
 
@@ -489,7 +499,7 @@
 
 
         <threat name="T.UNAUTHORIZED_ADMINISTRATOR_ACCESS">
-          <from base="ND"/>
+          <from base="ndcpp"/>
 		      <!-- <description>This threat from the NDcPP also applies to the functionality defined in this PP-Module.</description> -->
           <addressed-by>FAU_GEN.1/AuthSvr</addressed-by>
           <rationale>
@@ -517,7 +527,7 @@
         </threat>
         
         <threat name="T.UNDETECTED_ACTIVITY">
-          <from base="ND"/>
+          <from base="ndcpp"/>
           <!-- <description>This threat from the NDcPP also applies to the functionality defined in this PP-Module.</description> -->
           <addressed-by>FAU_GEN.1/AuthSvr</addressed-by>
           <rationale>
@@ -602,8 +612,7 @@
     </sec:Security_Objectives_Rationale>
   </sec:Security_Objectives>
   <sec:Security_Requirements>
-    <base-pp id="ND" version="4.0" name="Network Device" product="Network Device" short="ND">
-      <url>https://www.niap-ccevs.org/protectionprofiles/482</url>
+    <base-pp ref="ndcpp">
   	  <cPP/>
 
 	    <modified-sfrs/>
