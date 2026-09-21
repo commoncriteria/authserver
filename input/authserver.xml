@@ -380,7 +380,8 @@
 				version="4.0"                            
 				short="NDcPP"                             
 				product="network device"     
-				plural="network devices">     
+				plural="network devices"
+				doctype="cPP">     
 				<url>https://www.niap-ccevs.org/protectionprofiles/524</url>
 			</cc-doc-ref>
 		</PP-cc-ref>
