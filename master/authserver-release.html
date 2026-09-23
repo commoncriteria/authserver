@@ -946,11 +946,11 @@ The following sections list Common Criteria and technology terms used in this do
       <dl><dt class="threat defined" id="T.FALSE_ENDPOINTS">T.FALSE_ENDPOINTS</dt><dd><span class="description">A malicious actor may falsely impersonate the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> or a federated relying party in order to cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to operate in an insecure manner or 
             to extract security-relevant, or sensitive user data from the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> or its Operational Environment.</span></dd><dt class="threat defined" id="T.INVALID_USERS">T.INVALID_USERS</dt><dd><span class="description">A malicious user may supply incorrect or insufficient credential data or an otherwise invalid authentication request that is approved or ignored by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> such that protected resources are subject to unauthenticated access.
           </span></dd><dt class="threat defined" id="T.UNAUTHORIZED_ADMINISTRATOR_ACCESS">T.UNAUTHORIZED_ADMINISTRATOR_ACCESS
-		(from NDcPPcPP)
+		(from NDcPP)
 	</dt><dd>
 						This threat from the above Base <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> also applies to the functionality defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
 					</dd><dt class="threat defined" id="T.UNDETECTED_ACTIVITY">T.UNDETECTED_ACTIVITY
-		(from NDcPPcPP)
+		(from NDcPP)
 	</dt><dd>
 						This threat from the above Base <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> also applies to the functionality defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
 					</dd></dl>
@@ -1009,14 +1009,14 @@ provide all of its security functionality.</p>
    <h2 id="secreq-ndcpp" class="indexable" data-level="2">5.1 Collaborative Protection Profile for Network Devices
        Security Functional Requirements Direction
     </h2>
-      In a <abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> that includes the NDcPP,
+      In a <abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> that includes the ND,
       the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is expected to rely on some of the security functions implemented by the
       Authentication Server
-      as a whole and evaluated against the  NDcPP.
+      as a whole and evaluated against the  ND.
       The following sections describe any modifications that the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author must make to the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>
-      defined in the NDcPP in addition to what is mandated by <a class="dynref" href="#man-sfrs">Section 5.2 TOE Security Functional Requirements</a>.
+      defined in the ND in addition to what is mandated by <a class="dynref" href="#man-sfrs">Section 5.2 TOE Security Functional Requirements</a>.
     <h3 id="modsfr-ndcpp" class="indexable" data-level="3">5.1.1  Modified SFRs </h3>
-      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify any <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> defined by the NDcPP.
+      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify any <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> defined by the ND.
     <h2 id="man-sfrs" class="indexable" data-level="2">5.2 TOE Security Functional Requirements</h2>
 	The following section describes the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> that must be satisfied by any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that claims conformance to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
 	These <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> must be claimed regardless of which <abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> is used to define the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
@@ -1450,7 +1450,7 @@ provide all of its security functionality.</p>
             Mitigates the threat by utilizing <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> as a form of claimant authenticator and implementing mechanisms to determine the validity of a <abbr class="dyn-abbr"><a href="#abbr_TOTP">TOTP</a></abbr> credential if supported.
           </td></tr>
 <tr class="major-row"><td rowspan="5"><a href="#T.UNAUTHORIZED_ADMINISTRATOR_ACCESS">T.UNAUTHORIZED_​ADMINISTRATOR_​ACCESS</a>
-		(from NDcPPcPP)
+		(from NDcPP)
 	</td><td><a href="#FAU_GEN.1/AuthSvr">FAU_GEN.1/AuthSvr</a></td><td>
             Mitigates the threat by implementing an audit mechanism to detect potential misuse of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
           </td></tr>
@@ -1470,7 +1470,7 @@ provide all of its security functionality.</p>
             Mitigates the threat by defining management functions as a legitimate mechanism to control the behavior of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.
           </td></tr>
 <tr class="major-row"><td rowspan="5"><a href="#T.UNDETECTED_ACTIVITY">T.UNDETECTED_​ACTIVITY</a>
-		(from NDcPPcPP)
+		(from NDcPP)
 	</td><td><a href="#FAU_GEN.1/AuthSvr">FAU_GEN.1/AuthSvr</a></td><td>
             Mitigates the threat by implementing an audit mechanism to detect potential misuse of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
           </td></tr>
@@ -1497,7 +1497,7 @@ provide all of its security functionality.</p>
         When this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is used to extend the NDcPP, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> type for the overall <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is still a network device.
         The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> boundary is simply extended to include authentication server functionality that is provided by the network device. <h3 id="consecprob-ndcpp" class="indexable" data-level="3">6.1.2 
 	Consistency of Security Problem Definition
-      </h3><table><caption><span class="ctr" data-myid="t-con-sec-prob-def" data-counter-type="ct-Table" id="t-con-sec-prob-def">Table <span class="counter">4</span></span>: Consistency of Security Problem Definition (NDcPP base)
+      </h3><table><caption><span class="ctr" data-myid="t-con-sec-prob-def" data-counter-type="ct-Table" id="t-con-sec-prob-def">Table <span class="counter">4</span></span>: Consistency of Security Problem Definition (ND base)
 		</caption><tr><th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> Threat, Assumption, OSP</th><th>Consistency Rationale</th></tr><tr><td><a href="#T.FALSE_ENDPOINTS">T.FALSE_ENDPOINTS</a></td><td>This threat is similar to the T.WEAK_AUTHENTICATION_ENDPOINTS threat in the NDcPP but it applies specifically to the NAS, 
             which is an environmental component that is defined specifically in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td></tr><tr><td><a href="#T.INVALID_USERS">T.INVALID_USERS</a></td><td>This threat is similar to the <a href="#T.UNAUTHORIZED_ADMINISTRATOR_ACCESS">T.UNAUTHORIZED_ADMINISTRATOR_ACCESS</a> threat in the NDcPP but it applies to user authentication brokered by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> rather than to 
             administrator authentication to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> itself. It is also similar to the T.UNTRUSTED_COMMUNICATION_CHANNELS threat in the NDcPP except that it applies specifically to the 
@@ -1506,28 +1506,28 @@ provide all of its security functionality.</p>
             This OSP relates to behavior that is not part of the Base-PP and so the Base-PP is not contradicted by guidance on its implementation.
           </td></tr></table><h3 id="conobj-" class="indexable" data-level="3">6.1.3 
 			Consistency of OE Objectives
-		</h3><p><table><caption><span class="ctr" data-myid="t-con-oe-objs" data-counter-type="ct-Table" id="t-con-oe-objs">Table <span class="counter">5</span></span>: Consistency of <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> Objectives (NDcPP base)
+		</h3><p><table><caption><span class="ctr" data-myid="t-con-oe-objs" data-counter-type="ct-Table" id="t-con-oe-objs">Table <span class="counter">5</span></span>: Consistency of <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> Objectives (ND base)
 		</caption><tr><th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> Objective</th><th>Consistency Rationale</th></tr><tr><td><a href="#OE.RP_FEDERATION">OE.RP_FEDERATION</a></td><td>The Base-PP does not define where in a particular network architecture a network device must be deployed since it is designed to be generic to various types of network devices. This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>
             defines the expected architectural deployment specifically for a network device that acts as an authentication server.</td></tr><tr><td><a href="#OE.REQUIRE_AUTH">OE.REQUIRE_AUTH</a></td><td>The Base-PP does not define a particular use for a network device, so there is no consistency issue with the 
             <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defining expectations for the use of a specific type of device.</td></tr></table></p><h3 id="conreq-" class="indexable" data-level="3">6.1.4 
 	Consistency of Requirements
       </h3>
       This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> identifies several <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> from the
-      NDcPP that are needed to support
+      ND that are needed to support
       Authentication Server functionality.
       This is considered to be consistent because the functionality provided by the
-      NDcPP is being used for its intended purpose.
+      ND is being used for its intended purpose.
       
           The rationale for why this does not conflict with the claims
       defined by the
-      NDcPP are as follows:
-      <table><caption><span class="ctr" data-myid="t-con-reqs" data-counter-type="ct-Table" id="t-con-reqs">Table <span class="counter">6</span></span>: Consistency of Requirements (NDcPP base)
+      ND are as follows:
+      <table><caption><span class="ctr" data-myid="t-con-reqs" data-counter-type="ct-Table" id="t-con-reqs">Table <span class="counter">6</span></span>: Consistency of Requirements (ND base)
 		</caption><tr><th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> Requirement</th><th>Consistency Rationale</th></tr><tr><th colspan="2"> Modified <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th></tr><tr><td colspan="2" style="text-align:center">
 			This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify any requirements when the
-			NDcPP is the base.
+			ND is the base.
 		  </td></tr><tr><th colspan="2"> Additional <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th></tr><tr><td colspan="2" style="text-align:center">
 	      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not add any requirements when the
-	      NDcPP is the base.
+	      ND is the base.
 	    </td></tr><tr><th colspan="2"> Mandatory <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FAU_GEN.1/AuthSvr">FAU_GEN.1/AuthSvr</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> iterates the FAU_GEN.1 <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defined in the Base-PP to define auditable events for the functionality that is specific to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td></tr><tr><td><a href="#FCO_NRO.1">FCO_NRO.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to the implementation of the supported authentication protocol, which is beyond the original scope of the Base-PP.</td></tr><tr><td><a href="#FCO_NRR.1">FCO_NRR.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to the implementation of the supported authentication protocol, which is beyond the original scope of the Base-PP.</td></tr><tr><td><a href="#FCS_CKM.3">FCS_CKM.3</a></td><td>The Base-PP requires confidentiality of cryptographic key data in FPT_SKP_EXT.1. This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines more specific detail on how that function should be enforced.</td></tr><tr><td><a href="#FCS_EAPTLS_EXT.1">FCS_EAPTLS_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to the implementation of <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS; the Base-PP defines implementation requirements for (D)<abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>, but <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS is beyond the original scope of the Base-PP. </td></tr><tr><td><a href="#FCS_RADIUS_EXT.1">FCS_RADIUS_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to the implementation of authentication protocols, which is beyond the original scope of the Base-PP.</td></tr><tr><td><a href="#FCS_STG_EXT.1">FCS_STG_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is consistent with the FPT_SKP_EXT.1 requirement of the Base-PP but requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to implement a specific method of protecting key data rather than a general statement
           that such data is not stored in plaintext.</td></tr><tr><td><a href="#FIA_AFL.1/AuthSvr">FIA_AFL.1/AuthSvr</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines functional behavior enforced on external users being authenticated by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, which is functionality that is not covered by the Base-PP.</td></tr><tr><td><a href="#FIA_UAU.6">FIA_UAU.6</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines support for re-authentication of administrators, which expands on the authentication functionality defined in the Base-PP.</td></tr><tr><td><a href="#FMT_SMF.1/AuthSvr">FMT_SMF.1/AuthSvr</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines additional management functionality that is specific to the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>’s product type and would therefore not be expected to be present in the Base-PP.</td></tr><tr><td><a href="#FTA_TSE.1">FTA_TSE.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> relates to the handling of claimants being authenticated by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, which is functionality that is beyond the original scope of the Base-PP.</td></tr><tr><td><a href="#FTP_ITC.1/NAS">FTP_ITC.1/NAS</a></td><td>
 			  This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> iterates the FTP_ITC.1 <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defined in the Base-PP to define trusted communication channels for the functionality that is specific to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
